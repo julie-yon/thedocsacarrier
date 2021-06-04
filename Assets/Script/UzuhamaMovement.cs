@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Move : MonoBehaviour
+public class UzuhamaMovement : MonoBehaviour
 {
     public float MoveSpeed = 1;
     public float MaxSpeed = 3;
