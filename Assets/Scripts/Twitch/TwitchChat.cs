@@ -4,10 +4,11 @@ using System.Net.Sockets;
 using System.IO;
 using UnityEngine;
 using Utility;
+using Docsa;
 
 namespace TwitchIRC
 {
-    public class TwitchChat : MonoBehaviour
+    public class TwitchChat : Singleton<TwitchChat>
     {
         [Header("Twitch IRC Settings")]
         [Tooltip("You have to get OAuth from 'https://twitchapps.com/tmi/'")]
@@ -78,7 +79,30 @@ namespace TwitchIRC
                     _twitchWriter.Flush();
                     return;
                 }
-                print(msg);
+
+                if (msg.Contains("PRIVMSG")){
+                    var splitPoint = msg.IndexOf("!", 1);
+                    var author = msg.Substring(0, splitPoint);
+                    author = author.Substring(1);
+
+                    // users msg
+                    splitPoint = msg.IndexOf(":", 1);
+                    msg = msg.Substring(splitPoint + 1);
+
+                    print(msg);
+                    if(msg.StartsWith(TwitchCommandData.Prefix)){
+                        // get the first word
+                        int index =  msg.IndexOf(" ");
+                        string command = index > -1 ? msg.Substring(0, index) : msg;
+                        DocsaTwitchCommand commandEnum = StringValue.GetEnumValue<DocsaTwitchCommand>(command);
+                        DocsaSakkiManager.instance.ExecuteCommand(
+                            new TwitchCommandData {
+                                Author = author,
+                                Command = commandEnum,
+                                Time = System.DateTime.Now,
+                        });
+                    }
+                }            
             }
         }
     }
