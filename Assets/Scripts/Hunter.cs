@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hunter : MonoBehaviour
+namespace Docsa.Character
 {
-    public CharacterBehaviour Behaviour;
-    public Hunter(){}
-    public Hunter(string viewerName)
+    public class Hunter : Character
     {
+        public Hunter(){}
+        
+        public Hunter(string viewerName)
+        {
+            
+        }
+        public Hunter(string viewerName, Vector2 position, Quaternion rotation)
+        {
 
+        }
+
+        public bool isRecognizingUzuhama()
+        {
+            return false;
+        }
+
+        
     }
-    public Hunter(string viewerName, Vector2 position, Quaternion rotation)
-    {
-
-    }
-
-    public bool isRecognizingUzuhama()
-    {
-        return false;
-    }
-
-    
 }

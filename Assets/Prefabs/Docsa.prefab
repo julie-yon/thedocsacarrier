@@ -111,3 +111,6 @@ MonoBehaviour:
   MoveSpeed: 1
   MaxSpeed: 3
   JumpPower: 7
+  m_goPrefab: {fileID: 0}
+  m_tfWeapon: {fileID: 1069037205882830835, guid: 2a2de3512783f0449b81a23fe08c9311,
+    type: 3}
