@@ -79,6 +79,14 @@ namespace Docsa.Character
             HamaAttack();
             
         }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
+            {
+                
+            }
+        }
         
         
     }
