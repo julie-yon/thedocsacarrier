@@ -68,7 +68,7 @@ namespace TwitchIRC
             if (_twitchClient.Available > 0)
             {
                 string msg = _twitchReader.ReadLine();
-
+                
 #if UNITY_EDITOR
                 _logWriter.Write(msg, true);
 #endif
@@ -91,9 +91,8 @@ namespace TwitchIRC
 
                     print(msg);
                     if(msg.StartsWith(TwitchCommandData.Prefix)){
-                        // get the first word
-                        int index =  msg.IndexOf(" ");
-                        string command = index > -1 ? msg.Substring(0, index) : msg;
+                        // get the first word 
+                        string command = msg.Substring(1);
                         DocsaTwitchCommand commandEnum = StringValue.GetEnumValue<DocsaTwitchCommand>(command);
                         DocsaSakkiManager.instance.ExecuteCommand(
                             new TwitchCommandData {

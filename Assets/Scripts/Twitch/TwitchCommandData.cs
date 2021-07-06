@@ -16,7 +16,7 @@ namespace TwitchIRC
     public enum DocsaTwitchCommand
     {
         [StringValue("기본값")]
-        NONE = -1,
+        NONE,
         
         // Docsa Commands
         [StringValue("퉤")]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TwitchIRC;
+using Utility;
 
 namespace Docsa
 {
@@ -34,7 +35,7 @@ namespace Docsa
                 Exit(commandData);
                 break;
                 case DocsaTwitchCommand.STARLIGHT:
-                StarLight();
+                StarRain();
                 break;
 
                 case DocsaTwitchCommand.DOCSA_ATTACK:
@@ -68,12 +69,15 @@ namespace Docsa
             }
         }
 
-        void StarLight()
+        void StarRain()
         {
+            print("StarRain");
             Vector2 StarPos = new Vector2(Random.Range(0, Camera.main.pixelWidth), Camera.main.pixelHeight);
             Vector2 WorldStarPos = Camera.main.ScreenToWorldPoint(StarPos);
 
-            Instantiate(StarLightGameObject, WorldStarPos, Quaternion.identity);
+            print("WorldStarPos" + WorldStarPos);
+
+            ObjectPool.SPoolDict["StarRain"].Instantiate(WorldStarPos, Quaternion.identity);
         }
 
         void DocsaChim(TwitchCommandData commandData)

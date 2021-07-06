@@ -18,7 +18,7 @@ namespace Utility
             get {return _value;}
         } 
 
-        public static string GetStringValue<EnumT>(EnumT value)
+        public static string GetStringValue(Object value)
         {
             string output = null;
             
@@ -37,21 +37,23 @@ namespace Utility
 
         public static T GetEnumValue<T>(string value) where T : Enum
         {
-            Type type = value.GetType();
+            Type type = typeof(T);
 
             T[] TArr = Enum.GetValues(typeof(T)) as T[];
 
             foreach (T t in TArr)
             {
                 FieldInfo Tfi = type.GetField(t.ToString());
-                StringValue attr = (Tfi.GetCustomAttributes(typeof(StringValue), false) as StringValue[])[0];
                 
+                StringValue attr = Tfi.GetCustomAttribute<StringValue>();
+
+                if (attr == null) continue;
+
                 if (attr.Value == value)
                 {
                     return t;
                 }
             }
-
             
             return TArr[0];
         }
