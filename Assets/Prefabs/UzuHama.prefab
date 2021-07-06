@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6619969168554874234}
   - component: {fileID: 146433474408748221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuhamaHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905301601431239917}
   - component: {fileID: 3611386888445289749}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuhamaHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 1506719684482138303}
   - component: {fileID: 4190882396710115956}
   - component: {fileID: 1179424003080635770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuHama
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8b66b21cc054b428a67b566ec59536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UzuHama_Position: {x: 0, y: 0}
   Behaviour: {fileID: 1506719684482138303}
+  UzuHama_Position: {x: 0, y: 0}
   CrouchGameObject: {fileID: 7832594667034539006}
   StandGameObject: {fileID: 7832594666863579603}
 --- !u!114 &1506719684482138303
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 1
-  MaxSpeed: 1.5
-  JumpPower: 7
+  MaxSpeed: 3
+  JumpPower: 3
   m_goPrefab: {fileID: 1069037205882830834, guid: 2a2de3512783f0449b81a23fe08c9311,
     type: 3}
   m_tfWeapon: {fileID: 4905301601431239917}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7908449853012870778}
   - component: {fileID: 5418240818240593496}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuhamaBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594666458477079}
   - component: {fileID: 7832594666458477083}
-  m_Layer: 0
+  - component: {fileID: 4309019862265337468}
+  m_Layer: 10
   m_Name: baguni
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,6 +443,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!50 &4309019862265337468
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832594666458477072}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7832594666790483513
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +474,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594666790483512}
   - component: {fileID: 7832594666790483519}
-  m_Layer: 0
+  - component: {fileID: 7197988813628940941}
+  m_Layer: 10
   m_Name: baguni
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,6 +523,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!50 &7197988813628940941
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832594666790483513}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7832594666863579603
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594666863579600}
   - component: {fileID: 7832594666863579606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuHamaStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594666968475554}
   - component: {fileID: 7832594666968475553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: baguniSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594667034539005}
   - component: {fileID: 7832594667034538947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuHamaCrouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594667163829818}
   - component: {fileID: 7832594667163829817}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: baguniSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832594667772485251}
   - component: {fileID: 7832594667772485250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UzuhamaBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

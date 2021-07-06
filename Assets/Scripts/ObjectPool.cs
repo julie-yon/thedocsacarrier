@@ -10,9 +10,6 @@ namespace Utility
     {
         public string PoolName = "";
         public string SourceFilePath = "";
-
-        public int InitialPoolSize = 5;
-
         public int MaxPoolSize = 10;
         public bool AutoReturn = false;
         public float AutoReturnTime = 5;
@@ -32,7 +29,6 @@ namespace Utility
         public string SoruceFilePath;
 
         [Header("Capacity Settings")]
-        public int InitialPoolSize = 10;
         public int MaxPoolSize = 5;
         public bool AutoReturn;
         public float AutoReturnTime;
@@ -40,12 +36,18 @@ namespace Utility
         private Queue<GameObject> AvailableObjectQueue = new Queue<GameObject>();
         private List<GameObject> ActiveObjectList = new List<GameObject>();
 
-        public static ObjectPool GetOrCreate(string poolName)
+        public static ObjectPool GetOrCreate(string poolName, GameObject OnCallerGameObject = null)
         {
             ObjectPool pool;
             if (!SPoolDict.TryGetValue(poolName, out pool))
             {
-                pool = new GameObject("StarObjectPool").AddComponent<ObjectPool>();
+                if (OnCallerGameObject == null)
+                {
+                    pool = new GameObject(poolName + "ObjectPool").AddComponent<ObjectPool>();
+                } else
+                {
+                    pool = OnCallerGameObject.AddComponent<ObjectPool>();
+                }
                 SPoolDict.Add(poolName, pool);
             }
 
@@ -54,10 +56,10 @@ namespace Utility
 
         public ObjectPool Init(PoolSettings poolSettings)
         {
-            //Initialize PoolSettings
+            // Initialize PoolSettings
+            print("??");
             PoolName = poolSettings.PoolName;
             SoruceFilePath = poolSettings.SourceFilePath;
-            InitialPoolSize = poolSettings.InitialPoolSize;
             MaxPoolSize = poolSettings.MaxPoolSize;
             AutoReturn = poolSettings.AutoReturn;
             AutoReturnTime = poolSettings.AutoReturnTime;
@@ -74,9 +76,6 @@ namespace Utility
 
         private void Allocate()
         {
-            print(SourceObject.ToString());
-            print(transform.ToString());
-            print(SourceObject.ToString() + transform.ToString());
             for (int i =0 ; i<MaxPoolSize; i++)
             {
                 GameObject pooledObject = Instantiate(SourceObject, transform);

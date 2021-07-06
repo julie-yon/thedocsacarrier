@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Docsa.Character
 {
-
-    
     public class UzuHama : Character
     {
         public Vector2 UzuHama_Position;
+        public static UzuHama Hama
+        {
+            get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
+        }
 
         public void HamaAttack()
         {
@@ -80,11 +82,19 @@ namespace Docsa.Character
             
         }
 
-        void OnTriggerEnter(Collider collider)
+        void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
             {
-                Stage.SCurrentStage.ChunkTriggerEnter(collider);
+                StageManager.instance.ChunkTriggerEnter(collider);
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D collider)
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
+            {
+                StageManager.instance.ChunkTriggerExit(collider);
             }
         }
     }
