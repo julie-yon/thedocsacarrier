@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OAuthAuthorization: oauth:mtnen0sjlxnfd4oopb9ewi0r6lg409
   IRCHostName: dev_test_dkstlzu2
-  ChannelName: dev_test_dklstlzu
+  ChannelName: dev_test_dkstlzu

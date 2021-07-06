@@ -84,11 +84,9 @@ namespace Docsa.Character
         {
             if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
             {
-                
+                Stage.SCurrentStage.ChunkTriggerEnter(collider);
             }
         }
-        
-        
     }
 }
 
