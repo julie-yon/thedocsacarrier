@@ -22,6 +22,7 @@ namespace Utility
         Hunter,
         Weapon,
         StarRain,
+        Net,
     }
 
     /// <summary>
