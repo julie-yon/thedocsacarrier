@@ -7,6 +7,17 @@ namespace Utility
 {
     public class LogWriter
     {
+        static LogWriter _instance;
+        public static LogWriter Instance {
+            get {
+                if (_instance == null)
+                {
+                    _instance = new LogWriter();
+                }
+
+                return _instance;
+            }
+        }
         public string Path = @"Assets/Scripts/Twitch/Log";
         public string Extention = ".txt";
         static StreamWriter S_writer = null;

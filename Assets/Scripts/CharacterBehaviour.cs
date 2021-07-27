@@ -47,7 +47,7 @@ namespace  Docsa.Character
             MousePosition = Input.mousePosition;
             
             // GameObject t_weapon = Instantiate(m_goPrefab, m_tfWeapon.position, m_tfWeapon.rotation);
-            GameObject t_weapon = ObjectPool.SPoolDict["UzuHamaWeapon"].Instantiate(m_tfWeapon.position, m_tfWeapon.rotation);
+            GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(m_tfWeapon.position, m_tfWeapon.rotation);
             t_weapon.GetComponent<Rigidbody2D>().velocity = t_weapon.transform.right * 10f;
 
         }

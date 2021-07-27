@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using Object = UnityEngine.Object;
 
 public static class DontDestroyObjects
 {
@@ -18,6 +22,12 @@ public static class DontDestroyObjects
 
     public static void Add(Object obj)
     {
+        if (ContainType(obj.GetType()))
+        {
+            MonoBehaviour.Destroy(((Component)obj).gameObject);
+            return;
+        }
+
         Objects.Add(obj);
         MonoBehaviour.DontDestroyOnLoad(obj);
     }
@@ -30,5 +40,18 @@ public static class DontDestroyObjects
     public static bool Contain(Object obj)
     {
         return Objects.Contains(obj);
+    }
+
+    private static bool ContainType(Type type)
+    {
+        foreach(var obj in Objects)
+        {
+            if (type.IsInstanceOfType(obj))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

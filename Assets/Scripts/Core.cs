@@ -1,14 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using Utility;
 
 namespace Docsa
 {
     public class Core : Singleton<Core>
     {
-        void Start()
+        public string Stage1GameSceneName = "SampleScene";
+
+        void Awake()
         {
-            StageManager.instance.MakeStage(1);
+            DontDestroyObjects.Add(this);
         }
+
+        public void GameStart()
+        {
+            // SceneManager.LoadSceneAsync(Core.instance.Stage1GameSceneName);
+            SceneManager.LoadScene(Core.instance.Stage1GameSceneName);
+        }
+
+
     }
 }

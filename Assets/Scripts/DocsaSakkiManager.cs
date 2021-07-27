@@ -6,19 +6,25 @@ using Utility;
 
 namespace Docsa
 {
+    [System.Serializable]
+    public class WaitingDataDict : SerializableDictionary<string, WaitingData> {}
+    [System.Serializable]
+    public class DocsaDict : SerializableDictionary<string, Character.Docsa> {}
+    [System.Serializable]
+    public class HunterDict : SerializableDictionary<string, Character.Hunter> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
-        List<string> AttendingDocsas;
-        Dictionary<string, Character.Docsa> DocsaDict;
-        Dictionary<string, Character.Hunter> HunterDict;
+        public WaitingDataDict WaitingViewerDict;
+        public DocsaDict AttendingDocsaDict;
+        public HunterDict AttendingHunterDict;
 
-        public GameObject StarLightGameObject;
+        private bool _docsaCanAttend;
         
         void Awake()
         {
-            AttendingDocsas = new List<string>();
-            DocsaDict = new Dictionary<string, Character.Docsa>();
-            HunterDict = new Dictionary<string, Character.Hunter>();
+            WaitingViewerDict = new WaitingDataDict();
+            AttendingDocsaDict = new DocsaDict();
+            AttendingHunterDict = new HunterDict();
         }
 
         public void ExecuteCommand(TwitchCommandData commandData)
@@ -55,18 +61,34 @@ namespace Docsa
 
         void Attend(TwitchCommandData commandData)
         {
-            if (AttendingDocsas.Contains(commandData.Author))
+            if (!_docsaCanAttend)
             {
                 return;
             }
+
+            if (WaitingViewerDict.ContainsKey(commandData.Author))
+            {
+                return;
+            }
+
+            // Docsa 참여와 Hunter 참여를 어떻게 구분할지
+            // 1. 명령어를 나눈다
+            // 2. 랜덤하게 임의로 나눈다.
+            WaitingViewerDict.Add(commandData.Author, new WaitingData(commandData.Author));
         }
 
         void Exit(TwitchCommandData commandData)
         {
-            if (AttendingDocsas.Contains(commandData.Author))
+            if (!WaitingViewerDict.ContainsKey(commandData.Author))
             {
                 return;
             }
+
+            // 게임중간에 Exit할경우 or
+            // 일정시간이상 응답이 없을경우
+            // 하마가 강퇴한경우
+
+            WaitingViewerDict.Remove(commandData.Author);
         }
 
         void StarRain()
@@ -77,15 +99,15 @@ namespace Docsa
 
             print("WorldStarPos" + WorldStarPos);
 
-            ObjectPool.SPoolDict["StarRain"].Instantiate(WorldStarPos, Quaternion.identity);
+            ObjectPool.SPoolDict[PoolType.StarRain].Instantiate(WorldStarPos, Quaternion.identity);
         }
 
         void DocsaChim(TwitchCommandData commandData)
         {
             Character.Docsa docsaSakki;
-            if (DocsaDict.TryGetValue(commandData.Author, out docsaSakki))
+            if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                docsaSakki.Chim(HunterDict.Values.GetEnumerator().Current);
+                docsaSakki.Chim(AttendingHunterDict.Values.GetEnumerator().Current);
             } else
             {
                 print("그런 독사 없음");
@@ -95,9 +117,9 @@ namespace Docsa
         void DocsaJump(TwitchCommandData commandData)
         {
             Character.Docsa docsaSakki;
-            if (DocsaDict.TryGetValue(commandData.Author, out docsaSakki))
+            if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // docsaSakki.Behaviour.JumpHead();
+                docsaSakki.Behaviour.JumpHead();
             } else
             {
                 print("그런 독사 없음");
@@ -107,7 +129,7 @@ namespace Docsa
         void HunterNet(TwitchCommandData commandData)
         {
             Character.Hunter docsaSakki;
-            if (HunterDict.TryGetValue(commandData.Author, out docsaSakki))
+            if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 // docsaSakki.Behaviour.ThrowNet();
             } else
@@ -119,13 +141,27 @@ namespace Docsa
         void HunterAttack(TwitchCommandData commandData)
         {
             Character.Hunter docsaSakki;
-            if (HunterDict.TryGetValue(commandData.Author, out docsaSakki))
+            if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 // docsaSakki.Behaviour.Attack();
             } else
             {
                 print("그런 헌터 없음");
             }
+        }
+    }
+
+    [System.Serializable]
+    public class WaitingData
+    {
+        public string Author;
+        public TwitchCommandData LastCommand;
+        public int ChatCount;
+
+        public WaitingData(string author)
+        {
+            Author = author;
+            ChatCount = 1;
         }
     }
 }

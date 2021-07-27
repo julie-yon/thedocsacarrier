@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d093a64d217d54a99c574d3b5c050d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OAuthAuthorization: oauth:mtnen0sjlxnfd4oopb9ewi0r6lg409
+  OAuthAuthorization: oauth:h2wt7ex2z11qnb1xkape0oych7fiae
   IRCHostName: dev_test_dkstlzu2
   ChannelName: dev_test_dkstlzu
+  CheckingConnectivityTimeLimit: 5
+  Connected: 0
