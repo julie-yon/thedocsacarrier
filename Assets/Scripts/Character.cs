@@ -9,6 +9,7 @@ namespace Docsa.Character
     {
         public HPBar HPBar;
         public CharacterBehaviour Behaviour;
+        public Transform GrabDocsaPosition;
         private const int maxHP = 100;
         private int currentHP = 100;
         public int MaxHP{

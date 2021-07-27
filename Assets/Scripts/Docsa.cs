@@ -8,7 +8,6 @@ namespace Docsa.Character
     {
         public GameObject OnHamaGameObject;
         public GameObject EscapeGameObject;
-        public Vector2 targetDocPosition;
         bool isOnHama = true;
         bool isRescued;
         bool isKidnapped;
@@ -25,17 +24,6 @@ namespace Docsa.Character
                 Rescued();
                 
             }
-            if (col.gameObject.tag.Equals("Net"))
-            {
-                // 참고
-                if (isOnHama)
-                {
-                    return;
-                }
-                isKidnapped = true;
-                Kidnapped(col.GetComponent<ProjectileNet>().Thrower);
-                
-            }
         }
 
         // void OnTriggerEnter2D(Collider2D collision)
@@ -43,32 +31,10 @@ namespace Docsa.Character
         //     Debug.Log(collision.name + "에게 닿았음!");
         // }
 
-        void OnHama()
+        public bool CanBeTargetDocsa()
         {
-            OnHamaGameObject.SetActive(true);
-            EscapeGameObject.SetActive(false);
-            isOnHama = true;
+            return !isOnHama;
         }
-
-        void Escaped()
-        {
-            EscapeGameObject.SetActive(true);
-            OnHamaGameObject.SetActive(false);
-            isOnHama = false;
-        }
-    
-        public Docsa CanBeTargetDocsa()
-        {
-            Docsa docsa = null;
-            
-            if (isOnHama == false) Escaped();
-
-            return docsa;
-        }
-        // public bool CanBeTargetDocsa()
-        // {
-        //     return !isOnHama;
-        // }
 
         public Docsa(string viewerName)
         {
@@ -86,8 +52,9 @@ namespace Docsa.Character
 
         public void Kidnapped(Hunter catcher)
         {
-            // Docsa가 Net에 충돌되면, AlcholPot 있는 곳으로 옮겨지기 
-            transform.position = catcher.KidnappedDocsaPosition;
+            isKidnapped = true;
+            // Docsa가 Net에 충돌되면, Hunter가 AlcholPot 있는 곳으로 옮기면 그때 독사 죽음
+            transform.position = catcher.GrabDocsaPosition.position;
         }
 
         public void Rescued()

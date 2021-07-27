@@ -52,8 +52,15 @@ namespace  Docsa.Character
             // rb.velocity = new Vector2(dir.x * speed, dir.y * speed);
         }
 
-        void OnTriggerEnter2D(Collider2D collision)
+
+
+        void OnTriggerEnter2D(Collider2D collider)
         {
+            //문제가 있음...Debug 요망
+            if (collider.gameObject.GetComponent<Docsa>() != null)
+            {
+                Thrower.Behaviour.GrabDocsa(targetDocsa);
+            }
             Destroy(this.gameObject);
         }
     }

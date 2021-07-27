@@ -9,9 +9,11 @@ namespace  Docsa.Character
     [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterBehaviour : MonoBehaviour
     {
+        public Character Character;
         public float MoveSpeed = 1;
         public float MaxSpeed = 3;
         public float JumpPower = 3;
+        public float NetSpeed = 5;
         Rigidbody2D rigid;
         float directionThreashold = 0.01f;
         float uzuhamaRightScaleX = 1;
@@ -52,11 +54,11 @@ namespace  Docsa.Character
 
         }
 
-        public void ThrowNet(Docsa targetDocsa, Hunter catcherHunter)
+        public void ThrowNet(Docsa targetDocsa)
         {
-            // Todo : ObjectPool instantiate로 변경하기
-            ProjectileNet net = Instantiate(m_netPrefab).GetComponent<ProjectileNet>();
-            net.Thrower = catcherHunter;
+            ProjectileNet net = ObjectPool.SPoolDict[PoolType.Net].Instantiate(m_tfWeapon.position, m_tfWeapon.rotation).GetComponent<ProjectileNet>();
+            net.Thrower = (Hunter)Character;
+            net.GetComponent<Rigidbody2D>().velocity = (targetDocsa.transform.position - m_tfWeapon.transform.position) * NetSpeed;
         }
 
         public void Jump()
@@ -85,11 +87,11 @@ namespace  Docsa.Character
             rigid.AddForce(Vector2.right * MoveSpeed * moveDirection, ForceMode2D.Impulse);
         }
 
-        public void GrabDocsa(Docsa targetDocsa, UzuHama catcherUzuhama, Hunter catcherHunter)
+        public void GrabDocsa(Docsa targetDocsa)
         {
             //ontrigger로 character/net와의 충돌 인지되면 Docsa 이동?
             
-            
+            targetDocsa.transform.position = Character.GrabDocsaPosition.position;
             
             
             //if (targetDocsa.targetDocPosition.position == UzuHama_Position.position)
