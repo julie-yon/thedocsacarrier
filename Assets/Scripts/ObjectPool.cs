@@ -8,7 +8,7 @@ namespace Utility
     [System.Serializable]
     public class PoolSettings
     {
-        public string PoolName = "";
+        public PoolType PoolName;
         public string SourceFilePath = "";
         public int MaxPoolSize = 10;
         public bool AutoReturn = false;
@@ -16,14 +16,22 @@ namespace Utility
 
     }
 
+    public enum PoolType
+    {
+        Docsa,
+        Hunter,
+        Weapon,
+        StarRain,
+    }
+
     /// <summary>
     /// Pooling
     /// </summary>
     public class ObjectPool : MonoBehaviour
     {
-        public static Dictionary<string, ObjectPool> SPoolDict = new Dictionary<string, ObjectPool>();
+        public static Dictionary<PoolType, ObjectPool> SPoolDict = new Dictionary<PoolType, ObjectPool>();
         [Header("Pool Object Settings")]
-        public String PoolName;
+        public PoolType PoolName;
 
         public GameObject SourceObject;
         public string SoruceFilePath;
@@ -33,10 +41,19 @@ namespace Utility
         public bool AutoReturn;
         public float AutoReturnTime;
 
+        public GameObject[] ActiveObjects
+        {
+            get 
+            {
+                GameObject[] objs = new GameObject[ActiveObjectList.Count];
+                ActiveObjectList.CopyTo(objs);
+                return objs;
+            }
+        }
         private Queue<GameObject> AvailableObjectQueue = new Queue<GameObject>();
         private List<GameObject> ActiveObjectList = new List<GameObject>();
 
-        public static ObjectPool GetOrCreate(string poolName, GameObject OnCallerGameObject = null)
+        public static ObjectPool GetOrCreate(PoolType poolName, GameObject OnCallerGameObject = null)
         {
             ObjectPool pool;
             if (!SPoolDict.TryGetValue(poolName, out pool))
@@ -53,11 +70,27 @@ namespace Utility
 
             return pool;
         }
+        // public static ObjectPool GetOrCreate(string poolName, GameObject OnCallerGameObject = null)
+        // {
+        //     ObjectPool pool;
+        //     if (!SPoolDict.TryGetValue(poolName, out pool))
+        //     {
+        //         if (OnCallerGameObject == null)
+        //         {
+        //             pool = new GameObject(poolName + "ObjectPool").AddComponent<ObjectPool>();
+        //         } else
+        //         {
+        //             pool = OnCallerGameObject.AddComponent<ObjectPool>();
+        //         }
+        //         SPoolDict.Add(poolName, pool);
+        //     }
+
+        //     return pool;
+        // }
 
         public ObjectPool Init(PoolSettings poolSettings)
         {
             // Initialize PoolSettings
-            print("??");
             PoolName = poolSettings.PoolName;
             SoruceFilePath = poolSettings.SourceFilePath;
             MaxPoolSize = poolSettings.MaxPoolSize;
