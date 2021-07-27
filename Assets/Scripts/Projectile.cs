@@ -15,4 +15,5 @@ public class Projectile : MonoBehaviour
     {
         transform.right = GetComponent<Rigidbody2D>().velocity;
     }
+
 }

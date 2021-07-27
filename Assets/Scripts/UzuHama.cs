@@ -31,8 +31,7 @@ namespace Docsa.Character
         bool isStand = true;
 
         
-
-         
+            
     
         void Crouch()
         {

@@ -6,6 +6,7 @@ namespace Docsa.Character
 {
     public class Hunter : Character
     {
+        public Vector3 KidnappedDocsaPosition;
         public Hunter(){}
         
         public Hunter(string viewerName)
@@ -22,6 +23,5 @@ namespace Docsa.Character
             return false;
         }
 
-        
     }
 }

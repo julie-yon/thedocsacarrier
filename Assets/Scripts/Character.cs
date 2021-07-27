@@ -7,6 +7,7 @@ namespace Docsa.Character
     [RequireComponent(typeof(CharacterBehaviour))]
     public class Character : MonoBehaviour
     {
+        public HPBar HPBar;
         public CharacterBehaviour Behaviour;
         private const int maxHP = 100;
         private int currentHP = 100;
