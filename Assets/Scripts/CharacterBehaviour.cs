@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
+public delegate void NetInitiater(Docsa.ProjectileNet net);
+
 namespace  Docsa.Character
 {
     [RequireComponent(typeof(CircleCollider2D))]
@@ -10,21 +12,19 @@ namespace  Docsa.Character
     public class CharacterBehaviour : MonoBehaviour
     {
         public Character Character;
-        public float MoveSpeed = 1;
+
+        [Header("Behaviour stats")]
         public float MaxSpeed = 3;
+        public float MoveAcceleration = 1;
         public float JumpPower = 3;
-        public float NetSpeed = 5;
         Rigidbody2D rigid;
         float directionThreashold = 0.01f;
         float uzuhamaRightScaleX = 1;
         float uzuhamaLeftScaleX = -1;
-        Vector2 MousePosition;
-        Camera Camera;
-        [SerializeField] GameObject m_goPrefab = null;
-        [SerializeField] GameObject m_netPrefab = null;
-        [SerializeField] Transform m_tfWeapon = null;
+        [Header("GameObjects Refs")]
+        [SerializeField] Transform _projectileEmitter = null;
 
-    bool isDie = false;
+        bool isDie = false;
         
         void Awake()
         {
@@ -32,33 +32,32 @@ namespace  Docsa.Character
             {
                 rigid = gameObject.AddComponent<Rigidbody2D>();
             }
-
-            Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         }
+
         void LookAtMouse()
         {
-            Vector2 t_mousePos = Camera.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 t_direction = new Vector2(t_mousePos.x - m_tfWeapon.position.x ,
-            t_mousePos.y - m_tfWeapon.position.y); //무기가 바라볼 방향 설정(마우스 클릭한 곳에서 우주하마의 위치 빼기)
-            m_tfWeapon.right = t_direction;
+            Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 t_direction = new Vector2(t_mousePos.x - _projectileEmitter.position.x ,
+                                        t_mousePos.y - _projectileEmitter.position.y); //무기가 바라볼 방향 설정(마우스 클릭한 곳에서 우주하마의 위치 빼기)
+            _projectileEmitter.right = t_direction;
 
         }
 
         public void Attack()
         {   
-            MousePosition = Input.mousePosition;
-            
-            // GameObject t_weapon = Instantiate(m_goPrefab, m_tfWeapon.position, m_tfWeapon.rotation);
-            GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(m_tfWeapon.position, m_tfWeapon.rotation);
-            t_weapon.GetComponent<Rigidbody2D>().velocity = t_weapon.transform.right * 10f;
+            GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
 
         }
 
-        public void ThrowNet(Docsa targetDocsa)
+
+        public void ThrowNet(DocsaSakki targetDocsa)
         {
-            ProjectileNet net = ObjectPool.SPoolDict[PoolType.Net].Instantiate(m_tfWeapon.position, m_tfWeapon.rotation).GetComponent<ProjectileNet>();
-            net.Thrower = (Hunter)Character;
-            net.GetComponent<Rigidbody2D>().velocity = (targetDocsa.transform.position - m_tfWeapon.transform.position) * NetSpeed;
+            NetInitiater netInitiater = (net) => {
+                net.Target = targetDocsa;
+                net.Shooter = (Hunter)Character;
+            };
+            ObjectPool.SPoolDict[PoolType.Net].InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
+            // net = ObjectPool.SPoolDict[PoolType.Net].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation).GetComponent<ProjectileNet>();
         }
 
         public void Jump()
@@ -84,21 +83,12 @@ namespace  Docsa.Character
             else if(rigid.velocity.x < -directionThreashold)
                 transform.localScale = new Vector2(uzuhamaLeftScaleX , transform.localScale.y);
 
-            rigid.AddForce(Vector2.right * MoveSpeed * moveDirection, ForceMode2D.Impulse);
+            rigid.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
         }
 
-        public void GrabDocsa(Docsa targetDocsa)
+        public void GrabDocsa(DocsaSakki targetDocsa)
         {
-            //ontrigger로 character/net와의 충돌 인지되면 Docsa 이동?
-            
             targetDocsa.transform.position = Character.GrabDocsaPosition.position;
-            
-            
-            //if (targetDocsa.targetDocPosition.position == UzuHama_Position.position)
-            //{
-            //    targetDocsa = UzuHama.Baguni
-            //}
-            // 
         }
 
         public void Die()
@@ -127,11 +117,14 @@ namespace  Docsa.Character
 
         void Update()
         {
-            LookAtMouse();
-            
-            if(!Input.GetButton("Horizontal"))
+            if (Character is UzuHama)
             {
-                rigid.velocity = new Vector2( 0.5f * rigid.velocity.normalized.x , rigid.velocity.y);
+                LookAtMouse();
+                
+                if(!Input.GetButton("Horizontal"))
+                {
+                    rigid.velocity = new Vector2( 0.5f * rigid.velocity.normalized.x , rigid.velocity.y);
+                }
             }
         }
     }

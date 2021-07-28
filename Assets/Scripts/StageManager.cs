@@ -38,14 +38,17 @@ namespace Docsa
 
         public Stage MakeStage(int stageNum)
         {
-            GameObject obj = Instantiate(StageList[stageNum]);
+            GameObject stageObj = Instantiate(StageList[stageNum]);
 
             Destroy(CurrentStage);
-            CurrentStage = obj.GetComponent<Stage>();
+            CurrentStage = stageObj.GetComponent<Stage>();
 
-            Camera.main.transform.position = obj.GetComponent<Stage>().ChunkList[1].DefaultCameraPosition;
+            Camera.main.transform.position = stageObj.GetComponent<Stage>().ChunkList[1].DefaultCameraPosition;
 
-            return obj.GetComponent<Stage>();
+            GameObject MapHierarchy = GameObject.Find("====Map====");
+            stageObj.transform.SetSiblingIndex(MapHierarchy.transform.GetSiblingIndex() + 1);
+
+            return CurrentStage;
         }
         
         void LoadStage(Scene scene, LoadSceneMode mode)

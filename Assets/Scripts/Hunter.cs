@@ -6,17 +6,6 @@ namespace Docsa.Character
 {
     public class Hunter : Character
     {
-        public Hunter(){}
-        
-        public Hunter(string viewerName)
-        {
-            
-        }
-        public Hunter(string viewerName, Vector2 position, Quaternion rotation)
-        {
-
-        }
-        
         public bool isRecognizingUzuhama()
         {
             return false;

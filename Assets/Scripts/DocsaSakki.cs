@@ -1,17 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Docsa.Character
 {
-    public class Docsa : Character
+    public class DocsaSakki : Character
     {
-        public GameObject OnHamaGameObject;
-        public GameObject EscapeGameObject;
         bool isOnHama = true;
         bool isRescued;
         bool isKidnapped;
-        public Docsa(){}
         void Update()
         {
             if(isRescued) Rescued();
@@ -26,23 +23,9 @@ namespace Docsa.Character
             }
         }
 
-        // void OnTriggerEnter2D(Collider2D collision)
-        // {
-        //     Debug.Log(collision.name + "에게 닿았음!");
-        // }
-
         public bool CanBeTargetDocsa()
         {
             return !isOnHama;
-        }
-
-        public Docsa(string viewerName)
-        {
-
-        }
-        public Docsa(string viewerName, Vector2 position, Quaternion rotation)
-        {
-
         }
 
         public void Chim(Hunter targetHunter)

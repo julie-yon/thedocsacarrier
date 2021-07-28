@@ -151,6 +151,40 @@ namespace Utility
             return obj;
         }
 
+
+
+        /// <summary>
+        /// ObjectPool에서 Creature를 가져옵니다. 그러나 OnEnable이 불리기 전에 Initiater를 통해 초기화작업을 수행합니다.
+        /// </summary>
+        /// <param name="pos">위치</param>
+        /// <param name="rot">회전</param>
+        /// <returns>해당 Pool이 가지고 있는 Creature Script</returns>
+        public GameObject InstantiateAfterInit(Vector3 pos, Quaternion rot, NetInitiater initiater)
+        {
+            GameObject obj;
+
+            int AvailableCount = AvailableObjectQueue.Count;
+
+            if (AvailableCount <= 0)
+            {
+                return null;
+            }else
+            {
+                obj = AvailableObjectQueue.Dequeue();
+                initiater(obj.GetComponent<Docsa.ProjectileNet>());
+                ActiveObjectList.Add(obj);
+                obj.transform.SetPositionAndRotation(pos, rot);
+                obj.SetActive(true);
+            }
+
+            if (AutoReturn)
+            {
+                StartCoroutine(AutoReturnCoroutine(obj));
+            }
+
+            return obj;
+        }
+
         /// <summary>
         /// Creature를 ObjectPool에 반환합니다.
         /// </summary>

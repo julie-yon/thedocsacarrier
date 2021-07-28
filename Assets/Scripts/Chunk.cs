@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Docsa.Character;
 using Utility;
 
 namespace Docsa
 {
     public class Chunk : MonoBehaviour
     {
-        public static List<Character.Docsa> ActiveDocsaList = new List<Character.Docsa>();
-        public static List<Character.Hunter> ActiveHunterList = new List<Character.Hunter>();
+        public static List<DocsaSakki> ActiveDocsaList = new List<DocsaSakki>();
+        public static List<Hunter> ActiveHunterList = new List<Hunter>();
         public GameObject RightChunkTriggerObject;
         public GameObject LeftChunkTriggerObject;
         public Transform RightStartPosition;
@@ -40,7 +41,7 @@ namespace Docsa
             foreach (Transform docsa in _docsaPosList)
             {
                 objTemp = ObjectPool.SPoolDict[PoolType.Docsa].Instantiate(docsa.position, docsa.rotation);
-                ActiveDocsaList.Add(objTemp.GetComponent<Character.Docsa>());
+                ActiveDocsaList.Add(objTemp.GetComponent<DocsaSakki>());
             }
 
             if (_hunterPosList.Count == 0)
@@ -52,7 +53,7 @@ namespace Docsa
             foreach (Transform docsa in _docsaPosList)
             {
                 objTemp = ObjectPool.SPoolDict[PoolType.Hunter].Instantiate(docsa.position, docsa.rotation);
-                ActiveHunterList.Add(objTemp.GetComponent<Character.Hunter>());
+                ActiveHunterList.Add(objTemp.GetComponent<Hunter>());
             }
         }
 

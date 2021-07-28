@@ -4,14 +4,16 @@ using UnityEngine;
 using TwitchIRC;
 using Utility;
 
+using Docsa.Character;
+
 namespace Docsa
 {
     [System.Serializable]
     public class WaitingDataDict : SerializableDictionary<string, WaitingData> {}
     [System.Serializable]
-    public class DocsaDict : SerializableDictionary<string, Character.Docsa> {}
+    public class DocsaDict : SerializableDictionary<string, DocsaSakki> {}
     [System.Serializable]
-    public class HunterDict : SerializableDictionary<string, Character.Hunter> {}
+    public class HunterDict : SerializableDictionary<string, Hunter> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
         public WaitingDataDict WaitingViewerDict;
@@ -104,7 +106,7 @@ namespace Docsa
 
         void DocsaChim(TwitchCommandData commandData)
         {
-            Character.Docsa docsaSakki;
+            DocsaSakki docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 docsaSakki.Chim(AttendingHunterDict.Values.GetEnumerator().Current);
@@ -116,7 +118,7 @@ namespace Docsa
 
         void DocsaJump(TwitchCommandData commandData)
         {
-            Character.Docsa docsaSakki;
+            DocsaSakki docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 docsaSakki.Behaviour.JumpHead();
@@ -128,7 +130,7 @@ namespace Docsa
 
         void HunterNet(TwitchCommandData commandData)
         {
-            Character.Hunter docsaSakki;
+            Hunter docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 // docsaSakki.Behaviour.ThrowNet();
@@ -140,7 +142,7 @@ namespace Docsa
 
         void HunterAttack(TwitchCommandData commandData)
         {
-            Character.Hunter docsaSakki;
+            Hunter docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
                 // docsaSakki.Behaviour.Attack();
