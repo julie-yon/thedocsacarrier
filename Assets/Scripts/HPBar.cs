@@ -6,16 +6,19 @@ namespace Docsa.Character
 {
     public class HPBar : MonoBehaviour
     {
-        // Start is called before the first frame update
         public Slider Bar;
         public Character Character;
-        // public int Value = 0;
         
         public int Value 
         {
             get
             {
                 return Character.CurrentHP;
+            }
+            set
+            {
+                float var = value / Character.MaxHP;
+                Bar.value = var;
             }
         }
         

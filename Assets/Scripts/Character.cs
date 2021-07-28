@@ -20,11 +20,20 @@ namespace Docsa.Character
             get {return currentHP;}
             private set {
                 currentHP = value;
+                if (HPBar != null)
+                {
+                    HPBar.Value = value;
+                }
                 if (currentHP <= 0)
                 {
                     Behaviour.Die();
                 }
             }
+        }
+
+        void Awake()
+        {
+            CurrentHP = currentHP;
         }
 
         public void GetDamage(int damageValue)

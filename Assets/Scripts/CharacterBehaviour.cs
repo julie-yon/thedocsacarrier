@@ -57,7 +57,6 @@ namespace  Docsa.Character
                 net.Shooter = (Hunter)Character;
             };
             ObjectPool.SPoolDict[PoolType.Net].InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
-            // net = ObjectPool.SPoolDict[PoolType.Net].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation).GetComponent<ProjectileNet>();
         }
 
         public void Jump()
