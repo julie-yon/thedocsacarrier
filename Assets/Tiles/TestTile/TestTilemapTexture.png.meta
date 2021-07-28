@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: 23bc1ae286ae88a47b97ea9d094fcf5d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3739725431315323045
+    second: TestTilemapTexture_0
+  - first:
+      213: 2180983184482573523
+    second: TestTilemapTexture_1
+  - first:
+      213: 2904600778319157847
+    second: TestTilemapTexture_2
+  - first:
+      213: 2063108671767390557
+    second: TestTilemapTexture_3
+  - first:
+      213: -2928064448828823108
+    second: TestTilemapTexture_4
+  - first:
+      213: 8226151142227334448
+    second: TestTilemapTexture_5
+  - first:
+      213: 1123466803854880611
+    second: TestTilemapTexture_6
+  - first:
+      213: 396060953465724539
+    second: TestTilemapTexture_7
+  - first:
+      213: -3010431779655231837
+    second: TestTilemapTexture_8
+  - first:
+      213: 4476059561534787659
+    second: TestTilemapTexture_9
+  - first:
+      213: -211138697572178992
+    second: TestTilemapTexture_10
+  - first:
+      213: 3514420508067379122
+    second: TestTilemapTexture_11
+  - first:
+      213: 6639682048340023054
+    second: TestTilemapTexture_12
+  - first:
+      213: -3061997695335094248
+    second: TestTilemapTexture_13
+  - first:
+      213: -7367586785318564960
+    second: TestTilemapTexture_14
+  - first:
+      213: -6868434590971228536
+    second: TestTilemapTexture_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TestTilemapTexture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a85b03477c26e330800000000000000
+      internalID: 3739725431315323045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc1f24a6a8644e10800000000000000
+      internalID: 2180983184482573523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a5906c4073f4820800000000000000
+      internalID: 2904600778319157847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5929b9f762a1ac10800000000000000
+      internalID: 2063108671767390557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9ab18b5ec6d57d0800000000000000
+      internalID: -2928064448828823108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035522d31e8292270800000000000000
+      internalID: 8226151142227334448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fa6b01b1b579f00800000000000000
+      internalID: 1123466803854880611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e1ab8b6571f7500800000000000000
+      internalID: 396060953465724539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a65a111f3cc836d0800000000000000
+      internalID: -3010431779655231837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4095ceb4782e1e30800000000000000
+      internalID: 4476059561534787659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d32fd42972e11df0800000000000000
+      internalID: -211138697572178992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b734b6f4dab5c030800000000000000
+      internalID: 3514420508067379122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0758d8f4a3e42c50800000000000000
+      internalID: 6639682048340023054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818ac7ab1599185d0800000000000000
+      internalID: -3061997695335094248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab89399ad211c990800000000000000
+      internalID: -7367586785318564960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTilemapTexture_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0.75
+        width: 16.25
+        height: 16.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e872a412b6ea0a0800000000000000
+      internalID: -6868434590971228536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
