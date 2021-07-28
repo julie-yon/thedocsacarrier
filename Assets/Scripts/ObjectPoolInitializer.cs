@@ -6,18 +6,12 @@ namespace Utility
     {
         public PoolSettings ObjectPoolSetting = new PoolSettings{};
         public GameObject SourcePrefab;
-        public bool MakeObjectPoolOnThisGameObject;
+        public GameObject ObjectPoolParentObject;
 
         void Awake()
         {
             ObjectPool pool;
-            if (MakeObjectPoolOnThisGameObject)
-            {
-                pool = ObjectPool.GetOrCreate(ObjectPoolSetting.PoolName, gameObject);
-            } else
-            {
-                pool = ObjectPool.GetOrCreate(ObjectPoolSetting.PoolName);
-            }
+            pool = ObjectPool.GetOrCreate(ObjectPoolSetting.PoolName, ObjectPoolParentObject);
             pool.SourceObject = SourcePrefab;
             pool.Init(ObjectPoolSetting);
         }

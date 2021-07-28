@@ -722,6 +722,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &291535463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7963357463962258523, guid: dcbab5874f05d3343a7a607519b01d5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1536987462049189660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342518829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1248,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &455231342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7499281798298768266, guid: dcbab5874f05d3343a7a607519b01d5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1536987462049189660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &511263012
 GameObject:
   m_ObjectHideFlags: 0
@@ -6110,6 +6122,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5916919131197076981, guid: 0c4647e7acb4cb54a8dce6e1ea252650,
+        type: 3}
+      propertyPath: ObjectPoolParentObject
+      value: 
+      objectReference: {fileID: 291535463}
     - target: {fileID: 5916919131347868269, guid: 0c4647e7acb4cb54a8dce6e1ea252650,
         type: 3}
       propertyPath: m_RootOrder
@@ -6170,6 +6187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPools
       objectReference: {fileID: 0}
+    - target: {fileID: 5916919132148323816, guid: 0c4647e7acb4cb54a8dce6e1ea252650,
+        type: 3}
+      propertyPath: ObjectPoolParentObject
+      value: 
+      objectReference: {fileID: 455231342}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4647e7acb4cb54a8dce6e1ea252650, type: 3}
 --- !u!1001 &7196631699292155269

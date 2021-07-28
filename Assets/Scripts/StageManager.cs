@@ -22,11 +22,11 @@ namespace Docsa
         {
             if (collider.gameObject == CurrentStage.CurrentChunk.RightChunkTriggerObject)
             {
-                print("ChunkTriggerEnter Right " + collider.name);
+                // print("ChunkTriggerEnter Right " + collider.name);
                 CurrentStage.GotoRightChunk();
             } else 
             {
-                print("ChunkTriggerEnter Left " + collider.name);
+                // print("ChunkTriggerEnter Left " + collider.name);
                 CurrentStage.GotoLeftChunk();
             }
         }

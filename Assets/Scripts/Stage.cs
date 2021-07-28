@@ -90,7 +90,7 @@ namespace Docsa
         IEnumerator CameraMove(bool toRight)
         {
             BeforeCameraMove(toRight);
-            print("Camera Move Start");
+            // print("Camera Move Start");
             bool moveFinished = false;
             bool camPosisRightSide = false;
 
@@ -100,7 +100,6 @@ namespace Docsa
 
                 Camera.main.transform.Translate(CameraMoveSpeed * (toRight ? Vector3.right : Vector3.left));
                 camPosisRightSide = Camera.main.transform.position.x > TargetChunk.DefaultCameraPosition.x;
-                print(TargetChunk.DefaultCameraPosition);
 
                 if (toRight ? camPosisRightSide : !camPosisRightSide)
                 {
@@ -109,13 +108,13 @@ namespace Docsa
                     // UzuHama.Hama.transform.position = toRight ? TargetChunk.LeftStartPosition.position : TargetChunk.RightStartPosition.position;
                 }
             }
-            print("Camera Move Finish");
+            // print("Camera Move Finish");
             AfterCameraMove(toRight);
         }
 
         void BeforeCameraMove(bool toRight)
         {
-            print(TargetChunk);
+            // print(TargetChunk);
             StopFieldObjects();
         }
 
