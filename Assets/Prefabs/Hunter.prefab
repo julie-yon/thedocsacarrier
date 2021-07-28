@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 8224509579340786903}
-  Character: {fileID: 0}
+  Character: {fileID: 6128847656228084744}
 --- !u!1 &8302296169727283101
 GameObject:
   m_ObjectHideFlags: 0
