@@ -14,6 +14,8 @@ namespace Docsa
 
         void Awake()
         {
+            // Todo add on DontDestroyObjects
+            DontDestroyObjects.Add(this);
             StageList.Insert(0, null);
             SceneManager.sceneLoaded += LoadStage;
         }

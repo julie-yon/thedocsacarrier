@@ -35,8 +35,11 @@ namespace TwitchIRC
 
         void OnDestroy()
         {
-            _twitchReader.Close();
-            _twitchWriter.Close();
+            if (Connected)
+            {
+                _twitchReader.Close();
+                _twitchWriter.Close();
+            }
         }
 
         void Update()
@@ -71,7 +74,7 @@ namespace TwitchIRC
 
         IEnumerator ConnectMethod()
         {
-            UIManager.instance.Checker = true;
+            StartUIManager.instance.Checker = true;
 
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
             _twitchReader = new StreamReader(_twitchClient.GetStream());
@@ -101,7 +104,7 @@ namespace TwitchIRC
         public async Task ConnectAsync()
         {
             await Task.Run(() => {
-            UIManager.instance.Checker = true;
+            StartUIManager.instance.Checker = true;
             DontDestroyObjects.Add(this);
 
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);

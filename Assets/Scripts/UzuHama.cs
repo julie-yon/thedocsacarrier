@@ -12,13 +12,6 @@ namespace Docsa.Character
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
 
-        public void HamaAttack()
-        {
-            if(Input.GetMouseButtonDown(0))
-            {   
-                Behaviour.Attack();
-            }
-        }
         
         Rigidbody2D rigid;
         public GameObject CrouchGameObject;
@@ -49,14 +42,25 @@ namespace Docsa.Character
 
         void FixedUpdate()
         {
-            if (isStand)
+            if (Core.instance.UserInputEnable)
             {
-                if(Input.GetKeyDown(KeyCode.S)) Crouch();
-            } else
-            {
-                if(Input.GetKeyUp(KeyCode.S)) Stand();
+                if (isStand)
+                {
+                    if(Input.GetKeyDown(KeyCode.S)) Crouch();
+                } else
+                {
+                    if(Input.GetKeyUp(KeyCode.S)) Stand();
+                }
+                HammaMove();
             }
-            HammaMove();
+        }
+
+        void Update()
+        {
+            if (Core.instance.UserInputEnable)
+            {
+                HamaAttack();
+            }
         }
 
         public void HammaMove()
@@ -71,14 +75,14 @@ namespace Docsa.Character
             {
                 Behaviour.Jump();
             }
-
-            
         }
-        
-        void Update()
+
+        public void HamaAttack()
         {
-            HamaAttack();
-            
+            if(Input.GetMouseButtonDown(0))
+            {   
+                Behaviour.Attack();
+            }
         }
 
         void OnTriggerEnter2D(Collider2D collider)

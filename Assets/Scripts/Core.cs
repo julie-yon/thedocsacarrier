@@ -10,6 +10,7 @@ namespace Docsa
     public class Core : Singleton<Core>
     {
         public string Stage1GameSceneName = "SampleScene";
+        public bool UserInputEnable = true;
 
         void Awake()
         {

@@ -36,6 +36,7 @@ namespace  Docsa.Character
 
         void LookAtMouse()
         {
+            // Behaviour에 있어야 할까?
             Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 t_direction = new Vector2(t_mousePos.x - _projectileEmitter.position.x ,
                                         t_mousePos.y - _projectileEmitter.position.y); //무기가 바라볼 방향 설정(마우스 클릭한 곳에서 우주하마의 위치 빼기)
@@ -116,7 +117,7 @@ namespace  Docsa.Character
 
         void Update()
         {
-            if (Character is UzuHama)
+            if (Character is UzuHama && Core.instance.UserInputEnable)
             {
                 LookAtMouse();
                 

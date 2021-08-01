@@ -43,5 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75ba91548432ba41be2f93bedbabeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarLightGameObject: {fileID: 343380202889131875, guid: aa238e3272e7a95448017495d7b77a47,
-    type: 3}
+  WaitingViewerDict:
+    keys: []
+    values: []
+  AttendingDocsaDict:
+    keys: []
+    values: []
+  AttendingHunterDict:
+    keys: []
+    values: []
+  DocsaCanAttend: 1
+  WaitingViewerLimit: 20

@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +20,12 @@ namespace Docsa
         public WaitingDataDict WaitingViewerDict;
         public DocsaDict AttendingDocsaDict;
         public HunterDict AttendingHunterDict;
-
-        private bool _docsaCanAttend;
+        public bool DocsaCanAttend;
+        public int WaitingViewerLimit = 20;
         
         void Awake()
         {
+            DontDestroyObjects.Add(this);
             WaitingViewerDict = new WaitingDataDict();
             AttendingDocsaDict = new DocsaDict();
             AttendingHunterDict = new HunterDict();
@@ -63,34 +65,83 @@ namespace Docsa
 
         void Attend(TwitchCommandData commandData)
         {
-            if (!_docsaCanAttend)
+            if (!DocsaCanAttend || WaitingViewerDict.Count > WaitingViewerLimit)
             {
                 return;
             }
 
-            if (WaitingViewerDict.ContainsKey(commandData.Author))
+            if (AttendingDocsaDict.ContainsKey(commandData.Author) || AttendingHunterDict.ContainsKey(commandData.Author))
             {
+                return;
+            }
+
+            WaitingData data;
+
+            if (WaitingViewerDict.TryGetValue(commandData.Author, out data))
+            {
+                data.ChatCount++;
                 return;
             }
 
             // Docsa 참여와 Hunter 참여를 어떻게 구분할지
             // 1. 명령어를 나눈다
             // 2. 랜덤하게 임의로 나눈다.
-            WaitingViewerDict.Add(commandData.Author, new WaitingData(commandData.Author));
+            data = new WaitingData(commandData.Author);
+            WaitingViewerDict.Add(data.Author, data);
+            ESCUIManager.instance.AddWaitingViewer(WaitingViewerDict[data.Author]);
         }
 
         void Exit(TwitchCommandData commandData)
         {
-            if (!WaitingViewerDict.ContainsKey(commandData.Author))
+            if (!WaitingViewerDict.ContainsKey(commandData.Author) && !AttendingDocsaDict.ContainsKey(commandData.Author) && !AttendingHunterDict.ContainsKey(commandData.Author))
             {
                 return;
             }
+            
 
             // 게임중간에 Exit할경우 or
             // 일정시간이상 응답이 없을경우
-            // 하마가 강퇴한경우
 
             WaitingViewerDict.Remove(commandData.Author);
+        }
+
+        public void Kick(string viewer)
+        {
+            if (AttendingDocsaDict.ContainsKey(viewer))
+            {
+                DocsaSakki docsa = AttendingDocsaDict[viewer];
+                AttendingDocsaDict.Remove(viewer);
+
+                if (DocsaCanAttend)
+                {
+                    docsa.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                    AttendingDocsaDict.Add(docsa.Author, docsa);
+                }
+
+                return;
+            }
+
+            if (AttendingHunterDict.ContainsKey(viewer))
+            {
+                Hunter hunter = AttendingHunterDict[viewer];
+                AttendingHunterDict.Remove(viewer);
+
+                if (DocsaCanAttend)
+                {
+                    hunter.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                    AttendingHunterDict.Add(hunter.Author, hunter);
+                }
+
+                return;
+            }
+
+            if (WaitingViewerDict.ContainsKey(viewer))
+            {
+                WaitingData docsa = WaitingViewerDict[viewer];
+                WaitingViewerDict.Remove(viewer);
+
+                return;
+            }
         }
 
         void StarRain()
