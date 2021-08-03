@@ -92,7 +92,7 @@ namespace Docsa
             DocsaSakkiManager.instance.DocsaCanAttend = DocsaAttendToggle.isOn;
         }
 
-        public void AddAttendingDocsa(DocsaSakki docsa)
+        public void AddAttendingDocsa(DocsaData docsa)
         {
             GameObject item = Instantiate(ListItemPrefab, AttendingDocsaList.transform);
             item.GetComponentInChildren<Text>().text = docsa.Author;
@@ -106,7 +106,7 @@ namespace Docsa
             _listItemsRemoveActionDict.Add(docsa.Author, item.GetComponentInChildren<Button>());
         }
 
-        public void AddAttendingHunter(Hunter hunter)
+        public void AddAttendingHunter(DocsaData hunter)
         {
             GameObject item = Instantiate(ListItemPrefab, AttendingHunterList.transform);
             item.GetComponentInChildren<Text>().text = hunter.Author;
@@ -120,7 +120,7 @@ namespace Docsa
             _listItemsRemoveActionDict.Add(hunter.Author, item.GetComponentInChildren<Button>());
         }
 
-        public void AddWaitingViewer(WaitingData viewer)
+        public void AddWaitingViewer(DocsaData viewer)
         {
             GameObject item = Instantiate(ListItemPrefab, WaitingViewerList.transform);
             item.GetComponentInChildren<TextMeshProUGUI>().text = viewer.Author;
@@ -135,7 +135,7 @@ namespace Docsa
 
         }
 
-        public void RemoveAttendingDocsa(DocsaSakki docsa)
+        public void RemoveAttendingDocsa(DocsaData docsa)
         {
             Button buttonTemp;
             if (_listItemsRemoveActionDict.TryGetValue(docsa.Author, out buttonTemp))
@@ -148,7 +148,7 @@ namespace Docsa
             }
         }
 
-        public void RemoveAttendingHunter(Hunter hunter)
+        public void RemoveAttendingHunter(DocsaData hunter)
         {
             Button buttonTemp;
             if (_listItemsRemoveActionDict.TryGetValue(hunter.Author, out buttonTemp))
@@ -161,7 +161,7 @@ namespace Docsa
             }
         }
 
-        public void RemoveWaitingViewer(WaitingData viewer)
+        public void RemoveWaitingViewer(DocsaData viewer)
         {
             Button buttonTemp;
             if (_listItemsRemoveActionDict.TryGetValue(viewer.Author, out buttonTemp))

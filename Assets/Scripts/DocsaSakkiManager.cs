@@ -10,14 +10,14 @@ using Docsa.Character;
 namespace Docsa
 {
     [System.Serializable]
-    public class WaitingDataDict : SerializableDictionary<string, WaitingData> {}
+    public class DocsaDataDict : SerializableDictionary<string, DocsaData> {}
     [System.Serializable]
-    public class DocsaDict : SerializableDictionary<string, DocsaSakki> {}
+    public class DocsaDict : SerializableDictionary<string, DocsaData> {}
     [System.Serializable]
-    public class HunterDict : SerializableDictionary<string, Hunter> {}
+    public class HunterDict : SerializableDictionary<string, DocsaData> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
-        public WaitingDataDict WaitingViewerDict;
+        public DocsaDataDict WaitingViewerDict;
         public DocsaDict AttendingDocsaDict;
         public HunterDict AttendingHunterDict;
         public bool DocsaCanAttend;
@@ -26,7 +26,7 @@ namespace Docsa
         void Awake()
         {
             DontDestroyObjects.Add(this);
-            WaitingViewerDict = new WaitingDataDict();
+            WaitingViewerDict = new DocsaDataDict();
             AttendingDocsaDict = new DocsaDict();
             AttendingHunterDict = new HunterDict();
         }
@@ -75,7 +75,7 @@ namespace Docsa
                 return;
             }
 
-            WaitingData data;
+            DocsaData data;
 
             if (WaitingViewerDict.TryGetValue(commandData.Author, out data))
             {
@@ -86,7 +86,7 @@ namespace Docsa
             // Docsa 참여와 Hunter 참여를 어떻게 구분할지
             // 1. 명령어를 나눈다
             // 2. 랜덤하게 임의로 나눈다.
-            data = new WaitingData(commandData.Author);
+            data = new DocsaData(commandData.Author);
             WaitingViewerDict.Add(data.Author, data);
             ESCUIManager.instance.AddWaitingViewer(WaitingViewerDict[data.Author]);
         }
@@ -109,13 +109,14 @@ namespace Docsa
         {
             if (AttendingDocsaDict.ContainsKey(viewer))
             {
-                DocsaSakki docsa = AttendingDocsaDict[viewer];
+                DocsaSakki docsa = (DocsaSakki)AttendingDocsaDict[viewer].Character;
+                DocsaData data = AttendingDocsaDict[viewer];
                 AttendingDocsaDict.Remove(viewer);
 
                 if (DocsaCanAttend)
                 {
                     docsa.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingDocsaDict.Add(docsa.Author, docsa);
+                    AttendingDocsaDict.Add(docsa.Author, data);
                 }
 
                 return;
@@ -123,13 +124,14 @@ namespace Docsa
 
             if (AttendingHunterDict.ContainsKey(viewer))
             {
-                Hunter hunter = AttendingHunterDict[viewer];
+                Hunter hunter = (Hunter)AttendingHunterDict[viewer].Character;
+                DocsaData data = AttendingDocsaDict[viewer];
                 AttendingHunterDict.Remove(viewer);
 
                 if (DocsaCanAttend)
                 {
                     hunter.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingHunterDict.Add(hunter.Author, hunter);
+                    AttendingHunterDict.Add(hunter.Author, data);
                 }
 
                 return;
@@ -137,11 +139,64 @@ namespace Docsa
 
             if (WaitingViewerDict.ContainsKey(viewer))
             {
-                WaitingData docsa = WaitingViewerDict[viewer];
+                DocsaData docsa = WaitingViewerDict[viewer];
                 WaitingViewerDict.Remove(viewer);
 
                 return;
             }
+        }
+
+        public void MoveDocsaDataTo(string author, DocsaData.DocsaState to)
+        {
+            MoveDocsaDataTo(GetDocsaData(author), to);
+        }
+
+        public void MoveDocsaDataTo(DocsaData from, DocsaData.DocsaState to)
+        {
+            switch (from.State)
+            {
+                case DocsaData.DocsaState.Waiting : 
+                    WaitingViewerDict.Remove(from.Author);
+                break;
+                case DocsaData.DocsaState.Docsa : 
+                    AttendingDocsaDict.Remove(from.Author);
+                break;
+                case DocsaData.DocsaState.Hunter : 
+                    AttendingHunterDict.Remove(from.Author);
+                break;
+            }
+
+            from.State = to;
+
+            switch (to)
+            {
+                case DocsaData.DocsaState.Waiting :
+                    WaitingViewerDict.Add(from.Author, from);
+                break;
+                case DocsaData.DocsaState.Docsa :
+                    AttendingDocsaDict.Add(from.Author, from);
+                break;
+                case DocsaData.DocsaState.Hunter :
+                    AttendingHunterDict.Add(from.Author, from);
+                break;
+            }
+        }
+
+        public DocsaData GetDocsaData(string author)
+        {
+            DocsaData data;
+            if (WaitingViewerDict.TryGetValue(author, out data))
+            {
+
+            } else if (AttendingDocsaDict.TryGetValue(author, out data))
+            {
+                
+            } else if (AttendingHunterDict.TryGetValue(author, out data))
+            {
+
+            }
+
+            return data;
         }
 
         void StarRain()
@@ -157,10 +212,10 @@ namespace Docsa
 
         void DocsaChim(TwitchCommandData commandData)
         {
-            DocsaSakki docsaSakki;
+            DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                docsaSakki.Chim(AttendingHunterDict.Values.GetEnumerator().Current);
+                ((DocsaSakki)docsaSakki.Character).Chim((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
             } else
             {
                 print("그런 독사 없음");
@@ -169,10 +224,10 @@ namespace Docsa
 
         void DocsaJump(TwitchCommandData commandData)
         {
-            DocsaSakki docsaSakki;
+            DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                docsaSakki.Behaviour.JumpHead();
+                docsaSakki.Character.Behaviour.JumpHead();
             } else
             {
                 print("그런 독사 없음");
@@ -181,10 +236,10 @@ namespace Docsa
 
         void HunterNet(TwitchCommandData commandData)
         {
-            Hunter docsaSakki;
+            DocsaData docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // docsaSakki.Behaviour.ThrowNet();
+                // docsaSakki.Character.Behaviour.ThrowNet();
             } else
             {
                 print("그런 헌터 없음");
@@ -193,10 +248,10 @@ namespace Docsa
 
         void HunterAttack(TwitchCommandData commandData)
         {
-            Hunter docsaSakki;
+            DocsaData docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // docsaSakki.Behaviour.Attack();
+                // docsaSakki.Character.Behaviour.Attack();
             } else
             {
                 print("그런 헌터 없음");
@@ -205,16 +260,33 @@ namespace Docsa
     }
 
     [System.Serializable]
-    public class WaitingData
+    public class DocsaData
     {
         public string Author;
-        public TwitchCommandData LastCommand;
+        public Docsa.Character.Character Character;
         public int ChatCount;
+        public DocsaState State;
 
-        public WaitingData(string author)
+        public DocsaData(string author)
         {
             Author = author;
             ChatCount = 1;
+            State = DocsaState.Waiting;
+        }
+
+        public DocsaData(string author, Docsa.Character.Character character)
+        {
+            Author = author;
+            ChatCount = 1;
+            Character = character;
+            State = DocsaState.Waiting;
+        }
+
+        public enum DocsaState
+        {
+            Waiting,
+            Docsa,
+            Hunter,
         }
     }
 }
