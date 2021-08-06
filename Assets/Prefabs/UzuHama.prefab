@@ -588,6 +588,7 @@ MonoBehaviour:
   HPBar: {fileID: 7209236119033749786}
   Behaviour: {fileID: 1506719684482138303}
   GrabDocsaPosition: {fileID: 5526501725990355394}
+  Author: 
   UzuHama_Position: {x: 0, y: 0}
   CrouchGameObject: {fileID: 7832594667034539006}
   StandGameObject: {fileID: 7832594666863579603}
@@ -605,9 +606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Character: {fileID: 4393282256154420535}
   MaxSpeed: 3
-  MoveSpeed: 1
+  MoveAcceleration: 1
   JumpPower: 3
-  NetSpeed: 5
   _projectileEmitter: {fileID: 4905301601431239917}
 --- !u!50 &4190882396710115956
 Rigidbody2D:

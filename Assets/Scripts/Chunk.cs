@@ -21,6 +21,16 @@ namespace Docsa
             get {return _defaultCameraPosition.position;}
         }
 
+        public int DocsaNumber
+        {
+            get {return _docsaPosList.Count;}
+        }
+
+        public int HunterNumber
+        {
+            get {return _hunterPosList.Count;}
+        }
+
         private List<Transform> _docsaPosList;
         private List<Transform> _hunterPosList;
         void Awake()

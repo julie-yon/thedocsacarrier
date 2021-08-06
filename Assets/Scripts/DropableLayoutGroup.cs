@@ -35,12 +35,14 @@ namespace Utility.UI
                     return;
                 }
 
-                DragAndDropUI.instance.DragingUI.transform.SetParent(LayoutGroup.transform);
+                // If not DocsaProject you must use this line instead of Tag : DocsaMove
+                // DragAndDropUI.instance.DragingUI.transform.SetParent(LayoutGroup.transform);
                 DragAndDropUI.instance.DragingUI.SuccessfullyDroped = true;
 
                 // Docsa Project Specifically
                 string dragingAuthor = DragAndDropUI.instance.DragingUI.GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
                 
+                ESCUIManager.instance.MoveDocsaDataCardTo(dragingAuthor, State); // Tag : DocsaMove
                 DocsaSakkiManager.instance.MoveDocsaDataTo(dragingAuthor, State);
                 // Docsa Project End
             }

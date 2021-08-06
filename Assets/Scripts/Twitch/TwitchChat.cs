@@ -172,13 +172,16 @@ namespace TwitchIRC
                     print(msg);
                     if(msg.StartsWith(TwitchCommandData.Prefix)){
                         // get the first word 
-                        string command = msg.Substring(1);
+                        splitPoint = msg.IndexOf(" ", 1);
+                        string command = msg.Substring(1, splitPoint);
+                        string chat = msg.Substring(splitPoint+1);
                         DocsaTwitchCommand commandEnum = StringValue.GetEnumValue<DocsaTwitchCommand>(command);
                         DocsaSakkiManager.instance.ExecuteCommand(
                             new TwitchCommandData {
                                 Author = author,
                                 Command = commandEnum,
                                 Time = System.DateTime.Now,
+                                Chat = chat,
                         });
                     }
                 }            

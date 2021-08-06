@@ -10,7 +10,7 @@ namespace TwitchIRC
         public string Author;
         public DocsaTwitchCommand Command;
         public System.DateTime Time;
-        
+        public string Chat;
     }
 
     public enum DocsaTwitchCommand

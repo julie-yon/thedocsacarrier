@@ -11,6 +11,7 @@ namespace Docsa
     {
         public string Stage1GameSceneName = "SampleScene";
         public bool UserInputEnable = true;
+        public string UzuhamaTwitchNickName = "우주하마";
 
         void Awake()
         {

@@ -11,15 +11,11 @@ namespace Docsa
 {
     [System.Serializable]
     public class DocsaDataDict : SerializableDictionary<string, DocsaData> {}
-    [System.Serializable]
-    public class DocsaDict : SerializableDictionary<string, DocsaData> {}
-    [System.Serializable]
-    public class HunterDict : SerializableDictionary<string, DocsaData> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
         public DocsaDataDict WaitingViewerDict;
-        public DocsaDict AttendingDocsaDict;
-        public HunterDict AttendingHunterDict;
+        public DocsaDataDict AttendingDocsaDict;
+        public DocsaDataDict AttendingHunterDict;
         public bool DocsaCanAttend;
         public int WaitingViewerLimit = 20;
         
@@ -27,15 +23,22 @@ namespace Docsa
         {
             DontDestroyObjects.Add(this);
             WaitingViewerDict = new DocsaDataDict();
-            AttendingDocsaDict = new DocsaDict();
-            AttendingHunterDict = new HunterDict();
+            AttendingDocsaDict = new DocsaDataDict();
+            AttendingHunterDict = new DocsaDataDict();
         }
 
         public void ExecuteCommand(TwitchCommandData commandData)
         {
+            if (commandData.Author == Core.instance.UzuhamaTwitchNickName)
+            {
+                UzuhamaChat(commandData);
+                return;
+            }
+
             switch (commandData.Command)
             {
                 case DocsaTwitchCommand.NONE:
+                NoneCommand(commandData);
                 break;
 
                 case DocsaTwitchCommand.ATTEND:
@@ -60,7 +63,15 @@ namespace Docsa
                 case DocsaTwitchCommand.HUNTER_ATTACK:
                 HunterAttack(commandData);
                 break;
+
+                default :
+                break;
             }
+        }
+
+        void UzuhamaChat(TwitchCommandData commandData)
+        {
+            UzuHama.Hama.SetChatData(commandData.Chat);
         }
 
         void Attend(TwitchCommandData commandData)
@@ -199,6 +210,32 @@ namespace Docsa
             return data;
         }
 
+        public DocsaData[] GetRandomWaitingDocsaDatas(int number)
+        {
+            HashSet<DocsaData> datas = new HashSet<DocsaData>();
+
+            DocsaData[] totalDatas = WaitingViewerDict.Values.ToArray<DocsaData>();
+
+            int capacity = Mathf.Min(number, totalDatas.Length);
+
+            while (datas.Count < capacity)
+            {
+                int index = (int)Random.Range(0, totalDatas.Length);
+                datas.Add(totalDatas[index]);
+            }
+
+            return datas.ToArray();
+        }
+
+        public Docsa.Character.Character GetCharacter(string author)
+        {
+            Docsa.Character.Character character;
+
+            character = GetDocsaData(author).Character;
+            
+            return character;
+        }
+
         void StarRain()
         {
             print("StarRain");
@@ -220,6 +257,7 @@ namespace Docsa
             {
                 print("그런 독사 없음");
             }
+            docsaSakki.Character.SetChatData(commandData.Chat);
         }
 
         void DocsaJump(TwitchCommandData commandData)
@@ -232,6 +270,7 @@ namespace Docsa
             {
                 print("그런 독사 없음");
             }
+            docsaSakki.Character.SetChatData(commandData.Chat);
         }
 
         void HunterNet(TwitchCommandData commandData)
@@ -244,6 +283,7 @@ namespace Docsa
             {
                 print("그런 헌터 없음");
             }
+            docsaSakki.Character.SetChatData(commandData.Chat);
         }
 
         void HunterAttack(TwitchCommandData commandData)
@@ -256,6 +296,12 @@ namespace Docsa
             {
                 print("그런 헌터 없음");
             }
+            docsaSakki.Character.SetChatData(commandData.Chat);
+        }
+
+        void NoneCommand(TwitchCommandData commandData)
+        {
+            GetCharacter(commandData.Author).SetChatData(TwitchCommandData.Prefix + commandData.Command + " " + commandData.Chat);
         }
     }
 

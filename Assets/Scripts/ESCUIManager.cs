@@ -18,12 +18,11 @@ namespace Docsa
     {
         public GameObject ESCUIGameObject;
         public SliderManager SoundSlider;
-        public ButtonManagerBasic DocsaListButton;
         public GameObject DocsaListObject;
-        public GameObject DocsaListCancelButton;
         public VerticalLayoutGroup AttendingDocsaList;
         public VerticalLayoutGroup AttendingHunterList;
         public VerticalLayoutGroup WaitingViewerList;
+        public GameObject TwitchCommandsObject;
         public GameObject ListItemPrefab;
         public Toggle DocsaAttendToggle;
         Dictionary<string, Button> _listItemsRemoveActionDict = new Dictionary<string, Button>();
@@ -67,7 +66,7 @@ namespace Docsa
         public void Reset()
         {
             DocsaListObject.SetActive(false);
-            DocsaListCancelButton.SetActive(false);
+            TwitchCommandsObject.SetActive(false);
         }
 
         public void OnSoundSliderValueChanged()
@@ -75,21 +74,46 @@ namespace Docsa
             AudioListener.volume = SoundSlider.mainSlider.value;
         }
 
+        public void OnTwitchCommandsButtonClicked()
+        {
+            TwitchCommandsObject.SetActive(true);
+        }
+        public void OnTwitchCommandsExit()
+        {
+            TwitchCommandsObject.SetActive(false);
+        }
+
         public void OnDocsaListClicked()
         {
             DocsaListObject.SetActive(true);
-            DocsaListCancelButton.SetActive(true);
         }
 
-        public void OnDocsaListCancel()
+        public void OnDocsaListExit()
         {
             DocsaListObject.SetActive(false);
-            DocsaListCancelButton.SetActive(false);
         }
 
         public void OnDocsaAttendToggle()
         {
             DocsaSakkiManager.instance.DocsaCanAttend = DocsaAttendToggle.isOn;
+        }
+
+        public void RandomDistribute()
+        {
+            DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.DocsaNumber);
+            foreach (DocsaData data in datas)
+            {
+                MoveDocsaDataCardTo(data, DocsaData.DocsaState.Docsa);
+                DocsaSakkiManager.instance.MoveDocsaDataTo(data, DocsaData.DocsaState.Docsa);
+            }
+
+            datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.HunterNumber);
+            foreach (DocsaData data in datas)
+            {
+                MoveDocsaDataCardTo(data, DocsaData.DocsaState.Hunter);
+                DocsaSakkiManager.instance.MoveDocsaDataTo(data, DocsaData.DocsaState.Hunter);
+            }
+            
         }
 
         public void AddAttendingDocsa(DocsaData docsa)
@@ -172,6 +196,26 @@ namespace Docsa
             {
                 return;
             }
+        }
+
+        public void MoveDocsaDataCardTo(string author, DocsaData.DocsaState to)
+        {
+            switch (to)
+            {
+                case DocsaData.DocsaState.Docsa :
+                _listItemsRemoveActionDict[author].transform.parent.SetParent(AttendingDocsaList.transform);
+                break;
+                case DocsaData.DocsaState.Hunter :
+                _listItemsRemoveActionDict[author].transform.parent.SetParent(AttendingHunterList.transform);
+                break;
+                case DocsaData.DocsaState.Waiting :
+                _listItemsRemoveActionDict[author].transform.parent.SetParent(WaitingViewerList.transform);
+                break;
+            }        }
+
+        public void MoveDocsaDataCardTo(DocsaData docsaData, DocsaData.DocsaState to)
+        {
+            MoveDocsaDataCardTo(docsaData.Author, to);
         }
     }
 }
