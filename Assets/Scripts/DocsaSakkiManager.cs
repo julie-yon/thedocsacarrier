@@ -21,7 +21,6 @@ namespace Docsa
         
         void Awake()
         {
-            DontDestroyObjects.Add(this);
             WaitingViewerDict = new DocsaDataDict();
             AttendingDocsaDict = new DocsaDataDict();
             AttendingHunterDict = new DocsaDataDict();

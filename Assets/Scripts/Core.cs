@@ -9,14 +9,9 @@ namespace Docsa
 {
     public class Core : Singleton<Core>
     {
-        public string Stage1GameSceneName = "SampleScene";
+        public string Stage1GameSceneName = "Stage1";
         public bool UserInputEnable = true;
         public string UzuhamaTwitchNickName = "우주하마";
-
-        void Awake()
-        {
-            DontDestroyObjects.Add(this);
-        }
 
         public void GameStart()
         {

@@ -28,11 +28,6 @@ namespace TwitchIRC
         public float CheckingConnectivityTimeLimit = 5;
         public bool Connected;
 
-        void Awake()
-        {
-            DontDestroyObjects.Add(this);
-        }
-
         void OnDestroy()
         {
             if (Connected)
@@ -52,8 +47,6 @@ namespace TwitchIRC
 
         public void Connect()
         {
-            DontDestroyObjects.Add(this);
-            
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
             _twitchReader = new StreamReader(_twitchClient.GetStream());
             _twitchWriter = new StreamWriter(_twitchClient.GetStream());
@@ -105,7 +98,6 @@ namespace TwitchIRC
         {
             await Task.Run(() => {
             StartUIManager.instance.Checker = true;
-            DontDestroyObjects.Add(this);
 
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
             _twitchReader = new StreamReader(_twitchClient.GetStream());

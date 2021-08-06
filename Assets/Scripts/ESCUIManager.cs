@@ -47,13 +47,6 @@ namespace Docsa
             }
         }
 
-        void Awake()
-        {
-            DontDestroyObjects.Add(this);
-            DontDestroyObjects.Add(ESCUIGameObject);
-            DontDestroyObjects.Add(FindObjectOfType<UnityEngine.EventSystems.StandaloneInputModule>());
-        }
-
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
