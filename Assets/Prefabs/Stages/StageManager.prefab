@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7555748632058958999}
   - component: {fileID: 8999960332128031176}
+  - component: {fileID: 5612804084460261365}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -49,4 +50,17 @@ MonoBehaviour:
   - {fileID: 385333497676128258, guid: b46f1cad7bb1486438361c0016b8acf0, type: 3}
   - {fileID: 385333497676128258, guid: 780086a66ff467640b854d7368c2cf2c, type: 3}
   CurrentStage: {fileID: 0}
-  CameraMoveSpeed: 1
+--- !u!114 &5612804084460261365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983610774203883820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HowTo: 1
+  TargetComponent: {fileID: 8999960332128031176}
