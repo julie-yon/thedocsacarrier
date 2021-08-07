@@ -77,5 +77,14 @@ namespace Docsa
             ActiveDocsaList.Clear();
             ActiveHunterList.Clear();
         }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(new Vector3(-8, 6, 0), new Vector3(8, 6, 0));
+            Gizmos.DrawLine(new Vector3(-8, -6, 0), new Vector3(-8, 6, 0));
+            Gizmos.DrawLine(new Vector3(8, -6, 0), new Vector3(-8, -6, 0));
+            Gizmos.DrawLine(new Vector3(8, 6, 0), new Vector3(8, -6, 0));
+        }
     }
 }
