@@ -6,26 +6,16 @@ namespace Docsa.Character
 {
     public class UzuHama : Character
     {
-        public Vector2 UzuHama_Position;
         public static UzuHama Hama
         {
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
 
-        
-        Rigidbody2D rigid;
         public GameObject CrouchGameObject;
         public GameObject StandGameObject;
     
-
-        float directionThreashold = 0.01f;
-        float uzuhamaRightScaleX = 1;
-        float uzuhamaLeftScaleX = -1;
         bool isStand = true;
 
-        
-            
-    
         void Crouch()
         {
             CrouchGameObject.SetActive(true);
