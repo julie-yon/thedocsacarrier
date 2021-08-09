@@ -7,6 +7,7 @@ namespace Docsa
 {
     public class Stage : MonoBehaviour
     {
+        public int StageNumber;
         public List<Chunk> ChunkList = new List<Chunk>();
         public float CameraMoveSpeed = 1;
         public GameObject ChunkBoundary;
