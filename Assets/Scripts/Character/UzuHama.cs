@@ -11,9 +11,10 @@ namespace Docsa.Character
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
 
-        public GameObject CrouchGameObject;
         public GameObject StandGameObject;
-    
+        public GameObject CrouchGameObject;
+        public Baguni Baguni;
+
         bool isStand = true;
 
         void Crouch()
@@ -50,6 +51,7 @@ namespace Docsa.Character
             if (Core.instance.UserInputEnable)
             {
                 HamaAttack();
+                Behaviour.LookAtMouse();
             }
         }
 
@@ -61,7 +63,7 @@ namespace Docsa.Character
                 Behaviour.Move(moveDirection);
             }
 
-            if(Input.GetKeyDown(KeyCode.W))
+            if(Input.GetButtonDown("Jump"))
             {
                 Behaviour.Jump();
             }

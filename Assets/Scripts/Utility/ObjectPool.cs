@@ -210,7 +210,8 @@ namespace Utility
         public void ReturnAll()
         {
             GameObject obj;
-            for (int i =0; i < ActiveObjectList.Count; i++)
+            int activeNumber = ActiveObjectList.Count;
+            for (int i =0; i < activeNumber; i++)
             {
                 obj = ActiveObjectList[0];
                 Return(obj);

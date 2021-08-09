@@ -17,14 +17,18 @@ namespace  Docsa.Character
         public float MaxSpeed = 3;
         public float MoveAcceleration = 1;
         public float JumpPower = 3;
+        public bool isDie = false;
         Rigidbody2D rigid;
+        public Vector2 CurrentVelocity
+        {
+            get {return rigid.velocity;}
+        }
         float directionThreashold = 0.01f;
-        float uzuhamaRightScaleX = 1;
-        float uzuhamaLeftScaleX = -1;
+        float _moveRightScaleX = 1;
+        float _moveLeftScaleX = -1;
         [Header("GameObjects Refs")]
         [SerializeField] Transform _projectileEmitter = null;
 
-        bool isDie = false;
         
         void Awake()
         {
@@ -34,7 +38,7 @@ namespace  Docsa.Character
             }
         }
 
-        void LookAtMouse()
+        public void LookAtMouse()
         {
             // Behaviour에 있어야 할까?
             Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -79,22 +83,27 @@ namespace  Docsa.Character
                 rigid.velocity = new Vector2(MaxSpeed * (-1), rigid.velocity.y);
 
             if(rigid.velocity.x > directionThreashold)
-                transform.localScale = new Vector2(uzuhamaRightScaleX , transform.localScale.y);
+            {
+                transform.localScale = new Vector2(_moveRightScaleX , transform.localScale.y);
+            }
             else if(rigid.velocity.x < -directionThreashold)
-                transform.localScale = new Vector2(uzuhamaLeftScaleX , transform.localScale.y);
+            {
+                transform.localScale = new Vector2(_moveLeftScaleX , transform.localScale.y);
+            }
 
             rigid.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
         }
 
         public void GrabDocsa(DocsaSakki targetDocsa)
         {
+            targetDocsa.OriginalParent = targetDocsa.transform.parent;
+            targetDocsa.transform.SetParent(Character.GrabDocsaPosition.transform);
             targetDocsa.transform.position = Character.GrabDocsaPosition.position;
         }
 
         public void Die()
         {
             // 코루틴 정지
-            StopCoroutine("Character");
             isDie = true;
 
             // Y축 반전
@@ -113,19 +122,6 @@ namespace  Docsa.Character
             // 오브젝트 삭제
             Destroy(gameObject, 5f);
 
-        }
-
-        void Update()
-        {
-            if (Character is UzuHama && Core.instance.UserInputEnable)
-            {
-                LookAtMouse();
-                
-                if(!Input.GetButton("Horizontal"))
-                {
-                    rigid.velocity = new Vector2( 0.5f * rigid.velocity.normalized.x , rigid.velocity.y);
-                }
-            }
         }
     }
 }

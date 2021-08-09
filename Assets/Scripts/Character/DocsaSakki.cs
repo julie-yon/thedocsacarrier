@@ -6,9 +6,16 @@ namespace Docsa.Character
 {
     public class DocsaSakki : Character
     {
+        public Transform OriginalParent;
         bool isOnHama = true;
         bool isRescued;
         bool isKidnapped;
+
+        void Awake()
+        {
+            OriginalParent = transform.parent;
+        }
+
         void Update()
         {
             if(isRescued) Rescued();
@@ -21,6 +28,11 @@ namespace Docsa.Character
                 Rescued();
                 
             }
+        }
+
+        void OnDisable()
+        {
+            transform.SetParent(OriginalParent);
         }
 
         public bool CanBeTargetDocsa()
@@ -49,5 +61,6 @@ namespace Docsa.Character
         {
             Behaviour.Die();
         }
+
     }
 }
