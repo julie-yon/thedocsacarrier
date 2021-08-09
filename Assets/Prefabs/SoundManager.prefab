@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630766381091026458}
   - component: {fileID: 4222976535370788937}
+  - component: {fileID: 5129253290946089199}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -59,3 +60,17 @@ MonoBehaviour:
   - 
   BackGroundMusicClip: {fileID: 8300000, guid: 754b1aa045376724797a2cc7574ae1fb, type: 3}
   CurrentRegion: 0
+--- !u!114 &5129253290946089199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277436921423876643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HowTo: 1
+  TargetComponent: {fileID: 4222976535370788937}

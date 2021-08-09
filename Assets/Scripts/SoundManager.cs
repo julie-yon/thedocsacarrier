@@ -63,7 +63,13 @@ namespace Utility
 
         void Start()
         {
-            string sharedResourcePath = resourcePathPrefix + resourcePathsForEachStage[SharingNamingRegion];
+            LoadSharedSounds(SharingNamingRegion);
+        }
+
+        protected virtual void LoadSharedSounds(int targetRegion)
+        {
+            CurrentRegion = targetRegion;
+            string sharedResourcePath = resourcePathPrefix + resourcePathsForEachStage[targetRegion];
 
             int indexOfEnumStart;
             int indexOfEnumEnd;
@@ -81,19 +87,13 @@ namespace Utility
 
         protected virtual void LoadSounds(int targetRegion)
         {
-            foreach (var playingAudio in playingAudioSourceDict)
-            {
-                playingAudio.Value.Stop();
-            }
-            CurrentAudioClipDict.Clear();
-            playingAudioSourceDict.Clear();
+            ClearCurrentSounds();
 
             string stageSoundResourcePath = resourcePathPrefix;
 
             CurrentRegion = targetRegion;
             stageSoundResourcePath += resourcePathsForEachStage[CurrentRegion];
 
-            int[] intarr = (int[])Enum.GetValues(typeof(SoundNaming));
             int indexOfEnumStart;
             int indexOfEnumEnd;
 
@@ -106,6 +106,17 @@ namespace Utility
                 AudioClip clip = Resources.Load<AudioClip>(stageSoundResourcePath + namings[i].ToString());
                 CurrentAudioClipDict.Add(namings[i], clip);
             }
+        }
+
+        protected virtual void ClearCurrentSounds()
+        {
+            foreach (var playingAudio in playingAudioSourceDict)
+            {
+                playingAudio.Value.Stop();
+            }
+
+            CurrentAudioClipDict.Clear();
+            playingAudioSourceDict.Clear();
         }
 
         /// <summary>
