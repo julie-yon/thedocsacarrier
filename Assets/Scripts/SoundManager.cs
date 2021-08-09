@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-using Docsa;
 using Docsa.Naming;
 
 namespace Utility
@@ -27,6 +27,7 @@ namespace Utility
         [SerializeField] private string resourcePathPrefix = "Sounds/";
         [SerializeField] private List<String> resourcePathsForEachStage = new List<string>();
 
+        public int WorldAudioSourceNumber = 5;
         private Queue<AudioSource> audioSourcesQueue = new Queue<AudioSource>();
 
         public AudioClip BackGroundMusicClip;
@@ -48,10 +49,9 @@ namespace Utility
             CurrentAudioClipDict = new DictionaryOfAudioClip();
             playingAudioSourceDict = new DictionaryOfAudioSource();
 
-            AudioSource[] sources = GetComponents<AudioSource>();
-            foreach (AudioSource source in sources)
+            for (int i = 0; i < WorldAudioSourceNumber; i++)
             {
-                audioSourcesQueue.Enqueue(source);
+                audioSourcesQueue.Enqueue(gameObject.AddComponent<AudioSource>());
             }
 
             _backGroundAudioSource = gameObject.AddComponent<AudioSource>();
@@ -59,6 +59,8 @@ namespace Utility
             _backGroundAudioSource.playOnAwake = true;
             _backGroundAudioSource.loop = true;
             _backGroundAudioSource.Play();
+
+            SoundEvent.soundEvent.AddListener(Play);
         }
 
         void Start()
@@ -76,9 +78,11 @@ namespace Utility
 
             EnumHelper.ClapIndexOfEnum<SoundNaming>(_namingStart, _namingEnd, out indexOfEnumStart, out indexOfEnumEnd);
 
+            print($"{_namingStart} {_namingEnd} {indexOfEnumStart} {indexOfEnumEnd}");
+
             SoundNaming[] namings = Enum.GetValues(typeof(SoundNaming)) as SoundNaming[];
 
-            for (int i = indexOfEnumStart; i<indexOfEnumEnd; i++)
+            for (int i = indexOfEnumStart; i <= indexOfEnumEnd; i++)
             {
                 AudioClip clip = Resources.Load<AudioClip>(sharedResourcePath + namings[i].ToString());
                 SharedAudioClipDict.Add(namings[i], clip);
@@ -119,6 +123,25 @@ namespace Utility
             playingAudioSourceDict.Clear();
         }
 
+        public void Play(SoundEventArgs args)
+        {
+            switch(args.SoundPlayMode)
+            {
+                case SoundPlayMode.At :
+                if (args.Transform == null)
+                    PlayAt(args.SoundNaming, args.RelativePosition);
+                else
+                    PlayAt(args.SoundNaming, args.Transform, args.RelativePosition);
+                break;
+                case SoundPlayMode.OnTransform :
+                    PlayOnTransform(args.SoundNaming, args.Transform, args.RelativePosition, args.AutoReturn);
+                break;
+                case SoundPlayMode.OnWorld :
+                    PlayOnWorld(args.SoundNaming);
+                break;
+            }
+        }
+
         /// <summary>
         /// Final Play Method
         /// </summary>
@@ -126,7 +149,7 @@ namespace Utility
         /// <param name="obj">The Transform on where play clip</param>
         /// <param name="relativePos"></param>
         /// <param name="Return"></param>
-        private void Play(SoundNaming soundName, Transform obj, Vector3 relativePos = new Vector3(), bool Return = false)
+        private void Play(SoundNaming soundName, Transform obj, Vector3 relativePos = new Vector3(), bool autoReturn = false)
         {
             AudioSource source;
             GameObject audioObj;
@@ -160,7 +183,7 @@ namespace Utility
             source.spatialBlend = 1;
             source.Play();
 
-            if (Return)
+            if (autoReturn)
             {
                 StartCoroutine(ReturnSound(source, soundName, obj));
             }
@@ -169,40 +192,46 @@ namespace Utility
         public void PlayOnWorld(SoundNaming soundName)
         {
             AudioSource audioSource = audioSourcesQueue.Dequeue();
+
+            if (audioSource == null)
+            {
+                return;
+            }
+
             audioSource.clip = GetClip(soundName);
             audioSource.spatialBlend = 0;
             audioSource.Play();
             audioSourcesQueue.Enqueue(audioSource);
         }
         
-        public void PlayOnTransform(SoundNaming soundName, Transform obj, Vector3 relativePos = new Vector3())
+        public void PlayOnTransform(SoundNaming soundName, Transform obj, Vector3 relativePos = new Vector3(), bool autoReturn = false)
         {
-            Play(soundName, obj.transform, relativePos, Return: true);
+            Play(soundName, obj.transform, relativePos, autoReturn: autoReturn);
         }
 
-        public void PlayAt(SoundNaming soundName, Vector3 Pos)
+        public void PlayAt(SoundNaming soundName, Vector3 absolutePos)
         {
-            AudioClip clip;
-            if (CurrentAudioClipDict.TryGetValue(soundName, out clip)){}
-            else if (SharedAudioClipDict.TryGetValue(soundName, out clip)){}
-            else 
+            AudioClip clip = GetClip(soundName);
+
+            if (clip == null)
             {
                 Debug.Log(soundName + " is not loaded");
                 return;
             }
-            AudioSource.PlayClipAtPoint(clip, Pos);
+
+            AudioSource.PlayClipAtPoint(clip, absolutePos);
         }
 
         public void PlayAt(SoundNaming soundName, Transform obj, Vector3 relativePos = new Vector3())
         {
-            AudioClip clip;
-            if (CurrentAudioClipDict.TryGetValue(soundName, out clip)){}
-            else if (SharedAudioClipDict.TryGetValue(soundName, out clip)){}
-            else 
+            AudioClip clip = GetClip(soundName);
+
+            if (clip == null)
             {
                 Debug.Log(soundName + " is not loaded");
                 return;
             }
+
             AudioSource.PlayClipAtPoint(clip, obj.position + relativePos);
         }
 
@@ -286,5 +315,20 @@ namespace Utility
             }
             return clip;
         }
+    }
+
+    [System.Serializable]
+    public class SoundEventArgs
+    {
+        public SoundPlayMode SoundPlayMode;
+        public SoundNaming SoundNaming;
+        public Transform Transform;
+        public Vector3 RelativePosition;
+        public bool AutoReturn;
+    }
+
+    [System.Serializable] public class SoundEvent : UnityEvent<SoundEventArgs>
+    {
+        public static SoundEvent soundEvent = new SoundEvent();
     }
 }
