@@ -7,8 +7,6 @@ public delegate void NetInitiater(Docsa.ProjectileNet net);
 
 namespace  Docsa.Character
 {
-    [RequireComponent(typeof(CircleCollider2D))]
-    [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterBehaviour : MonoBehaviour
     {
         public Character Character;
@@ -34,7 +32,12 @@ namespace  Docsa.Character
         {
             if (!transform.TryGetComponent<Rigidbody2D>(out rigid))
             {
-                rigid = gameObject.AddComponent<Rigidbody2D>();
+                rigid = transform.GetComponentInChildren<Rigidbody2D>();
+
+                if (rigid == null)
+                {
+                    rigid = gameObject.AddComponent<Rigidbody2D>();
+                }
             }
         }
 

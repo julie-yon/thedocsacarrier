@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Michsky.UI.ModernUIPack;
+using TMPro;
+
 namespace Docsa.Character
 {
     public class HPBar : MonoBehaviour
     {
-        public Slider Bar;
         public Character Character;
+        public SliderManager Bar;
+        public Vector3 RelativeHPBarPosition = Vector2.up;
         
         public int Value 
         {
@@ -17,17 +22,17 @@ namespace Docsa.Character
             }
             set
             {
-                float var = value / Character.MaxHP;
-                Bar.value = var;
+                Bar.mainSlider.value = value;
             }
         }
-        
-        void OnGUI()
+
+        void Awake()
         {
-            GUILayout.Label("HP : " + Value.ToString()); 
         }
 
-        
-
+        void Update()
+        {
+            transform.position = Character.transform.position + RelativeHPBarPosition;
+        }
     }
 }

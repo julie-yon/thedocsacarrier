@@ -17,7 +17,7 @@ namespace Docsa.Character
         public string Author;
         private Coroutine _chatCoroutine;
         private const int maxHP = 100;
-        private int currentHP = 100;
+        [SerializeField] private int currentHP = 100;
         public int MaxHP{
             get {return maxHP;}
         }
