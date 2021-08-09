@@ -91,6 +91,15 @@ namespace Docsa
             DocsaSakkiManager.instance.DocsaCanAttend = DocsaAttendToggle.isOn;
         }
 
+        public void OnExitButtonClicked()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
         public void RandomDistribute()
         {
             DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.DocsaNumber);

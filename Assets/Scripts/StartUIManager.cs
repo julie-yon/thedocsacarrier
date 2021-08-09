@@ -34,6 +34,7 @@ namespace Docsa
     #else
         public const string DefaultChannelName = "uzuhama";
         public const string DefaultUserName = "uzuhama";
+        public const string DefaultOAuth = "oauth:";
     #endif
         private bool _chnnelNameInputSelectedFirstTime = true;
         private bool _userNameInputSelectedFirstTime = true;
@@ -112,7 +113,6 @@ namespace Docsa
             TwitchChat.instance.OAuthAuthorization = OAuthInputField.text;
 
             LoadingNotification.OpenNotification();
-            LoadingProgressBar.gameObject.SetActive(true);
             StartCoroutine(LoadingText());
 
             TwitchChat.instance.ConnectCoroutine();
@@ -144,6 +144,7 @@ namespace Docsa
 
         IEnumerator LoadingText()
         {
+            LoadingProgressBar.gameObject.SetActive(true);
             string[] loadingTexts = new string[]{"Waiting.", "Waiting..", "Waiting...", "Waiting...."};
             int index = 0;
 
