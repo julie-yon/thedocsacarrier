@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-public delegate void NetInitiater(Docsa.ProjectileNet net);
+// public delegate void NetInitiater(Docsa.ProjectileNet net);
 
 namespace  Docsa.Character
 {
@@ -60,9 +60,12 @@ namespace  Docsa.Character
 
         public void ThrowNet(DocsaSakki targetDocsa)
         {
-            NetInitiater netInitiater = (net) => {
-                net.Target = targetDocsa;
-                net.Shooter = (Hunter)Character;
+            ObjectPool.Initiater netInitiater = (target) => {
+                if (target is ProjectileNet net)
+                {
+                    net.Target = targetDocsa;
+                    net.Shooter = (Hunter)Character;
+                }
             };
             ObjectPool.SPoolDict[PoolType.Net].InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
         }
