@@ -1,0 +1,352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &385333497676128258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5069417618964558650}
+  - component: {fileID: 4533207760794988588}
+  m_Layer: 0
+  m_Name: VolcanoStage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5069417618964558650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385333497676128258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5734436274514761968}
+  - {fileID: 1437660543627608889}
+  - {fileID: 1580498015648411772}
+  - {fileID: 1097405685071442246}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4533207760794988588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385333497676128258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977e2300cb6cd9e43823a5a5cbbd4e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageNumber: 0
+  ChunkList: []
+  CameraMoveSpeed: 1
+--- !u!1001 &1075948165436217339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5069417618964558650}
+    m_Modifications:
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: 99b641e7b9c12ae42a061da6595d9232,
+        type: 3}
+      propertyPath: m_Name
+      value: VolcanoChunk4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99b641e7b9c12ae42a061da6595d9232, type: 3}
+--- !u!4 &1097405685071442246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 131815569512097469, guid: 99b641e7b9c12ae42a061da6595d9232,
+    type: 3}
+  m_PrefabInstance: {fileID: 1075948165436217339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1308248594719352196
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5069417618964558650}
+    m_Modifications:
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: b8992b33fba2d4a49994bded72a009ca,
+        type: 3}
+      propertyPath: m_Name
+      value: VolcanoChunk2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8992b33fba2d4a49994bded72a009ca, type: 3}
+--- !u!4 &1437660543627608889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 131815569512097469, guid: b8992b33fba2d4a49994bded72a009ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1308248594719352196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1457832698940528321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5069417618964558650}
+    m_Modifications:
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: ec01857f3bf1c7945920fb5a472d2632,
+        type: 3}
+      propertyPath: m_Name
+      value: VolcanoChunk3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec01857f3bf1c7945920fb5a472d2632, type: 3}
+--- !u!4 &1580498015648411772 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 131815569512097469, guid: ec01857f3bf1c7945920fb5a472d2632,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457832698940528321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5638650662875266637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5069417618964558650}
+    m_Modifications:
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: 55e267bb41e13714db1e89441db8dad9,
+        type: 3}
+      propertyPath: m_Name
+      value: VolcanoChunk1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55e267bb41e13714db1e89441db8dad9, type: 3}
+--- !u!4 &5734436274514761968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 131815569512097469, guid: 55e267bb41e13714db1e89441db8dad9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5638650662875266637}
+  m_PrefabAsset: {fileID: 0}

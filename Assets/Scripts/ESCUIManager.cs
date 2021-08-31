@@ -102,14 +102,14 @@ namespace Docsa
 
         public void RandomDistribute()
         {
-            DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.DocsaNumber);
+            DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.DocsaCount);
             foreach (DocsaData data in datas)
             {
                 MoveDocsaDataCardTo(data, DocsaData.DocsaState.Docsa);
                 DocsaSakkiManager.instance.MoveDocsaDataTo(data, DocsaData.DocsaState.Docsa);
             }
 
-            datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.HunterNumber);
+            datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(StageManager.instance.CurrentStage.CurrentChunk.HunterCount);
             foreach (DocsaData data in datas)
             {
                 MoveDocsaDataCardTo(data, DocsaData.DocsaState.Hunter);

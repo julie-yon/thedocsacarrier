@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &804292432782169670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3978261886594322835}
+  m_Layer: 0
+  m_Name: DocsaPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3978261886594322835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804292432782169670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 131815569512097469}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594020203422482880
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +215,7 @@ GameObject:
   - component: {fileID: 131815569512097469}
   - component: {fileID: 5046509183517752271}
   m_Layer: 0
-  m_Name: Chunk 3
+  m_Name: SwampChunk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +237,8 @@ Transform:
   - {fileID: 2438801357912984835}
   - {fileID: 1525197178881445299}
   - {fileID: 5563227815470024179}
+  - {fileID: 3978261886594322835}
+  - {fileID: 4061969401863905888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,9 +256,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RightChunkTriggerObject: {fileID: 2723589744644136571}
   LeftChunkTriggerObject: {fileID: 1594020203422482880}
-  RightStartPosition: {fileID: 2438801357912984835}
-  LeftStartPosition: {fileID: 1525197178881445299}
+  _rightStartPosition: {fileID: 2438801357912984835}
+  _leftStartPosition: {fileID: 1525197178881445299}
   _defaultCameraPosition: {fileID: 5563227815470024179}
+  DocsaPositionObject: {fileID: 804292432782169670}
+  HunterPositionObject: {fileID: 5248655977202783051}
+  DrawGizmos: 1
+--- !u!1 &5248655977202783051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4061969401863905888}
+  m_Layer: 0
+  m_Name: HunterPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4061969401863905888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248655977202783051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 131815569512097469}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6599977145831171043
 GameObject:
   m_ObjectHideFlags: 0

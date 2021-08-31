@@ -42,11 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3073090633172308567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HowTo: 0
-  TargetComponent: {fileID: 3491884618204803287}
+  TargetComponent: {fileID: 4351410285622820648}
 --- !u!1 &7710778464871662729
 GameObject:
   m_ObjectHideFlags: 0

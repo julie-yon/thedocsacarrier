@@ -477,7 +477,6 @@ GameObject:
   - component: {fileID: 6883117979516266125}
   - component: {fileID: 6883117979516266112}
   - component: {fileID: 6883117979516266127}
-  - component: {fileID: 6883117979516266126}
   m_Layer: 0
   m_Name: ESCUIManager
   m_TagString: Untagged
@@ -534,21 +533,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883117979516266113}
   m_CullTransparentMesh: 0
---- !u!114 &6883117979516266126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883117979516266113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bcb8e9301b094245ba8dbbc023cc6b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetCanvas: {fileID: 6883117980193017075}
-  DragingUI: {fileID: 0}
-  LastDragUI: {fileID: 0}
 --- !u!1 &6883117979556762203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,11 +4169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6883117980507065987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HowTo: 0
-  TargetComponent: {fileID: 6883117980507065984}
+  TargetComponent: {fileID: 6883117980507065985}
 --- !u!1 &6883117980546593422
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7555748632058958999}
   - component: {fileID: 8999960332128031176}
-  - component: {fileID: 5612804084460261365}
+  - component: {fileID: 6724845722849295445}
+  - component: {fileID: 2844338672173453066}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -46,11 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageList:
   - {fileID: 385333497676128258, guid: d4b020fd97a3093459dce601046e984e, type: 3}
-  - {fileID: 385333497676128258, guid: fa84b9a1a1209364ebcd9aeadf0f301d, type: 3}
-  - {fileID: 385333497676128258, guid: b46f1cad7bb1486438361c0016b8acf0, type: 3}
-  - {fileID: 385333497676128258, guid: 780086a66ff467640b854d7368c2cf2c, type: 3}
+  - {fileID: 385333497676128258, guid: 95380f887ef664342b1006c1cd53e467, type: 3}
+  - {fileID: 385333497676128258, guid: bc9e3d64d0d90ab408602b3c4d2cbe0e, type: 3}
+  - {fileID: 385333497676128258, guid: 3387ab73831ff53419e1038f6a6bfa25, type: 3}
+  - {fileID: 385333497676128258, guid: d9b025cc41296a54491f21bbef398ec9, type: 3}
   CurrentStage: {fileID: 0}
---- !u!114 &5612804084460261365
+--- !u!114 &6724845722849295445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,8 +61,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983610774203883820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Script: {fileID: 11500000, guid: f8d9c09170d78cb40ab0a664bc509298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2844338672173453066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983610774203883820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HowTo: 1
-  TargetComponent: {fileID: 8999960332128031176}
+  TargetComponent: {fileID: 6724845722849295445}

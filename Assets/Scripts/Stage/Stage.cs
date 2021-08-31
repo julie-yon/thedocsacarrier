@@ -10,7 +10,6 @@ namespace Docsa
         public int StageNumber;
         public List<Chunk> ChunkList = new List<Chunk>();
         public float CameraMoveSpeed = 1;
-        public GameObject ChunkBoundary;
         private int _currentChunkNum = 1;
         private int _targetChunkNum = 0;
         public Chunk CurrentChunk
@@ -124,15 +123,14 @@ namespace Docsa
             CurrentChunk.gameObject.SetActive(false);
             if (toRight)
             {
-                UzuHama.Hama.transform.position = RightChunk.LeftStartPosition.position;
+                UzuHama.Hama.transform.position = RightChunk.LeftStartPosition;
             } else
             {
-                UzuHama.Hama.transform.position = LeftChunk.RightStartPosition.position;
+                UzuHama.Hama.transform.position = LeftChunk.RightStartPosition;
             }
 
             _currentChunkNum = _targetChunkNum;
             CurrentChunk.gameObject.SetActive(true);
-            ChunkBoundary.transform.position = new Vector3(CurrentChunk.DefaultCameraPosition.x, CurrentChunk.DefaultCameraPosition.y, 0);
             UnStopFieldObjects();
         }
 

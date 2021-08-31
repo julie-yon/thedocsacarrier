@@ -58,6 +58,7 @@ MonoBehaviour:
   resourcePathPrefix: Sounds/
   resourcePathsForEachStage:
   - 
+  WorldAudioSourceNumber: 5
   BackGroundMusicClip: {fileID: 8300000, guid: 754b1aa045376724797a2cc7574ae1fb, type: 3}
   CurrentRegion: 0
 --- !u!114 &5129253290946089199
@@ -69,7 +70,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8277436921423876643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e48af2653d1e8f4ca708b3555f6c13f, type: 3}
+  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HowTo: 1

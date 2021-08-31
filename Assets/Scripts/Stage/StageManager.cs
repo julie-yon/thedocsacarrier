@@ -24,7 +24,7 @@ namespace Docsa
             {
                 // print("ChunkTriggerEnter Right " + collider.name);
                 CurrentStage.GotoRightChunk();
-            } else 
+            } else if (collider.gameObject == CurrentStage.CurrentChunk.LeftChunkTriggerObject)
             {
                 // print("ChunkTriggerEnter Left " + collider.name);
                 CurrentStage.GotoLeftChunk();
@@ -40,7 +40,10 @@ namespace Docsa
         {
             GameObject stageObj = Instantiate(StageList[stageNum]);
 
-            Destroy(CurrentStage);
+            if (CurrentStage != null)
+            {
+                Destroy(CurrentStage.gameObject);
+            }
             CurrentStage = stageObj.GetComponent<Stage>();
 
             Camera.main.transform.position = stageObj.GetComponent<Stage>().ChunkList[1].DefaultCameraPosition;
@@ -50,7 +53,7 @@ namespace Docsa
 
             return CurrentStage;
         }
-        
+
         void LoadStage(Scene scene, LoadSceneMode mode)
         {
             switch (scene.name)

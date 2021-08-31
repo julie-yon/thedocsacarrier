@@ -101,11 +101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701301418193326755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4124e61b73f324baa6772301262d94, type: 3}
+  m_Script: {fileID: 11500000, guid: e1fe8ec49228c4a44b930f1234376350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasGroup: {fileID: 0}
   Rect: {fileID: 0}
+  SuccessfullyDroped: 0
+  _defaultPosition: {x: 0, y: 0}
 --- !u!223 &6924315497763409706
 Canvas:
   m_ObjectHideFlags: 0

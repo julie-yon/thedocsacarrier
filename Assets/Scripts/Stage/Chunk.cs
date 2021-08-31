@@ -13,20 +13,25 @@ namespace Docsa
         public static List<Hunter> ActiveHunterList = new List<Hunter>();
         public GameObject RightChunkTriggerObject;
         public GameObject LeftChunkTriggerObject;
-        public Transform RightStartPosition;
-        public Transform LeftStartPosition;
+        [SerializeField] private Transform _rightStartPosition;
+        [SerializeField] private Transform _leftStartPosition;
+        public Vector3 RightStartPosition {get {return _rightStartPosition.position;}}
+        public Vector3 LeftStartPosition {get {return _leftStartPosition.position;}}
         [SerializeField] Transform _defaultCameraPosition;
+        public GameObject DocsaPositionObject;
+        public GameObject HunterPositionObject;
+        public bool DrawGizmos = true;
         public Vector3 DefaultCameraPosition
         {
             get {return _defaultCameraPosition.position;}
         }
 
-        public int DocsaNumber
+        public int DocsaCount
         {
             get {return _docsaPosList.Count;}
         }
 
-        public int HunterNumber
+        public int HunterCount
         {
             get {return _hunterPosList.Count;}
         }
@@ -42,9 +47,10 @@ namespace Docsa
         void OnEnable()
         {
             GameObject objTemp;
-            if (_docsaPosList.Count == 0)
+            if (_docsaPosList.Count == 0 && DocsaPositionObject != null)
             {
-                _docsaPosList.AddRange(transform.Find("DocsaPos").GetComponentsInChildren<Transform>());
+                _docsaPosList.AddRange(DocsaPositionObject.GetComponentsInChildren<Transform>());
+                // Removing "DocsaPos" itself
                 _docsaPosList.RemoveAt(0);
             }
 
@@ -54,9 +60,10 @@ namespace Docsa
                 ActiveDocsaList.Add(objTemp.GetComponent<DocsaSakki>());
             }
 
-            if (_hunterPosList.Count == 0)
+            if (_hunterPosList.Count == 0 && HunterPositionObject != null)
             {
-                _hunterPosList.AddRange(transform.Find("HunterPos").GetComponentsInChildren<Transform>());
+                _hunterPosList.AddRange(HunterPositionObject.GetComponentsInChildren<Transform>());
+                // Removing "HunterPos" itself
                 _hunterPosList.RemoveAt(0);
             }
 
@@ -65,6 +72,8 @@ namespace Docsa
                 objTemp = ObjectPool.SPoolDict[PoolType.Hunter].Instantiate(docsa.position, docsa.rotation);
                 ActiveHunterList.Add(objTemp.GetComponent<Hunter>());
             }
+
+            UzuHama.Hama.transform.position = LeftStartPosition;
         }
 
         void OnDisable()
@@ -78,13 +87,16 @@ namespace Docsa
             ActiveHunterList.Clear();
         }
 
-        void OnDrawGizmosSelected()
+        void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(new Vector3(-8, 6, 0), new Vector3(8, 6, 0));
-            Gizmos.DrawLine(new Vector3(-8, -6, 0), new Vector3(-8, 6, 0));
-            Gizmos.DrawLine(new Vector3(8, -6, 0), new Vector3(-8, -6, 0));
-            Gizmos.DrawLine(new Vector3(8, 6, 0), new Vector3(8, -6, 0));
+            if (DrawGizmos)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(transform.position + new Vector3(-8, 6, 0), transform.position + new Vector3(8, 6, 0));
+                Gizmos.DrawLine(transform.position + new Vector3(-8, -6, 0), transform.position + new Vector3(-8, 6, 0));
+                Gizmos.DrawLine(transform.position + new Vector3(8, -6, 0), transform.position + new Vector3(-8, -6, 0));
+                Gizmos.DrawLine(transform.position + new Vector3(8, 6, 0), transform.position + new Vector3(8, -6, 0));
+            }
         }
     }
 }
