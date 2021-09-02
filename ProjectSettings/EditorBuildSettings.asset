@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: d484179e49d9ad04ca2a036fd5f9a58b
   - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: 348e0615d6eadc141972b9feea15ac4d
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: 97a332cb37943b04b80555c9105913fb
+  - enabled: 1
+    path: Assets/Scenes/Stage3.unity
+    guid: 392ad4afa9af71e438852964b486f51f
+  - enabled: 1
+    path: Assets/Scenes/Stage4.unity
+    guid: 9d0c6f7d9eda4284d91fd9f856c66307
   m_configObjects: {}

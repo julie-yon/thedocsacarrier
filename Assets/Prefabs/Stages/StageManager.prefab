@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7555748632058958999}
   - component: {fileID: 8999960332128031176}
-  - component: {fileID: 6724845722849295445}
   - component: {fileID: 2844338672173453066}
   m_Layer: 0
   m_Name: StageManager
@@ -52,18 +51,6 @@ MonoBehaviour:
   - {fileID: 385333497676128258, guid: 3387ab73831ff53419e1038f6a6bfa25, type: 3}
   - {fileID: 385333497676128258, guid: d9b025cc41296a54491f21bbef398ec9, type: 3}
   CurrentStage: {fileID: 0}
---- !u!114 &6724845722849295445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983610774203883820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d9c09170d78cb40ab0a664bc509298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2844338672173453066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,4 +64,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HowTo: 1
-  TargetComponent: {fileID: 6724845722849295445}
+  TargetComponent: {fileID: 8999960332128031176}
+  HashID: 

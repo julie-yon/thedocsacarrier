@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using Docsa.Character;
 using Utility;
+
+using Com.LuisPedroFonseca.ProCamera2D;
 
 namespace Docsa
 {
@@ -16,6 +19,42 @@ namespace Docsa
         {
             StageList.Insert(0, null);
             SceneManager.sceneLoaded += LoadStage;
+        }
+
+        void Start()
+        {
+            // SceneManager.sceneLoaded += LoadStage;
+        }
+
+        void LoadStage(Scene scene, LoadSceneMode mode)
+        {
+            Stage stage = null;
+            switch (scene.name)
+            {
+                case "Cave":
+                    stage = MakeStage(1);
+                break;
+                case "Stage1":
+                    stage = MakeStage(2);
+                break;
+                case "Stage2":
+                    stage = MakeStage(3);
+                break;
+                case "Stage3":
+                    stage = MakeStage(4);
+                break;
+                case "Stage4":
+                    stage = MakeStage(5);
+                break;
+            }
+
+            if (stage == null)
+            {
+                LogWriter.DebugWrite("Wrong loading scene");
+                print("Wrong loading scene");
+            }
+
+            stage.GetComponentInChildren<ProCamera2D>().AddCameraTarget(UzuHama.Hama.transform);
         }
 
         public void ChunkTriggerEnter(Collider2D collider)
@@ -46,34 +85,10 @@ namespace Docsa
             }
             CurrentStage = stageObj.GetComponent<Stage>();
 
-            Camera.main.transform.position = stageObj.GetComponent<Stage>().ChunkList[1].DefaultCameraPosition;
-
             GameObject MapHierarchy = GameObject.Find("====Map====");
             stageObj.transform.SetSiblingIndex(MapHierarchy.transform.GetSiblingIndex() + 1);
 
             return CurrentStage;
-        }
-
-        void LoadStage(Scene scene, LoadSceneMode mode)
-        {
-            switch (scene.name)
-            {
-                case "SampleScene":
-                    MakeStage(1);
-                break;
-                case "Stage1":
-                    MakeStage(1);
-                break;
-                case "Stage2":
-                    MakeStage(2);
-                break;
-                case "Stage3":
-                    MakeStage(3);
-                break;
-                case "Stage4":
-                    MakeStage(4);
-                break;
-            } 
         }
     }
 }
