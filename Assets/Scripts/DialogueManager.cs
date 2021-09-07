@@ -83,7 +83,7 @@ namespace Utility
             DialogueObject.SetActive(true);
         }
 
-        public void OnContinueButtonClicked()
+        public virtual void OnContinueButtonClicked()
         {
             _currentDialogueIndex++;
 
