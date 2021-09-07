@@ -54,7 +54,15 @@ namespace Docsa
                 print("Wrong loading scene");
             }
 
-            stage.GetComponentInChildren<ProCamera2D>().AddCameraTarget(UzuHama.Hama.transform);
+            CurrentStage = stage;
+            ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
+
+            AfterLoadStage(CurrentStage.StageNumber);
+        }
+
+        void AfterLoadStage(int stageNumber)
+        {
+            
         }
 
         public void ChunkTriggerEnter(Collider2D collider)
@@ -62,11 +70,17 @@ namespace Docsa
             if (collider.gameObject == CurrentStage.CurrentChunk.RightChunkTriggerObject)
             {
                 // print("ChunkTriggerEnter Right " + collider.name);
-                CurrentStage.GotoRightChunk();
+                if (CurrentStage.RightChunk != null)
+                {
+                    CurrentStage.MakeChunk(CurrentStage.RightChunk.ChunkNumber);
+                }
             } else if (collider.gameObject == CurrentStage.CurrentChunk.LeftChunkTriggerObject)
             {
                 // print("ChunkTriggerEnter Left " + collider.name);
-                CurrentStage.GotoLeftChunk();
+                if (CurrentStage.LeftChunk != null)
+                {
+                    CurrentStage.MakeChunk(CurrentStage.LeftChunk.ChunkNumber);
+                }
             }
         }
 

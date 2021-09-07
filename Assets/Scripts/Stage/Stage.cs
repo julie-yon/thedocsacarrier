@@ -48,95 +48,20 @@ namespace Docsa
                 CurrentChunk.LeftChunkTriggerObject = ChunkList[1].LeftChunkTriggerObject;
             }
         }
-        
-        public bool GotoRightChunk()
+
+        public Chunk MakeChunk(int chunkNumber)
         {
-            if (RightChunk == null)
+            Chunk chunk = null;
+
+            ChunkList[chunkNumber].gameObject.SetActive(true);
+
+            if (CurrentChunk != null)
             {
-                return false;
+                CurrentChunk.gameObject.SetActive(false);
             }
-            _targetChunkNum = _currentChunkNum+1;
+            _currentChunkNum = chunkNumber;
 
-            StartCoroutine(CameraMove(true));
-
-            return true;
-        }
-
-        public bool GotoLeftChunk()
-        {
-            if (LeftChunk == null)
-            {
-                return false;
-            }
-            _targetChunkNum = _currentChunkNum-1;
-
-            StartCoroutine(CameraMove(false));
-
-            return true;
-        }
-
-        private void StopFieldObjects()
-        {
-            Time.timeScale = 0;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        }
-
-        private void UnStopFieldObjects()
-        {
-            Time.timeScale = 1;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        }
-
-        IEnumerator CameraMove(bool toRight)
-        {
-            BeforeCameraMove(toRight);
-            // print("Camera Move Start");
-            bool moveFinished = false;
-            bool camPosisRightSide = false;
-
-            while(!moveFinished)
-            {
-                yield return new WaitForSecondsRealtime(0.02f);
-
-                Camera.main.transform.Translate(CameraMoveSpeed * (toRight ? Vector3.right : Vector3.left));
-                camPosisRightSide = Camera.main.transform.position.x > TargetChunk.DefaultCameraPosition.x;
-
-                if (toRight ? camPosisRightSide : !camPosisRightSide)
-                {
-                    moveFinished = true;
-                    Camera.main.transform.position = TargetChunk.DefaultCameraPosition;
-                    // UzuHama.Hama.transform.position = toRight ? TargetChunk.LeftStartPosition.position : TargetChunk.RightStartPosition.position;
-                }
-            }
-            // print("Camera Move Finish");
-            AfterCameraMove(toRight);
-        }
-
-        void BeforeCameraMove(bool toRight)
-        {
-            // print(TargetChunk);
-            StopFieldObjects();
-        }
-
-        void AfterCameraMove(bool toRight)
-        {
-            CurrentChunk.gameObject.SetActive(false);
-            if (toRight)
-            {
-                UzuHama.Hama.transform.position = RightChunk.LeftStartPosition;
-            } else
-            {
-                UzuHama.Hama.transform.position = LeftChunk.RightStartPosition;
-            }
-
-            _currentChunkNum = _targetChunkNum;
-            CurrentChunk.gameObject.SetActive(true);
-            UnStopFieldObjects();
-        }
-
-        public void Dispose()
-        {
-
+            return chunk;
         }
     }
 }

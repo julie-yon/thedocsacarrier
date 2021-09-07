@@ -21,6 +21,8 @@ namespace Docsa
         public GameObject DocsaPositionObject;
         public GameObject HunterPositionObject;
         public bool DrawGizmos = true;
+
+        public int ChunkNumber;
         public Vector3 DefaultCameraPosition
         {
             get {return _defaultCameraPosition.position;}

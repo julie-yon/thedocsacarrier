@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977e2300cb6cd9e43823a5a5cbbd4e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageNumber: 0
+  StageNumber: 1
   ChunkList: []
   CameraMoveSpeed: 1
 --- !u!1001 &4938330951758206971

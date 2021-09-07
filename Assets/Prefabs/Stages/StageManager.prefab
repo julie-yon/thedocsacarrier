@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowTo: 1
+  Uniqueness: 1
+  ReplaceAsNew: 0
   TargetComponent: {fileID: 8999960332128031176}
   HashID: 

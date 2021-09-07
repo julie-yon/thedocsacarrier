@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowTo: 0
-  TargetComponent: {fileID: 4351410285622820648}
+  Uniqueness: 1
+  ReplaceAsNew: 0
+  TargetComponent: {fileID: 7710778466522739285}
+  HashID: 
 --- !u!1 &7710778464871662729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7710778466522739286}
   - component: {fileID: 7710778466522739285}
+  - component: {fileID: 2861333932303127546}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1055,6 +1058,18 @@ MonoBehaviour:
   _currentDialogueIndex: -1
   _leftSpeakerImage: {fileID: 7710778464931329997}
   _rightSpeakerImage: {fileID: 7710778465055899822}
+--- !u!114 &2861333932303127546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710778466522739284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b0fae7b5d602e488c6a2922d944c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7710778466659143417
 GameObject:
   m_ObjectHideFlags: 0

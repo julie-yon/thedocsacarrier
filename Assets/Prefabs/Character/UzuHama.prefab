@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 1506719684482138303}
   - component: {fileID: 4190882396710115956}
   - component: {fileID: 1179424003080635770}
+  - component: {fileID: 6615575230278744819}
   m_Layer: 10
   m_Name: UzuHama
   m_TagString: Player
@@ -215,6 +216,7 @@ MonoBehaviour:
   Behaviour: {fileID: 1506719684482138303}
   GrabDocsaPosition: {fileID: 5526501725990355394}
   Author: 
+  currentHP: 100
   StandGameObject: {fileID: 7832594666863579603}
   CrouchGameObject: {fileID: 7832594667034539006}
   Baguni: {fileID: 4426317238617568939}
@@ -307,6 +309,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6615575230278744819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218567413887462736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Uniqueness: 1
+  ReplaceAsNew: 0
+  TargetComponent: {fileID: 4393282256154420535}
+  HashID: 
 --- !u!1 &7122369608344190489
 GameObject:
   m_ObjectHideFlags: 0
