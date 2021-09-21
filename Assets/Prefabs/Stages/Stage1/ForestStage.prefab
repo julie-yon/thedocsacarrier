@@ -117,6 +117,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForestChunk3
       objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: ff37e886231827b47a316183cde6df39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff37e886231827b47a316183cde6df39, type: 3}
 --- !u!4 &2576143847670420112 stripped
@@ -191,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ForestChunk2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: a625f4479328a25408c649f65e1a3af0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a625f4479328a25408c649f65e1a3af0, type: 3}
@@ -341,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ForestChunk4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053554883040354977, guid: e99bd64059ed38f4e9f79fd2f53f3845,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99bd64059ed38f4e9f79fd2f53f3845, type: 3}

@@ -10,10 +10,10 @@ namespace Docsa.Gimmick
             base.GimmickInvoke();
         }
 
-        protected override void GiveDamage()
-        {
-            base.GiveDamage();
-        }
+        // protected override void GiveDamage()
+        // {
+        //     base.GiveDamage();
+        // }
 
         // private void HitHama() //하마 공격
         // {
