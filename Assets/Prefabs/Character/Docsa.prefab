@@ -49,7 +49,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   MaxSpeed: 3
   MoveAcceleration: 1
   JumpPower: 3
+  isDie: 0
   _projectileEmitter: {fileID: 0}
 --- !u!114 &5449511815878439152
 MonoBehaviour:
@@ -187,4 +188,5 @@ MonoBehaviour:
   Behaviour: {fileID: 8811597169662723540}
   GrabDocsaPosition: {fileID: 0}
   Author: 
+  currentHP: 100
   OriginalParent: {fileID: 0}
