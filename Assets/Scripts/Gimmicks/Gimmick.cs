@@ -7,7 +7,14 @@ namespace Docsa.Gimmick
 {
     public class Gimmick : MonoBehaviour
     {
-        // Start is called before the first frame update
+        public int Damage;
+        protected LayerMask UzuhamaLayer;
+
+        void Awake()
+        {
+            UzuhamaLayer = LayerMask.GetMask("UzuHama");
+        }
+        
         protected virtual void GimmickInvoke()
         {
             
