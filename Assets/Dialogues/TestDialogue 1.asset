@@ -20,5 +20,6 @@ MonoBehaviour:
   - 'you '
   - he
   NextDialogue: {fileID: 11400000, guid: b8fcb0cafc7204f4e93fbe919ab2a60e, type: 2}
-  LeftSpeakerSprite: {fileID: 21300000, guid: b63f3f87a660f934b876a79430cdf872, type: 3}
-  RightSpeakerSprite: {fileID: 21300000, guid: cf257a1fa516d9a46849aadbb7f7def3, type: 3}
+  LeftSpeakerSprite: {fileID: -3116256357341093973, guid: c0a362a63dc6ce24ab7eb099678e9268,
+    type: 3}
+  RightSpeakerSprite: {fileID: 21300000, guid: 1b35732bebfbd224abab7e97ebeb6d35, type: 3}

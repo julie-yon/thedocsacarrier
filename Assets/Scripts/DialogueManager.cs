@@ -64,6 +64,12 @@ namespace Utility
         {
             get {return _currentDialogueIndex;}
         }
+
+        public bool isOpened
+        {
+            get {return DialogueObject.activeSelf;}
+        }
+
         public ButtonManagerBasic ContinueButton;
 
         [SerializeField] private DialogueScriptable _dialogue;
@@ -78,9 +84,27 @@ namespace Utility
             Dialogue = _dialogue;
         }
 
+        void Update()
+        {
+            if (isOpened)
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+
+                }
+
+            }
+        }
+
         public void OpenDialogue()
         {
+            Dialogue = Dialogue;
             DialogueObject.SetActive(true);
+        }
+
+        public void CloseDialogue()
+        {
+            DialogueObject.SetActive(false);
         }
 
         public virtual void OnContinueButtonClicked()

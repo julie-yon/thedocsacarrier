@@ -18,6 +18,6 @@ MonoBehaviour:
   - game
   - to
   - play
-  NextDialogue: {fileID: 11400000, guid: 0935be81c8321364a946fffb7955e729, type: 2}
-  LeftSpeakerSprite: {fileID: 21300000, guid: cf257a1fa516d9a46849aadbb7f7def3, type: 3}
-  RightSpeakerSprite: {fileID: 21300000, guid: b63f3f87a660f934b876a79430cdf872, type: 3}
+  NextDialogue: {fileID: 0}
+  LeftSpeakerSprite: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
+  RightSpeakerSprite: {fileID: 21300000, guid: b6b68c8c37d5cf1419267a80c426ac83, type: 3}
