@@ -27,7 +27,9 @@ namespace  Docsa.Character
         [Header("GameObjects Refs")]
         [SerializeField] Transform _projectileEmitter = null;
 
-        
+        new List<string> docsaAniArray;
+        Animation docsaAnim;
+
         void Awake()
         {
             if (!transform.TryGetComponent<Rigidbody2D>(out rigid))
@@ -51,10 +53,38 @@ namespace  Docsa.Character
 
         }
 
-        public void Attack()
+        public void Attack(Hunter targetHunter)
         {   
-            GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+            if (Character is UzuHama)
+            {
+                //미완성
+            }
+            else if (Character is DocsaSakki)
+            {
+                docsaAnim = gameObject.GetComponent<Animation>();
+                docsaAniArray = new List<string>();
+                foreach(AnimationState docaniState in docsaAnim)
+                {
+                    docsaAniArray.Add(docaniState.name);
+                }
+                docsaAnim.Play(docsaAniArray[0]);
+                docsaAnim.wrapMode = WrapMode.Once;
 
+            }
+        }
+
+        void SpawnWeapon()
+        {
+            if (Character is UzuHama)
+            {
+                GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+            } else if(Character is DocsaSakki)
+            {
+                // Todo 석주님이 할곳
+                // initializer before instantiate
+
+                GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Chim].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+            }
         }
 
 

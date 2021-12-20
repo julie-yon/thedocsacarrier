@@ -73,7 +73,7 @@ namespace Docsa.Character
         {
             if(Input.GetMouseButtonDown(0))
             {   
-                Behaviour.Attack();
+                Behaviour.Attack(null);
             }
         }
 

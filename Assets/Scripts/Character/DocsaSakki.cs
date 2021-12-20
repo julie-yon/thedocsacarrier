@@ -40,11 +40,6 @@ namespace Docsa.Character
             return !isOnHama;
         }
 
-        public void Chim(Hunter targetHunter)
-        {
-                   
-        }
-
         public void Kidnapped(Hunter catcher)
         {
             isKidnapped = true;

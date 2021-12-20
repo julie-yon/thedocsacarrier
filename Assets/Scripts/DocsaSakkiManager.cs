@@ -251,7 +251,7 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                ((DocsaSakki)docsaSakki.Character).Chim((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
+                ((DocsaSakki)docsaSakki.Character).Behaviour.Attack((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
             } else
             {
                 print("그런 독사 없음");
