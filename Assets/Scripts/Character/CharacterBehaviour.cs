@@ -68,6 +68,7 @@ namespace  Docsa.Character
                     docsaAniArray.Add(docaniState.name);
                 }
                 docsaAnim.Play(docsaAniArray[0]);
+                // Todo : 영현이 27일 할 곳
                 docsaAnim.wrapMode = WrapMode.Once;
 
             }
