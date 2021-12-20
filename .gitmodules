@@ -1,4 +1,0 @@
-[submodule "Assets/Scripts/Utility"]
-	path = Assets/Scripts/Utility
-	url = https://github.com/dkstlzu/Unity_Utility.git
-	branch = main
