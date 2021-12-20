@@ -27,7 +27,7 @@ namespace  Docsa.Character
         [Header("GameObjects Refs")]
         [SerializeField] Transform _projectileEmitter = null;
 
-        new List<string> docsaAniArray;
+        List<string> docsaAniArray;
         Animation docsaAnim;
 
         void Awake()
