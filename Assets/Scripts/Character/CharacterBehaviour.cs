@@ -27,11 +27,13 @@ namespace  Docsa.Character
         [Header("GameObjects Refs")]
         [SerializeField] Transform _projectileEmitter = null;
 
-        List<string> docsaAniArray;
-        Animation docsaAnim;
+        List<string> animationList;
+        Animation animationComponent;
+        Animator animator;
 
         void Awake()
         {
+            // Get RigidBody
             if (!transform.TryGetComponent<Rigidbody2D>(out rigid))
             {
                 rigid = transform.GetComponentInChildren<Rigidbody2D>();
@@ -41,6 +43,16 @@ namespace  Docsa.Character
                     rigid = gameObject.AddComponent<Rigidbody2D>();
                 }
             }
+
+            // Get and initialize Animation
+            animationComponent = gameObject.GetComponent<Animation>();
+            animationComponent.wrapMode = WrapMode.Once; // Docsa에 해당하는 WrapMode
+            animationList = new List<string>();
+            foreach(AnimationState docaniState in animationComponent)
+            {
+                animationList.Add(docaniState.name);
+            }
+            // animator = gameObject.GetComponent<Animator>();
         }
 
         public void LookAtMouse()
@@ -61,16 +73,14 @@ namespace  Docsa.Character
             }
             else if (Character is DocsaSakki)
             {
-                docsaAnim = gameObject.GetComponent<Animation>();
-                docsaAniArray = new List<string>();
-                foreach(AnimationState docaniState in docsaAnim)
+                if (!animationComponent.isPlaying)
                 {
-                    docsaAniArray.Add(docaniState.name);
+                    animationComponent.Play(animationList[0]);
                 }
-                docsaAnim.Play(docsaAniArray[0]);
-                // Todo : 영현이 27일 할 곳
-                docsaAnim.wrapMode = WrapMode.Once;
-
+                // animationComponent.Play("DocsaChim", 0, 0.25f);
+                // animationComponent.Play(animationList[0], PlayMode.StopSameLayer);
+                // animator.Play("DocsaChim",-1, 0f);
+                
             }
         }
 
