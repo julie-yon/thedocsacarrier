@@ -33,11 +33,13 @@ namespace Docsa
                 if (value)
                 {
                     Time.timeScale = 0;
-                    Core.instance.UserInputEnable = false;
+                    Core.instance.InputAsset.Player.Disable();
+                    Core.instance.InputAsset.UI.Enable();
                 } else
                 {
                     Time.timeScale = 1;
-                    Core.instance.UserInputEnable = true;
+                    Core.instance.InputAsset.Player.Enable();
+                    Core.instance.InputAsset.UI.Disable();
                     Reset();
                 }
             }

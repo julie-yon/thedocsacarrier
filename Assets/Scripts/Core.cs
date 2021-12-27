@@ -10,9 +10,9 @@ namespace Docsa
     public class Core : Singleton<Core>
     {
         public string Stage1GameSceneName = "Stage1";
-        public bool UserInputEnable = true;
         public string UzuhamaTwitchNickName = "우주하마";
         public HamaInput InputAsset;
+        public PerksManager PerksManager;
 
         void Awake()
         {
