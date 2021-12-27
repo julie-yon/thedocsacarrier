@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6856972361738242779}
   - component: {fileID: 4915335913004212023}
-  - component: {fileID: 882069231544145157}
   - component: {fileID: 8854472604999846730}
   m_Layer: 0
   m_Name: BasaltObject
@@ -84,24 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &882069231544145157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405352108052456898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1d847a635791d43b1354c9bc43af5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteList:
-  - {fileID: -8877451446526522181, guid: c76e1c3629b9a3b4a8689945b6739941, type: 3}
-  - {fileID: 6937144363919497440, guid: c76e1c3629b9a3b4a8689945b6739941, type: 3}
-  - {fileID: -2743655696378132, guid: c76e1c3629b9a3b4a8689945b6739941, type: 3}
-  - {fileID: 6004066285433737993, guid: c76e1c3629b9a3b4a8689945b6739941, type: 3}
-  SpriteRenderer: {fileID: 4915335913004212023}
 --- !u!61 &8854472604999846730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f286aaa65f7db8d4a90d65d7a75182bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
+  Direction: {x: -1, y: -1}
 --- !u!111 &5795837473701106296
 Animation:
   m_ObjectHideFlags: 0

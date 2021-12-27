@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630766381091026458}
-  - component: {fileID: 4222976535370788937}
   - component: {fileID: 5412007465755892153}
+  - component: {fileID: 4222976535370788937}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4222976535370788937
+--- !u!114 &5412007465755892153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8277436921423876643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88529f9dcb5720943a6ff52377bbface, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dabd7a6fa2d5e24fbdc1c189b51caad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SharedAudioClipDict:
@@ -56,11 +56,12 @@ MonoBehaviour:
   NamingInterval: 100
   SharingNamingRegion: 0
   resourcePathPrefix: Sounds/
-  resourcePathsForEachStage: []
+  resourcePathsForEachStage:
+  - 
   WorldAudioSourceNumber: 5
   BackGroundMusicClip: {fileID: 8300000, guid: 754b1aa045376724797a2cc7574ae1fb, type: 3}
   CurrentRegion: 0
---- !u!114 &5412007465755892153
+--- !u!114 &4222976535370788937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,10 +70,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8277436921423876643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953cb53106c876f4e962a8519f43e034, type: 3}
+  m_Script: {fileID: 11500000, guid: 73817cb4c827192449520e8cca1f8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Uniqueness: 1
   ReplaceAsNew: 0
-  TargetComponent: {fileID: 4222976535370788937}
+  TargetComponent: {fileID: 5412007465755892153}
   HashID: 

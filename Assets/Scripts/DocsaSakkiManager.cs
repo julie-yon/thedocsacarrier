@@ -163,6 +163,11 @@ namespace Docsa
 
         public void MoveDocsaDataTo(DocsaData from, DocsaData.DocsaState to)
         {
+            if (from == null)
+            {
+                return;
+            }
+            
             switch (from.State)
             {
                 case DocsaData.DocsaState.Waiting : 
@@ -204,6 +209,11 @@ namespace Docsa
             } else if (AttendingHunterDict.TryGetValue(author, out data))
             {
 
+            }
+
+            if (data == null)
+            {
+                Debug.LogWarning("You are trying to get null docsaData. Check if it was test");
             }
 
             return data;

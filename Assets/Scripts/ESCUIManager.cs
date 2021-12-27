@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 using Utility;
-using TwitchIRC;
-using Docsa.Character;
 
 using Michsky.UI.ModernUIPack; 
 using TMPro;
-
 
 namespace Docsa
 {
@@ -47,13 +43,16 @@ namespace Docsa
             }
         }
 
-        void Update()
+        void Start()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                isOn = !isOn;
-                ESCUIGameObject.SetActive(isOn);
-            }
+            Core.instance.InputAsset.Player.ESC.performed += OnESCPerformed;
+            Core.instance.InputAsset.UI.Cancel.performed += OnESCPerformed;
+        }
+
+        void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        {
+            isOn = !isOn;
+            ESCUIGameObject.SetActive(isOn);
         }
 
         public void Reset()

@@ -6,9 +6,16 @@ namespace Docsa.Gimmick
 {
     public class Basalt : Gimmick
     {
+        public Vector2 Direction;
         void Awake()
         {
+            base.Awake();
             Damage = 10;
+        }
+
+        void Update()
+        {
+            transform.Translate(Direction);
         }
         
         protected override void GimmickInvoke()

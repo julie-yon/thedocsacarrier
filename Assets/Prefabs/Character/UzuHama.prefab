@@ -175,7 +175,6 @@ GameObject:
   - component: {fileID: 4393282256154420535}
   - component: {fileID: 1506719684482138303}
   - component: {fileID: 4190882396710115956}
-  - component: {fileID: 6615575230278744819}
   m_Layer: 10
   m_Name: UzuHama
   m_TagString: Player
@@ -211,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8b66b21cc054b428a67b566ec59536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPBar: {fileID: 0}
+  HPBar: {fileID: 5932047441148248319}
   ChatText: {fileID: 0}
   Behaviour: {fileID: 1506719684482138303}
   GrabDocsaPosition: {fileID: 5526501725990355394}
@@ -259,22 +258,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6615575230278744819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218567413887462736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  ReplaceAsNew: 0
-  TargetComponent: {fileID: 4393282256154420535}
-  HashID: 
 --- !u!1 &7122369608344190489
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +780,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1257fb219fd5a7146a5e55e18e007a24, type: 3}
+--- !u!114 &5932047441148248319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6028283938760804963, guid: 1257fb219fd5a7146a5e55e18e007a24,
+    type: 3}
+  m_PrefabInstance: {fileID: 142454901886143132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b5298edb16c91f4fbee60ce642699c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1212775045128224705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1238135305601332573, guid: 1257fb219fd5a7146a5e55e18e007a24,
@@ -890,14 +885,18 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.055
       objectReference: {fileID: 0}
+    - target: {fileID: 7464795858087246749, guid: df815cc6008e8ca499b597393fc0261f,
+        type: 3}
+      propertyPath: BaguniAction.m_Id
+      value: 60459404-5265-42bf-82e6-be7ee1cba500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464795858087246749, guid: df815cc6008e8ca499b597393fc0261f,
+        type: 3}
+      propertyPath: BaguniAction.m_Name
+      value: Baguni
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df815cc6008e8ca499b597393fc0261f, type: 3}
---- !u!4 &5526501725990355394 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1605300521954512116, guid: df815cc6008e8ca499b597393fc0261f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6554206799638302006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4426317238617568939 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7464795858087246749, guid: df815cc6008e8ca499b597393fc0261f,
@@ -913,6 +912,12 @@ MonoBehaviour:
 --- !u!4 &7832594666458477079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3911322410619797281, guid: df815cc6008e8ca499b597393fc0261f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6554206799638302006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5526501725990355394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1605300521954512116, guid: df815cc6008e8ca499b597393fc0261f,
     type: 3}
   m_PrefabInstance: {fileID: 6554206799638302006}
   m_PrefabAsset: {fileID: 0}

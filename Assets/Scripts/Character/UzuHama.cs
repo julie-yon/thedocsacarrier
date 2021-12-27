@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.InputSystem;
+using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
+
 namespace Docsa.Character
 {
     public class UzuHama : Character
@@ -17,85 +20,58 @@ namespace Docsa.Character
 
         bool isStand = true;
 
-        void Crouch()
-        {
-            CrouchGameObject.SetActive(true);
-            StandGameObject.SetActive(false);
-            isStand = false;
-        }
+        float moveDirection;
 
-        void Stand()
+        void Start()
         {
-            StandGameObject.SetActive(true);
-            CrouchGameObject.SetActive(false);
-            isStand = true;
-        }
-
-        void FixedUpdate()
-        {
-            if (Core.instance.UserInputEnable)
-            {
-                if (isStand)
-                {
-                    if(Input.GetKeyDown(KeyCode.S)) Crouch();
-                } else
-                {
-                    if(Input.GetKeyUp(KeyCode.S)) Stand();
-                }
-                HammaMove();
-            }
+            Core.instance.InputAsset.Player.Move.performed += HamaMove;
+            Core.instance.InputAsset.Player.Move.canceled += HamaMove;
+            Core.instance.InputAsset.Player.Jump.performed += HamaJump;
+            Core.instance.InputAsset.Player.Crawl.performed += CrawlOnOff;
+            Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
         }
 
         void Update()
         {
-            if (Core.instance.UserInputEnable)
+            Behaviour.LookAtMouse();
+        }
+
+        void FixedUpdate()
+        {
+            Behaviour.Move(moveDirection);
+        }
+
+        void CrawlOnOff(Context context)
+        {
+            CrouchGameObject.SetActive(isStand);
+            StandGameObject.SetActive(!isStand);
+            isStand = !isStand;
+        }
+
+        void HamaMove(Context context)
+        {
+            if (context.performed)
             {
-                HamaAttack();
-                Behaviour.LookAtMouse();
+                moveDirection = context.ReadValue<float>();
+            } else if (context.canceled)
+            {
+                moveDirection = 0;
             }
         }
 
-        public void HammaMove()
+        void HamaJump(Context context)
         {
-            if(Input.GetKey(KeyCode.A)|Input.GetKey(KeyCode.D))
-            {
-                float moveDirection = Input.GetAxisRaw("Horizontal");   
-                Behaviour.Move(moveDirection);
-            }
-
-            if(Input.GetButtonDown("Jump"))
-            {
-                Behaviour.Jump();
-            }
+            Behaviour.Jump();
         }
 
-        public void HamaAttack()
+        void HamaAttack(Context context)
         {
-            if(Input.GetMouseButtonDown(0))
-            {   
-                Behaviour.Attack(null);
-            }
+            Behaviour.Attack(null);
         }
 
         public void PlayBounceAnimation()
         {
 
-        }
-        
-        void OnTriggerEnter2D(Collider2D collider)
-        {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
-            {
-                StageManager.instance.ChunkTriggerEnter(collider);
-            }
-        }
-
-        void OnTriggerExit2D(Collider2D collider)
-        {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("ChunkTrigger"))
-            {
-                StageManager.instance.ChunkTriggerExit(collider);
-            }
         }
     }
 }

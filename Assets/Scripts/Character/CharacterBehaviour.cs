@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-// public delegate void NetInitiater(Docsa.ProjectileNet net);
+using UnityEngine.InputSystem;
 
 namespace  Docsa.Character
 {
@@ -45,20 +45,21 @@ namespace  Docsa.Character
             }
 
             // Get and initialize Animation
-            animationComponent = gameObject.GetComponent<Animation>();
-            animationComponent.wrapMode = WrapMode.Once; // Docsa에 해당하는 WrapMode
-            animationList = new List<string>();
-            foreach(AnimationState docaniState in animationComponent)
+            if (gameObject.TryGetComponent<Animation>(out animationComponent))
             {
-                animationList.Add(docaniState.name);
+                animationComponent.wrapMode = WrapMode.Once; // Docsa에 해당하는 WrapMode
+                animationList = new List<string>();
+                foreach(AnimationState docaniState in animationComponent)
+                {
+                    animationList.Add(docaniState.name);
+                }
             }
-            // animator = gameObject.GetComponent<Animator>();
         }
 
         public void LookAtMouse()
         {
             // Behaviour에 있어야 할까?
-            Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector2 t_direction = new Vector2(t_mousePos.x - _projectileEmitter.position.x ,
                                         t_mousePos.y - _projectileEmitter.position.y); //무기가 바라볼 방향 설정(마우스 클릭한 곳에서 우주하마의 위치 빼기)
             _projectileEmitter.right = t_direction;

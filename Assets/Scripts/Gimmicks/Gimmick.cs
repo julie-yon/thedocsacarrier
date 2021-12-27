@@ -10,7 +10,7 @@ namespace Docsa.Gimmick
         public int Damage;
         protected LayerMask UzuhamaLayer;
 
-        void Awake()
+        protected void Awake()
         {
             UzuhamaLayer = LayerMask.GetMask("UzuHama");
         }

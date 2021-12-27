@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueObject: {fileID: 7710778465006240847}
   ContinueButton: {fileID: 7710778465229412472}
-  _dialogue: {fileID: 11400000, guid: 0935be81c8321364a946fffb7955e729, type: 2}
+  _dialogue: {fileID: 11400000, guid: 109751f313367c343883e62dc2656073, type: 2}
   DialogueNameUI: {fileID: 7710778466246403251}
   DialogueMessageUI: {fileID: 7710778465916684185}
   _currentDialogueIndex: -1
