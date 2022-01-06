@@ -41,25 +41,32 @@ namespace Docsa
                 break;
 
                 case DocsaTwitchCommand.ATTEND:
+                if (PerkManager.instance.Data.ViewerAttendPerk.enabled)
                 Attend(commandData);
                 break;
                 case DocsaTwitchCommand.EXIT:
+                if (PerkManager.instance.Data.ViewerExitPerk.enabled)
                 Exit(commandData);
                 break;
                 case DocsaTwitchCommand.STARLIGHT:
+                if (PerkManager.instance.Data.StarLightPerk.enabled)
                 StarRain();
                 break;
 
                 case DocsaTwitchCommand.DOCSA_ATTACK:
+                if (PerkManager.instance.Data.DocsaChimPerk.enabled)
                 DocsaChim(commandData);
                 break;
                 case DocsaTwitchCommand.DOCSA_JUMP:
+                if (PerkManager.instance.Data.DocsaJumpPerk.enabled)
                 DocsaJump(commandData);
                 break;
                 case DocsaTwitchCommand.HUNTER_NET:
+                if (PerkManager.instance.Data.HunterNetPerk.enabled)
                 HunterNet(commandData);
                 break;
                 case DocsaTwitchCommand.HUNTER_ATTACK:
+                if (PerkManager.instance.Data.HunterAttackPerk.enabled)
                 HunterAttack(commandData);
                 break;
 
