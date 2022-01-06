@@ -41,26 +41,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8277436921423876643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dabd7a6fa2d5e24fbdc1c189b51caad, type: 3}
+  m_Script: {fileID: 11500000, guid: 40622c4c016b2c44e901dc29749bbc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SharedAudioClipDict:
-    keys: 
-    values: []
-  CurrentAudioClipDict:
-    keys: 
-    values: []
-  playingAudioSourceDict:
-    keys: 
-    values: []
   NamingInterval: 100
   SharingNamingRegion: 0
   resourcePathPrefix: Sounds/
-  resourcePathsForEachStage:
-  - 
-  WorldAudioSourceNumber: 5
-  BackGroundMusicClip: {fileID: 8300000, guid: 754b1aa045376724797a2cc7574ae1fb, type: 3}
+  WorldAudioSourceCount: 5
+  BackGroundMusicClip: {fileID: 0}
   CurrentRegion: 0
+  SharedAudioClipDict:
+    DocsaSoundNaming: 
+    AudioClip: []
+  CurrentAudioClipDict:
+    DocsaSoundNaming: 
+    AudioClip: []
+  PlayingAudioSourceDict:
+    DocsaSoundNaming: 
+    AudioSource: []
+  ResourcePathsForEachScene:
+  - String1: 
+    String2: 
 --- !u!114 &4222976535370788937
 MonoBehaviour:
   m_ObjectHideFlags: 0
