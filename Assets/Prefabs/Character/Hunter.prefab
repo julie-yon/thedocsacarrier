@@ -393,7 +393,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1457033319808106503}
     - target: {fileID: 8474825399195987977, guid: 1257fb219fd5a7146a5e55e18e007a24,
         type: 3}
       propertyPath: m_AnchorMax.x

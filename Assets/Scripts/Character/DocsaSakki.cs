@@ -11,7 +11,7 @@ namespace Docsa.Character
         bool isRescued;
         bool isKidnapped;
 
-        protected void Awake()
+        protected override void Awake()
         {
             base.Awake();
             OriginalParent = transform.parent;

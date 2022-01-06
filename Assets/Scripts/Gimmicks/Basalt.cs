@@ -7,6 +7,7 @@ namespace Docsa.Gimmick
     public class Basalt : Gimmick
     {
         public Vector2 Direction;
+        #pragma warning disable 0108
         void Awake()
         {
             base.Awake();

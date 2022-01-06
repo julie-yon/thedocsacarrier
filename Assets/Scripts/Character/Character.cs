@@ -37,7 +37,7 @@ namespace Docsa.Character
             }
         }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             CurrentHP = currentHP;
         }
