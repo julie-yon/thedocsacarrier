@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Com.LuisPedroFonseca.ProCamera2D
 {
@@ -54,7 +55,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
         void ApplyInfluence(float deltaTime)
         {
-            var mousePosViewport = ProCamera2D.GameCamera.ScreenToViewportPoint(Input.mousePosition);
+            var mousePosViewport = ProCamera2D.GameCamera.ScreenToViewportPoint(Mouse.current.position.ReadValue());
 
             var mousePosViewportH = mousePosViewport.x.Remap(0, 1, -1, 1);
             var mousePosViewportV = mousePosViewport.y.Remap(0, 1, -1, 1);
