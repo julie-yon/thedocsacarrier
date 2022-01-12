@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Docsa.Character;
 
+using Utility;
+
 namespace Docsa
 {
     public class Stage : MonoBehaviour
@@ -53,12 +55,20 @@ namespace Docsa
         {
             Chunk chunk = null;
 
-            ChunkList[chunkNumber].gameObject.SetActive(true);
+            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Chim).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Hunter).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Net).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Weapon).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.VolcanicAsh).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).ReturnAll();
 
             if (CurrentChunk != null)
             {
                 CurrentChunk.gameObject.SetActive(false);
             }
+
+            ChunkList[chunkNumber].gameObject.SetActive(true);
             _currentChunkNum = chunkNumber;
 
             return chunk;

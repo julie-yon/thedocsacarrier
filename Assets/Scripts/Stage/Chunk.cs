@@ -80,25 +80,8 @@ namespace Docsa
 
         void OnDisable()
         {
-            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).ReturnAll();
-            ObjectPool.GetOrCreate(DocsaPoolType.Hunter).ReturnAll();
-            ObjectPool.GetOrCreate(DocsaPoolType.Weapon).ReturnAll();
-            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).ReturnAll();
-            
             ActiveDocsaList.Clear();
             ActiveHunterList.Clear();
-        }
-
-        void OnDrawGizmos()
-        {
-            if (DrawGizmos)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawLine(transform.position + new Vector3(-8, 6, 0), transform.position + new Vector3(8, 6, 0));
-                Gizmos.DrawLine(transform.position + new Vector3(-8, -6, 0), transform.position + new Vector3(-8, 6, 0));
-                Gizmos.DrawLine(transform.position + new Vector3(8, -6, 0), transform.position + new Vector3(-8, -6, 0));
-                Gizmos.DrawLine(transform.position + new Vector3(8, 6, 0), transform.position + new Vector3(8, -6, 0));
-            }
         }
     }
 }
