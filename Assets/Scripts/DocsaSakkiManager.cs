@@ -260,7 +260,7 @@ namespace Docsa
 
             print("WorldStarPos" + WorldStarPos);
 
-            ObjectPool.SPoolDict[PoolType.StarRain].Instantiate(WorldStarPos, Quaternion.identity);
+            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).Instantiate(WorldStarPos, Quaternion.identity);
         }
 
         void DocsaChim(TwitchCommandData commandData)

@@ -89,13 +89,13 @@ namespace  Docsa.Character
         {
             if (Character is UzuHama)
             {
-                GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Weapon].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+                GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Weapon).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
             } else if(Character is DocsaSakki)
             {
                 // Todo 석주님이 할곳
                 // initializer before instantiate
 
-                GameObject t_weapon = ObjectPool.SPoolDict[PoolType.Chim].Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+                GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Chim).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
             }
         }
 
@@ -103,13 +103,14 @@ namespace  Docsa.Character
         public void ThrowNet(DocsaSakki targetDocsa)
         {
             ObjectPool.Initiater netInitiater = (target) => {
-                if (target is ProjectileNet net)
+                if (target is GameObject gameObject)
                 {
+                    ProjectileNet net = gameObject.GetComponent<ProjectileNet>();
                     net.Target = targetDocsa;
                     net.Shooter = (Hunter)Character;
                 }
             };
-            ObjectPool.SPoolDict[PoolType.Net].InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
+            ObjectPool.GetOrCreate(DocsaPoolType.Net).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
         }
 
         public void Jump()

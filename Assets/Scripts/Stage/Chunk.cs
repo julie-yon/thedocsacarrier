@@ -58,7 +58,7 @@ namespace Docsa
 
             foreach (Transform docsa in _docsaPosList)
             {
-                objTemp = ObjectPool.SPoolDict[PoolType.Docsa].Instantiate(docsa.position, docsa.rotation);
+                objTemp = ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(docsa.position, docsa.rotation);
                 ActiveDocsaList.Add(objTemp.GetComponent<DocsaSakki>());
             }
 
@@ -71,7 +71,7 @@ namespace Docsa
 
             foreach (Transform docsa in _docsaPosList)
             {
-                objTemp = ObjectPool.SPoolDict[PoolType.Hunter].Instantiate(docsa.position, docsa.rotation);
+                objTemp = ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(docsa.position, docsa.rotation);
                 ActiveHunterList.Add(objTemp.GetComponent<Hunter>());
             }
 
@@ -80,10 +80,10 @@ namespace Docsa
 
         void OnDisable()
         {
-            ObjectPool.SPoolDict[PoolType.Docsa].ReturnAll();
-            ObjectPool.SPoolDict[PoolType.Hunter].ReturnAll();
-            ObjectPool.SPoolDict[PoolType.Weapon].ReturnAll();
-            ObjectPool.SPoolDict[PoolType.StarRain].ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Hunter).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Weapon).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).ReturnAll();
             
             ActiveDocsaList.Clear();
             ActiveHunterList.Clear();

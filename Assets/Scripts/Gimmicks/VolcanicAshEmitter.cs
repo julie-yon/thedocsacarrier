@@ -20,7 +20,7 @@ namespace Docsa.Gimmick
         {
             Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(2.0f, Random.Range(Min, Max) , Camera.main.nearClipPlane)); // VolcanicAsh가 생성될 좌표
              
-            return ObjectPool.SPoolDict[PoolType.VolcanicAsh].Instantiate(pos, Quaternion.identity).GetComponent<VolcanicAsh>();  //첫번째로 생성되는 VolcanicAsh
+            return ObjectPool.GetOrCreate(DocsaPoolType.VolcanicAsh).Instantiate(pos, Quaternion.identity).GetComponent<VolcanicAsh>();  //첫번째로 생성되는 VolcanicAsh
         }
 
         
