@@ -67,8 +67,6 @@ namespace TwitchIRC
 
         IEnumerator ConnectMethod()
         {
-            StartUIManager.instance.Checker = true;
-
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
             _twitchReader = new StreamReader(_twitchClient.GetStream());
             _twitchWriter = new StreamWriter(_twitchClient.GetStream());
@@ -97,8 +95,6 @@ namespace TwitchIRC
         public async Task ConnectAsync()
         {
             await Task.Run(() => {
-            StartUIManager.instance.Checker = true;
-
             _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
             _twitchReader = new StreamReader(_twitchClient.GetStream());
             _twitchWriter = new StreamWriter(_twitchClient.GetStream());
