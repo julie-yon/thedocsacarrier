@@ -7,9 +7,13 @@ namespace Docsa.Character
     public class DocsaSakki : Character
     {
         public Transform OriginalParent;
-        bool isOnHama = true;
-        bool isRescued;
+        bool isOnHama;
         bool isKidnapped;
+
+        public bool CanBeTargetDocsa
+        {
+            get {return !isOnHama;}
+        }
 
         protected override void Awake()
         {
@@ -17,28 +21,12 @@ namespace Docsa.Character
             OriginalParent = transform.parent;
         }
 
-        void Update()
-        {
-            if(isRescued) Rescued();
-        }
         void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.tag.Equals("Player"))
             {
-                isRescued = true;
                 Rescued();
-                
             }
-        }
-
-        void OnDisable()
-        {
-            transform.SetParent(OriginalParent);
-        }
-
-        public bool CanBeTargetDocsa()
-        {
-            return !isOnHama;
         }
 
         public void Kidnapped(Hunter catcher)
@@ -51,11 +39,6 @@ namespace Docsa.Character
         public void Rescued()
         {
             // Docsa가 UzuHama에 충돌되면, baguni로 이동
-        }
-
-        public void DocsaDie()
-        {
-            Behaviour.Die();
         }
 
     }

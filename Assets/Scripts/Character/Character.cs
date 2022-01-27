@@ -10,43 +10,60 @@ namespace Docsa.Character
     [RequireComponent(typeof(CharacterBehaviour))]
     public class Character : MonoBehaviour
     {
-        public HPBar HPBar;
-        public TextMeshProUGUI ChatText;
+        public string ViewerName;
         public CharacterBehaviour Behaviour;
         public Transform GrabDocsaPosition;
-        public string Author;
-        private Coroutine _chatCoroutine;
-        private const int maxHP = 100;
-        [SerializeField] private int currentHP = 100;
+        public bool isDie = false;
+        
+        public TextMeshProUGUI ChatText;
+
+        [Header("HP Stats")]
+        [Space(10)]
+        [SerializeField] private HPBar HPBar;
+        [SerializeField] private int _maxHP;
+        [SerializeField] private int _currentHP;
         public int MaxHP{
-            get {return maxHP;}
+            get {return _maxHP;}
+            set {_maxHP = value;}
         }
 
         public int CurrentHP{
-            get {return currentHP;}
+            get {return _currentHP;}
             private set {
-                currentHP = value;
+                _currentHP = value;
                 if (HPBar != null)
                 {
                     HPBar.Value = value;
                 }
-                if (currentHP <= 0)
+                if (_currentHP <= 0)
                 {
                     Behaviour.Die();
                 }
             }
         }
 
+        protected virtual void Reset()
+        {
+            Behaviour = GetComponent<CharacterBehaviour>();
+            Behaviour.Character = this;
+            _maxHP = 100;
+            _currentHP = 100;
+        }
+
         protected virtual void Awake()
         {
-            CurrentHP = currentHP;
+            CurrentHP = _currentHP;
         }
 
         public void GetDamage(int damageValue)
         {   
-            CurrentHP -= damageValue ; 
+            CurrentHP -= damageValue;
         }
 
+
+        private Coroutine _chatCoroutine;
+        private bool _coroutineIsPlaying;
+        private string _delayedChat;
         public void SetChatData(string chat, float time = 2f)
         {
             if (_chatCoroutine != null)
@@ -59,9 +76,22 @@ namespace Docsa.Character
 
         IEnumerator SetChatDataCoroutine(string chat, float time=2f)
         {
+            if (_coroutineIsPlaying) 
+            {
+                if (_delayedChat == string.Empty)
+                    _delayedChat = chat;
+                yield break;
+            }
+            
             ChatText.text = chat;
+            _coroutineIsPlaying = true;
             yield return new WaitForSeconds(time);
-            ChatText.text = "";
+
+            if (_delayedChat != string.Empty)
+            {
+                _chatCoroutine = StartCoroutine(SetChatDataCoroutine(_delayedChat, time));
+                _delayedChat = string.Empty;
+            }
         }
     }
 

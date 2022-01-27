@@ -132,8 +132,8 @@ namespace Docsa
 
                 if (DocsaCanAttend)
                 {
-                    docsa.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingDocsaDict.Add(docsa.Author, data);
+                    docsa.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                    AttendingDocsaDict.Add(docsa.ViewerName, data);
                 }
 
                 return;
@@ -147,8 +147,8 @@ namespace Docsa
 
                 if (DocsaCanAttend)
                 {
-                    hunter.Author = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingHunterDict.Add(hunter.Author, data);
+                    hunter.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                    AttendingHunterDict.Add(hunter.ViewerName, data);
                 }
 
                 return;
@@ -268,7 +268,7 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                ((DocsaSakki)docsaSakki.Character).Behaviour.Attack((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
+                // ((DocsaSakki)docsaSakki.Character).Behaviour.Attack((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
             } else
             {
                 print("그런 독사 없음");

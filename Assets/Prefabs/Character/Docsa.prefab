@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 605625861405543741}
   m_LocalRotation: {x: 0, y: 0, z: 0.9994191, w: -0.034081277}
   m_LocalPosition: {x: 0.084808476, y: 0.006847532, z: 0.03}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2142250798985003588}
   m_Father: {fileID: 693556248738903125}
@@ -354,7 +354,7 @@ MonoBehaviour:
   - {fileID: 7914079710387730320}
   m_Bounds:
     m_Center: {x: 0.2501948, y: -1.6479107, z: 0.07}
-    m_Extent: {x: 0.04260759, y: 0.04974568, z: 0.020000003}
+    m_Extent: {x: 0.042607576, y: 0.04974568, z: 0.020000003}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2366628369105597964
@@ -596,9 +596,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3528776438930646067}
-  - component: {fileID: 2240407676656696829}
-  - component: {fileID: 3693935793030086912}
-  - component: {fileID: 8828605656174373556}
+  - component: {fileID: 8434008634645946845}
+  - component: {fileID: 8951712354108429644}
+  - component: {fileID: 2254306061625169302}
+  - component: {fileID: 8703809158288453552}
   m_Layer: 13
   m_Name: Docsa
   m_TagString: Untagged
@@ -630,7 +631,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &2240407676656696829
+--- !u!50 &8434008634645946845
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723220625370547380}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!111 &8951712354108429644
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,14 +662,12 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 59ede0f7732053a4ab21378ec24e344e, type: 2}
-  - {fileID: 7400000, guid: 58bb57b9908f50d4dac5b8854154b207, type: 2}
-  m_WrapMode: 0
+  m_Animations: []
+  m_WrapMode: 1
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &3693935793030086912
+--- !u!114 &2254306061625169302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -659,13 +679,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2027b001fe05bdc4cb4bff126cb35e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 8828605656174373556}
+  Character: {fileID: 8703809158288453552}
   MaxSpeed: 3
   MoveAcceleration: 1
   JumpPower: 3
-  isDie: 0
+  rigid: {fileID: 8434008634645946845}
+  WeaponType: 6
   _projectileEmitter: {fileID: 7914079710387730320}
---- !u!114 &8828605656174373556
+--- !u!114 &8703809158288453552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,12 +698,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68af0974b23f73442ba6b86ddf27090c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPBar: {fileID: 6785362764059779661}
+  ViewerName: 
+  Behaviour: {fileID: 2254306061625169302}
+  GrabDocsaPosition: {fileID: 0}
+  isDie: 0
   ChatText: {fileID: 0}
-  Behaviour: {fileID: 3693935793030086912}
-  GrabDocsaPosition: {fileID: 7830992134497969767}
-  Author: 
-  currentHP: 100
+  HPBar: {fileID: 6785362764059779661}
+  _maxHP: 100
+  _currentHP: 100
   OriginalParent: {fileID: 0}
 --- !u!1 &4501969851396127303
 GameObject:
@@ -1085,7 +1108,7 @@ MonoBehaviour:
   - {fileID: 2142250798985003588}
   m_Bounds:
     m_Center: {x: 0.24974726, y: -1.6544104, z: 0.089999996}
-    m_Extent: {x: 0.043573067, y: 0.059134305, z: 0.04}
+    m_Extent: {x: 0.043573067, y: 0.059134364, z: 0.04}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7131941589602832793
@@ -1412,7 +1435,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 8828605656174373556}
+      objectReference: {fileID: 8703809158288453552}
     - target: {fileID: 6071699224304348917, guid: 1257fb219fd5a7146a5e55e18e007a24,
         type: 3}
       propertyPath: m_Layer

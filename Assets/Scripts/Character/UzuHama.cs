@@ -33,7 +33,7 @@ namespace Docsa.Character
 
         void Update()
         {
-            Behaviour.LookAtMouse();
+            Behaviour.AimToMouse();
         }
 
         void FixedUpdate()
@@ -66,7 +66,7 @@ namespace Docsa.Character
 
         void HamaAttack(Context context)
         {
-            Behaviour.Attack(null);
+            Behaviour.Attack(Mouse.current.position.ReadValue());
         }
 
         public void PlayBounceAnimation()

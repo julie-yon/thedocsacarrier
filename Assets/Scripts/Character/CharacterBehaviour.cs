@@ -7,56 +7,49 @@ using UnityEngine.InputSystem;
 
 namespace  Docsa.Character
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Animation))]
     public class CharacterBehaviour : MonoBehaviour
     {
         public Character Character;
 
         [Header("Behaviour stats")]
-        public float MaxSpeed = 3;
-        public float MoveAcceleration = 1;
-        public float JumpPower = 3;
-        public bool isDie = false;
-        Rigidbody2D rigid;
+        public float MaxSpeed;
+        public float MoveAcceleration;
+        public float JumpPower;
+
+        [SerializeField] private Rigidbody2D rigid;
         public Vector2 CurrentVelocity
         {
             get {return rigid.velocity;}
         }
-        float directionThreashold = 0.01f;
+        
+        float _directionThreashold = 0.01f;
         float _moveRightScaleX = 1;
         float _moveLeftScaleX = -1;
+
         [Header("GameObjects Refs")]
+        public DocsaPoolType WeaponType;
         [SerializeField] Transform _projectileEmitter = null;
 
-        List<string> animationList;
-        Animation animationComponent;
-        Animator animator;
+        List<string> animationList = new List<string>();
+        Animation _animation;
 
-        void Awake()
+        void Reset()
         {
-            // Get RigidBody
-            if (!transform.TryGetComponent<Rigidbody2D>(out rigid))
+            rigid = GetComponent<Rigidbody2D>();
+            _animation = GetComponent<Animation>();
+            _animation.wrapMode = WrapMode.Once;
+            foreach(AnimationState docaniState in _animation)
             {
-                rigid = transform.GetComponentInChildren<Rigidbody2D>();
-
-                if (rigid == null)
-                {
-                    rigid = gameObject.AddComponent<Rigidbody2D>();
-                }
+                animationList.Add(docaniState.name);
             }
-
-            // Get and initialize Animation
-            if (gameObject.TryGetComponent<Animation>(out animationComponent))
-            {
-                animationComponent.wrapMode = WrapMode.Once; // Docsa에 해당하는 WrapMode
-                animationList = new List<string>();
-                foreach(AnimationState docaniState in animationComponent)
-                {
-                    animationList.Add(docaniState.name);
-                }
-            }
+            MaxSpeed = 3;
+            MoveAcceleration = 1;
+            JumpPower = 3;
         }
 
-        public void LookAtMouse()
+        public void AimToMouse()
         {
             // Behaviour에 있어야 할까?
             Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -66,52 +59,70 @@ namespace  Docsa.Character
 
         }
 
-        public void Attack(Hunter targetHunter)
+        public void Attack(Vector2 direction)
         {   
             if (Character is UzuHama)
             {
-                //미완성
+                SpawnWeapon();
             }
             else if (Character is DocsaSakki)
             {
-                if (!animationComponent.isPlaying)
+                if (!_animation.isPlaying)
                 {
-                    animationComponent.Play(animationList[0]);
+                    _animation.Play(animationList[0]);
                 }
-                // animationComponent.Play("DocsaChim", 0, 0.25f);
-                // animationComponent.Play(animationList[0], PlayMode.StopSameLayer);
+                // _animation.Play("DocsaChim", 0, 0.25f);
+                // _animation.Play(animationList[0], PlayMode.StopSameLayer);
                 // animator.Play("DocsaChim",-1, 0f);
                 
             }
         }
 
+        /// <summary>
+        /// this function will be used at animation component with animation event
+        /// </summary>
         void SpawnWeapon()
         {
+            ObjectPool.Initiater initiater = null;
             if (Character is UzuHama)
             {
-                GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Weapon).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+                // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Weapon).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+
+                print ("Uzuhama SpawnWeapon");
+                initiater = (weaponGameObject) => 
+                {
+                    print("Uzuhama Weapon Initiator");
+                    Projectile weapon = weaponGameObject.GetComponent<Projectile>();
+                    weapon.ShooterGameObject = Character.gameObject;
+                };
             } else if(Character is DocsaSakki)
             {
-                // Todo 석주님이 할곳
-                // initializer before instantiate
-
-                GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Chim).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
-            }
-        }
-
-
-        public void ThrowNet(DocsaSakki targetDocsa)
-        {
-            ObjectPool.Initiater netInitiater = (target) => {
-                if (target is GameObject gameObject)
+                initiater = (chimGameObject) =>
                 {
-                    ProjectileNet net = gameObject.GetComponent<ProjectileNet>();
-                    net.Target = targetDocsa;
-                    net.Shooter = (Hunter)Character;
-                }
-            };
-            ObjectPool.GetOrCreate(DocsaPoolType.Net).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
+                    Projectile chim = chimGameObject.GetComponent<Projectile>();
+                    chim.ShooterGameObject = Character.gameObject;
+                };
+
+                // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Chim).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
+            } else if (Character is Hunter hunter)
+            {
+                initiater = (netGameObject) => {
+                    ProjectileNet net = netGameObject.GetComponent<ProjectileNet>();
+                    net.ShooterGameObject = Character.gameObject;
+                    net.TargetGameObject = hunter.FocusingDocsa.gameObject;
+                };
+                // ObjectPool.GetOrCreate(DocsaPoolType.Net).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
+
+            }
+
+            if (initiater == null)
+            {
+                return;
+            }
+
+            ObjectPool.GetOrCreate(WeaponType).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, initiater);
         }
+
 
         public void Jump()
         {
@@ -131,11 +142,11 @@ namespace  Docsa.Character
             else if(rigid.velocity.x < MaxSpeed * (-1)) //Left Max Speed
                 rigid.velocity = new Vector2(MaxSpeed * (-1), rigid.velocity.y);
 
-            if(rigid.velocity.x > directionThreashold)
+            if(rigid.velocity.x > _directionThreashold)
             {
                 transform.localScale = new Vector2(_moveRightScaleX , transform.localScale.y);
             }
-            else if(rigid.velocity.x < -directionThreashold)
+            else if(rigid.velocity.x < -_directionThreashold)
             {
                 transform.localScale = new Vector2(_moveLeftScaleX , transform.localScale.y);
             }
@@ -153,7 +164,7 @@ namespace  Docsa.Character
         public void Die()
         {
             // 코루틴 정지
-            isDie = true;
+            Character.isDie = true;
 
             // Y축 반전
             SpriteRenderer renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
