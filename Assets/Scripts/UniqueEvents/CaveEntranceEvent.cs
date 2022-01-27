@@ -4,15 +4,8 @@ using UnityEngine;
 
 namespace Docsa
 {
-    public class CaveEntrance : MonoBehaviour
+    public class CaveEntranceEvent : MonoBehaviour
     {
-        public string CaveEntranceObjectName;
-
-        void Awake()
-        {
-            CaveEntranceObjectName = gameObject.name;
-        }
-
         void OnTriggerEnter2D(Collider2D collider2D)
         {
             print("Trigger");
