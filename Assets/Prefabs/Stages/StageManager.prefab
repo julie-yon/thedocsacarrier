@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageList:
+  - {fileID: 0}
   - {fileID: 385333497676128258, guid: d4b020fd97a3093459dce601046e984e, type: 3}
   - {fileID: 385333497676128258, guid: 95380f887ef664342b1006c1cd53e467, type: 3}
   - {fileID: 385333497676128258, guid: bc9e3d64d0d90ab408602b3c4d2cbe0e, type: 3}

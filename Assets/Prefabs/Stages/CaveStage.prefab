@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977e2300cb6cd9e43823a5a5cbbd4e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowChunkList: 1
   StageNumber: 1
-  ChunkList: []
-  CameraMoveSpeed: 1
+  ChunkList:
+  - {fileID: 180342496160590900}
 --- !u!1 &4579460213083641036
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,3 +196,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4938330951758206971}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &180342496160590900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5046509183517752271, guid: 4ce9bd59215963e468aa1eca95fba1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 4938330951758206971}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

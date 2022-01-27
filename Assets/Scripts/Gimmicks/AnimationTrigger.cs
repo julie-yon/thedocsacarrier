@@ -1,50 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Events;
+
 using Docsa.Character;
+
+using Utility;
 
 namespace Docsa.Gimmick
 {
+    [RequireComponent(typeof(EventTrigger))]
     public class AnimationTrigger : MonoBehaviour
     {
-        public LayerMask TargetLayer;
-        public GameObject AnimationObject;
-        public bool PlayOnlyFirst;
+        public Animation TargetAnimation;
         public string AnimClipName = "";
 
-        private bool isPlayedOnce = false;
-
-        void OnTriggerEnter2D(Collider2D collider)
+        void Reset()
         {
-            if (isPlayedOnce && PlayOnlyFirst)
+            UnityEventTools.AddVoidPersistentListener(GetComponent<EventTrigger>().OnTriggerEnterEvent, PlayAnimation);
+        }
+
+        public void PlayAnimation()
+        {
+            if (AnimClipName.Equals(string.Empty))
             {
-                return;
-            }
-            
-            if (GetComponent<Collider2D>().IsTouchingLayers(TargetLayer))
+                TargetAnimation.Play();
+            } else
             {
-                Animation anim;
-                if (AnimationObject.TryGetComponent<Animation>(out anim))
-                {
-                    if (AnimClipName == "")
-                    {
-                        anim.Play();
-                    } else
-                    {
-                        anim.Play(AnimClipName);
-                    }
-                    isPlayedOnce = true;
-                } else if (anim = AnimationObject.GetComponentInChildren<Animation>())
-                {
-                    if (AnimClipName == "")
-                    {
-                        anim.Play();
-                    } else
-                    {
-                        anim.Play(AnimClipName);
-                    }
-                    isPlayedOnce = true;
-                }
+                TargetAnimation.Play(AnimClipName);
             }
         }
     }

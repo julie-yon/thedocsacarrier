@@ -17,13 +17,7 @@ namespace Docsa
 
         void Awake()
         {
-            StageList.Insert(0, null);
             SceneManager.sceneLoaded += LoadStage;
-        }
-
-        void Start()
-        {
-            // SceneManager.sceneLoaded += LoadStage;
         }
 
         void LoadStage(Scene scene, LoadSceneMode mode)
@@ -55,6 +49,7 @@ namespace Docsa
             }
 
             CurrentStage = stage;
+            // Because each stage prefab has camera respectively, after make new stage you should assign UzuHama to Procamera again.
             ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
 
             AfterLoadStage(CurrentStage.StageNumber);
@@ -64,30 +59,6 @@ namespace Docsa
         {
             
         }
-
-        public void ChunkTriggerEnter(Collider2D collider)
-        {
-            if (collider.gameObject == CurrentStage.CurrentChunk.RightChunkTriggerObject)
-            {
-                // print("ChunkTriggerEnter Right " + collider.name);
-                if (CurrentStage.RightChunk != null)
-                {
-                    CurrentStage.MakeChunk(CurrentStage.RightChunk.ChunkNumber);
-                }
-            } else if (collider.gameObject == CurrentStage.CurrentChunk.LeftChunkTriggerObject)
-            {
-                // print("ChunkTriggerEnter Left " + collider.name);
-                if (CurrentStage.LeftChunk != null)
-                {
-                    CurrentStage.MakeChunk(CurrentStage.LeftChunk.ChunkNumber);
-                }
-            }
-        }
-
-        public void ChunkTriggerExit(Collider2D collider)
-        {
-
-        } 
 
         public Stage MakeStage(int stageNum)
         {
