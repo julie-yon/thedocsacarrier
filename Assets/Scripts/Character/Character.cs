@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using TMPro;
@@ -10,7 +9,6 @@ namespace Docsa.Character
     [RequireComponent(typeof(CharacterBehaviour))]
     public class Character : MonoBehaviour
     {
-        public string ViewerName;
         public CharacterBehaviour Behaviour;
         public Transform GrabDocsaPosition;
         public bool isDie = false;
@@ -71,7 +69,9 @@ namespace Docsa.Character
                 StopCoroutine(_chatCoroutine);
             }
 
-            _chatCoroutine = StartCoroutine(SetChatDataCoroutine(chat, time));
+            // print("Character SetChat : " + chat);
+            // ChatText.text = chat;
+            // _chatCoroutine = StartCoroutine(SetChatDataCoroutine(chat, time));
         }
 
         IEnumerator SetChatDataCoroutine(string chat, float time=2f)

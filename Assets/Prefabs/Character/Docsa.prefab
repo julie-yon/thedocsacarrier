@@ -661,10 +661,11 @@ Animation:
   m_GameObject: {fileID: 3723220625370547380}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 59ede0f7732053a4ab21378ec24e344e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 59ede0f7732053a4ab21378ec24e344e, type: 2}
   m_WrapMode: 1
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &2254306061625169302
@@ -686,6 +687,9 @@ MonoBehaviour:
   rigid: {fileID: 8434008634645946845}
   WeaponType: 6
   _projectileEmitter: {fileID: 7914079710387730320}
+  animationList:
+  - DocsaChim
+  _animation: {fileID: 8951712354108429644}
 --- !u!114 &8703809158288453552
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,10 @@ namespace Docsa
 {
     public class Stage : MonoBehaviour
     {
-        // Editor variables
-        public bool ShowChunkList;
+        public static Stage Current
+        {
+            get {return StageManager.instance.CurrentStage;}
+        }
 
         public int StageNumber;
         public List<Chunk> ChunkList = new List<Chunk>();

@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitSpeedPower: 5
+  rb2D: {fileID: 1374440248871431054}

@@ -15,6 +15,7 @@ namespace Docsa
         /// if Target is null projectile go through right direction
         /// </summary>
         [System.NonSerialized] public GameObject TargetGameObject;
+        public Vector2 Direction;
         public float InitSpeedPower = 5;
         public Rigidbody2D rb2D;
         
@@ -27,7 +28,8 @@ namespace Docsa
         {
             if (TargetGameObject == null)
             {
-                rb2D.AddForce(transform.right * InitSpeedPower, ForceMode2D.Impulse);
+                rb2D.AddForce(Direction * InitSpeedPower, ForceMode2D.Impulse);
+                // rb2D.AddForce(transform.right * InitSpeedPower, ForceMode2D.Impulse);
             } else
             {
                 rb2D.AddForce((TargetGameObject.transform.position - transform.position).normalized * InitSpeedPower, ForceMode2D.Impulse);

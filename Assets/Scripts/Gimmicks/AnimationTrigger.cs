@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor.Events;
-
-using Docsa.Character;
 
 using Utility;
 
-namespace Docsa.Gimmick
+namespace Docsa.Events
 {
     [RequireComponent(typeof(EventTrigger))]
     public class AnimationTrigger : MonoBehaviour

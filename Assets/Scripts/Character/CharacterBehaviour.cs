@@ -32,8 +32,8 @@ namespace  Docsa.Character
         public DocsaPoolType WeaponType;
         [SerializeField] Transform _projectileEmitter = null;
 
-        List<string> animationList = new List<string>();
-        Animation _animation;
+        [SerializeField] List<string> animationList = new List<string>();
+        [SerializeField] Animation _animation;
 
         void Reset()
         {
@@ -88,10 +88,8 @@ namespace  Docsa.Character
             {
                 // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Weapon).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
 
-                print ("Uzuhama SpawnWeapon");
                 initiater = (weaponGameObject) => 
                 {
-                    print("Uzuhama Weapon Initiator");
                     Projectile weapon = weaponGameObject.GetComponent<Projectile>();
                     weapon.ShooterGameObject = Character.gameObject;
                 };
@@ -101,6 +99,9 @@ namespace  Docsa.Character
                 {
                     Projectile chim = chimGameObject.GetComponent<Projectile>();
                     chim.ShooterGameObject = Character.gameObject;
+                    chim.Direction = -transform.right * transform.localScale.x;
+                    print(chim.ShooterGameObject);
+                    print(chim.Direction);
                 };
 
                 // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Chim).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);

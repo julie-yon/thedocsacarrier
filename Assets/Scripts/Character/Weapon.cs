@@ -10,8 +10,6 @@ namespace Docsa.Character
 
         void OnCollisionEnter2D(Collision2D collision2D)
         {
-            print("Weapon CollisionEnter");
-            print(collision2D.collider);
         }
     }
 }

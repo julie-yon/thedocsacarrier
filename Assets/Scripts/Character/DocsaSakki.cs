@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Docsa.Character
 {
-    public class DocsaSakki : Character
+    public class DocsaSakki : ViewerCharacter
     {
         public Transform OriginalParent;
         bool isOnHama;

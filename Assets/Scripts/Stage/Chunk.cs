@@ -9,10 +9,14 @@ namespace Docsa
 {
     public class Chunk : MonoBehaviour
     {
+        public static Chunk Current
+        {
+            get {return Stage.Current.CurrentChunk;}
+        }
         public static List<DocsaSakki> ActiveDocsaList = new List<DocsaSakki>();
         public static List<Hunter> ActiveHunterList = new List<Hunter>();
 
-        [HideInInspector] public int ChunkNumber;
+        public int ChunkNumber;
         public GameObject DocsaPositionObject;
         public GameObject HunterPositionObject;
 
