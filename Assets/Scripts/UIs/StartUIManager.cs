@@ -42,8 +42,8 @@ namespace Docsa
         private Task ConnectTask;
 
         // SoundEventArgs
-        public SoundManager.SoundArgs OnInputSelectedSoundArg;
-        public SoundManager.SoundArgs OnButtonClickedSoundArg;
+        public SoundArgs OnInputSelectedSoundArg;
+        public SoundArgs OnButtonClickedSoundArg;
 
 
         void Awake()

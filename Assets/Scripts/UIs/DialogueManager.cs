@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 using Michsky.UI.ModernUIPack;
 
@@ -11,7 +12,6 @@ namespace Utility
 {
     public class DialogueManager : Singleton<DialogueManager>
     {
-        public GameObject DialogueObject;
         public DialogueScriptable Dialogue
         {
             get {return _dialogue;}
@@ -20,61 +20,41 @@ namespace Utility
                 _currentDialogueIndex = 0;
                 DialogueName = value.Name;
                 DialogueMessage = value.Message[_currentDialogueIndex];
-                LeftSpeakerImage = value.LeftSpeakerSprite;
-                RightSpeakerImage = value.RightSpeakerSprite;
+                if (value.LeftSpeakerSprite != null)
+                    LeftSpeakerImage = value.LeftSpeakerSprite;
+                if (value.RightSpeakerSprite != null)
+                    RightSpeakerImage = value.RightSpeakerSprite;
                 _dialogue = value;
+                _previousDialogue = value;
             }
         }
 
         public string DialogueName
         {
             get {return DialogueNameUI.text;}
-            set
-            {
-                DialogueNameUI.text = value;
-            }
+            set {DialogueNameUI.text = value;}
         }
 
         public string DialogueMessage
         {
             get {return DialogueMessageUI.text;}
-            set
-            {
-                DialogueMessageUI.text = value;
-            }
+            set {DialogueMessageUI.text = value;}
         }
 
-        public Sprite LeftSpeakerImage
-        {
-            set 
-            {
-                _leftSpeakerImage.sprite = value;
-            }
-        }
+        public Sprite LeftSpeakerImage {set {_leftSpeakerImage.sprite = value;}}
+        public Sprite RightSpeakerImage {set {_rightSpeakerImage.sprite = value;}}
+        public int CurrentDialogueIndex {get {return _currentDialogueIndex;}}
+        public bool isOpened {get {return DialogueObject.activeSelf;}}
 
-        public Sprite RightSpeakerImage
-        {
-            set 
-            {
-                _rightSpeakerImage.sprite = value;
-            }
-        }
-
-        public int CurrentDialogueIndex
-        {
-            get {return _currentDialogueIndex;}
-        }
-
-        public bool isOpened
-        {
-            get {return DialogueObject.activeSelf;}
-        }
-
+        [Header("Dialogue UI Object")]
+        public GameObject DialogueObject;
         public ButtonManagerBasic ContinueButton;
-
-        [SerializeField] private DialogueScriptable _dialogue;
         [SerializeField] private TextMeshProUGUI DialogueNameUI;
         [SerializeField] private TextMeshProUGUI DialogueMessageUI;
+
+        [Header("Dialogue ScriptableObject")]
+        [SerializeField] private DialogueScriptable _dialogue;
+        private DialogueScriptable _previousDialogue;
         [SerializeField] private int _currentDialogueIndex = -1;
         [SerializeField] private Image _leftSpeakerImage;
         [SerializeField] private Image _rightSpeakerImage;
@@ -88,11 +68,26 @@ namespace Utility
         {
             if (isOpened)
             {
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Keyboard.current.enterKey.wasPressedThisFrame)
                 {
 
                 }
+            }
+        }
 
+        void OnValidate()
+        {
+            if (DialogueObject != null)
+            {
+                ContinueButton = DialogueObject.GetComponentInChildren<ButtonManagerBasic>();
+                var texts = DialogueObject.GetComponentsInChildren<TextMeshProUGUI>();
+                DialogueNameUI = texts[0];
+                DialogueMessageUI = texts[1];
+            }
+            
+            if (_dialogue != null && !_dialogue.Equals(_previousDialogue))
+            {
+                Dialogue = _dialogue;
             }
         }
 
@@ -127,7 +122,6 @@ namespace Utility
                 DialogueName = Dialogue.Name;
                 DialogueMessage = Dialogue.Message[_currentDialogueIndex];
             }
-            
         }
     }
 }

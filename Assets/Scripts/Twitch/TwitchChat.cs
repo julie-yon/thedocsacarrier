@@ -56,6 +56,9 @@ namespace TwitchIRC
             _twitchWriter.WriteLine("USER " + IRCHostName + " 8 * :" + IRCHostName);
             _twitchWriter.WriteLine("JOIN #" + ChannelName);
             _twitchWriter.Flush();
+
+            Connected = _twitchClient.Connected;
+            print("Connected : " + Connected);
         }
 
         public void ConnectCoroutine()
@@ -131,7 +134,6 @@ namespace TwitchIRC
             if (_twitchClient.Available > 0)
             {
                 string msg = _twitchReader.ReadLine();
-                print(msg);
                 
 #if UNITY_EDITOR
                 LogWriter.Instance.Write(msg, true);
@@ -146,24 +148,31 @@ namespace TwitchIRC
 
                 if (msg.Contains("PRIVMSG")){
                     var splitPoint = msg.IndexOf("!", 1);
-                    print(splitPoint);
                     var author = msg.Substring(0, splitPoint);
-                    print(author);
                     author = author.Substring(1);
-                    print(author);
 
                     // users msg
                     splitPoint = msg.IndexOf(":", 1);
-                    print(splitPoint);
                     msg = msg.Substring(splitPoint + 1);
 
                     print(msg);
                     if(msg.StartsWith(TwitchCommandData.Prefix)){
                         // get the first word 
                         splitPoint = msg.IndexOf(" ", 1);
-                        string command = msg.Substring(1, splitPoint);
-                        string chat = msg.Substring(splitPoint+1);
+                        string command = string.Empty;
+                        string chat = string.Empty;
+                        if (splitPoint > 0)
+                        {
+                            command = msg.Substring(1, splitPoint-1);
+                            chat = msg.Substring(splitPoint+1);
+                        }
+                        else
+                            command = msg.Substring(1);
+
+                        print("Command : " + command);
+                        print("Chat : " + chat);
                         DocsaTwitchCommand commandEnum = StringValue.GetEnumValue<DocsaTwitchCommand>(command);
+                        print("CommandEnum : " + commandEnum.ToString());
                         DocsaSakkiManager.instance.ExecuteCommand(
                             new TwitchCommandData {
                                 Author = author,

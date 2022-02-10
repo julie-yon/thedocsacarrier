@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 using Michsky.UI.ModernUIPack;
-using TMPro;
 
 namespace Docsa.Character
 {
@@ -18,7 +14,7 @@ namespace Docsa.Character
         {
             get
             {
-                return Character.CurrentHP;
+                return (int)Bar.mainSlider.value;
             }
             set
             {
@@ -26,10 +22,15 @@ namespace Docsa.Character
             }
         }
 
-        void Awake()
+        void Reset()
         {
+            if (!transform.parent.TryGetComponent<Character>(out Character))
+            {
+                Debug.LogWarning("HPBar could not find Character at parent. Make ref in inspector yourself");
+            }
         }
 
+        [ExecuteInEditMode]
         void Update()
         {
             transform.position = Character.transform.position + RelativeHPBarPosition;

@@ -14,9 +14,9 @@ namespace Utility.UI
             OnDropCallBack += DocsaListItemDropCallBack;
         }
 
-        void DocsaListItemDropCallBack()
+        void DocsaListItemDropCallBack(DragAndDropableUI TargetUI, UnityEngine.EventSystems.PointerEventData eventData)
         {
-            string dragingAuthor = DragAndDropableUI.DragingUI.GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            string dragingAuthor = TargetUI.GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
             
             DocsaSakkiManager.instance.MoveDocsaDataTo(dragingAuthor, State);
         }

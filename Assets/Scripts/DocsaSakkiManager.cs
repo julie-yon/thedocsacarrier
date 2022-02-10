@@ -13,19 +13,16 @@ namespace Docsa
     public class DocsaDataDict : SerializableDictionary<string, DocsaData> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
-        public DocsaDataDict WaitingViewerDict;
-        public DocsaDataDict AttendingDocsaDict;
-        public DocsaDataDict AttendingHunterDict;
+        public DocsaDataDict WaitingViewerDict = new DocsaDataDict();
+        public DocsaDataDict AttendingDocsaDict = new DocsaDataDict();
+        public DocsaDataDict AttendingHunterDict = new DocsaDataDict();
         public bool DocsaCanAttend;
         public int WaitingViewerLimit = 20;
-        
-        void Awake()
-        {
-            WaitingViewerDict = new DocsaDataDict();
-            AttendingDocsaDict = new DocsaDataDict();
-            AttendingHunterDict = new DocsaDataDict();
-        }
+        public int AttendingDocsaLimit = 20;
+        public int AttendingHunterLimit = 20;
 
+        public List<IDocsaSakkiManagerListener> Listeners = new List<IDocsaSakkiManagerListener>();
+        
         public void ExecuteCommand(TwitchCommandData commandData)
         {
             if (commandData.Author == Core.instance.UzuhamaTwitchNickName)
@@ -82,7 +79,7 @@ namespace Docsa
 
         void Attend(TwitchCommandData commandData)
         {
-            if (!DocsaCanAttend || WaitingViewerDict.Count > WaitingViewerLimit)
+            if (!DocsaCanAttend || WaitingViewerDict.Count >= WaitingViewerLimit)
             {
                 return;
             }
@@ -100,17 +97,130 @@ namespace Docsa
                 return;
             }
 
-            // Docsa 참여와 Hunter 참여를 어떻게 구분할지
-            // 1. 명령어를 나눈다
-            // 2. 랜덤하게 임의로 나눈다.
             data = new DocsaData(commandData.Author);
             WaitingViewerDict.Add(data.Author, data);
-            ESCUIManager.instance.AddWaitingViewer(WaitingViewerDict[data.Author]);
+
+            foreach(var v in Listeners)
+            {
+                v.Listene(data);
+            }
+        }
+
+        /// <summary>
+        /// Assign Viewers linearly.
+        /// </summary>
+        /// <param name="onlyAttending">Assign after moving data to attending if false.</param>
+        public void AssignViewers(bool onlyAttending = true)
+        {
+            DocsaData[] datas = AttendingDocsaDict.Values.ToArray<DocsaData>();
+
+            if (onlyAttending)
+            {
+                for (int i = 0; i < AttendingDocsaDict.Count && i < Chunk.ActiveDocsaList.Count; i++)
+                {
+                    AssignViewer(datas[i], Chunk.ActiveDocsaList[i]);
+                }
+
+                datas = AttendingHunterDict.Values.ToArray<DocsaData>();
+                for (int i = 0; i < AttendingHunterDict.Count && i < Chunk.ActiveHunterList.Count; i++)
+                {
+                    AssignViewer(datas[i], Chunk.ActiveHunterList[i]);
+                }
+            } else
+            {
+                datas = WaitingViewerDict.Values.ToArray<DocsaData>();
+                for (int i = 0; i < WaitingViewerDict.Count; i++)
+                {
+                    if (i < Chunk.ActiveDocsaList.Count)
+                    {
+                        MoveDocsaDataTo(datas[i], DocsaData.DocsaState.Docsa);
+                    } else
+                    {
+                        MoveDocsaDataTo(datas[i], DocsaData.DocsaState.Hunter);
+                    }
+                }
+                AssignViewers(!onlyAttending);
+            }
+        }
+
+        /// <summary>
+        /// Assign viewer Randomly with string
+        /// </summary>
+        public void AssignViewer(string viewerName)
+        {
+            AssignViewer(GetDocsaData(viewerName));
+        }
+
+        /// <summary>
+        /// Assign viewer Randomly with DocsaData
+        /// </summary>
+        public void AssignViewer(DocsaData docsaData)
+        {
+            switch (docsaData.State)
+            {
+                case DocsaData.DocsaState.Docsa:
+                    foreach(var v in Chunk.ActiveDocsaList)
+                    {
+                        if (!v.isViewerAssigned)
+                        {
+                            AssignViewer(docsaData, v);
+                        }
+                        return;
+                    }
+                break;
+                case DocsaData.DocsaState.Hunter:
+                    foreach(var v in Chunk.ActiveHunterList)
+                    {
+                        if (!v.isViewerAssigned)
+                        {
+                            AssignViewer(docsaData, v);
+                        }
+                        return;
+                    }
+                break;
+                case DocsaData.DocsaState.Waiting:
+                    foreach(var v in Chunk.ActiveDocsaList)
+                    {
+                        if (!v.isViewerAssigned)
+                        {
+                            AssignViewer(docsaData, v);
+                        }
+                        return;
+                    }
+                    foreach(var v in Chunk.ActiveHunterList)
+                    {
+                        if (!v.isViewerAssigned)
+                        {
+                            AssignViewer(docsaData, v);
+                        }
+                        return;
+                    }
+                break;
+            }
+        }
+
+        public void AssignViewer(string viewerName, ViewerCharacter character)
+        {
+            AssignViewer(GetDocsaData(viewerName), character);
+        }
+
+        public void AssignViewer(DocsaData docsaData, ViewerCharacter character)
+        {
+            if (character.isViewerAssigned)
+            {
+                Debug.Log("Already assigned Character");
+                return;
+            }
+
+            docsaData.Character = character;
+            character.isViewerAssigned = true;
+            character.ViewerName = docsaData.Author;
         }
 
         void Exit(TwitchCommandData commandData)
         {
-            if (!WaitingViewerDict.ContainsKey(commandData.Author) && !AttendingDocsaDict.ContainsKey(commandData.Author) && !AttendingHunterDict.ContainsKey(commandData.Author))
+            DocsaData data;
+            if (((data = GetDocsaData(commandData.Author)) == null))
             {
                 return;
             }
@@ -119,48 +229,52 @@ namespace Docsa
             // 게임중간에 Exit할경우 or
             // 일정시간이상 응답이 없을경우
 
-            WaitingViewerDict.Remove(commandData.Author);
+            MoveDocsaDataTo(commandData.Author, DocsaData.DocsaState.Exit);
+
+            WaitingViewerDict.Remove(data.Author);
         }
 
         public void Kick(string viewer)
         {
             if (AttendingDocsaDict.ContainsKey(viewer))
             {
-                DocsaSakki docsa = (DocsaSakki)AttendingDocsaDict[viewer].Character;
-                DocsaData data = AttendingDocsaDict[viewer];
+                MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
                 AttendingDocsaDict.Remove(viewer);
 
-                if (DocsaCanAttend)
-                {
-                    docsa.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingDocsaDict.Add(docsa.ViewerName, data);
-                }
+                // Auto Assign?
 
-                return;
-            }
+                // DocsaSakki docsa = (DocsaSakki)AttendingDocsaDict[viewer].Character;
+                // DocsaData docsaData = AttendingDocsaDict[viewer];
+                // if (DocsaCanAttend)
+                // {
+                //     docsa.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                //     AttendingDocsaDict.Add(docsa.ViewerName, docsaData);
+                // }
 
-            if (AttendingHunterDict.ContainsKey(viewer))
+            } else if (AttendingHunterDict.ContainsKey(viewer))
             {
-                Hunter hunter = (Hunter)AttendingHunterDict[viewer].Character;
-                DocsaData data = AttendingDocsaDict[viewer];
+                MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
                 AttendingHunterDict.Remove(viewer);
 
-                if (DocsaCanAttend)
-                {
-                    hunter.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
-                    AttendingHunterDict.Add(hunter.ViewerName, data);
-                }
+                // Auto Assign?
 
-                return;
-            }
+                // if (DocsaCanAttend)
+                // Hunter hunter = (Hunter)AttendingHunterDict[viewer].Character;
+                // DocsaData hunterData = AttendingDocsaDict[viewer];
+                // {
+                //     hunter.ViewerName = WaitingViewerDict.GetEnumerator().Current.Value.Author;
+                //     AttendingHunterDict.Add(hunter.ViewerName, hunterData);
+                // }
 
-            if (WaitingViewerDict.ContainsKey(viewer))
+            } else if (WaitingViewerDict.ContainsKey(viewer))
             {
-                DocsaData docsa = WaitingViewerDict[viewer];
+                MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
                 WaitingViewerDict.Remove(viewer);
-
+            } else
+            {
                 return;
             }
+            
         }
 
         public void MoveDocsaDataTo(string author, DocsaData.DocsaState to)
@@ -170,7 +284,7 @@ namespace Docsa
 
         public void MoveDocsaDataTo(DocsaData from, DocsaData.DocsaState to)
         {
-            if (from == null)
+            if (from == null || GetDocsaData(from.Author) == null)
             {
                 return;
             }
@@ -202,6 +316,11 @@ namespace Docsa
                     AttendingHunterDict.Add(from.Author, from);
                 break;
             }
+
+            foreach(var v in Listeners)
+            {
+                v.Listene(from);
+            }
         }
 
         public DocsaData GetDocsaData(string author)
@@ -224,6 +343,15 @@ namespace Docsa
             }
 
             return data;
+        }
+
+        public void SetDocsaData(string author, DocsaData newData)
+        {
+            DocsaData data;
+            if (WaitingViewerDict.TryGetValue(author, out data)) {}
+            else if (AttendingDocsaDict.TryGetValue(author, out data)) {}
+            else if (AttendingHunterDict.TryGetValue(author, out data)) {}
+            data = newData;
         }
 
         public DocsaData[] GetRandomWaitingDocsaDatas(int number)
@@ -268,7 +396,9 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // ((DocsaSakki)docsaSakki.Character).Behaviour.Attack((Hunter)AttendingHunterDict.Values.GetEnumerator().Current.Character);
+                // for presentation
+                ((DocsaSakki)docsaSakki.Character).Behaviour.Attack(docsaSakki.Character.transform.forward);
+                //
             } else
             {
                 print("그런 독사 없음");
@@ -349,6 +479,7 @@ namespace Docsa
             Waiting,
             Docsa,
             Hunter,
+            Exit,
         }
     }
 }

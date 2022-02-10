@@ -11,7 +11,8 @@ namespace Docsa
     public class PerkManager : Singleton<PerkManager>
     {
         public PerkData Data;
-        void Awake()
+
+        void Reset()
         {
             Data.Init();
         }
@@ -23,6 +24,7 @@ namespace Docsa
 
     }
 
+    [System.Serializable]
     public struct PerkData
     {
         public Perk DocsaChimPerk;
@@ -42,9 +44,14 @@ namespace Docsa
             ViewerAttendPerk.PerkCommand = DocsaTwitchCommand.ATTEND;
             ViewerExitPerk.PerkCommand = DocsaTwitchCommand.EXIT;
             StarLightPerk.PerkCommand = DocsaTwitchCommand.STARLIGHT;
+
+            ViewerAttendPerk.Enable();
+            ViewerExitPerk.Enable();
+            StarLightPerk.Enable();
         }
     }
 
+    [System.Serializable]
     public struct Perk
     {
         public DocsaTwitchCommand PerkCommand;

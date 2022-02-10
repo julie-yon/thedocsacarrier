@@ -4,6 +4,7 @@ using Utility;
 
 namespace TwitchIRC
 {
+    [System.Serializable]
     public struct TwitchCommandData
     {
         public static string Prefix = "!";

@@ -4715,7 +4715,10 @@ MonoBehaviour:
   LoadingNotification: {fileID: 7863434847882637091}
   PleaseWaitNotification: {fileID: 7863434845969057892}
   LoadingProgressBar: {fileID: 7863434846007569801}
-  Checker: 0
+  OnInputSelectedSoundArg: {fileID: 11400000, guid: 3e8e98f6688c0024d8371c4427e72263,
+    type: 2}
+  OnButtonClickedSoundArg: {fileID: 11400000, guid: a4f7e382545452643a34dfdbddcab99e,
+    type: 2}
 --- !u!1 &7863434846937945719
 GameObject:
   m_ObjectHideFlags: 0
