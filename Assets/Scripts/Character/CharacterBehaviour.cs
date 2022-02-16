@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using Utility;
-
-using UnityEngine.InputSystem;
 
 namespace  Docsa.Character
 {
@@ -17,6 +16,7 @@ namespace  Docsa.Character
         public float MaxSpeed;
         public float MoveAcceleration;
         public float JumpPower;
+        [Range(0, 90)] public float AimMaxAngle;
 
         [SerializeField] private Rigidbody2D rigid;
         public Vector2 CurrentVelocity
@@ -25,12 +25,12 @@ namespace  Docsa.Character
         }
         
         float _directionThreashold = 0.01f;
-        float _moveRightScaleX = 1;
-        float _moveLeftScaleX = -1;
+        float _moveRightScaleX = -1;
+        float _moveLeftScaleX = 1;
 
         [Header("GameObjects Refs")]
         public DocsaPoolType WeaponType;
-        [SerializeField] Transform _projectileEmitter = null;
+        public Transform ProjectileEmitter = null;
 
         [SerializeField] List<string> animationList = new List<string>();
         [SerializeField] Animation _animation;
@@ -40,6 +40,7 @@ namespace  Docsa.Character
             rigid = GetComponent<Rigidbody2D>();
             _animation = GetComponent<Animation>();
             _animation.wrapMode = WrapMode.Once;
+            _animation.playAutomatically = false;
             foreach(AnimationState docaniState in _animation)
             {
                 animationList.Add(docaniState.name);
@@ -49,14 +50,19 @@ namespace  Docsa.Character
             JumpPower = 3;
         }
 
-        public void AimToMouse()
+        public void AimToMouse(Transform targetTransform)
         {
             // Behaviour에 있어야 할까?
-            Vector2 t_mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector2 t_direction = new Vector2(t_mousePos.x - _projectileEmitter.position.x ,
-                                        t_mousePos.y - _projectileEmitter.position.y); //무기가 바라볼 방향 설정(마우스 클릭한 곳에서 우주하마의 위치 빼기)
-            _projectileEmitter.right = t_direction;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Vector2 aimDirection = new Vector2(mousePos.x - targetTransform.position.x , mousePos.y - targetTransform.position.y);
+            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x);
 
+            float realAngle = Mathf.Clamp(angle, -AimMaxAngle * Mathf.Deg2Rad, AimMaxAngle * Mathf.Deg2Rad);
+            Vector3 realDirection = new Vector2(1, Mathf.Tan(realAngle));
+            Matrix4x4 matrix = new Matrix4x4(new Vector4(0, Character.transform.localScale.x, 0, 0), new Vector4(-Character.transform.localScale.x, 0, 0, 0), new Vector4(0, 0, 1, 0), new Vector4(0, 0, 0, 1));
+            Vector3 realRealDirection = matrix.MultiplyPoint3x4(realDirection);
+            targetTransform.right = realRealDirection;
+            // print ($"aimDirection : {aimDirection}, angle : {angle * Mathf.Rad2Deg}, realAngle : {realAngle * Mathf.Rad2Deg}, realDirection : {realDirection}");
         }
 
         public void Attack(Vector2 direction)
@@ -86,8 +92,6 @@ namespace  Docsa.Character
             ObjectPool.Initiater initiater = null;
             if (Character is UzuHama)
             {
-                // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Weapon).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
-
                 initiater = (weaponGameObject) => 
                 {
                     Projectile weapon = weaponGameObject.GetComponent<Projectile>();
@@ -103,8 +107,6 @@ namespace  Docsa.Character
                     print(chim.ShooterGameObject);
                     print(chim.Direction);
                 };
-
-                // GameObject t_weapon = ObjectPool.GetOrCreate(DocsaPoolType.Chim).Instantiate(_projectileEmitter.position, _projectileEmitter.rotation);
             } else if (Character is Hunter hunter)
             {
                 initiater = (netGameObject) => {
@@ -112,8 +114,6 @@ namespace  Docsa.Character
                     net.ShooterGameObject = Character.gameObject;
                     net.TargetGameObject = hunter.FocusingDocsa.gameObject;
                 };
-                // ObjectPool.GetOrCreate(DocsaPoolType.Net).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, netInitiater);
-
             }
 
             if (initiater == null)
@@ -121,7 +121,7 @@ namespace  Docsa.Character
                 return;
             }
 
-            ObjectPool.GetOrCreate(WeaponType).InstantiateAfterInit(_projectileEmitter.position, _projectileEmitter.rotation, initiater);
+            ObjectPool.GetOrCreate(WeaponType).InstantiateAfterInit(ProjectileEmitter.position, ProjectileEmitter.rotation, initiater);
         }
 
 
@@ -157,32 +157,19 @@ namespace  Docsa.Character
 
         public void GrabDocsa(DocsaSakki targetDocsa)
         {
-            targetDocsa.OriginalParent = targetDocsa.transform.parent;
-            targetDocsa.transform.SetParent(Character.GrabDocsaPosition.transform);
-            targetDocsa.transform.position = Character.GrabDocsaPosition.position;
+            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
+            BGCurve.AddCursorTranslate(targetDocsa.transform);
+            BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
+            if (Character is UzuHama hama)
+            {
+                hama.Baguni.TemporaryOff(3);
+            }
         }
 
         public void Die()
         {
             // 코루틴 정지
             Character.isDie = true;
-
-            // Y축 반전
-            SpriteRenderer renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-            renderer.flipY = true;
-
-            // 낙하
-            BoxCollider2D coll = gameObject.GetComponent<BoxCollider2D>();
-            coll.enabled = false;
-
-            // 바운스
-            Rigidbody2D rigid = GetComponent<Rigidbody2D>();
-            Vector2 dieVelocity = new Vector2(0, 15f);
-            rigid.AddForce(dieVelocity, ForceMode2D.Impulse);
-
-            // 오브젝트 삭제
-            Destroy(gameObject, 5f);
-
         }
     }
 }

@@ -11,13 +11,20 @@ namespace Docsa.Character
     {
         public CharacterBehaviour Behaviour;
         public Transform GrabDocsaPosition;
+        [SerializeField] Transform RootBoneTransform;
+
         public bool isDie = false;
         
-        public TextMeshProUGUI ChatText;
+        public Vector3 HeaderRelativePosition = Vector2.up;
+        public Vector3 HeaderPosition
+        {
+            get {return RootBoneTransform.position + HeaderRelativePosition;}
+        }
+        public CharacterChat Chat;
 
         [Header("HP Stats")]
         [Space(10)]
-        [SerializeField] private HPBar HPBar;
+        public HPBar HPBar;
         [SerializeField] private int _maxHP;
         [SerializeField] private int _currentHP;
         public int MaxHP{
@@ -58,41 +65,9 @@ namespace Docsa.Character
             CurrentHP -= damageValue;
         }
 
-
-        private Coroutine _chatCoroutine;
-        private bool _coroutineIsPlaying;
-        private string _delayedChat;
         public void SetChatData(string chat, float time = 2f)
         {
-            if (_chatCoroutine != null)
-            {
-                StopCoroutine(_chatCoroutine);
-            }
-
-            // print("Character SetChat : " + chat);
-            // ChatText.text = chat;
-            // _chatCoroutine = StartCoroutine(SetChatDataCoroutine(chat, time));
-        }
-
-        IEnumerator SetChatDataCoroutine(string chat, float time=2f)
-        {
-            if (_coroutineIsPlaying) 
-            {
-                if (_delayedChat == string.Empty)
-                    _delayedChat = chat;
-                yield break;
-            }
-            
-            ChatText.text = chat;
-            _coroutineIsPlaying = true;
-            yield return new WaitForSeconds(time);
-
-            if (_delayedChat != string.Empty)
-            {
-                _chatCoroutine = StartCoroutine(SetChatDataCoroutine(_delayedChat, time));
-                _delayedChat = string.Empty;
-            }
+            Chat.Chat(chat, time);
         }
     }
-
 }

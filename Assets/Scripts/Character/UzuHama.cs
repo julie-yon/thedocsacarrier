@@ -13,12 +13,10 @@ namespace Docsa.Character
         {
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
-
-        public GameObject StandGameObject;
-        public GameObject CrouchGameObject;
-        public Baguni Baguni;
-
-        bool isStand = true;
+        public Baguni Baguni
+        {
+            get {return GetComponentInChildren<Baguni>();}
+        }
 
         float moveDirection;
 
@@ -27,25 +25,17 @@ namespace Docsa.Character
             Core.instance.InputAsset.Player.Move.performed += HamaMove;
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
-            Core.instance.InputAsset.Player.Crawl.performed += CrawlOnOff;
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
         }
 
         void Update()
         {
-            Behaviour.AimToMouse();
+            Behaviour.AimToMouse(Behaviour.ProjectileEmitter);
         }
 
         void FixedUpdate()
         {
             Behaviour.Move(moveDirection);
-        }
-
-        void CrawlOnOff(Context context)
-        {
-            CrouchGameObject.SetActive(isStand);
-            StandGameObject.SetActive(!isStand);
-            isStand = !isStand;
         }
 
         void HamaMove(Context context)
@@ -67,11 +57,6 @@ namespace Docsa.Character
         void HamaAttack(Context context)
         {
             Behaviour.Attack(Mouse.current.position.ReadValue());
-        }
-
-        public void PlayBounceAnimation()
-        {
-
         }
     }
 }

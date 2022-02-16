@@ -8,7 +8,6 @@ namespace Docsa.Character
     {
         public Character Character;
         public SliderManager Bar;
-        public Vector3 RelativeHPBarPosition = Vector2.up;
         
         public int Value 
         {
@@ -24,16 +23,28 @@ namespace Docsa.Character
 
         void Reset()
         {
+            Bar = GetComponentInChildren<SliderManager>();
             if (!transform.parent.TryGetComponent<Character>(out Character))
             {
                 Debug.LogWarning("HPBar could not find Character at parent. Make ref in inspector yourself");
+            } else
+            {
+                transform.position = Character.HeaderPosition;
+                Character.HPBar = this;
             }
+        }
+
+        void OnValidate()
+        {
+            if (Character)
+                transform.position = Character.HeaderPosition;
         }
 
         [ExecuteInEditMode]
         void Update()
         {
-            transform.position = Character.transform.position + RelativeHPBarPosition;
+            transform.position = Character.HeaderPosition;
+            transform.rotation = Quaternion.identity;
         }
     }
 }

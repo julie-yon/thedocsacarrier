@@ -43,6 +43,29 @@ namespace Docsa.Character
             BucketCap.SetActive(!BucketCap.activeSelf);
         }
 
+        public void OnOff()
+        {
+            foreach (var col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = !col.enabled;
+            }
+        }
+
+        public async void TemporaryOff(float time)
+        {
+            foreach (var col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = false;
+            }
+
+            await System.Threading.Tasks.Task.Delay((int)time * 1000);
+            
+            foreach (var col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = true;
+            }
+        }
+
         private void AdjustBucketPosition()
         {
             Vector2 hamaVelocity = UzuHama.Hama.Behaviour.CurrentVelocity;
@@ -51,6 +74,5 @@ namespace Docsa.Character
             Vector3 targetPosition =  new Vector3(Bucket.transform.localPosition.x, Mathf.SmoothStep(Bucket.transform.localPosition.y, BucketCurve.Evaluate(velocityYRatio), 0.5f), Bucket.transform.localPosition.z);
             Bucket.transform.localPosition = targetPosition;
         }
-
     }
 }  
