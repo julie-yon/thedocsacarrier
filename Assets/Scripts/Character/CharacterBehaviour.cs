@@ -158,7 +158,14 @@ namespace  Docsa.Character
         public void GrabDocsa(DocsaSakki targetDocsa)
         {
             BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
-            BGCurve.AddCursorTranslate(targetDocsa.transform);
+            var trs = BGCurve.AddTRS(targetDocsa.transform);
+            BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
+            BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
+            BGCurve.Curve[1].SetField("Scale", new Vector3(0.75f, 0.75f, 0.75f), typeof(Vector3));
+            BGCurve.Curve[2].SetField("Scale", new Vector3(0.5f, 0.5f, 0.5f), typeof(Vector3));
+            trs.OverflowControl = BansheeGz.BGSpline.Components.BGCcTrs.OverflowControlEnum.Stop;
+            trs.ScaleObject = true;
+            trs.ScaleField = BGCurve.Curve.GetField("Scale");
             BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
             if (Character is UzuHama hama)
             {

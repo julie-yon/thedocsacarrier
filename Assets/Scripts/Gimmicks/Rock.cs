@@ -12,7 +12,6 @@ namespace Docsa.Gimmick
         {
             base.GimmickInvoke();
             GiveDamage(DamageValue);
-            Bounce(UzuHama.Hama);
         }
 
         void OnTriggerEnter2D(Collider2D otherCol)
@@ -23,12 +22,6 @@ namespace Docsa.Gimmick
                 GimmickInvoke();
             }
         }
-        
-
-        private void Bounce(UzuHama uzuHama) //부딪혔을 때 튕기기
-        {
-            uzuHama.PlayBounceAnimation();
-        } //이건 에니메이션으로 구현하기! 
     }
 }
 
