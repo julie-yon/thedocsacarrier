@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Docsa
 {
@@ -9,7 +11,8 @@ namespace Docsa
     /// </summary>
     public abstract class NightDaySwitchEvent : MonoBehaviour
     {
-        public string eventName;
+        public string EventName;
+        
         private protected void Awake()
         {
             NightDaySwitch.instance.RegisterToSwitch(this);

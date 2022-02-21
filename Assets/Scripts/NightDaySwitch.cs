@@ -11,7 +11,7 @@ namespace Docsa
     {
         private delegate void EventDelegate(bool isNight);
         private EventDelegate _nightDayChangeEventListener;
-        private bool _isNight;
+        private bool _isNight = true;
         private List<string> _targets;
         private Dictionary<string, List<NightDaySwitchEvent>> _allElements = new Dictionary<string, List<NightDaySwitchEvent>>();
         
@@ -54,7 +54,7 @@ namespace Docsa
         {
 
             List<NightDaySwitchEvent> elementList;
-            if (_allElements.TryGetValue(element.eventName, out elementList))
+            if (_allElements.TryGetValue(element.EventName, out elementList))
             {
                 elementList.Add(element);
             }
@@ -62,7 +62,7 @@ namespace Docsa
             {
                 List<NightDaySwitchEvent> eventLi = new List<NightDaySwitchEvent>();
                 eventLi.Add(element);
-                _allElements.Add(element.eventName, eventLi);
+                _allElements.Add(element.EventName, eventLi);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Docsa
         {
             element.ChangeState(_isNight);
             List<NightDaySwitchEvent> elementList;
-            if (_allElements.TryGetValue(element.eventName, out elementList))
+            if (_allElements.TryGetValue(element.EventName, out elementList))
             {
                 elementList.Remove(element);
             }

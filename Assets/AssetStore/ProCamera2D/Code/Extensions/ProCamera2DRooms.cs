@@ -68,7 +68,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			get { return (_currentRoomIndex >= 0 && _currentRoomIndex < Rooms.Count) ? Rooms[_currentRoomIndex] : null; }
 		}
 
-		public float OriginalSize { get; private set; }
+		public float OriginalSize { get; set; }
 
 		public List<Room> Rooms = new List<Room>();
 
