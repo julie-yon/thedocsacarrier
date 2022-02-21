@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb7fe1c358bab4bd581bb4af1914d1fe
+guid: a0f443ba8b8c0460c972ff9f9f01294e
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 8111353803756766171
     second: volcano_block_1
+  - first:
+      213: 8835104445490864669
+    second: volcano_block_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,8 +120,8 @@ TextureImporter:
       name: volcano_block_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 24
+        y: 24
         width: 24
         height: 24
       alignment: 0
@@ -130,6 +133,27 @@ TextureImporter:
       bones: []
       spriteID: bd38f680f41519070800000000000000
       internalID: 8111353803756766171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: volcano_block_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1225facea89c9a70800000000000000
+      internalID: 8835104445490864669
       vertices: []
       indices: 
       edges: []
