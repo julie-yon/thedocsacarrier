@@ -7,7 +7,6 @@ using Utility;
 namespace  Docsa.Character
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(Animation))]
     public class CharacterBehaviour : MonoBehaviour
     {
         public Character Character;
@@ -18,10 +17,10 @@ namespace  Docsa.Character
         public float JumpPower;
         [Range(0, 90)] public float AimMaxAngle;
 
-        [SerializeField] private Rigidbody2D rigid;
+        [SerializeField] private Rigidbody2D _rigidbody;
         public Vector2 CurrentVelocity
         {
-            get {return rigid.velocity;}
+            get {return _rigidbody.velocity;}
         }
         
         float _directionThreashold = 0.01f;
@@ -32,19 +31,20 @@ namespace  Docsa.Character
         public DocsaPoolType WeaponType;
         public Transform ProjectileEmitter = null;
 
-        [SerializeField] List<string> animationList = new List<string>();
-        [SerializeField] Animation _animation;
+        // Animator relatives
+        [SerializeField] Animator _animator;
+
+        private const string AttackTriggerName = "AttackTrigger";
+        private const string JumpTriggerName = "JumpTrigger";
+        private const string HitTriggerName = "HitTrigger";
+        private const string DieTriggerName = "DieTrigger";
+        private const string DieBoolName = "Die";
 
         void Reset()
         {
-            rigid = GetComponent<Rigidbody2D>();
-            _animation = GetComponent<Animation>();
-            _animation.wrapMode = WrapMode.Once;
-            _animation.playAutomatically = false;
-            foreach(AnimationState docaniState in _animation)
-            {
-                animationList.Add(docaniState.name);
-            }
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = GetComponentInChildren<Animator>();
+
             MaxSpeed = 3;
             MoveAcceleration = 1;
             JumpPower = 3;
@@ -67,21 +67,14 @@ namespace  Docsa.Character
 
         public void Attack(Vector2 direction)
         {   
-            if (Character is UzuHama)
-            {
-                SpawnWeapon();
-            }
-            else if (Character is DocsaSakki)
-            {
-                if (!_animation.isPlaying)
-                {
-                    _animation.Play(animationList[0]);
-                }
-                // _animation.Play("DocsaChim", 0, 0.25f);
-                // _animation.Play(animationList[0], PlayMode.StopSameLayer);
-                // animator.Play("DocsaChim",-1, 0f);
-                
-            }
+            _animator.SetTrigger(AttackTriggerName);
+            // if (Character is UzuHama)
+            // {
+            //     SpawnWeapon();
+            // }
+            // else if (Character is DocsaSakki)
+            // {
+            // }
         }
 
         /// <summary>
@@ -127,32 +120,34 @@ namespace  Docsa.Character
 
         public void Jump()
         {
-            rigid.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
+            _animator.SetTrigger(JumpTriggerName);
         }
 
         public void JumpHead()
         {
-            rigid.AddForce(transform.up * JumpPower, ForceMode2D.Impulse);
+            _rigidbody.AddForce(transform.up * JumpPower, ForceMode2D.Impulse);
+            _animator.SetTrigger(JumpTriggerName);
         }
 
         
         public void Move(float moveDirection)
         {
-            if(rigid.velocity.x > MaxSpeed) //Right Max Speed
-                rigid.velocity = new Vector2(MaxSpeed, rigid.velocity.y);
-            else if(rigid.velocity.x < MaxSpeed * (-1)) //Left Max Speed
-                rigid.velocity = new Vector2(MaxSpeed * (-1), rigid.velocity.y);
+            if(_rigidbody.velocity.x > MaxSpeed) //Right Max Speed
+                _rigidbody.velocity = new Vector2(MaxSpeed, _rigidbody.velocity.y);
+            else if(_rigidbody.velocity.x < MaxSpeed * (-1)) //Left Max Speed
+                _rigidbody.velocity = new Vector2(MaxSpeed * (-1), _rigidbody.velocity.y);
 
-            if(rigid.velocity.x > _directionThreashold)
+            if(_rigidbody.velocity.x > _directionThreashold)
             {
                 transform.localScale = new Vector2(_moveRightScaleX , transform.localScale.y);
             }
-            else if(rigid.velocity.x < -_directionThreashold)
+            else if(_rigidbody.velocity.x < -_directionThreashold)
             {
                 transform.localScale = new Vector2(_moveLeftScaleX , transform.localScale.y);
             }
 
-            rigid.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
         }
 
         public void GrabDocsa(DocsaSakki targetDocsa)
@@ -169,7 +164,7 @@ namespace  Docsa.Character
             BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
             if (Character is UzuHama hama)
             {
-                hama.Baguni.TemporaryOff(3);
+                hama.Baguni.TemporaryOff(2);
             }
         }
 
@@ -177,6 +172,8 @@ namespace  Docsa.Character
         {
             // 코루틴 정지
             Character.isDie = true;
+            _animator.SetTrigger(DieTriggerName);
+            _animator.SetBool(DieBoolName, true);
         }
     }
 }

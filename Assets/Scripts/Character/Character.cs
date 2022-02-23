@@ -11,10 +11,9 @@ namespace Docsa.Character
     {
         public CharacterBehaviour Behaviour;
         public Transform GrabDocsaPosition;
-        [SerializeField] Transform RootBoneTransform;
-
         public bool isDie = false;
         
+        [SerializeField] Transform RootBoneTransform;
         public Vector3 HeaderRelativePosition = Vector2.up;
         public Vector3 HeaderPosition
         {

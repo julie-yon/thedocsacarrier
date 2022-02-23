@@ -46,6 +46,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0149793625, y: 1.5286894}
   m_Size: {x: 1.9679694, y: 3.196916}
   m_Direction: 0
+--- !u!95 &7741695106204085173
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227528692698376315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 36b0892bfdd84ae40a77d6b2fd5e7039, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6309655751752967867
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,9 +326,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4149399146217993476}
   - component: {fileID: 6250660737674924013}
-  - component: {fileID: 3509084094197999670}
-  - component: {fileID: 7587922769778080365}
-  - component: {fileID: 6739365931878936197}
+  - component: {fileID: 8955076222844667743}
+  - component: {fileID: 5902684480713963805}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Untagged
@@ -357,22 +375,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!111 &3509084094197999670
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8302296169727283101}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 1
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &7587922769778080365
+--- !u!114 &8955076222844667743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -384,17 +387,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2027b001fe05bdc4cb4bff126cb35e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 6739365931878936197}
+  Character: {fileID: 5902684480713963805}
   MaxSpeed: 3
   MoveAcceleration: 1
   JumpPower: 3
   AimMaxAngle: 0
-  rigid: {fileID: 6250660737674924013}
+  _rigidbody: {fileID: 6250660737674924013}
   WeaponType: 4
   ProjectileEmitter: {fileID: 2421513595024798486}
-  animationList: []
-  _animation: {fileID: 3509084094197999670}
---- !u!114 &6739365931878936197
+  _animator: {fileID: 7741695106204085173}
+--- !u!114 &5902684480713963805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,10 +408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abca7411f281a64d83494b7295132ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Behaviour: {fileID: 7587922769778080365}
-  GrabDocsaPosition: {fileID: 9013139654336039756}
-  RootBoneTransform: {fileID: 7796517484131367069}
+  Behaviour: {fileID: 8955076222844667743}
+  GrabDocsaPosition: {fileID: 0}
   isDie: 0
+  RootBoneTransform: {fileID: 7796517484131367069}
   HeaderRelativePosition: {x: 0, y: 1, z: 0}
   Chat: {fileID: 9008409484774645100}
   HPBar: {fileID: 3214253255719517783}
@@ -418,7 +420,7 @@ MonoBehaviour:
   ViewerName: 
   isViewerAssigned: 0
   FocusingDocsa: {fileID: 0}
-  _trajectoryRenderer: {fileID: 0}
+  _trajectoryRenderer: {fileID: 442206222140131778}
 --- !u!1001 &1641219286795353308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,27 +431,27 @@ PrefabInstance:
     - target: {fileID: 4377955972816863743, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.00000023841858
+      value: -0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 4377955972816863743, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00000017881393
+      value: -0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 4386773438457820253, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.00000023841858
+      value: -0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 4386773438457820253, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.00097489357
+      value: 0.00076162815
       objectReference: {fileID: 0}
     - target: {fileID: 4386773438457820253, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 1.1350002
+      value: 0.886719
       objectReference: {fileID: 0}
     - target: {fileID: 4659651556313011367, guid: a7b36e60dc48a8c4d8a0cf704efce9f0,
         type: 3}
@@ -553,7 +555,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 6739365931878936197}
+      objectReference: {fileID: 5902684480713963805}
     - target: {fileID: 6443227466335614344, guid: 0b32e3de5ea19cd48a55f5c33e3bf92e,
         type: 3}
       propertyPath: m_RootOrder
@@ -732,7 +734,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 6739365931878936197}
+      objectReference: {fileID: 5902684480713963805}
     - target: {fileID: 6028283938760804963, guid: 1257fb219fd5a7146a5e55e18e007a24,
         type: 3}
       propertyPath: RelativeHPBarPosition.y
