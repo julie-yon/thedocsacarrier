@@ -6,6 +6,16 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HamaAnimatorOverride
+  m_Name: DocsaAnimatorOverride
   m_Controller: {fileID: 9100000, guid: 82644c3e2e9d7374a94b172a50ef9b5c, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1378f1c6433ae7c4b99411e2742fd4ca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 31b8546609fddad43be50778680b5205, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 93ba52ead13a2bb44834aaf12c0fe165, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 279598d12d7443d4cad38960168cb28c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7437fa66c80bd0243bcfcf33339e345a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 60b49e5b4df4d38448e5941611d4ca28, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1446109995f72eb4dad84eb8bd118c50, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 58bb57b9908f50d4dac5b8854154b207, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2e0654214b6e6f4d99c5635ae1e7bad, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0589cad3d4a682e4887c28bed1c657a6, type: 2}

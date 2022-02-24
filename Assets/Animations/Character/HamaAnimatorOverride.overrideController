@@ -8,4 +8,14 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: HamaAnimatorOverride
   m_Controller: {fileID: 9100000, guid: 82644c3e2e9d7374a94b172a50ef9b5c, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1378f1c6433ae7c4b99411e2742fd4ca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6dbfbff2c37a9c4e806b21192b21ac0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 93ba52ead13a2bb44834aaf12c0fe165, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eeb89063ce9f49147b12fe58846effa7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7437fa66c80bd0243bcfcf33339e345a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4b04d926ed2bb6b46b5728356ab3ac6a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1446109995f72eb4dad84eb8bd118c50, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bda22b9ddc748444b8665cb16688adf8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2e0654214b6e6f4d99c5635ae1e7bad, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9b0ed770df20e9141b176318b8b0bc30, type: 2}
