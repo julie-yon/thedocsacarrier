@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Events;
 
@@ -8,7 +9,7 @@ namespace Docsa.Events
     public class AnimatorTrigger : EventTrigger
     {
         public Animator TargetAnimator;
-        public string TriggerName = "PlayAnimator";
+        public List<string> TriggerNames = new List<string>();
 
         void Reset()
         {
@@ -17,7 +18,10 @@ namespace Docsa.Events
 
         public void PlayAnimator()
         {
-            TargetAnimator.SetTrigger(TriggerName);
+            foreach (var name in TriggerNames)
+            {
+                TargetAnimator.SetTrigger(name);
+            }
         }
     }
 }

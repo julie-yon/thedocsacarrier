@@ -7,13 +7,13 @@ namespace Docsa.Events
     public class AnimatorTriggerEditor : EventTriggerEditor
     {
         SerializedProperty TargetAnimator;
-        SerializedProperty TriggerName;
+        SerializedProperty TriggerNames;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             TargetAnimator = serializedObject.FindProperty("TargetAnimator");
-            TriggerName = serializedObject.FindProperty("TriggerName");
+            TriggerNames = serializedObject.FindProperty("TriggerNames");
         }
 
         public override void OnInspectorGUI()
@@ -24,7 +24,7 @@ namespace Docsa.Events
             if (isReady.boolValue)
             {
                 EditorGUILayout.PropertyField(TargetAnimator);
-                EditorGUILayout.PropertyField(TriggerName);
+                EditorGUILayout.PropertyField(TriggerNames);
             }
 
             serializedObject.ApplyModifiedProperties();

@@ -74,7 +74,8 @@ MonoBehaviour:
   Collider: {fileID: 0}
   Collider2D: {fileID: 2082544001665057972}
   TargetAnimator: {fileID: 4160551894293276014}
-  TriggerName: CrackTrigger
+  TriggerNames:
+  - CrackTrigger
 --- !u!70 &2082544001665057972
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
