@@ -1,25 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Docsa.Character;
+﻿using UnityEngine;
 
 namespace Docsa.Gimmick
 {
     public class Rock : Gimmick
     {
-        public int DamageValue = 10;
-        protected override void GimmickInvoke()
+        public Sprite RockSprite;
+        public Sprite RockSprite_Transparent;
+
+        SpriteRenderer SpriteRenderer;
+
+        protected override void Awake()
         {
-            base.GimmickInvoke();
-            GiveDamage(DamageValue);
+            SpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        void OnTriggerEnter2D(Collider2D otherCol)
+        void OnTriggerEnter2D(Collider2D collider)
         {
-            int includeLayer = 1<<10;
-            if((1<<otherCol.gameObject.layer & includeLayer) != 0)
+            if(1 << collider.gameObject.layer == UzuhamaLayer.value)
             {
-                GimmickInvoke();
+                SpriteRenderer.sprite = RockSprite_Transparent;
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D collider)
+        {
+            if(1 << collider.gameObject.layer == UzuhamaLayer.value)
+            {
+                SpriteRenderer.sprite = RockSprite;
             }
         }
     }

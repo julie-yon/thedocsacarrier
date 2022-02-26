@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1170466538896695999
-    second: forestgimik-rock_0
+    second: ForestRock
   - first:
       213: -3914414908270459371
     second: forestgimik-rock_1
@@ -22,7 +22,7 @@ TextureImporter:
     second: forestgimik-rock_5
   - first:
       213: 1895336349142949671
-    second: forestgimik-rock_6
+    second: ForestRock_Tramsparent
   - first:
       213: -1194746796950182608
     second: forestgimik-rock_7
@@ -123,15 +123,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: forestgimik-rock_0
+      name: ForestRock
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,15 +144,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forestgimik-rock_6
+      name: ForestRock_Tramsparent
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

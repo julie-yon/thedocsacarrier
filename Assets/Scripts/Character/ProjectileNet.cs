@@ -13,7 +13,7 @@ namespace Docsa
             //문제가 있음...Debug 요망
             if (collider.gameObject.GetComponent<DocsaSakki>() != null)
             {
-                ShooterGameObject.GetComponent<Hunter>().Behaviour.GrabDocsa(TargetGameObject.GetComponent<DocsaSakki>());
+                ShooterCharacter.Behaviour.GrabDocsa(TargetTransform.GetComponent<DocsaSakki>());
             }
             Destroy(this.gameObject);
         }

@@ -4,139 +4,139 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1994215950536122248
-    second: volcano_gimmick_0
+    second: ToxicCloudLeft1
   - first:
       213: -1746788329672674399
-    second: volcano_gimmick_1
+    second: ToxicCloudMiddle1
   - first:
       213: -1449179110697191397
-    second: volcano_gimmick_2
+    second: ToxicCloudRight1
   - first:
       213: -652185335151129366
-    second: volcano_gimmick_3
+    second: CrackingFloorUpLeft1
   - first:
       213: -5667903350019092840
-    second: volcano_gimmick_4
+    second: CrackingFloorUpRight1
   - first:
       213: -8938364987833823714
-    second: volcano_gimmick_5
+    second: Granite1
   - first:
       213: -2179276579454933294
-    second: volcano_gimmick_6
+    second: Basalt1
   - first:
       213: 9134111279569402248
-    second: volcano_gimmick_7
+    second: CrackingFloorDownLeft1
   - first:
       213: 8336794576544599695
-    second: volcano_gimmick_8
+    second: CrackingFloorDownRight1
   - first:
       213: 2904371579434771678
-    second: volcano_gimmick_9
+    second: LavaLeft1
   - first:
       213: 2484925050986298137
-    second: volcano_gimmick_10
+    second: LavaMiddle1
   - first:
       213: -4837540824668568687
-    second: volcano_gimmick_11
+    second: LavaRight1
   - first:
       213: 293793022480021506
-    second: volcano_gimmick_12
+    second: LavaBottom
   - first:
       213: -4670795718523995791
-    second: volcano_gimmick_15
+    second: ToxicCloudLeft2
   - first:
       213: -8007181453942430582
-    second: volcano_gimmick_16
+    second: ToxicCloudMiddle2
   - first:
       213: 4420034073580124663
-    second: volcano_gimmick_17
+    second: ToxicCloudRight2
   - first:
       213: -5659018268466336644
-    second: volcano_gimmick_18
+    second: CrackingFloorUpLeft2
   - first:
       213: 2855778366247132609
-    second: volcano_gimmick_19
+    second: CrackingFloorUpRight2
   - first:
       213: -5254198819120243042
-    second: volcano_gimmick_20
+    second: Granite2
   - first:
       213: -1873490070822396552
-    second: volcano_gimmick_21
+    second: Basalt2
   - first:
       213: -2316176715913242444
-    second: volcano_gimmick_22
+    second: CrackingFloorDownLeft2
   - first:
       213: 5948655865983619416
-    second: volcano_gimmick_24
+    second: CrackingFloorDownRight2
   - first:
       213: 3230721086175330445
-    second: volcano_gimmick_25
+    second: LavaLeft2
   - first:
       213: 3018543384675749006
-    second: volcano_gimmick_26
+    second: LavaMiddle2
   - first:
       213: 1974091322729429543
-    second: volcano_gimmick_27
+    second: LavaRight2
   - first:
       213: -604656772127413913
-    second: volcano_gimmick_31
+    second: ToxicCloudLeft3
   - first:
       213: 3147658399155300696
-    second: volcano_gimmick_32
+    second: ToxicCloudMiddle3
   - first:
       213: 2978934406205451371
-    second: volcano_gimmick_33
+    second: ToxicCloudRight3
   - first:
       213: 3199381591727534711
-    second: volcano_gimmick_34
+    second: CrackingFloorUpLeft3
   - first:
       213: -6957113189233483855
-    second: volcano_gimmick_37
+    second: CrackingFloorUpRight3
   - first:
       213: 4152382643738661123
-    second: volcano_gimmick_38
+    second: Granite3
   - first:
       213: 1229885492708900912
-    second: volcano_gimmick_39
+    second: Basalt3
   - first:
       213: 7408982903420349593
-    second: volcano_gimmick_40
+    second: CrackingFloorDownLeft3
   - first:
       213: 8538177316000593208
-    second: volcano_gimmick_43
+    second: CrackingFloorDownRight3
   - first:
       213: -1277394611181651146
-    second: volcano_gimmick_44
+    second: LavaLeft3
   - first:
       213: -2291133170354243234
-    second: volcano_gimmick_45
+    second: LavaMiddle3
   - first:
       213: 7583560234094066635
-    second: volcano_gimmick_46
+    second: LavaRight3
   - first:
       213: 5121870788357785822
-    second: volcano_gimmick_50
+    second: ToxicCloudLeft4
   - first:
       213: -1822778793208224705
-    second: volcano_gimmick_51
+    second: ToxicCloudMiddle4
   - first:
       213: -3186370714740179006
-    second: volcano_gimmick_52
+    second: ToxicCloudRight4
   - first:
       213: -6654808678923155679
-    second: volcano_gimmick_57
+    second: Granite4
   - first:
       213: 7032150397246523610
-    second: volcano_gimmick_58
+    second: Basalt4
   - first:
       213: -1587527423854524886
-    second: volcano_gimmick_63
+    second: LavaLeft4
   - first:
       213: -654543366726810380
-    second: volcano_gimmick_64
+    second: LavaMiddle4
   - first:
       213: -1290734263356911878
-    second: volcano_gimmick_65
+    second: LavaRight4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -222,7 +222,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: volcano_gimmick_0
+      name: ToxicCloudLeft1
       rect:
         serializedVersion: 2
         x: 0
@@ -230,7 +230,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_1
+      name: ToxicCloudMiddle1
       rect:
         serializedVersion: 2
         x: 24
@@ -251,7 +251,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_2
+      name: ToxicCloudRight1
       rect:
         serializedVersion: 2
         x: 48
@@ -272,7 +272,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_3
+      name: CrackingFloorUpLeft1
       rect:
         serializedVersion: 2
         x: 72
@@ -293,7 +293,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_4
+      name: CrackingFloorUpRight1
       rect:
         serializedVersion: 2
         x: 144
@@ -314,7 +314,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_5
+      name: Granite1
       rect:
         serializedVersion: 2
         x: 0
@@ -335,7 +335,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -348,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_6
+      name: Basalt1
       rect:
         serializedVersion: 2
         x: 24
@@ -356,7 +356,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_7
+      name: CrackingFloorDownLeft1
       rect:
         serializedVersion: 2
         x: 72
@@ -377,7 +377,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_8
+      name: CrackingFloorDownRight1
       rect:
         serializedVersion: 2
         x: 144
@@ -398,7 +398,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_9
+      name: LavaLeft1
       rect:
         serializedVersion: 2
         x: 0
@@ -419,7 +419,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_10
+      name: LavaMiddle1
       rect:
         serializedVersion: 2
         x: 24
@@ -440,7 +440,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_11
+      name: LavaRight1
       rect:
         serializedVersion: 2
         x: 48
@@ -461,7 +461,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_12
+      name: LavaBottom
       rect:
         serializedVersion: 2
         x: 0
@@ -482,7 +482,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -495,7 +495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_15
+      name: ToxicCloudLeft2
       rect:
         serializedVersion: 2
         x: 0
@@ -503,7 +503,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -516,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_16
+      name: ToxicCloudMiddle2
       rect:
         serializedVersion: 2
         x: 24
@@ -524,7 +524,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -537,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_17
+      name: ToxicCloudRight2
       rect:
         serializedVersion: 2
         x: 48
@@ -545,7 +545,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_18
+      name: CrackingFloorUpLeft2
       rect:
         serializedVersion: 2
         x: 72
@@ -566,7 +566,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -579,7 +579,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_19
+      name: CrackingFloorUpRight2
       rect:
         serializedVersion: 2
         x: 144
@@ -587,7 +587,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_20
+      name: Granite2
       rect:
         serializedVersion: 2
         x: 0
@@ -608,7 +608,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_21
+      name: Basalt2
       rect:
         serializedVersion: 2
         x: 24
@@ -629,7 +629,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_22
+      name: CrackingFloorDownLeft2
       rect:
         serializedVersion: 2
         x: 72
@@ -650,7 +650,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_24
+      name: CrackingFloorDownRight2
       rect:
         serializedVersion: 2
         x: 144
@@ -671,7 +671,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_25
+      name: LavaLeft2
       rect:
         serializedVersion: 2
         x: 0
@@ -692,7 +692,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_26
+      name: LavaMiddle2
       rect:
         serializedVersion: 2
         x: 24
@@ -713,7 +713,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -726,7 +726,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_27
+      name: LavaRight2
       rect:
         serializedVersion: 2
         x: 48
@@ -734,7 +734,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_31
+      name: ToxicCloudLeft3
       rect:
         serializedVersion: 2
         x: 0
@@ -755,7 +755,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_32
+      name: ToxicCloudMiddle3
       rect:
         serializedVersion: 2
         x: 24
@@ -776,7 +776,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_33
+      name: ToxicCloudRight3
       rect:
         serializedVersion: 2
         x: 48
@@ -797,7 +797,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -810,7 +810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_34
+      name: CrackingFloorUpLeft3
       rect:
         serializedVersion: 2
         x: 72
@@ -818,7 +818,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -831,7 +831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_37
+      name: CrackingFloorUpRight3
       rect:
         serializedVersion: 2
         x: 140
@@ -839,7 +839,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -852,7 +852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_38
+      name: Granite3
       rect:
         serializedVersion: 2
         x: 0
@@ -860,7 +860,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -873,7 +873,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_39
+      name: Basalt3
       rect:
         serializedVersion: 2
         x: 24
@@ -881,7 +881,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -894,7 +894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_40
+      name: CrackingFloorDownLeft3
       rect:
         serializedVersion: 2
         x: 72
@@ -902,7 +902,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -915,7 +915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_43
+      name: CrackingFloorDownRight3
       rect:
         serializedVersion: 2
         x: 140
@@ -923,7 +923,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -936,7 +936,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_44
+      name: LavaLeft3
       rect:
         serializedVersion: 2
         x: 0
@@ -944,7 +944,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -957,7 +957,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_45
+      name: LavaMiddle3
       rect:
         serializedVersion: 2
         x: 24
@@ -965,7 +965,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -978,7 +978,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_46
+      name: LavaRight3
       rect:
         serializedVersion: 2
         x: 48
@@ -986,7 +986,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -999,7 +999,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_50
+      name: ToxicCloudLeft4
       rect:
         serializedVersion: 2
         x: 0
@@ -1007,7 +1007,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1020,7 +1020,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_51
+      name: ToxicCloudMiddle4
       rect:
         serializedVersion: 2
         x: 24
@@ -1028,7 +1028,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1041,7 +1041,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_52
+      name: ToxicCloudRight4
       rect:
         serializedVersion: 2
         x: 48
@@ -1049,7 +1049,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1062,7 +1062,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_57
+      name: Granite4
       rect:
         serializedVersion: 2
         x: 0
@@ -1070,7 +1070,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1083,7 +1083,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_58
+      name: Basalt4
       rect:
         serializedVersion: 2
         x: 24
@@ -1091,7 +1091,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1104,7 +1104,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_63
+      name: LavaLeft4
       rect:
         serializedVersion: 2
         x: 0
@@ -1112,7 +1112,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1125,7 +1125,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_64
+      name: LavaMiddle4
       rect:
         serializedVersion: 2
         x: 24
@@ -1133,7 +1133,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1146,7 +1146,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_gimmick_65
+      name: LavaRight4
       rect:
         serializedVersion: 2
         x: 48
@@ -1154,7 +1154,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

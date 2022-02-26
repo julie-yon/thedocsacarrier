@@ -4,73 +4,73 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1189608692893037646
-    second: Swamp_Gimmiks_0
+    second: SwampAdultCrocodile1
   - first:
       213: 2397760980958752381
-    second: Swamp_Gimmiks_2
+    second: SwampSwingVine1
   - first:
       213: 5599666984866472843
-    second: Swamp_Gimmiks_4
+    second: SwampAdolescentCrocodile1
   - first:
       213: 1940022918537761087
-    second: Swamp_Gimmiks_5
+    second: SwampCoconut1
   - first:
       213: 6294939663944844073
-    second: Swamp_Gimmiks_6
+    second: SwampGrowingPlant1
   - first:
       213: -100779759582677235
-    second: Swamp_Gimmiks_7
+    second: SwampAdultCrocodile2
   - first:
       213: -1106987678520523080
-    second: Swamp_Gimmiks_9
+    second: SwampSwingVine2
   - first:
       213: -5384244489318838827
-    second: Swamp_Gimmiks_11
+    second: SwampAdolescentCrocodile2
   - first:
       213: 7049004699024303953
-    second: Swamp_Gimmiks_12
+    second: SwampCoconut2
   - first:
       213: -2741821640216275947
-    second: Swamp_Gimmiks_13
+    second: SwampGrowingPlant2
   - first:
       213: 7151821144425709221
-    second: Swamp_Gimmiks_14
+    second: SwampAdultCrocodile3
   - first:
       213: -4942291305893774149
-    second: Swamp_Gimmiks_16
+    second: SwampSwingVine3
   - first:
       213: 8662064948594205828
-    second: Swamp_Gimmiks_18
+    second: SwampAdolescentCrocodile3
   - first:
       213: 960610610287583646
-    second: Swamp_Gimmiks_19
+    second: SwampCoconut3
   - first:
       213: -3691429667157364155
-    second: Swamp_Gimmiks_20
+    second: SwampGrowingPlant3
   - first:
       213: 868802811062516120
-    second: Swamp_Gimmiks_21
+    second: SwampAdultCrocodile4
   - first:
       213: 4974440720936925901
-    second: Swamp_Gimmiks_23
+    second: SwampSwingVine4
   - first:
       213: -8320479668257447194
-    second: Swamp_Gimmiks_25
+    second: SwampCoconutCrackedDown
   - first:
       213: 5910959943769409605
-    second: Swamp_Gimmiks_26
+    second: SwampCoconutCrackedUp
   - first:
       213: -752519341515636885
-    second: Swamp_Gimmiks_27
+    second: SwampGrowingPlant4
   - first:
       213: 8074061129633227977
-    second: Swamp_Gimmiks_28
+    second: SwampGrowingPlant5
   - first:
       213: -7381111664581784136
-    second: Swamp_Gimmiks_29
+    second: SwampGrowingPlantMiddle
   - first:
       213: 1455512097212062259
-    second: Swamp_Gimmiks_30
+    second: SwampGrowingPlantTop
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -156,7 +156,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Swamp_Gimmiks_0
+      name: SwampAdultCrocodile1
       rect:
         serializedVersion: 2
         x: 0
@@ -164,7 +164,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,7 +177,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_2
+      name: SwampSwingVine1
       rect:
         serializedVersion: 2
         x: 48
@@ -185,7 +185,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_4
+      name: SwampAdolescentCrocodile1
       rect:
         serializedVersion: 2
         x: 0
@@ -206,7 +206,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,7 +219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_5
+      name: SwampCoconut1
       rect:
         serializedVersion: 2
         x: 24
@@ -227,7 +227,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,7 +240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_6
+      name: SwampGrowingPlant1
       rect:
         serializedVersion: 2
         x: 48
@@ -248,7 +248,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,7 +261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_7
+      name: SwampAdultCrocodile2
       rect:
         serializedVersion: 2
         x: 0
@@ -269,7 +269,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -282,7 +282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_9
+      name: SwampSwingVine2
       rect:
         serializedVersion: 2
         x: 48
@@ -290,7 +290,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -303,7 +303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_11
+      name: SwampAdolescentCrocodile2
       rect:
         serializedVersion: 2
         x: 0
@@ -311,7 +311,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -324,7 +324,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_12
+      name: SwampCoconut2
       rect:
         serializedVersion: 2
         x: 24
@@ -332,7 +332,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -345,7 +345,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_13
+      name: SwampGrowingPlant2
       rect:
         serializedVersion: 2
         x: 48
@@ -353,7 +353,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -366,7 +366,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_14
+      name: SwampAdultCrocodile3
       rect:
         serializedVersion: 2
         x: 0
@@ -374,7 +374,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -387,7 +387,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_16
+      name: SwampSwingVine3
       rect:
         serializedVersion: 2
         x: 48
@@ -395,7 +395,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_18
+      name: SwampAdolescentCrocodile3
       rect:
         serializedVersion: 2
         x: 0
@@ -416,7 +416,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -429,7 +429,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_19
+      name: SwampCoconut3
       rect:
         serializedVersion: 2
         x: 24
@@ -437,7 +437,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -450,7 +450,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_20
+      name: SwampGrowingPlant3
       rect:
         serializedVersion: 2
         x: 48
@@ -458,7 +458,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -471,7 +471,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_21
+      name: SwampAdultCrocodile4
       rect:
         serializedVersion: 2
         x: 0
@@ -479,7 +479,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -492,7 +492,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_23
+      name: SwampSwingVine4
       rect:
         serializedVersion: 2
         x: 48
@@ -500,7 +500,7 @@ TextureImporter:
         width: 48
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -513,7 +513,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_25
+      name: SwampCoconutCrackedDown
       rect:
         serializedVersion: 2
         x: 0
@@ -521,7 +521,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -534,7 +534,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_26
+      name: SwampCoconutCrackedUp
       rect:
         serializedVersion: 2
         x: 24
@@ -542,7 +542,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -555,7 +555,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_27
+      name: SwampGrowingPlant4
       rect:
         serializedVersion: 2
         x: 48
@@ -563,7 +563,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -576,7 +576,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_28
+      name: SwampGrowingPlant5
       rect:
         serializedVersion: 2
         x: 48
@@ -584,7 +584,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -597,7 +597,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_29
+      name: SwampGrowingPlantMiddle
       rect:
         serializedVersion: 2
         x: 72
@@ -605,7 +605,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -618,7 +618,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swamp_Gimmiks_30
+      name: SwampGrowingPlantTop
       rect:
         serializedVersion: 2
         x: 96
@@ -626,7 +626,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

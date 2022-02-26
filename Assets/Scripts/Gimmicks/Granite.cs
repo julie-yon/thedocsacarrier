@@ -5,7 +5,7 @@ namespace Docsa.Gimmick
 {
     public class Granite : Gimmick
     {
-        protected override void GimmickInvoke()
+        public override void GimmickInvoke()
         {
             base.GimmickInvoke();
         }

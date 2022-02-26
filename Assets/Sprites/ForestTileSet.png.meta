@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 3223497512799974022
-    second: foreststagetileset_0
+    second: ForestTileStep1
   - first:
       213: -9174721443271559966
-    second: foreststagetileset_1
+    second: ForestTileStep2
   - first:
       213: 8108637285085770978
-    second: foreststagetileset_2
+    second: ForestGrass1
   - first:
       213: 416099740353780923
-    second: foreststagetileset_3
+    second: ForestTileBase
   - first:
       213: 8985396149147575899
     second: foreststagetileset_4
   - first:
       213: 8900198531994472798
-    second: foreststagetileset_5
+    second: ForestGrass2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: foreststagetileset_0
+      name: ForestTileStep1
       rect:
         serializedVersion: 2
         x: 0
@@ -125,7 +125,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foreststagetileset_1
+      name: ForestTileStep2
       rect:
         serializedVersion: 2
         x: 24
@@ -146,7 +146,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foreststagetileset_2
+      name: ForestGrass1
       rect:
         serializedVersion: 2
         x: 48
@@ -167,7 +167,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foreststagetileset_3
+      name: ForestTileBase
       rect:
         serializedVersion: 2
         x: 0
@@ -188,7 +188,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,28 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foreststagetileset_4
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b56aa14e03a82bc70800000000000000
-      internalID: 8985396149147575899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: foreststagetileset_5
+      name: ForestGrass2
       rect:
         serializedVersion: 2
         x: 48
@@ -230,7 +209,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

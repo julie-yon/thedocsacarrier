@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7327817092630557501
-    second: volcano_block_0
+    second: VolcanicTileStep
   - first:
       213: 8111353803756766171
-    second: volcano_block_1
+    second: VolcanicTileLava
   - first:
       213: 8835104445490864669
-    second: volcano_block_2
+    second: VolcanicTileBase
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: volcano_block_0
+      name: VolcanicTileStep
       rect:
         serializedVersion: 2
         x: 0
@@ -104,7 +104,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,7 +117,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_block_1
+      name: VolcanicTileLava
       rect:
         serializedVersion: 2
         x: 24
@@ -125,7 +125,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: volcano_block_2
+      name: VolcanicTileBase
       rect:
         serializedVersion: 2
         x: 0
@@ -146,7 +146,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

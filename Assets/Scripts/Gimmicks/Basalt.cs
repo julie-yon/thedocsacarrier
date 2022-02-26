@@ -8,22 +8,17 @@ namespace Docsa.Gimmick
     {
         public Vector2 Direction;
         #pragma warning disable 0108
-        void Awake()
+        protected override void Awake()
         {
             base.Awake();
             Damage = 10;
         }
 
-        void Update()
+        void FixedUpdate()
         {
-            transform.Translate(Direction);
+            transform.Translate(Direction * Time.deltaTime);
         }
         
-        protected override void GimmickInvoke()
-        {
-            base.GimmickInvoke();
-        }
-
         void OnCollisionEnter2D(Collision2D collision2D)
         {
             if (collision2D.gameObject.layer.Equals(UzuhamaLayer))

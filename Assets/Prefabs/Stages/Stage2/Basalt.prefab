@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6856972361738242779}
   - component: {fileID: 4915335913004212023}
+  - component: {fileID: 6481659729694142151}
   - component: {fileID: 8854472604999846730}
   m_Layer: 0
   m_Name: BasaltObject
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8877451446526522181, guid: c76e1c3629b9a3b4a8689945b6739941,
+  m_Sprite: {fileID: -2179276579454933294, guid: c00d9b8927e7e435da208360ea78b89e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,6 +84,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6481659729694142151
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405352108052456898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd397ef590cacd4d9eae7a6e61a92b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &8854472604999846730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7816005108737165910}
   - component: {fileID: 8034297858998959318}
-  - component: {fileID: 5795837473701106296}
   m_Layer: 0
   m_Name: Basalt
   m_TagString: Untagged
@@ -156,19 +175,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Direction: {x: -1, y: -1}
---- !u!111 &5795837473701106296
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8929790592373578356}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: ead088321914e574eb66daf458896999, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: ead088321914e574eb66daf458896999, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0

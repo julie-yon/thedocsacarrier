@@ -87,7 +87,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: "\uC624\uB978\uCABD \uD600"
+  - name: RightTongue
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -101,12 +101,12 @@ ScriptedImporter:
     spriteID: a05ad07ffd3cc244583ef483c5986d5f
     internalID: 0
     spriteBone:
-    - name: tongue_right
-      position: {x: 3.6863708, y: 9.478683, z: 4}
-      rotation: {x: 0, y: 0, z: 0.38789463, w: -0.9217038}
-      length: 8.301701
-      parentId: -1
-    - name: tongue
+    - name: TongueRight
+      position: {x: 8.106162, y: 0.07549913, z: 4}
+      rotation: {x: 0, y: 0, z: 0.35862252, w: 0.93348265}
+      length: 8.3017
+      parentId: 1
+    - name: Tongue
       position: {x: 3.2825623, y: 17.575134, z: 3}
       rotation: {x: 0, y: 0, z: 0.6926366, w: -0.7212868}
       length: 9.993206
@@ -374,7 +374,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -7, y: -214}
-  - name: "\uC67C\uCABD \uD600"
+  - name: LeftTongue
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -388,12 +388,12 @@ ScriptedImporter:
     spriteID: d90829db94c758b4187d6c982b8c1e78
     internalID: 0
     spriteBone:
-    - name: tongue_left
+    - name: TongueLeft
       position: {x: 8.369574, y: -0.06885924, z: 4}
       rotation: {x: 0, y: 0, z: -0.3603405, w: 0.93282086}
       length: 8.620797
       parentId: 1
-    - name: tongue
+    - name: Tongue
       position: {x: 8.282562, y: 17.575134, z: 3}
       rotation: {x: 0, y: 0, z: 0.6926366, w: -0.7212868}
       length: 9.993206
@@ -662,7 +662,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 1, y: -198}
-  - name: "\uD600 \uAE30\uB465"
+  - name: Tongue
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -676,17 +676,17 @@ ScriptedImporter:
     spriteID: fa62ac66b6764b64f91c33edf69b6bcc
     internalID: 0
     spriteBone:
-    - name: tongue_right
-      position: {x: -0.29204568, y: -0.070205525, z: 4}
-      rotation: {x: 0, y: 0, z: 0.6709022, w: 0.7415459}
-      length: 8.301699
-      parentId: 2
-    - name: tongue
+    - name: TongueRight
+      position: {x: 8.106162, y: 0.075474456, z: 4}
+      rotation: {x: 0, y: 0, z: 0.35862252, w: 0.93348265}
+      length: 8.3017
+      parentId: 1
+    - name: Tongue
       position: {x: 4.2825623, y: 10.575134, z: 3}
       rotation: {x: 0, y: 0, z: 0.6926366, w: -0.7212868}
       length: 9.993206
       parentId: -1
-    - name: tongue_left
+    - name: TongueLeft
       position: {x: 8.369574, y: -0.06887475, z: 4}
       rotation: {x: 0, y: 0, z: -0.3603405, w: 0.93282086}
       length: 8.620797
@@ -1007,7 +1007,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 13, y: -221}
-  - name: "\uC624\uB978\uD314"
+  - name: RightArm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1021,7 +1021,7 @@ ScriptedImporter:
     spriteID: d47af3194a198474a8123e2fad0e2e05
     internalID: 0
     spriteBone:
-    - name: right_arm
+    - name: RightArm
       position: {x: 31.459015, y: 25.98172, z: 2}
       rotation: {x: 0, y: 0, z: 0.94179523, w: -0.33618698}
       length: 30.389301
@@ -1365,7 +1365,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -16, y: -152}
-  - name: "\uBA38\uB9AC"
+  - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1379,12 +1379,12 @@ ScriptedImporter:
     spriteID: fae34a8a7b28a164bbbab4b9ff6e0ad6
     internalID: 0
     spriteBone:
-    - name: head
+    - name: Head
       position: {x: 61.282703, y: -0.000006418993, z: 2}
       rotation: {x: 0, y: 0, z: -0.0070259566, w: 0.9999753}
       length: 72.403564
       parentId: 1
-    - name: body
+    - name: Body_RootBone
       position: {x: 37.89891, y: -57.19844, z: 1}
       rotation: {x: 0, y: 0, z: 0.70228094, w: 0.7119}
       length: 61.282707
@@ -1995,7 +1995,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -190, y: -147}
-  - name: "\uBAB8\uD1B5"
+  - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2009,32 +2009,32 @@ ScriptedImporter:
     spriteID: 85a265b182fdd2c458ca4cd98290f692
     internalID: 0
     spriteBone:
-    - name: tail_1
+    - name: Tail1
       position: {x: 22.90963, y: -1.0563334, z: 1}
       rotation: {x: 0, y: 0, z: -0.75526917, w: 0.6554148}
       length: 44.17944
       parentId: 1
-    - name: body
+    - name: Body_RootBone
       position: {x: 38.89891, y: 7.8015594, z: 1}
       rotation: {x: 0, y: 0, z: 0.70228094, w: 0.7119}
       length: 61.282707
       parentId: -1
-    - name: tail_2
+    - name: Tail2
       position: {x: 44.179432, y: -0.0000050211243, z: 1}
       rotation: {x: 0, y: 0, z: 0.12826723, w: 0.99173963}
       length: 38.659893
       parentId: 0
-    - name: tail_3
+    - name: Tail3
       position: {x: 38.659904, y: -0.000010097166, z: 1}
-      rotation: {x: 0, y: 0, z: 0.17791356, w: 0.9840461}
-      length: 37.839405
+      rotation: {x: 0, y: 0, z: 0.17791374, w: 0.9840461}
+      length: 37.839417
       parentId: 2
-    - name: tail_6
-      position: {x: 37.839397, y: 0.0000011517104, z: 2}
-      rotation: {x: 0, y: 0, z: -0.035381097, w: 0.9993739}
-      length: 28.975561
+    - name: Tail4
+      position: {x: 37.839417, y: -0.00000049681694, z: 2}
+      rotation: {x: 0, y: 0, z: -0.03538113, w: 0.9993739}
+      length: 28.97556
       parentId: 3
-    - name: head
+    - name: Head
       position: {x: 61.282703, y: -0.0000072311063, z: 2}
       rotation: {x: 0, y: 0, z: -0.0070259566, w: 0.9999753}
       length: 72.403564
@@ -2064,8 +2064,8 @@ ScriptedImporter:
     - position: {x: 72.10899, y: 1.8533493}
       boneWeight:
         weight0: 0.81425154
-        weight1: 0.11580953
-        weight2: 0.06993887
+        weight1: 0.11580957
+        weight2: 0.06993889
         weight3: 0
         boneIndex0: 0
         boneIndex1: 1
@@ -2283,9 +2283,9 @@ ScriptedImporter:
         boneIndex3: 0
     - position: {x: 70.79865, y: 61.53067}
       boneWeight:
-        weight0: 0.46499997
+        weight0: 0.4649999
         weight1: 0.39507386
-        weight2: 0.1399262
+        weight2: 0.13992618
         weight3: 0
         boneIndex0: 1
         boneIndex1: 0
@@ -2534,8 +2534,8 @@ ScriptedImporter:
     - position: {x: 61.024887, y: 20.46466}
       boneWeight:
         weight0: 0.74865806
-        weight1: 0.22754939
-        weight2: 0.023792574
+        weight1: 0.22754936
+        weight2: 0.02379257
         weight3: 0
         boneIndex0: 0
         boneIndex1: 1
@@ -2553,9 +2553,9 @@ ScriptedImporter:
         boneIndex3: 0
     - position: {x: 50.255936, y: 52.4504}
       boneWeight:
-        weight0: 0.80403507
+        weight0: 0.804035
         weight1: 0.17997202
-        weight2: 0.015992915
+        weight2: 0.015992913
         weight3: 0
         boneIndex0: 1
         boneIndex1: 0
@@ -2631,7 +2631,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -189, y: -155}
-  - name: "\uAF2C\uB9AC\uB05D"
+  - name: Tail
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2645,15 +2645,15 @@ ScriptedImporter:
     spriteID: 46453f9584144944fa1049fd6278361f
     internalID: 0
     spriteBone:
-    - name: tail_6
-      position: {x: 37.839424, y: 0.000018254308, z: 2}
-      rotation: {x: 0, y: 0, z: -0.035381094, w: 0.9993739}
+    - name: Tail4
+      position: {x: 37.839417, y: 0.0000123129685, z: 2}
+      rotation: {x: 0, y: 0, z: -0.035381105, w: 0.9993739}
       length: 28.97557
       parentId: 1
-    - name: tail_3
+    - name: Tail3
       position: {x: -25.625214, y: -6.174698, z: 1}
-      rotation: {x: 0, y: 0, z: 0.22799617, w: 0.973662}
-      length: 37.839413
+      rotation: {x: 0, y: 0, z: 0.22799629, w: 0.973662}
+      length: 37.839424
       parentId: -1
     spriteOutline: []
     vertices:
@@ -3084,7 +3084,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -172, y: -189}
-  - name: "\uC67C\uD314"
+  - name: LeftArm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -3098,7 +3098,7 @@ ScriptedImporter:
     spriteID: 8ec936e1869e9b942a675e85ed9ff84f
     internalID: 0
     spriteBone:
-    - name: left_arm
+    - name: LeftArm
       position: {x: 23.143204, y: 18.592804, z: 0}
       rotation: {x: 0, y: 0, z: 0.96536565, w: -0.2609009}
       length: 19.34718
@@ -3573,61 +3573,61 @@ ScriptedImporter:
     mosaicPosition: {x: 170, y: 41}
   characterData:
     bones:
-    - name: body
+    - name: Body_RootBone
       position: {x: 229.89891, y: 164.80156, z: 1}
       rotation: {x: 0, y: 0, z: 0.70228094, w: 0.7119}
       length: 61.282703
       parentId: -1
-    - name: head
+    - name: Head
       position: {x: 61.2827, y: -0.000013505426, z: 2}
       rotation: {x: 0, y: 0, z: -0.0070259566, w: 0.9999753}
       length: 72.403564
       parentId: 0
-    - name: tail_1
+    - name: Tail1
       position: {x: 22.909626, y: -1.0563397, z: 1}
       rotation: {x: 0, y: -0, z: -0.7552692, w: 0.65541476}
       length: 44.179432
       parentId: 0
-    - name: tail_2
+    - name: Tail2
       position: {x: 44.179424, y: 0.000007530663, z: 1}
       rotation: {x: 0, y: 0, z: 0.12826726, w: 0.99173963}
       length: 38.659893
       parentId: 2
-    - name: tail_3
+    - name: Tail3
       position: {x: 38.65989, y: -0.000009051305, z: 1}
-      rotation: {x: 0, y: 0, z: 0.17791364, w: 0.9840461}
-      length: 37.8394
+      rotation: {x: 0, y: 0, z: 0.1779138, w: 0.9840461}
+      length: 37.839413
       parentId: 3
-    - name: tail_6
-      position: {x: 37.839397, y: 0.0000075871694, z: 2}
-      rotation: {x: 0, y: 0, z: -0.03538109, w: 0.999374}
+    - name: Tail4
+      position: {x: 37.83942, y: -0.00000084881776, z: 2}
+      rotation: {x: 0, y: 0, z: -0.03538116, w: 0.9993739}
       length: 28.975561
       parentId: 4
-    - name: right_arm
+    - name: RightArm
       position: {x: 51.591125, y: -29.861078, z: 2}
       rotation: {x: 0, y: 0, z: 0.90656173, w: 0.42207333}
       length: 30.389292
       parentId: 0
-    - name: left_arm
+    - name: LeftArm
       position: {x: 47.34124, y: 33.402767, z: 0}
       rotation: {x: 0, y: -0, z: 0.87046945, w: 0.4922225}
       length: 19.347178
       parentId: 0
-    - name: tongue
+    - name: Tongue
       position: {x: 8.480847, y: 0.6847532, z: 3}
       rotation: {x: 0, y: 0, z: 0.9994191, w: -0.034081277}
       length: 9.993204
       parentId: 1
-    - name: tongue_left
+    - name: TongueLeft
       position: {x: 8.369575, y: -0.06887022, z: 4}
       rotation: {x: 0, y: 0, z: -0.36034048, w: 0.93282086}
       length: 8.620795
       parentId: 8
-    - name: tongue_right
-      position: {x: -0.29206133, y: -0.07020581, z: 4}
-      rotation: {x: 0, y: 0, z: 0.67090213, w: 0.7415459}
+    - name: TongueRight
+      position: {x: 8.106163, y: 0.07549719, z: 4}
+      rotation: {x: 0, y: 0, z: 0.35862252, w: 0.9334827}
       length: 8.301698
-      parentId: 9
+      parentId: 8
     parts:
     - spritePosition:
         x: 227

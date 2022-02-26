@@ -68,6 +68,7 @@ namespace  Docsa.Character
         public void Attack(Vector2 direction)
         {   
             _animator.SetTrigger(AttackTriggerName);
+            SpawnWeapon();
             // if (Character is UzuHama)
             // {
             //     SpawnWeapon();
@@ -88,24 +89,24 @@ namespace  Docsa.Character
                 initiater = (weaponGameObject) => 
                 {
                     Projectile weapon = weaponGameObject.GetComponent<Projectile>();
-                    weapon.ShooterGameObject = Character.gameObject;
+                    weapon.ShooterCharacter = Character;
                 };
             } else if(Character is DocsaSakki)
             {
                 initiater = (chimGameObject) =>
                 {
                     Projectile chim = chimGameObject.GetComponent<Projectile>();
-                    chim.ShooterGameObject = Character.gameObject;
+                    chim.ShooterCharacter = Character;
                     chim.Direction = -transform.right * transform.localScale.x;
-                    print(chim.ShooterGameObject);
+                    print(chim.ShooterCharacter);
                     print(chim.Direction);
                 };
             } else if (Character is Hunter hunter)
             {
                 initiater = (netGameObject) => {
                     ProjectileNet net = netGameObject.GetComponent<ProjectileNet>();
-                    net.ShooterGameObject = Character.gameObject;
-                    net.TargetGameObject = hunter.FocusingDocsa.gameObject;
+                    net.ShooterCharacter = Character;
+                    net.TargetTransform = hunter.FocusingDocsa.transform;
                 };
             }
 

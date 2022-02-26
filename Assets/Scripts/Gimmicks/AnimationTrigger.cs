@@ -6,14 +6,14 @@ using Utility;
 namespace Docsa.Events
 {
     [RequireComponent(typeof(EventTrigger))]
-    public class AnimationTrigger : MonoBehaviour
+    public class AnimationTrigger : EventTrigger
     {
         public Animation TargetAnimation;
         public string AnimClipName = "";
 
         void Reset()
         {
-            UnityEventTools.AddVoidPersistentListener(GetComponent<EventTrigger>().OnTriggerEnterEvent, PlayAnimation);
+            UnityEventTools.AddVoidPersistentListener(OnTriggerEnterEvent, PlayAnimation);
         }
 
         public void PlayAnimation()

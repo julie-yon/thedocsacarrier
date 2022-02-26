@@ -8,14 +8,13 @@ namespace Docsa.Gimmick
     public class Gimmick : MonoBehaviour
     {
         public int Damage;
-        protected LayerMask UzuhamaLayer;
+        [SerializeField] protected LayerMask UzuhamaLayer;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
-            UzuhamaLayer = LayerMask.GetMask("UzuHama");
         }
         
-        protected virtual void GimmickInvoke()
+        public virtual void GimmickInvoke()
         {
             
         }

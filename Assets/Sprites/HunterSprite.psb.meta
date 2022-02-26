@@ -87,7 +87,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: head_B
+  - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -101,42 +101,42 @@ ScriptedImporter:
     spriteID: 1439a8d56ea9b534ea9351b2624225c7
     internalID: 0
     spriteBone:
-    - name: head
+    - name: Head
       position: {x: 105.6046, y: -0.000014641844, z: 3}
-      rotation: {x: 0, y: 0, z: -0.0068097967, w: 0.9999768}
+      rotation: {x: 0, y: 0, z: -0.0068097976, w: 0.9999769}
       length: 135.37883
       parentId: 7
-    - name: headmane6
+    - name: Headmane6
       position: {x: 38.51725, y: -38.44023, z: 4}
-      rotation: {x: 0, y: 0, z: -0.8368918, w: 0.5473685}
-      length: 70.15187
+      rotation: {x: 0, y: 0, z: -0.8368917, w: 0.54736847}
+      length: 70.15189
       parentId: 0
-    - name: headmane5
+    - name: Headmane5
       position: {x: 71.114456, y: -40.416607, z: 4}
       rotation: {x: 0, y: 0, z: -0.75462776, w: 0.6561532}
       length: 68.7159
       parentId: 0
-    - name: headmane4
-      position: {x: 103.08004, y: -33.972153, z: 4}
-      rotation: {x: 0, y: 0, z: -0.66446453, w: 0.7473198}
-      length: 72.328766
+    - name: Headmane4
+      position: {x: 103.08004, y: -33.972157, z: 4}
+      rotation: {x: 0, y: 0, z: -0.66446465, w: 0.74731976}
+      length: 72.32876
       parentId: 0
-    - name: headmane3
+    - name: Headmane3
       position: {x: 35.032703, y: 42.982853, z: 4}
-      rotation: {x: 0, y: 0, z: 0.85282546, w: 0.5221961}
-      length: 60.289967
+      rotation: {x: 0, y: 0, z: 0.8528255, w: 0.5221961}
+      length: 60.289955
       parentId: 0
-    - name: headmane2
+    - name: Headmane2
       position: {x: 67.58795, y: 46.06177, z: 4}
-      rotation: {x: 0, y: 0, z: 0.7330752, w: 0.68014765}
-      length: 59.111355
+      rotation: {x: 0, y: 0, z: 0.73307526, w: 0.68014765}
+      length: 59.111343
       parentId: 0
-    - name: headmane1
-      position: {x: 105.22179, y: 46.37415, z: 4}
+    - name: Headmane1
+      position: {x: 105.22179, y: 46.37414, z: 4}
       rotation: {x: 0, y: 0, z: 0.66760993, w: 0.74451125}
       length: 57.690434
       parentId: 0
-    - name: body
+    - name: Body_RootBone
       position: {x: 110.09569, y: -98.38397, z: 1}
       rotation: {x: 0, y: 0, z: 0.708985, w: 0.7052236}
       length: 105.6046
@@ -1043,7 +1043,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -18, y: 25}
-  - name: head_Attack
+  - name: HeadAttack
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1057,42 +1057,42 @@ ScriptedImporter:
     spriteID: 06934272eca20fd4ea201aad8d026103
     internalID: 0
     spriteBone:
-    - name: head
+    - name: Head
       position: {x: 105.604614, y: 0.000014184362, z: 3}
-      rotation: {x: 0, y: 0, z: -0.0068097967, w: 0.9999768}
+      rotation: {x: 0, y: 0, z: -0.0068097976, w: 0.9999769}
       length: 135.37883
       parentId: 7
-    - name: headmane6
+    - name: Headmane6
       position: {x: 38.51723, y: -38.44023, z: 4}
-      rotation: {x: 0, y: 0, z: -0.8368918, w: 0.5473685}
-      length: 70.15187
+      rotation: {x: 0, y: 0, z: -0.8368917, w: 0.54736847}
+      length: 70.15189
       parentId: 0
-    - name: headmane5
+    - name: Headmane5
       position: {x: 71.11444, y: -40.416622, z: 4}
       rotation: {x: 0, y: 0, z: -0.75462776, w: 0.6561532}
       length: 68.7159
       parentId: 0
-    - name: headmane4
+    - name: Headmane4
       position: {x: 103.080025, y: -33.972187, z: 4}
-      rotation: {x: 0, y: 0, z: -0.66446453, w: 0.7473198}
-      length: 72.328766
+      rotation: {x: 0, y: 0, z: -0.66446465, w: 0.74731976}
+      length: 72.32876
       parentId: 0
-    - name: headmane3
+    - name: Headmane3
       position: {x: 35.03269, y: 42.982838, z: 4}
-      rotation: {x: 0, y: 0, z: 0.85282546, w: 0.5221961}
-      length: 60.289967
+      rotation: {x: 0, y: 0, z: 0.8528255, w: 0.5221961}
+      length: 60.289955
       parentId: 0
-    - name: headmane2
+    - name: Headmane2
       position: {x: 67.58794, y: 46.061752, z: 4}
-      rotation: {x: 0, y: 0, z: 0.7330752, w: 0.68014765}
-      length: 59.111355
+      rotation: {x: 0, y: 0, z: 0.73307526, w: 0.68014765}
+      length: 59.111343
       parentId: 0
-    - name: headmane1
+    - name: Headmane1
       position: {x: 105.22177, y: 46.374134, z: 4}
       rotation: {x: 0, y: 0, z: 0.66760993, w: 0.74451125}
       length: 57.690434
       parentId: 0
-    - name: body
+    - name: Body_RootBone
       position: {x: 110.0957, y: -98.38397, z: 1}
       rotation: {x: 0, y: 0, z: 0.708985, w: 0.7052236}
       length: 105.6046
@@ -1952,78 +1952,78 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 217, y: -148}
-  - name: body_B
+  - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 2
       y: 4
       width: 227
       height: 165
     spriteID: b89af8d844e6c564ab8b7c602154df22
     internalID: 0
     spriteBone:
-    - name: leftleg2
-      position: {x: 21.3526, y: 0.000015739804, z: -2}
-      rotation: {x: 0, y: 0, z: 0.4717032, w: -0.88175744}
-      length: 35.06583
+    - name: LeftLeg2
+      position: {x: 21.352583, y: -0.000033827524, z: -2}
+      rotation: {x: 0, y: 0, z: 0.47170457, w: -0.8817566}
+      length: 35.065834
       parentId: 10
-    - name: rightleg2
+    - name: RightLeg2
       position: {x: 22.16465, y: -0.000007924809, z: -2}
       rotation: {x: 0, y: 0, z: 0.57505095, w: 0.8181176}
       length: 36.44684
       parentId: 2
-    - name: rightleg1
+    - name: RightLeg1
       position: {x: -2.8803463, y: -13.466113, z: -1}
       rotation: {x: 0, y: 0, z: 0.9968823, w: 0.07890366}
       length: 22.164656
       parentId: 3
-    - name: body
-      position: {x: 112.09569, y: 51.61603, z: 1}
+    - name: Body_RootBone
+      position: {x: 114.09569, y: 51.61603, z: 1}
       rotation: {x: 0, y: 0, z: 0.708985, w: 0.7052236}
       length: 105.6046
       parentId: -1
-    - name: rightarm1
+    - name: RightArm1
       position: {x: 78.00009, y: -15.019811, z: 0}
       rotation: {x: 0, y: 0, z: -0.7011069, w: 0.71305627}
       length: 25.283571
       parentId: 3
-    - name: rightarm2
+    - name: RightArm2
       position: {x: 25.28356, y: 0.000015667261, z: 1}
       rotation: {x: 0, y: 0, z: -0.011109068, w: 0.99993837}
       length: 35.38827
       parentId: 4
-    - name: rightarm3
+    - name: RightArm3
       position: {x: 35.38827, y: -0.000009057025, z: 2}
-      rotation: {x: 0, y: 0, z: 0.2502087, w: 0.968192}
-      length: 41.737602
+      rotation: {x: 0, y: 0, z: 0.25020862, w: 0.968192}
+      length: 41.737606
       parentId: 5
-    - name: leftarm1
+    - name: LeftArm1
       position: {x: 77.587776, y: 13.068702, z: 0}
       rotation: {x: 0, y: 0, z: 0.7140291, w: 0.7001161}
       length: 22.475788
       parentId: 3
-    - name: leftarm2
+    - name: LeftArm2
       position: {x: 22.475786, y: -0.0000023773296, z: 1}
       rotation: {x: 0, y: 0, z: -0.022107217, w: 0.9997557}
-      length: 29.214684
+      length: 29.21463
       parentId: 7
-    - name: leftarm3
-      position: {x: 29.214676, y: -0.000013408969, z: 2}
+    - name: LeftArm3
+      position: {x: 29.214622, y: -0.000014435491, z: 2}
       rotation: {x: 0, y: 0, z: -0.18195012, w: 0.98330784}
       length: 44.853207
       parentId: 8
-    - name: leftleg1
+    - name: LeftLeg1
       position: {x: -3.2836592, y: 16.307503, z: -1}
-      rotation: {x: 0, y: 0, z: -0.999945, w: 0.010495213}
-      length: 21.352606
+      rotation: {x: 0, y: 0, z: -0.999945, w: 0.010496646}
+      length: 21.352592
       parentId: 3
-    - name: head
+    - name: Head
       position: {x: 105.60459, y: -0.000008930509, z: 3}
-      rotation: {x: 0, y: 0, z: -0.0068097976, w: 0.9999769}
+      rotation: {x: 0, y: 0, z: -0.0068097967, w: 0.9999768}
       length: 135.37883
       parentId: 3
     spriteOutline: []
@@ -2812,13 +2812,13 @@ ScriptedImporter:
     categories:
     - name: head
       labels:
-      - name: head_Attack
+      - name: HeadAttack
         spriteId: 06934272eca20fd4ea201aad8d026103
-      - name: head_B
+      - name: Head
         spriteId: 1439a8d56ea9b534ea9351b2624225c7
     - name: body
       labels:
-      - name: body_B
+      - name: Body
         spriteId: b89af8d844e6c564ab8b7c602154df22
   textureActualWidth: 512
   textureActualHeight: 512
@@ -2864,92 +2864,92 @@ ScriptedImporter:
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones:
-    - name: body
+    - name: Body_RootBone
       position: {x: 132.09569, y: 53.61603, z: 1}
       rotation: {x: 0, y: 0, z: 0.708985, w: 0.7052236}
       length: 105.6046
       parentId: -1
-    - name: head
+    - name: Head
       position: {x: 105.60459, y: -0.000015130323, z: 3}
-      rotation: {x: 0, y: 0, z: -0.0068097967, w: 0.9999768}
+      rotation: {x: 0, y: 0, z: -0.0068097976, w: 0.9999769}
       length: 135.37883
       parentId: 0
-    - name: leftleg1
+    - name: LeftLeg1
       position: {x: -3.2836537, y: 16.307503, z: -1}
-      rotation: {x: 0, y: -0, z: -0.9999449, w: 0.010495188}
-      length: 21.352612
+      rotation: {x: 0, y: -0, z: -0.9999449, w: 0.010496618}
+      length: 21.352596
       parentId: 0
-    - name: leftleg2
-      position: {x: 21.352608, y: 0.000007891782, z: -2}
-      rotation: {x: 0, y: 0, z: 0.47170317, w: -0.88175744}
+    - name: LeftLeg2
+      position: {x: 21.352594, y: -0.00003616518, z: -2}
+      rotation: {x: 0, y: 0, z: 0.47170457, w: -0.88175666}
       length: 35.06584
       parentId: 2
-    - name: rightleg1
+    - name: RightLeg1
       position: {x: -2.880337, y: -13.466119, z: -1}
       rotation: {x: 0, y: -0, z: 0.99688226, w: 0.07890366}
       length: 22.16466
       parentId: 0
-    - name: rightleg2
+    - name: RightLeg2
       position: {x: 22.164658, y: -0.00000040954714, z: -2}
       rotation: {x: 0, y: 0, z: 0.57505095, w: 0.8181177}
       length: 36.44685
       parentId: 4
-    - name: leftarm1
+    - name: LeftArm1
       position: {x: 77.587776, y: 13.068703, z: 0}
       rotation: {x: 0, y: -0, z: 0.7140291, w: 0.7001161}
       length: 22.47579
       parentId: 0
-    - name: leftarm2
+    - name: LeftArm2
       position: {x: 22.475788, y: 0.0000002154726, z: 1}
       rotation: {x: 0, y: 0, z: -0.0221072, w: 0.9997556}
-      length: 29.214684
+      length: 29.21463
       parentId: 6
-    - name: rightarm1
+    - name: RightArm1
       position: {x: 78.00009, y: -15.019816, z: 0}
       rotation: {x: 0, y: 0, z: -0.7011069, w: 0.71305627}
       length: 25.283567
       parentId: 0
-    - name: rightarm2
+    - name: RightArm2
       position: {x: 25.283562, y: 0.000009647193, z: 1}
       rotation: {x: 0, y: 0, z: -0.01110907, w: 0.9999383}
       length: 35.38827
       parentId: 8
-    - name: rightarm3
+    - name: RightArm3
       position: {x: 35.38827, y: 0.000009958781, z: 2}
-      rotation: {x: 0, y: 0, z: 0.25020868, w: 0.968192}
+      rotation: {x: 0, y: 0, z: 0.25020865, w: 0.968192}
       length: 41.737606
       parentId: 9
-    - name: leftarm3
-      position: {x: 29.214678, y: -0.000012597628, z: 2}
+    - name: LeftArm3
+      position: {x: 29.214624, y: -0.000013624149, z: 2}
       rotation: {x: 0, y: 0, z: -0.18195009, w: 0.9833078}
       length: 44.853207
       parentId: 7
-    - name: headmane1
+    - name: Headmane1
       position: {x: 105.22179, y: 46.37415, z: 4}
       rotation: {x: 0, y: 0, z: 0.66760993, w: 0.74451125}
       length: 57.690437
       parentId: 1
-    - name: headmane2
+    - name: Headmane2
       position: {x: 67.58795, y: 46.06177, z: 4}
       rotation: {x: 0, y: -0, z: 0.7330752, w: 0.6801476}
       length: 59.111366
       parentId: 1
-    - name: headmane3
+    - name: Headmane3
       position: {x: 35.032703, y: 42.982857, z: 4}
       rotation: {x: 0, y: -0, z: 0.85282546, w: 0.5221961}
       length: 60.289963
       parentId: 1
-    - name: headmane4
+    - name: Headmane4
       position: {x: 103.08004, y: -33.972145, z: 4}
       rotation: {x: 0, y: 0, z: -0.6644646, w: 0.74731976}
       length: 72.328766
       parentId: 1
-    - name: headmane5
+    - name: Headmane5
       position: {x: 71.114456, y: -40.4166, z: 4}
       rotation: {x: 0, y: -0, z: -0.75462776, w: 0.65615314}
       length: 68.715904
       parentId: 1
-    - name: headmane6
+    - name: Headmane6
       position: {x: 38.517246, y: -38.440224, z: 4}
       rotation: {x: 0, y: -0, z: -0.8368917, w: 0.54736847}
       length: 70.151886
@@ -2974,7 +2974,7 @@ ScriptedImporter:
       parentGroup: 0
       order: 0
     - spritePosition:
-        x: 20
+        x: 18
         y: 2
         width: 227
         height: 165

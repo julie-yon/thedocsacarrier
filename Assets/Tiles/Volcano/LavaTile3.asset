@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: LavaTile3
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -4837540824668568687, guid: c00d9b8927e7e435da208360ea78b89e, type: 3}
+  - {fileID: 1974091322729429543, guid: c00d9b8927e7e435da208360ea78b89e, type: 3}
+  - {fileID: 7583560234094066635, guid: c00d9b8927e7e435da208360ea78b89e, type: 3}
+  - {fileID: -1290734263356911878, guid: c00d9b8927e7e435da208360ea78b89e, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1

@@ -8,7 +8,7 @@ namespace Docsa.Gimmick
         public float speed = 1f;
 
 
-        protected override void GimmickInvoke()
+        public override void GimmickInvoke()
         {
             base.GimmickInvoke();
         }
