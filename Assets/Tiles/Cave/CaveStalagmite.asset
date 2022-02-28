@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: CaveStalagmite
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -8569958130632791464, guid: 98b5f11d610f3a44098083c9828bccba,
+  m_Sprite: {fileID: -7012095678347993596, guid: 8f5c7708745174f408dcb0fa82b57d13,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:

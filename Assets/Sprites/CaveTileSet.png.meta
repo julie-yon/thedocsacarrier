@@ -1,30 +1,30 @@
 fileFormatVersion: 2
-guid: 98b5f11d610f3a44098083c9828bccba
+guid: 8f5c7708745174f408dcb0fa82b57d13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7025851443894819744
+      213: -4823570072943035038
     second: CaveTileStep1
   - first:
-      213: 1684509424228030112
+      213: 2445931621874376542
     second: CaveTileStep2
   - first:
-      213: 7350515931618755466
-    second: cavestagetileset_2
+      213: -7692242084364734592
+    second: cavestagetileset1_2
   - first:
-      213: -2448795499506989645
-    second: cavestagetileset_3
+      213: -3981685987937833110
+    second: cavestagetileset1_3
   - first:
-      213: 4606342472109962559
-    second: CaveTileBase1
+      213: -4788498611942376614
+    second: CaveTileBase
   - first:
-      213: 3743726030526112865
-    second: CaveTileBase2
+      213: 3679694267062347065
+    second: cavestagetileset1_5
   - first:
-      213: -8569958130632791464
+      213: -7012095678347993596
     second: CaveStalagmite
   - first:
-      213: -1070074786462771345
+      213: -4091767936622366346
     second: CaveStalactite
   externalObjects: {}
   serializedVersion: 11
@@ -112,7 +112,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab1406e9a6d08160800000000000000
-      internalID: 7025851443894819744
+      spriteID: 26d7605339c3f0db0800000000000000
+      internalID: -4823570072943035038
       vertices: []
       indices: 
       edges: []
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a6d8eb7564906710800000000000000
-      internalID: 1684509424228030112
+      spriteID: e5f97bad9d1b1f120800000000000000
+      internalID: 2445931621874376542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveTileBase1
+      name: CaveTileBase
       rect:
         serializedVersion: 2
         x: 0
@@ -179,29 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35b8eba2140def30800000000000000
-      internalID: 4606342472109962559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveTileBase2
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16464e95df264f330800000000000000
-      internalID: 3743726030526112865
+      spriteID: a5b39bb02e5db8db0800000000000000
+      internalID: -4788498611942376614
       vertices: []
       indices: 
       edges: []
@@ -221,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85a69ab5c74611980800000000000000
-      internalID: -8569958130632791464
+      spriteID: 40e1409d12800be90800000000000000
+      internalID: -7012095678347993596
       vertices: []
       indices: 
       edges: []
@@ -242,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f67d8c5b6a45621f0800000000000000
-      internalID: -1070074786462771345
+      spriteID: 6717a42adbe1737c0800000000000000
+      internalID: -4091767936622366346
       vertices: []
       indices: 
       edges: []
