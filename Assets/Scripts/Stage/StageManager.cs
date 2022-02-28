@@ -22,6 +22,10 @@ namespace Docsa
 
         void LoadStage(Scene scene, LoadSceneMode mode)
         {
+            if (CurrentStage)
+            {
+                return;
+            }
             Stage stage = null;
             switch (scene.name)
             {
