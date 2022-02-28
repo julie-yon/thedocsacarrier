@@ -16,31 +16,9 @@ namespace Docsa.Character
         private float _hamaVelocityMinY = -2f;
         private float _hamaVelocityMaxY = 2f;
 
-        public InputAction BaguniAction;
-
-        void Awake()
-        {
-            BaguniAction.performed += OnOffBucketCap;
-        }
-
-        void OnEnable()
-        {
-            BaguniAction.Enable();
-        }
-
-        void OnDisable()
-        {
-            BaguniAction.Disable();
-        }
-
         void FixedUpdate()
         {
             AdjustBucketPosition();
-        }
-
-        public void OnOffBucketCap(Context context)
-        {
-            BucketCap.SetActive(!BucketCap.activeSelf);
         }
 
         public void OnOff()
