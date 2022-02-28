@@ -73,7 +73,7 @@ MonoBehaviour:
   Character: {fileID: 9084630681229393915}
   MaxSpeed: 3
   MoveAcceleration: 1
-  JumpPower: 3
+  JumpPower: 6
   AimMaxAngle: 0
   _rigidbody: {fileID: 5151563333153347941}
   WeaponType: 2

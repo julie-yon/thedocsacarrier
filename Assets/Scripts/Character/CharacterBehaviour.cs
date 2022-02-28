@@ -15,6 +15,8 @@ namespace  Docsa.Character
         public float MaxSpeed;
         public float MoveAcceleration;
         public float JumpPower;
+        public int MaxJumps;
+       
         [Range(0, 90)] public float AimMaxAngle;
 
         [SerializeField] private Rigidbody2D _rigidbody;
@@ -48,6 +50,7 @@ namespace  Docsa.Character
             MaxSpeed = 3;
             MoveAcceleration = 1;
             JumpPower = 3;
+            MaxJumps = 1;
         }
 
         public void AimToMouse(Transform targetTransform)
@@ -120,10 +123,14 @@ namespace  Docsa.Character
         }
 
 
-        public void Jump()
+        public void Jump(int jumpCount)
         {
-            _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
-            _animator.SetTrigger(JumpTriggerName);
+            if (jumpCount <= MaxJumps)
+            {
+                _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
+                _animator.SetTrigger(JumpTriggerName);
+            }
+            
         }
 
         public void JumpHead()

@@ -10,9 +10,8 @@ namespace Docsa.Character
 {
     public class UzuHama : Character
     {
-        public int MaxJumps;
-        private int _jumpCount;
         public static UzuHama Hama
+
         {
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
@@ -20,12 +19,14 @@ namespace Docsa.Character
         {
             get {return GetComponentInChildren<Baguni>();}
         }
+        
+        private int _jumpCount = 0;
+        private RaycastHit2D _hit;
 
         float moveDirection;
 
         void Start()
         {
-            _jumpCount = MaxJumps;
             Core.instance.InputAsset.Player.Move.performed += HamaMove;
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
@@ -40,6 +41,7 @@ namespace Docsa.Character
         void FixedUpdate()
         {
             Behaviour.Move(moveDirection);
+            
         }
 
         void HamaMove(Context context)
@@ -53,22 +55,23 @@ namespace Docsa.Character
             }
         }
 
-        void HamaJump(Context context)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            if (_jumpCount > 0)
+            _hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, 1<<17);
+            //Debug.Log(_hit.distance);
+            if (_hit && _hit.distance < 0.4)
             {
-                Behaviour.Jump();
-                _jumpCount -= 1;
+                //Debug.Log(_hit.distance);
+                _jumpCount = 0;
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        void HamaJump(Context context)
         {
-            if (col.gameObject.tag == "ground")
-            {
-                _jumpCount = MaxJumps;
-            }
+            _jumpCount += 1;
+            Behaviour.Jump(_jumpCount);
         }
+        
 
         void HamaAttack(Context context)
         {
