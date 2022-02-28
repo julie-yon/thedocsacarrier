@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8538763497209693511
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972157367334137294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.055, z: 0}
+  m_LocalPosition: {x: 0.074, y: 0.116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6587979019763437464}
@@ -68,8 +68,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.05, y: 0}
-  m_ConnectedAnchor: {x: 0.05, y: 0.055}
+  m_Anchor: {x: 0.09, y: 0}
+  m_ConnectedAnchor: {x: 0.26562148, y: 0.13086684}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.01}
+  m_Size: {x: 0.2, y: 0.01}
   m_EdgeRadius: 0
 --- !u!1 &3303390962953502886
 GameObject:
@@ -431,23 +431,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  BaguniAction:
-    m_Name: Baguni
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 60459404-5265-42bf-82e6-be7ee1cba500
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: c8118c71-f073-4131-9690-b16a1f6bc51d
-      m_Path: <Keyboard>/u
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Baguni
-      m_Flags: 0
-    m_Flags: 0
 --- !u!1 &4314702843029194345
 GameObject:
   m_ObjectHideFlags: 0

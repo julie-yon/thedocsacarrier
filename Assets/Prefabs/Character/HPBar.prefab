@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Character: {fileID: 0}
   Bar: {fileID: 4546263971423590575}
-  RelativeHPBarPosition: {x: 0, y: 1, z: 0}
 --- !u!1 &2212264681329436985
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +379,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &9078233685989426982
 MonoBehaviour:

@@ -90,6 +90,7 @@ namespace  Docsa.Character
                 {
                     Projectile weapon = weaponGameObject.GetComponent<Projectile>();
                     weapon.ShooterCharacter = Character;
+                    weapon.TargetPosition = Mouse.current.position.ReadValue();
                 };
             } else if(Character is DocsaSakki)
             {
@@ -104,9 +105,9 @@ namespace  Docsa.Character
             } else if (Character is Hunter hunter)
             {
                 initiater = (netGameObject) => {
-                    ProjectileNet net = netGameObject.GetComponent<ProjectileNet>();
+                    Net net = netGameObject.GetComponent<Net>();
                     net.ShooterCharacter = Character;
-                    net.TargetTransform = hunter.FocusingDocsa.transform;
+                    net.TargetPosition = hunter.FocusingDocsa.transform.position;
                 };
             }
 

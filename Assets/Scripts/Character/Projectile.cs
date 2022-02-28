@@ -12,7 +12,7 @@ namespace Docsa
         /// <summary>
         /// if Target is null projectile go through right direction
         /// </summary>
-        public Transform TargetTransform;
+        public Vector3 TargetPosition;
         public Vector2 Direction;
         public float InitSpeedPower = 5;
         public Rigidbody2D rb2D;
@@ -24,14 +24,14 @@ namespace Docsa
 
         protected virtual void OnEnable()
         {
-            if (TargetTransform == null)
+            Direction = TargetPosition - transform.position;
+            if (TargetPosition == null)
             {
                 rb2D.AddForce(Direction * InitSpeedPower, ForceMode2D.Impulse);
-                // rb2D.AddForce(transform.right * InitSpeedPower, ForceMode2D.Impulse);
             } else
             {
-                rb2D.AddForce((TargetTransform.transform.position - transform.position).normalized * InitSpeedPower, ForceMode2D.Impulse);
-                Vector2 targetPosition = Camera.main.ScreenToWorldPoint(TargetTransform.transform.position);
+                rb2D.AddForce((TargetPosition - transform.position).normalized * InitSpeedPower, ForceMode2D.Impulse);
+                Vector2 targetPosition = Camera.main.ScreenToWorldPoint(TargetPosition);
                 Vector2 projectileDirection = new Vector2(targetPosition.x - transform.position.x,
                                             targetPosition.y - transform.position.y); //net이 바라볼 방향 설정(타겟독사의 위치에서 헌터의 위치)
                 transform.LookAt(projectileDirection);                

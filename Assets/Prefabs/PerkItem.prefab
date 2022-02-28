@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4315982829761671852}
   - component: {fileID: 8610969672279557014}
-  - component: {fileID: 8399467815628021744}
-  - component: {fileID: 1648246622983670201}
+  - component: {fileID: 7015352122556746749}
+  - component: {fileID: 7805551536295635238}
   m_Layer: 0
   m_Name: ItmeImage
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8399467815628021744
+--- !u!61 &7015352122556746749
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48880452, y: 0.57127345}
   m_EdgeRadius: 0
---- !u!114 &1648246622983670201
+--- !u!114 &7805551536295635238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

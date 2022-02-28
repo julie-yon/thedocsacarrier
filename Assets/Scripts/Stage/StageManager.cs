@@ -22,6 +22,7 @@ namespace Docsa
 
         void LoadStage(Scene scene, LoadSceneMode mode)
         {
+            ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
             if (CurrentStage)
             {
                 return;
@@ -54,7 +55,6 @@ namespace Docsa
 
             CurrentStage = stage;
             // Because each stage prefab has camera respectively, after make new stage you should assign UzuHama to Procamera again.
-            ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
 
             AfterLoadStage(CurrentStage.StageNumber);
         }

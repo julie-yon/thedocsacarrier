@@ -64,6 +64,11 @@ namespace Docsa.Character
             CurrentHP -= damageValue;
         }
 
+        public void GetDamage(float damageValue)
+        {   
+            CurrentHP -= (int)damageValue;
+        }
+
         public void SetChatData(string chat, float time = 2f)
         {
             Chat.Chat(chat, time);

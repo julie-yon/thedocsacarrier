@@ -13,7 +13,6 @@ namespace Docsa
 
         public override void Effect()
         {
-            print("Perk Item Effect");
             switch(TargetPerk)
             {
                 case DocsaTwitchCommand.DOCSA_ATTACK :

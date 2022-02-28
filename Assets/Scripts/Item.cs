@@ -13,11 +13,9 @@ namespace Docsa
         public UnityEvent ItemEvent = new UnityEvent();
         void OnTriggerEnter2D(Collider2D collider)
         {
-            print("Trigger2D");
 
             if (GetComponent<Collider2D>().IsTouchingLayers(TargetLayer))
             {
-                print("Touching TargetLayer");
                 ItemEvent.Invoke();
             }
         }
@@ -36,7 +34,7 @@ namespace Docsa
         {
             AudioSource.PlayClipAtPoint(ItemSound, transform.position);
 
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 }
