@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ namespace Docsa.Character
 {
     public class UzuHama : Character
     {
+        public int MaxJumps;
+        private int _jumpCount;
         public static UzuHama Hama
         {
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
@@ -22,6 +25,7 @@ namespace Docsa.Character
 
         void Start()
         {
+            _jumpCount = MaxJumps;
             Core.instance.InputAsset.Player.Move.performed += HamaMove;
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
@@ -51,7 +55,19 @@ namespace Docsa.Character
 
         void HamaJump(Context context)
         {
-            Behaviour.Jump();
+            if (_jumpCount > 0)
+            {
+                Behaviour.Jump();
+                _jumpCount -= 1;
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.tag == "ground")
+            {
+                _jumpCount = MaxJumps;
+            }
         }
 
         void HamaAttack(Context context)
