@@ -41,6 +41,7 @@ namespace  Docsa.Character
         private const string HitTriggerName = "HitTrigger";
         private const string DieTriggerName = "DieTrigger";
         private const string DieBoolName = "Die";
+        private const string MoveBoolName = "Move";
 
         void Reset()
         {
@@ -86,18 +87,19 @@ namespace  Docsa.Character
         /// </summary>
         void SpawnWeapon()
         {
-            ObjectPool.Initiater initiater = null;
+            ObjectPool.Initiater preInitiater = null;
+            ObjectPool.Initiater postInitiater = null;
             if (Character is UzuHama)
             {
-                initiater = (weaponGameObject) => 
+                preInitiater = (weaponGameObject) => 
                 {
                     Projectile weapon = weaponGameObject.GetComponent<Projectile>();
                     weapon.ShooterCharacter = Character;
-                    weapon.TargetPosition = Mouse.current.position.ReadValue();
+                    weapon.TargetPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 };
             } else if(Character is DocsaSakki)
             {
-                initiater = (chimGameObject) =>
+                preInitiater = (chimGameObject) =>
                 {
                     Projectile chim = chimGameObject.GetComponent<Projectile>();
                     chim.ShooterCharacter = Character;
@@ -107,19 +109,19 @@ namespace  Docsa.Character
                 };
             } else if (Character is Hunter hunter)
             {
-                initiater = (netGameObject) => {
+                preInitiater = (netGameObject) => {
                     Net net = netGameObject.GetComponent<Net>();
                     net.ShooterCharacter = Character;
                     net.TargetPosition = hunter.FocusingDocsa.transform.position;
                 };
             }
 
-            if (initiater == null)
+            if (preInitiater == null)
             {
                 return;
             }
 
-            ObjectPool.GetOrCreate(WeaponType).InstantiateAfterInit(ProjectileEmitter.position, ProjectileEmitter.rotation, initiater);
+            ObjectPool.GetOrCreate(WeaponType).Instantiate(ProjectileEmitter.position, Quaternion.identity, preInitiater);
         }
 
 
@@ -139,9 +141,19 @@ namespace  Docsa.Character
             _animator.SetTrigger(JumpTriggerName);
         }
 
-        
+        private float noMoveTime = 0;
+        public float NoMoveTimeThreshold = 0.3f;
+        public float NoMoveThreshold = 0.3f;
         public void Move(float moveDirection)
         {
+            if (_rigidbody.velocity.magnitude < NoMoveThreshold)
+            {
+                noMoveTime += Time.deltaTime;
+            } else
+            {
+                noMoveTime = 0f;
+            }
+
             if(_rigidbody.velocity.x > MaxSpeed) //Right Max Speed
                 _rigidbody.velocity = new Vector2(MaxSpeed, _rigidbody.velocity.y);
             else if(_rigidbody.velocity.x < MaxSpeed * (-1)) //Left Max Speed
@@ -157,6 +169,14 @@ namespace  Docsa.Character
             }
 
             _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
+            if (moveDirection == 0)
+            {
+                if (noMoveTime > NoMoveTimeThreshold)
+                    _animator.SetBool(MoveBoolName, false);
+            } else
+            {
+                _animator.SetBool(MoveBoolName, true);
+            }
         }
 
         public void GrabDocsa(DocsaSakki targetDocsa)

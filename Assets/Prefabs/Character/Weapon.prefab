@@ -71,8 +71,9 @@ MonoBehaviour:
   ShooterCharacter: {fileID: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
   Direction: {x: 0, y: 0}
-  InitSpeedPower: 5
+  InitSpeedPower: 20
   rb2D: {fileID: 2246841158958747752}
+  UseReflection: 0
   DamageValue: 10
   TargetLayerMask:
     serializedVersion: 2

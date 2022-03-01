@@ -11,17 +11,18 @@ namespace Docsa.Character
 
         private List<Hunter> _attackedHunterList = new List<Hunter>();
 
-        void OnCollisionEnter2D(Collision2D collision2D)
+        protected override void OnCollisionEnter2D(Collision2D collision)
         {
-            if (1 << collision2D.gameObject.layer == TargetLayerMask.value)
+            base.OnCollisionEnter2D(collision);
+            if (1 << collision.gameObject.layer == TargetLayerMask.value)
             {
-                if (_attackedHunterList.Contains(collision2D.gameObject.GetComponent<Hunter>()))
+                if (_attackedHunterList.Contains(collision.gameObject.GetComponent<Hunter>()))
                 {
                     return;
                 }
 
-                _attackedHunterList.Add(collision2D.gameObject.GetComponent<Hunter>());
-                collision2D.gameObject.GetComponent<Hunter>().GetDamage(DamageValue);
+                _attackedHunterList.Add(collision.gameObject.GetComponent<Hunter>());
+                collision.gameObject.GetComponent<Hunter>().GetDamage(DamageValue);
             }
         }
 
