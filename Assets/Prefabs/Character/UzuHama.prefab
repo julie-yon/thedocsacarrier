@@ -104,6 +104,7 @@ MonoBehaviour:
   MaxSpeed: 3
   MoveAcceleration: 1
   JumpPower: 6
+  MaxJumps: 1
   AimMaxAngle: 0
   _rigidbody: {fileID: 5151563333153347941}
   WeaponType: 2
@@ -132,7 +133,6 @@ MonoBehaviour:
   HPBar: {fileID: 5932047441148248319}
   _maxHP: 100
   _currentHP: 100
-  MaxJumps: 1
 --- !u!70 &8793092099344672969
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
