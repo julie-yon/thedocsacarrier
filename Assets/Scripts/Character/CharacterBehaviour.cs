@@ -42,6 +42,7 @@ namespace  Docsa.Character
         private const string DieTriggerName = "DieTrigger";
         private const string DieBoolName = "Die";
         private const string MoveBoolName = "Move";
+        private const string BlendValueName = "ScaleBlend";
 
         void Reset()
         {
@@ -73,13 +74,6 @@ namespace  Docsa.Character
         {   
             _animator.SetTrigger(AttackTriggerName);
             SpawnWeapon();
-            // if (Character is UzuHama)
-            // {
-            //     SpawnWeapon();
-            // }
-            // else if (Character is DocsaSakki)
-            // {
-            // }
         }
 
         /// <summary>
@@ -88,7 +82,7 @@ namespace  Docsa.Character
         void SpawnWeapon()
         {
             ObjectPool.Initiater preInitiater = null;
-            ObjectPool.Initiater postInitiater = null;
+            // ObjectPool.Initiater postInitiater = null;
             if (Character is UzuHama)
             {
                 preInitiater = (weaponGameObject) => 
@@ -144,6 +138,7 @@ namespace  Docsa.Character
         private float noMoveTime = 0;
         public float NoMoveTimeThreshold = 0.3f;
         public float NoMoveThreshold = 0.3f;
+        public GameObject SpriteObject;
         public void Move(float moveDirection)
         {
             if (_rigidbody.velocity.magnitude < NoMoveThreshold)
@@ -159,14 +154,9 @@ namespace  Docsa.Character
             else if(_rigidbody.velocity.x < MaxSpeed * (-1)) //Left Max Speed
                 _rigidbody.velocity = new Vector2(MaxSpeed * (-1), _rigidbody.velocity.y);
 
-            if(_rigidbody.velocity.x > _directionThreashold)
-            {
-                transform.localScale = new Vector2(_moveRightScaleX , transform.localScale.y);
-            }
-            else if(_rigidbody.velocity.x < -_directionThreashold)
-            {
-                transform.localScale = new Vector2(_moveLeftScaleX , transform.localScale.y);
-            }
+
+            if (Core.instance.InputAsset.Player.Move.IsPressed())
+                _animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3));
 
             _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
             if (moveDirection == 0)

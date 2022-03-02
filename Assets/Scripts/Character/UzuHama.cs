@@ -20,7 +20,7 @@ namespace Docsa.Character
             get {return GetComponentInChildren<Baguni>();}
         }
         
-        private int _jumpCount = 0;
+        [SerializeField] private int _jumpCount = 0;
         private RaycastHit2D _hit;
 
         float moveDirection;
@@ -33,15 +33,14 @@ namespace Docsa.Character
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
         }
 
-        void Update()
-        {
-            Behaviour.AimToMouse(Behaviour.ProjectileEmitter);
-        }
+        // void Update()
+        // {
+        //     Behaviour.AimToMouse(Behaviour.ProjectileEmitter);
+        // }
 
         void FixedUpdate()
         {
             Behaviour.Move(moveDirection);
-            
         }
 
         void HamaMove(Context context)
