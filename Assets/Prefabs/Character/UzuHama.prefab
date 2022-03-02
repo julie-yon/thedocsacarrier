@@ -313,6 +313,7 @@ MonoBehaviour:
   MoveAcceleration: 1
   JumpPower: 6
   MaxJumps: 1
+  BoxCastSize: {x: 3, y: 3}
   AimMaxAngle: 0
   _rigidbody: {fileID: 5151563333153347941}
   WeaponType: 2
@@ -321,6 +322,9 @@ MonoBehaviour:
   NoMoveTimeThreshold: 0.2
   NoMoveThreshold: 0.2
   SpriteObject: {fileID: 8347779025375848319}
+  GrabDocsaLayerMask:
+    serializedVersion: 2
+    m_Bits: 12288
 --- !u!114 &9084630681229393915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Behaviour: {fileID: 879221637061674020}
-  GrabDocsaPosition: {fileID: 0}
+  GrabDocsaPosition: {fileID: 5526501725990355394}
   isDie: 0
   RootBoneTransform: {fileID: 4939121228319177272}
   HeaderRelativePosition: {x: 0, y: 1.5, z: 0}
@@ -709,6 +713,12 @@ PrefabInstance:
 --- !u!4 &7832594666458477079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3911322410619797281, guid: df815cc6008e8ca499b597393fc0261f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6554206799638302006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5526501725990355394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1605300521954512116, guid: df815cc6008e8ca499b597393fc0261f,
     type: 3}
   m_PrefabInstance: {fileID: 6554206799638302006}
   m_PrefabAsset: {fileID: 0}

@@ -19,10 +19,9 @@ namespace Docsa.Events
                 return;
             }
 
-            UpdateTime += Time.deltaTime;
-            if (MoveCurve[MoveCurve.length-1].time < UpdateTime)
+            if (MoveCurve[MoveCurve.length-1].time >= UpdateTime)
             {
-                Destroy(this);
+                UpdateTime += Time.deltaTime;
             }
             Cursor.DistanceRatio = MoveCurve.Evaluate(UpdateTime);
         }

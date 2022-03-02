@@ -374,7 +374,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &8955076222844667743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,11 +391,19 @@ MonoBehaviour:
   MaxSpeed: 3
   MoveAcceleration: 1
   JumpPower: 3
+  MaxJumps: 0
+  BoxCastSize: {x: 0, y: 0}
   AimMaxAngle: 0
   _rigidbody: {fileID: 6250660737674924013}
   WeaponType: 4
   ProjectileEmitter: {fileID: 3312037125649830315}
   _animator: {fileID: 7741695106204085173}
+  NoMoveTimeThreshold: 0.3
+  NoMoveThreshold: 0.3
+  SpriteObject: {fileID: 0}
+  GrabDocsaLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &5902684480713963805
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,24 +30,37 @@ namespace Docsa
         public Perk DocsaChimPerk;
         public Perk DocsaJumpPerk;
         public Perk HunterNetPerk;
-        public Perk HunterAttackPerk;
+        public Perk HunterJumpPerk;
         public Perk ViewerAttendPerk;
         public Perk ViewerExitPerk;
         public Perk StarLightPerk;
+
+        public Perk UzuhamaAttackPerk;
+        public Perk UzuhamaJumpPerk;
+        public Perk UzuhamaGrabDocsaPerk;
+
         
         public void Init()
         {
             DocsaChimPerk.PerkCommand = DocsaTwitchCommand.DOCSA_ATTACK;
             DocsaJumpPerk.PerkCommand = DocsaTwitchCommand.DOCSA_JUMP;
             HunterNetPerk.PerkCommand = DocsaTwitchCommand.HUNTER_NET;
-            HunterAttackPerk.PerkCommand = DocsaTwitchCommand.HUNTER_ATTACK;
+            HunterJumpPerk.PerkCommand = DocsaTwitchCommand.HUNTER_Jump;
             ViewerAttendPerk.PerkCommand = DocsaTwitchCommand.ATTEND;
             ViewerExitPerk.PerkCommand = DocsaTwitchCommand.EXIT;
             StarLightPerk.PerkCommand = DocsaTwitchCommand.STARLIGHT;
 
+            DocsaChimPerk.Enable();
+            DocsaJumpPerk.Enable();
+            HunterNetPerk.Enable();
+            HunterJumpPerk.Enable();
             ViewerAttendPerk.Enable();
             ViewerExitPerk.Enable();
             StarLightPerk.Enable();
+
+            UzuhamaAttackPerk.Enable();
+            UzuhamaJumpPerk.Enable();
+            UzuhamaGrabDocsaPerk.Enable();
         }
     }
 

@@ -18,8 +18,14 @@ namespace Docsa
         public DocsaDataDict AttendingHunterDict = new DocsaDataDict();
         public bool DocsaCanAttend;
         public int WaitingViewerLimit = 20;
-        public int AttendingDocsaLimit = 20;
-        public int AttendingHunterLimit = 20;
+        public int AttendingDocsaLimit
+        {
+            get {return Chunk.ActiveDocsaList.Count;}
+        }
+        public int AttendingHunterLimit
+        {
+            get {return Chunk.ActiveHunterList.Count;}
+        }
 
         public List<IDocsaSakkiManagerListener> Listeners = new List<IDocsaSakkiManagerListener>();
         
@@ -62,9 +68,9 @@ namespace Docsa
                 if (PerkManager.instance.Data.HunterNetPerk.enabled)
                 HunterNet(commandData);
                 break;
-                case DocsaTwitchCommand.HUNTER_ATTACK:
-                if (PerkManager.instance.Data.HunterAttackPerk.enabled)
-                HunterAttack(commandData);
+                case DocsaTwitchCommand.HUNTER_Jump:
+                if (PerkManager.instance.Data.HunterJumpPerk.enabled)
+                HunterJump(commandData);
                 break;
 
                 default :
@@ -424,7 +430,7 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // docsaSakki.Character.Behaviour.ThrowNet();
+                docsaSakki.Character.Behaviour.Attack(docsaSakki.Character.transform.forward);
             } else
             {
                 print("그런 헌터 없음");
@@ -432,12 +438,12 @@ namespace Docsa
             docsaSakki.Character.SetChatData(commandData.Chat);
         }
 
-        void HunterAttack(TwitchCommandData commandData)
+        void HunterJump(TwitchCommandData commandData)
         {
             DocsaData docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                // docsaSakki.Character.Behaviour.Attack();
+                docsaSakki.Character.Behaviour.JumpHead();
             } else
             {
                 print("그런 헌터 없음");

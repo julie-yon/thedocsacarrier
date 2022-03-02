@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GrabDocsa",
+                    "type": "Button",
+                    "id": "8d4f4957-330a-43d7-8482-9d245934be25",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -254,6 +263,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Baguni",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51da49c8-8c3c-48e5-9616-9abbca2f3d78",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "GrabDocsa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

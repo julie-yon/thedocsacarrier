@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Utility;
+
 namespace Docsa
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(EventTrigger))]
     public class Projectile : MonoBehaviour
     {
         public Docsa.Character.Character ShooterCharacter;
@@ -16,6 +19,7 @@ namespace Docsa
         public Vector2 Direction;
         public float InitSpeedPower = 5;
         public Rigidbody2D rb2D;
+        [HideInInspector][SerializeField] private EventTrigger _eventTrigger;
 
         public bool UseReflection = false; 
         private bool isReflected = false;
@@ -23,6 +27,8 @@ namespace Docsa
         protected virtual void Reset()
         {
             rb2D = GetComponent<Rigidbody2D>();
+            _eventTrigger = GetComponent<EventTrigger>();
+            _eventTrigger.AddEnterEvent(OnProjectileHit);
         }
 
         protected virtual void OnEnable()
@@ -47,11 +53,6 @@ namespace Docsa
         {
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D collider)
-        {
-
-        }
-
         protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
             isReflected = true;
@@ -63,6 +64,11 @@ namespace Docsa
             {
                 transform.up = rb2D.velocity;
             }
+        }
+
+        protected virtual void OnProjectileHit()
+        {
+
         }
     }
 }

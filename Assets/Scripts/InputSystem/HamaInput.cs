@@ -89,6 +89,15 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GrabDocsa"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d4f4957-330a-43d7-8482-9d245934be25"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -276,6 +285,17 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Baguni"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51da49c8-8c3c-48e5-9616-9abbca2f3d78"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""GrabDocsa"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -870,6 +890,7 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Crawl = m_Player.FindAction("Crawl", throwIfNotFound: true);
         m_Player_Baguni = m_Player.FindAction("Baguni", throwIfNotFound: true);
+        m_Player_GrabDocsa = m_Player.FindAction("GrabDocsa", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -948,6 +969,7 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Crawl;
     private readonly InputAction m_Player_Baguni;
+    private readonly InputAction m_Player_GrabDocsa;
     public struct PlayerActions
     {
         private @HamaInput m_Wrapper;
@@ -959,6 +981,7 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Crawl => m_Wrapper.m_Player_Crawl;
         public InputAction @Baguni => m_Wrapper.m_Player_Baguni;
+        public InputAction @GrabDocsa => m_Wrapper.m_Player_GrabDocsa;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -989,6 +1012,9 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
                 @Baguni.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBaguni;
                 @Baguni.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBaguni;
                 @Baguni.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBaguni;
+                @GrabDocsa.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabDocsa;
+                @GrabDocsa.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabDocsa;
+                @GrabDocsa.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabDocsa;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1014,6 +1040,9 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
                 @Baguni.started += instance.OnBaguni;
                 @Baguni.performed += instance.OnBaguni;
                 @Baguni.canceled += instance.OnBaguni;
+                @GrabDocsa.started += instance.OnGrabDocsa;
+                @GrabDocsa.performed += instance.OnGrabDocsa;
+                @GrabDocsa.canceled += instance.OnGrabDocsa;
             }
         }
     }
@@ -1177,6 +1206,7 @@ public partial class @HamaInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCrawl(InputAction.CallbackContext context);
         void OnBaguni(InputAction.CallbackContext context);
+        void OnGrabDocsa(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

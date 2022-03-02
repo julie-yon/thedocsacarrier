@@ -21,11 +21,11 @@ namespace Docsa
                 case DocsaTwitchCommand.DOCSA_JUMP :
                 PerkManager.instance.Data.DocsaJumpPerk.Enable();
                 break;
-                case DocsaTwitchCommand.HUNTER_ATTACK :
-                PerkManager.instance.Data.HunterAttackPerk.Enable();
-                break;
                 case DocsaTwitchCommand.HUNTER_NET :
                 PerkManager.instance.Data.HunterNetPerk.Enable();
+                break;
+                case DocsaTwitchCommand.HUNTER_Jump :
+                PerkManager.instance.Data.HunterJumpPerk.Enable();
                 break;
                 case DocsaTwitchCommand.ATTEND :
                 PerkManager.instance.Data.ViewerAttendPerk.Enable();

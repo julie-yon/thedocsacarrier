@@ -22,14 +22,14 @@ namespace TwitchIRC
         // Docsa Commands
         [StringValue("퉤")]
         DOCSA_ATTACK,
-        [StringValue("점프")]
+        [StringValue("독사점프")]
         DOCSA_JUMP,
 
         // Hunter Commands
-        [StringValue("놀아줘")]
+        [StringValue("뱀술")]
         HUNTER_NET,
-        [StringValue("형형")]
-        HUNTER_ATTACK,
+        [StringValue("헌터점프")]
+        HUNTER_Jump,
 
         // General Commands
         [StringValue("참가")]

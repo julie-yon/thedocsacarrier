@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using Utility;
 
+using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
+
 namespace  Docsa.Character
 {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -16,6 +18,7 @@ namespace  Docsa.Character
         public float MoveAcceleration;
         public float JumpPower;
         public int MaxJumps;
+        public Vector2 BoxCastSize;
        
         [Range(0, 90)] public float AimMaxAngle;
 
@@ -25,10 +28,6 @@ namespace  Docsa.Character
             get {return _rigidbody.velocity;}
         }
         
-        float _directionThreashold = 0.01f;
-        float _moveRightScaleX = -1;
-        float _moveLeftScaleX = 1;
-
         [Header("GameObjects Refs")]
         public DocsaPoolType WeaponType;
         public Transform ProjectileEmitter = null;
@@ -156,7 +155,7 @@ namespace  Docsa.Character
 
 
             if (Core.instance.InputAsset.Player.Move.IsPressed())
-                _animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3));
+                _animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.1f : _rigidbody.velocity.x);
 
             _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
             if (moveDirection == 0)
@@ -169,10 +168,16 @@ namespace  Docsa.Character
             }
         }
 
-        public void GrabDocsa(DocsaSakki targetDocsa)
+        public LayerMask GrabDocsaLayerMask;
+
+        public void GrabDocsa(Context context)
         {
-            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
-            var trs = BGCurve.AddTRS(targetDocsa.transform);
+            print("Grab");
+            
+            RaycastHit2D hit2D = Physics2D.BoxCast(Character.transform.position, BoxCastSize, 0, Vector2.right, 0, GrabDocsaLayerMask);
+            print(hit2D.transform.gameObject);
+            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(hit2D.transform, false, Character.GrabDocsaPosition, true);
+            var trs = BGCurve.AddTRS(hit2D.transform);
             BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
             BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
             BGCurve.Curve[1].SetField("Scale", new Vector3(0.75f, 0.75f, 0.75f), typeof(Vector3));
@@ -183,8 +188,10 @@ namespace  Docsa.Character
             BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
             if (Character is UzuHama hama)
             {
-                hama.Baguni.TemporaryOff(2);
+                hama.Baguni.OnOff();
+                AsyncAwait.Delay(hama.Baguni.OnOff, 2);
             }
+            Destroy(BGCurve.gameObject, 2);
         }
 
         public void Die()

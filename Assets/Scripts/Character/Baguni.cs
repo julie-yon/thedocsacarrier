@@ -42,21 +42,6 @@ namespace Docsa.Character
             }
         }
 
-        public async void TemporaryOff(float time)
-        {
-            foreach (var col in GetComponentsInChildren<Collider2D>())
-            {
-                col.enabled = false;
-            }
-
-            await System.Threading.Tasks.Task.Delay((int)time * 1000);
-            
-            foreach (var col in GetComponentsInChildren<Collider2D>())
-            {
-                col.enabled = true;
-            }
-        }
-
         private void AdjustBucketPosition()
         {
             Vector2 hamaVelocity = UzuHama.Hama.Behaviour.CurrentVelocity;

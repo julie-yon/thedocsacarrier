@@ -31,6 +31,7 @@ namespace Docsa.Character
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
+            Core.instance.InputAsset.Player.GrabDocsa.performed += Behaviour.GrabDocsa;
         }
 
         // void Update()
