@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a12ddbc47b17cd478cb447d1113a22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: Exit
+  buttonText: "\uC885\uB8CC"
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -322,10 +322,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: "\uC885\uB8CC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -441,16 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5c0e6d88f6cac4298e0f227241c8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICanvas: {fileID: 6883117980193017075}
-  ListUIObject: {fileID: 6883117981170822015}
-  ListItemPrefab: {fileID: 1701301418193326755, guid: cc8b323be274e3e4287585ec2bbbcea7,
-    type: 3}
-  AttendingDocsaList: {fileID: 6883117981576737300}
-  AttendingHunterList: {fileID: 6883117980953854757}
-  WaitingViewerList: {fileID: 6883117980782713105}
   ESCUIGameObject: {fileID: 6883117981114757570}
   SoundSlider: {fileID: 6883117980432820240}
-  DocsaListObject: {fileID: 6883117981170822015}
   TwitchCommandsObject: {fileID: 6883117980222532714}
   DocsaAttendToggle: {fileID: 6883117981339752529}
 --- !u!222 &6883117979516266127
@@ -1579,7 +1571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uBB3C\uB358\uC9C0\uAE30 : !\u3134\u3147\uB7EC"
+  m_text: "\uC810\uD504 : !\uD5CC\uD130\uC810\uD504"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
   m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
@@ -2102,8 +2094,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3221,10 +3213,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cannot Attend
+  m_text: "\uCC38\uC5EC \uBD88\uAC00\uB2A5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
-  m_sharedMaterial: {fileID: 21539420542967178, guid: 4bd810f1cbcb0f446a8f5a31453e243f,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3702,9 +3694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Uniqueness: 2
-  ReplaceAsNew: 0
   TargetComponent: {fileID: 6883117980507065984}
   HashID: ESUI
+  ReplaceAsNew: 0
 --- !u!1 &6883117980546593422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,10 +3761,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Docsa List
+  m_text: "\uB3C5\uC0AC\uB4E4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3803,7 +3795,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4552,7 +4544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a12ddbc47b17cd478cb447d1113a22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: TwitchCommands
+  buttonText: "\uB2A5\uB825"
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4885,7 +4877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACF5\uACA9 : !\u3147\u3147\u3147\u3147"
+  m_text: "\uACF5\uACA9 : !\uBC40\uC220"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
   m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
@@ -5261,10 +5253,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TwitchCommands
+  m_text: "\uB2A5\uB825"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5295,7 +5287,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5970,7 +5962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a12ddbc47b17cd478cb447d1113a22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: Docsa List
+  buttonText: "\uB3C5\uC0AC\uB4E4"
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6278,10 +6270,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Can Attend
+  m_text: "\uCC38\uC5EC \uAC00\uB2A5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
-  m_sharedMaterial: {fileID: 21539420542967178, guid: 4bd810f1cbcb0f446a8f5a31453e243f,
+  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7058,10 +7050,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD558\uB9C8\uB2D8\uC774 ESC\uBA54\uB274\uC5D0\uC11C Attend\uB97C \uCCB4\uD06C\uD574\uC8FC\uC2DC\uBA74
-    !\uCC38\uAC00 \uB97C \uC785\uB824\uD558\uC5EC \uCC38\uC5EC \uAC00\uB2A5\uD569\uB2C8\uB2E4.
-    \uC911\uAC04\uC5D0 \uB098\uAC00\uC57C \uB418\uBA74 \uD558\uB9C8\uB2D8\uAED8 \uB9D0\uC2B4\uB4DC\uB9AC\uACE0
-    !\uD1F4\uC7A5 \uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694."
+  m_text: "\uD558\uB9C8\uB2D8\uC774 ESC\uBA54\uB274\uC5D0\uC11C \uCC38\uC5EC\uAC00\uB2A5\uC73C\uB85C
+    \uCCB4\uD06C\uD574\uC8FC\uC2DC\uBA74 \n\"!\uCC38\uAC00\"\uB97C \uC785\uB825\uD558\uC5EC
+    \uCC38\uC5EC \uAC00\uB2A5\uD569\uB2C8\uB2E4. \n\uC911\uAC04\uC5D0 \uB098\uAC00\uC57C
+    \uB420\uACBD\uC6B0 \uD558\uB9C8\uB2D8\uAED8 \uB9D0\uC500\uB4DC\uB9AC\uACE0 \n\"!\uD1F4\uC7A5\"\uC744
+    \uC785\uB825\uD574\uC8FC\uC138\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
   m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,

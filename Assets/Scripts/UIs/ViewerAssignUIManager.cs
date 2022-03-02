@@ -15,6 +15,7 @@ namespace Docsa
     public class ViewerAssignUIManager : ListUI
     {
         public GameObject UIObject;
+        public ButtonManagerBasic RandomDistributionButton;
         public ButtonManagerBasic DetermineButton;
         public TextMeshProUGUI DocsaCountText;
         public TextMeshProUGUI HunterCountText;
@@ -34,6 +35,10 @@ namespace Docsa
             AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
             AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
             WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
+
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
         }
 
         void UpdateCountTexts(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
@@ -83,6 +88,7 @@ namespace Docsa
             Time.timeScale = 0;
             UpdateCountTexts();
             CheckEnableDetermineButton();
+            CheckEnableRandomDistributionButton();
         }
 
         public void CloseUI()
@@ -97,6 +103,7 @@ namespace Docsa
             base.Listene(data);
             UpdateCountTexts();
             CheckEnableDetermineButton();
+            CheckEnableRandomDistributionButton();
         }
 
         public void OnDetermineButtonClicked()
@@ -108,6 +115,7 @@ namespace Docsa
         {
             base.RandomDistribute();
             CheckEnableDetermineButton();
+            CheckEnableRandomDistributionButton();
         }
 
         /// <summary>
@@ -117,15 +125,32 @@ namespace Docsa
         {
             try
             {
-            if (DocsaSakkiManager.instance.AttendingDocsaDict.Count <= DocsaSakkiManager.instance.AttendingDocsaLimit
-                    && DocsaSakkiManager.instance.AttendingHunterDict.Count <= DocsaSakkiManager.instance.AttendingHunterLimit
-                    && DocsaSakkiManager.instance.WaitingViewerDict.Count <= DocsaSakkiManager.instance.WaitingViewerLimit)
+                if (DocsaSakkiManager.instance.AttendingDocsaDict.Count <= DocsaSakkiManager.instance.AttendingDocsaLimit
+                        && DocsaSakkiManager.instance.AttendingHunterDict.Count <= DocsaSakkiManager.instance.AttendingHunterLimit
+                        && DocsaSakkiManager.instance.WaitingViewerDict.Count <= DocsaSakkiManager.instance.WaitingViewerLimit)
+                {
+                    DetermineButton.buttonVar.interactable = true;
+                } else
+                {
+                    DetermineButton.buttonVar.interactable = false;
+                }
+            } catch {}
+        }
+
+        void CheckEnableRandomDistributionButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
+        {
+            try
             {
-                DetermineButton.buttonVar.interactable = true;
-            } else
-            {
-                DetermineButton.buttonVar.interactable = false;
-            }
+                print(DocsaSakkiManager.instance.WaitingViewerDict.Count);
+                if (DocsaSakkiManager.instance.WaitingViewerDict.Count > 0)
+                {
+                    print("AB");
+                    RandomDistributionButton.buttonVar.interactable = true;
+                } else
+                {
+                    print("CD");
+                    RandomDistributionButton.buttonVar.interactable = false;
+                }
             } catch {}
         }
     }

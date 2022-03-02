@@ -10,12 +10,10 @@ using TMPro;
 
 namespace Docsa
 {
-    public class ESCUI : Singleton<ESCUIManager>{}
-    public class ESCUIManager : ListUI
+    public class ESCUIManager : Singleton<ESCUIManager>
     {
         public GameObject ESCUIGameObject;
         public SliderManager SoundSlider;
-        public GameObject DocsaListObject;
         public GameObject TwitchCommandsObject;
         public Toggle DocsaAttendToggle;
 
@@ -53,10 +51,9 @@ namespace Docsa
             ESCUIGameObject.SetActive(isOn);
         }
 
-        protected override void Reset()
+        void Reset()
         {
-            base.Reset();
-            DocsaListObject.SetActive(false);
+            ViewerAssignUI.instance.CloseUI();
             TwitchCommandsObject.SetActive(false);
         }
 
@@ -76,12 +73,12 @@ namespace Docsa
 
         public void OnDocsaListClicked()
         {
-            DocsaListObject.SetActive(true);
+            ViewerAssignUI.instance.OpenUI();
         }
 
         public void OnDocsaListExit()
         {
-            DocsaListObject.SetActive(false);
+            ViewerAssignUI.instance.CloseUI();
         }
 
         public void OnDocsaAttendToggle()
