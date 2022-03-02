@@ -13,7 +13,7 @@ namespace Docsa.Events
 
         void Reset()
         {
-            UnityEventTools.AddVoidPersistentListener(OnTriggerEnterEvent, PlayAnimation);
+            AddEnterEvent(PlayAnimation);
         }
 
         public void PlayAnimation()

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Events;
 
 using Utility;
 
@@ -15,7 +14,7 @@ namespace Docsa.Events
 
         void Reset()
         {
-            UnityEventTools.AddVoidPersistentListener(OnTriggerEnterEvent, PlayAnimator);
+            AddEnterEvent(PlayAnimator);
         }
 
         public void PlayAnimator()
