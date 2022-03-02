@@ -17,8 +17,6 @@ namespace Docsa
         public static List<Hunter> ActiveHunterList = new List<Hunter>();
 
         public int ChunkNumber;
-        public GameObject DocsaPositionObject;
-        public GameObject HunterPositionObject;
 
         public int DocsaCount {get {return ActiveDocsaList.Count;}}
         public int HunterCount {get {return ActiveHunterList.Count;}}
@@ -26,30 +24,16 @@ namespace Docsa
 
         void OnEnable()
         {
-            List<Transform> _docsaPosList = new List<Transform>();
-            List<Transform> _hunterPosList = new List<Transform>();
-            GameObject objTemp;
-            if (DocsaPositionObject != null)
-            {
-                _docsaPosList.AddRange(DocsaPositionObject.GetComponentsInChildren<Transform>());
-                // Removing "DocsaPos" itself
-                _docsaPosList.RemoveAt(0);
-                foreach (Transform docsa in _docsaPosList)
-                {
-                    objTemp = ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(docsa.position, docsa.rotation);
-                    ActiveDocsaList.Add(objTemp.GetComponent<DocsaSakki>());
-                }
-            }
+            var positionSetters = GetComponentsInChildren<CharacterPositionSetter>();
 
-            if (HunterPositionObject != null)
+            foreach (var setter in positionSetters)
             {
-                _hunterPosList.AddRange(HunterPositionObject.GetComponentsInChildren<Transform>());
-                // Removing "HunterPos" itself
-                _hunterPosList.RemoveAt(0);
-                foreach (Transform docsa in _docsaPosList)
+                if (setter.CharacterType == DocsaPoolType.Docsa)
                 {
-                    objTemp = ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(docsa.position, docsa.rotation);
-                    ActiveHunterList.Add(objTemp.GetComponent<Hunter>());
+                    ActiveDocsaList.Add(ObjectPool.GetOrCreate(setter.CharacterType).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<DocsaSakki>());
+                } else if (setter.CharacterType == DocsaPoolType.Hunter)
+                {
+                    ActiveHunterList.Add(ObjectPool.GetOrCreate(setter.CharacterType).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<Hunter>());
                 }
             }
         }
