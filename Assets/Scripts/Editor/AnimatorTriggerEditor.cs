@@ -8,12 +8,16 @@ namespace Docsa.Events
     {
         SerializedProperty TargetAnimator;
         SerializedProperty TriggerNames;
+        SerializedProperty TrueBoolNames;
+        SerializedProperty FalseBoolNames;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             TargetAnimator = serializedObject.FindProperty("TargetAnimator");
             TriggerNames = serializedObject.FindProperty("TriggerNames");
+            TrueBoolNames = serializedObject.FindProperty("TrueBoolNames");
+            FalseBoolNames = serializedObject.FindProperty("FalseBoolNames");
         }
 
         public override void OnInspectorGUI()
@@ -25,8 +29,11 @@ namespace Docsa.Events
             {
                 EditorGUILayout.PropertyField(TargetAnimator);
                 EditorGUILayout.PropertyField(TriggerNames);
+                EditorGUILayout.PropertyField(TrueBoolNames);
+                EditorGUILayout.PropertyField(FalseBoolNames);
             }
 
             serializedObject.ApplyModifiedProperties();
-        }    }
+        }
+    }
 }
