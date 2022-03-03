@@ -50,7 +50,7 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  PlayOnlyFirst: 0
+  PlayOnlyFirst: 1
   OnTriggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
