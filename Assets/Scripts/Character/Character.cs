@@ -2,6 +2,7 @@
 using UnityEngine;
 
 using TMPro;
+using UnityEditor;
 
 namespace Docsa.Character
 {
@@ -12,7 +13,7 @@ namespace Docsa.Character
         public CharacterBehaviour Behaviour;
         public Transform GrabDocsaPosition;
         public bool isDie = false;
-        
+
         [SerializeField] Transform RootBoneTransform;
         public Vector3 HeaderRelativePosition = Vector2.up;
         public Vector3 HeaderPosition
@@ -62,6 +63,8 @@ namespace Docsa.Character
         public void GetDamage(int damageValue)
         {   
             CurrentHP -= damageValue;
+            
+            FloatingTextManager.instance.MakeNewText(transform.position, damageValue);
         }
 
         public void GetDamage(float damageValue)
@@ -73,5 +76,6 @@ namespace Docsa.Character
         {
             Chat.Chat(chat, time);
         }
+        
     }
 }
