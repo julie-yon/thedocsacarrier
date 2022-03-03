@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Docsa.Gimmick;
 using Utility;
 
 namespace Docsa
@@ -19,6 +20,7 @@ namespace Docsa
         public Vector2 Direction;
         public float InitSpeedPower = 5;
         public Rigidbody2D rb2D;
+        public float DamageValue = 10;
         [HideInInspector][SerializeField] private EventTrigger _eventTrigger;
 
         public bool UseReflection = false; 

@@ -6,7 +6,6 @@ namespace Docsa.Character
 {
     public class Weapon : Projectile
     {
-        public float DamageValue = 10;
         public LayerMask TargetLayerMask;
 
         private List<Hunter> _attackedHunterList = new List<Hunter>();
