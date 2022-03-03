@@ -5,16 +5,11 @@ using Utility;
 
 namespace Docsa.Events
 {
-    [RequireComponent(typeof(EventTrigger))]
     public class CaveEntranceEvent : MonoBehaviour
     {
-        void Reset()
+        void StopDocsaFlyAnimator()
         {
-            UnityEventTools.AddVoidPersistentListener(GetComponent<EventTrigger>().OnTriggerEnterEvent, PlayAnimation);
-        }
-
-        public void PlayAnimation()
-        {
+            GetComponent<Animator>().enabled = false;
         }
     }
 }

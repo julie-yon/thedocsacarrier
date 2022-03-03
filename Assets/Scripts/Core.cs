@@ -9,7 +9,11 @@ namespace Docsa
 {
     public class Core : Singleton<Core>
     {
-        public string Stage1GameSceneName = "Stage1";
+        public const string CaveSceneName = "Cave";
+        public const string Stage1GameSceneName = "Stage1";
+        public const string Stage2GameSceneName = "Stage2";
+        public const string Stage3GameSceneName = "Stage3";
+        public const string Stage4GameSceneName = "Stage4";
         public string UzuhamaTwitchNickName = "우주하마";
         public HamaInput InputAsset;
 
@@ -20,10 +24,14 @@ namespace Docsa
             InputAsset.UI.Disable();
         }
 
+        public void GotoCave()
+        {
+            SceneManager.LoadScene(CaveSceneName);
+        }
+
         public void GameStart()
         {
-            // SceneManager.LoadSceneAsync(Core.instance.Stage1GameSceneName);
-            SceneManager.LoadScene(Core.instance.Stage1GameSceneName);
+            SceneManager.LoadScene(Stage1GameSceneName);
         }
 
     }

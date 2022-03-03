@@ -25,6 +25,8 @@ namespace Docsa.Character
 
         float moveDirection;
 
+        public IInteractable Interactable;
+
         void Start()
         {
             Core.instance.InputAsset.Player.Move.performed += HamaMove;
@@ -32,6 +34,7 @@ namespace Docsa.Character
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
             Core.instance.InputAsset.Player.GrabDocsa.performed += Behaviour.GrabDocsa;
+            Core.instance.InputAsset.Player.Interact.performed += Interact;
         }
 
         // void Update()
@@ -76,6 +79,14 @@ namespace Docsa.Character
         void HamaAttack(Context context)
         {
             Behaviour.Attack(Mouse.current.position.ReadValue());
+        }
+
+        void Interact(Context context)
+        {
+            if (Interactable != null)
+            {
+                Interactable.Interact();
+            }
         }
     }
 }

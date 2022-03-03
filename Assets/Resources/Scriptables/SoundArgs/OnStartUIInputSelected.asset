@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OnStartUIInputSelected
   m_EditorClassIdentifier: Assembly-CSharp-firstpass:Utility:SoundArgs
   EnumName: docsasoundnaming
-  EnumValue: NullSound
+  EnumValue: UIButtonClick
   EnumNameCorrect: 1
   SoundPlayMode: 0
   Transform: {fileID: 0}

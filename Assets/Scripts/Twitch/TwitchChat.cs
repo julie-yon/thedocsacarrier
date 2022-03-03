@@ -87,7 +87,7 @@ namespace TwitchIRC
 
             if (Connected)
             {
-                Core.instance.GameStart();
+                Core.instance.GotoCave();
             } else
             {
                 print("Failed to connect to Twtich Chnnel.");

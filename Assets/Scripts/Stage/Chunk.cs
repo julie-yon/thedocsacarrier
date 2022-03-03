@@ -30,16 +30,18 @@ namespace Docsa
             {
                 if (setter.CharacterType == DocsaPoolType.Docsa)
                 {
-                    ActiveDocsaList.Add(ObjectPool.GetOrCreate(setter.CharacterType).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<DocsaSakki>());
+                    ActiveDocsaList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<DocsaSakki>());
                 } else if (setter.CharacterType == DocsaPoolType.Hunter)
                 {
-                    ActiveHunterList.Add(ObjectPool.GetOrCreate(setter.CharacterType).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<Hunter>());
+                    ActiveHunterList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<Hunter>());
                 }
             }
         }
 
         void OnDisable()
         {
+            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).ReturnAll();
+            ObjectPool.GetOrCreate(DocsaPoolType.Hunter).ReturnAll();
             ActiveDocsaList.Clear();
             ActiveHunterList.Clear();
         }

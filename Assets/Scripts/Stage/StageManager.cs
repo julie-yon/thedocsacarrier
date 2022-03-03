@@ -23,6 +23,24 @@ namespace Docsa
         void LoadStage(Scene scene, LoadSceneMode mode)
         {
             ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
+            switch (scene.name)
+            {
+                case "Cave":
+                    SoundManager.instance.LoadSounds(1);
+                break;
+                case "Stage1":
+                    SoundManager.instance.LoadSounds(2);
+                break;
+                case "Stage2":
+                    SoundManager.instance.LoadSounds(3);
+                break;
+                case "Stage3":
+                    SoundManager.instance.LoadSounds(4);
+                break;
+                case "Stage4":
+                    SoundManager.instance.LoadSounds(5);
+                break;
+            }
             if (CurrentStage)
             {
                 return;
