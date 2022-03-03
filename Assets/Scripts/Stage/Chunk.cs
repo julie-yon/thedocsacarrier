@@ -15,7 +15,9 @@ namespace Docsa
         }
         public Stage Stage;
         public int ChunkNumber;
+        public Transform StartPosition;
         public bool ReadyToPlay = false;
+
 
         public static List<DocsaSakki> ActiveDocsaList = new List<DocsaSakki>();
         public static List<Hunter> ActiveHunterList = new List<Hunter>();
@@ -41,26 +43,26 @@ namespace Docsa
         public void InitCharacters()
         {
             var positionSetters = GetComponentsInChildren<CharacterPositionSetter>();
-            print("Chunk Init Character");
 
             GameObject goTemp;
-            Docsa.Character.Character characterTemp;
+            ViewerCharacter characterTemp;
 
             foreach (var setter in positionSetters)
             {
-                print("foreach");
                 if (setter.CharacterType == DocsaPoolType.Docsa)
                 {
                     print("isDocsa");
                     goTemp = ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(setter.transform.position, setter.transform.rotation);
-                    characterTemp = GetComponent<DocsaSakki>();
+                    characterTemp = goTemp.GetComponent<DocsaSakki>();
+                    characterTemp.Flip = setter.Flip;
                     ActiveDocsaList.Add((DocsaSakki)characterTemp);
                     // ActiveDocsaList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<DocsaSakki>());
                 } else if (setter.CharacterType == DocsaPoolType.Hunter)
                 {
                     print("isHunter");
                     goTemp = ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(setter.transform.position, setter.transform.rotation);
-                    characterTemp = GetComponent<Hunter>();
+                    characterTemp = goTemp.GetComponent<Hunter>();
+                    characterTemp.Flip = setter.Flip;
                     ActiveHunterList.Add((Hunter)characterTemp);
                     // ActiveHunterList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<Hunter>());
                 }
@@ -70,11 +72,12 @@ namespace Docsa
 
         public bool Clear()
         {
-            print(gameObject.name);
             if (HasNextChunk)
             {
-                Stage.Current.ChunkList[ChunkNumber+1].gameObject.SetActive(true);
+                Stage.ChunkList[ChunkNumber+1].gameObject.SetActive(true);
                 gameObject.SetActive(false);
+                UzuHama.Hama.transform.position = Stage.ChunkList[ChunkNumber+1].StartPosition.position;
+                Stage.CurrentChunk = Stage.ChunkList[ChunkNumber+1];
                 return true;
             } else
             {

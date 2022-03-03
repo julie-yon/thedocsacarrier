@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor.Events;
 
 namespace Docsa
 {
@@ -41,12 +42,12 @@ namespace Docsa
 
         protected virtual void Awake()
         {
-            ItemEvent.AddListener(Effect);
+            UnityEventTools.AddPersistentListener(ItemEvent, Effect);
         }
 
         public virtual void Effect()
         {
-            AudioSource.PlayClipAtPoint(ItemSound, transform.position);
+            // AudioSource.PlayClipAtPoint(ItemSound, transform.position);
 
             Destroy(gameObject);
         }

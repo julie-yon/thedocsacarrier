@@ -82,6 +82,15 @@ namespace Docsa
                 case ItemType.StarLight :
                 PerkManager.instance.Data.StarLightPerk.Enable();
                 break;
+                case ItemType.HamaAttack :
+                PerkManager.instance.Data.UzuhamaAttackPerk.Enable();
+                break;
+                case ItemType.HamaJump :
+                PerkManager.instance.Data.UzuhamaJumpPerk.Enable();
+                break;
+                case ItemType.GrabDocsa :
+                PerkManager.instance.Data.UzuhamaGrabDocsaPerk.Enable();
+                break;
             }
 
             base.Effect();
