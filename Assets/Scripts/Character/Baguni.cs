@@ -66,6 +66,12 @@ namespace Docsa.Character
 
         private void SetBaguniTargetPosition(Context context)
         {
+            if (!PerkManager.instance.Data.UzuhamaBaguniPerk.enabled)
+            {
+                PerkManager.instance.Data.UzuhamaBaguniPerk.PrintCannotMessage(UzuHama.Hama.transform.position);
+                return;
+            }
+
             float distance;
             BGmath.CalcPositionByClosestPoint(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), out distance);
             int coefficient;

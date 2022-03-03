@@ -8,6 +8,7 @@ namespace Docsa.Gimmick
 {
     public class FallingRock : Gimmick
     {
+        public int Damage = 10;
         [SerializeField] Animator mainAnimator;
         public Vector2 Direction;
         public int Speed;
@@ -23,7 +24,7 @@ namespace Docsa.Gimmick
             transform.Translate(Direction * Time.deltaTime * Speed);
         }
         
-        public void GimmickInvoke()
+        public override void GimmickInvoke()
         {
             GiveDamage(Damage);
         }

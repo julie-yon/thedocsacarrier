@@ -72,12 +72,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 401a855d3602fb340876a43d2b9c6e4e, type: 3}
+  m_Sprite: {fileID: 5567667253003442706, guid: e34218e1ff888994198de8ff11bc1c79,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,8 +101,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -123,12 +124,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 1024
-  ItemSound: {fileID: 8300000, guid: 17d896ef3580b0d4aab576d1a71df7b2, type: 3}
+    m_Bits: 0
+  ItemSound: {fileID: 0}
   ItemEvent:
     m_PersistentCalls:
       m_Calls: []
+  PerkSprites:
+  - {fileID: 5567667253003442706, guid: e34218e1ff888994198de8ff11bc1c79, type: 3}
+  - {fileID: -5195525699104573125, guid: e34218e1ff888994198de8ff11bc1c79, type: 3}
+  - {fileID: -2146349792139323317, guid: e34218e1ff888994198de8ff11bc1c79, type: 3}
+  - {fileID: 21300000, guid: 401a855d3602fb340876a43d2b9c6e4e, type: 3}
   TargetPerk: 0
+  _renderer: {fileID: 8610969672279557014}
 --- !u!1 &4981392603543837589
 GameObject:
   m_ObjectHideFlags: 0

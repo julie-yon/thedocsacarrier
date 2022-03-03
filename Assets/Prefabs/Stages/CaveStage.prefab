@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0
+  PerkData: {fileID: 11400000, guid: c3710a96f21e4a64bb49499840302902, type: 2}
 --- !u!1 &385333497676128258
 GameObject:
   m_ObjectHideFlags: 0

@@ -427,6 +427,7 @@ MonoBehaviour:
   NoMoveTimeThreshold: 0.3
   NoMoveThreshold: 0.3
   SpriteObject: {fileID: 8347779025375848319}
+  HamaMoveBoxCastSize: {x: 0.1, y: 1.4}
   UzuhamaCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 131072
@@ -452,10 +453,9 @@ MonoBehaviour:
   HPBar: {fileID: 5932047441148248319}
   _maxHP: 100
   _currentHP: 100
-  HeaderRelativePosition: {x: 0, y: 2, z: 0}
   EButtonAnimator: {fileID: 8058741348985824665}
---- !u!70 &8793092099344672969
-CapsuleCollider2D:
+--- !u!61 &1433607343626823756
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -467,9 +467,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011183709, y: 0.51622295}
-  m_Size: {x: 0.6610052, y: 1.6663275}
-  m_Direction: 0
+  m_Offset: {x: 0.00341627, y: 0.522686}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7335327, y: 1.5534325}
+  m_EdgeRadius: 0
 --- !u!95 &3642632648395994385
 Animator:
   serializedVersion: 3

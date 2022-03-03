@@ -32,9 +32,14 @@ namespace Docsa
         // Start is called before the first frame update
         public void MakeNewText(Vector3 posit, int damageValue)
         {
+            MakeNewText(posit, damageValue.ToString());
+        }
+        
+        public void MakeNewText(Vector3 posit, string text)
+        {
             GameObject floatingText = Instantiate(FloatingTextPref, posit, Quaternion.identity );
             FloatingText floatingTextComponent = floatingText.GetComponent<FloatingText>();
-            floatingTextComponent.content = damageValue.ToString();
+            floatingTextComponent.content = text;
             floatingTextComponent.transform.SetParent(FloatingTextCanvas.transform);
         }
         

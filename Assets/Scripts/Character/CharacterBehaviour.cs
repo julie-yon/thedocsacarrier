@@ -108,6 +108,7 @@ namespace  Docsa.Character
 
         public virtual void Jump()
         {
+            JumpCount++;
             if (JumpCount <= MaxJumps)
             {
                 _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);

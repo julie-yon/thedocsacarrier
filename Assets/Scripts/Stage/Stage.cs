@@ -33,6 +33,7 @@ namespace Docsa
 
         public bool Clear()
         {
+            print(gameObject.name);
             if (CurrentChunk.Clear()) return true;
             else 
             {

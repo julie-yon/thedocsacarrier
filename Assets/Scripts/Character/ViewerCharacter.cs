@@ -4,6 +4,7 @@
     {
         public string ViewerName;
         public bool isViewerAssigned;
+        public bool Flip;
         protected override void Reset()
         {
             base.Reset();
@@ -16,7 +17,8 @@
 
         protected virtual void OnEnable()
         {
-            
+            if (Flip) transform.localScale = new UnityEngine.Vector3(-1, 1, 1);
+            else transform.localScale = new UnityEngine.Vector3(1, 1, 1);
         }
 
         protected virtual void OnDisable()

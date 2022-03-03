@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Utility;
+
 using UnityEngine.InputSystem;
 using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
 
@@ -25,19 +27,28 @@ namespace Docsa.Character
         public IInteractable Interactable;
         public Animator EButtonAnimator;
 
+        private UzuHamaBehaviour HamaBehaviour
+        {
+            get {return (UzuHamaBehaviour)Behaviour;}
+        }
+
         void Start()
         {
             Core.instance.InputAsset.Player.Move.performed += HamaMove;
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
-            Core.instance.InputAsset.Player.GrabDocsa.performed += ((UzuHamaBehaviour)Behaviour).GrabDocsa;
+            Core.instance.InputAsset.Player.GrabDocsa.performed += HamaBehaviour.GrabDocsa;
             Core.instance.InputAsset.Player.Interact.performed += Interact;
         }
 
         void FixedUpdate()
         {
-            Behaviour.Move(moveDirection);
+            if (!PhysicsHelper.BoxCast(Hama.transform.position + new Vector3(0, 0.5f, 0), 
+                HamaBehaviour.HamaMoveBoxCastSize, 0, Vector2.right * moveDirection, 
+                HamaBehaviour.HamaMoveBoxCastDistance, 
+                HamaBehaviour.UzuhamaCollisionLayerMask))
+            HamaBehaviour.Move(moveDirection);
         }
 
         void HamaMove(Context context)
@@ -59,19 +70,18 @@ namespace Docsa.Character
             if (_hit && _hit.distance < 0.4)
             {
                 //Debug.Log(_hit.distance);
-                Behaviour.JumpCount = 0;
+                HamaBehaviour.JumpCount = 0;
             }
         }
 
         void HamaJump(Context context)
         {
-            Behaviour.JumpCount += 1;
-            Behaviour.Jump();
+            HamaBehaviour.Jump();
         }
         
         void HamaAttack(Context context)
         {
-            Behaviour.Attack(Mouse.current.position.ReadValue());
+            HamaBehaviour.Attack(Mouse.current.position.ReadValue());
         }
 
         void Interact(Context context)

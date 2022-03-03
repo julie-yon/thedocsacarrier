@@ -22,7 +22,6 @@ namespace Docsa
         public Color ValidCountColor;
         public Color FitCountColor;
         public Color InvalidCountColor;
-        public bool isOn;
 
         protected void Awake()
         {
@@ -41,17 +40,16 @@ namespace Docsa
 
         public void OpenUI()
         {
-            isOn = true;
             UpdateData();
         }
 
         public void CloseUI()
         {
-            isOn = false;
         }
 
         public void OnDetermineButtonClicked()
         {
+            Core.instance.ReadyToPlay = true;
             print("Viewer Determined");
         }
 

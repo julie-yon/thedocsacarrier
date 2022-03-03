@@ -25,13 +25,13 @@ namespace Docsa
             if (content != null)
             {
                 text = content;
-                _timeElapsed += Time.deltaTime;
+                _timeElapsed += Time.deltaTime / 3;
                 color = Color.Lerp(color, Color.clear, _timeElapsed*0.5f);
                 fontSize = Mathf.Lerp(1, 0, _timeElapsed * 0.3f);
          
                 if (color.a < 0.05f)
                 {
-                     Destroy(gameObject);
+                    Destroy(gameObject);
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace Docsa
         public SliderManager SoundSlider;
         public Toggle DocsaAttendToggle;
 
-        bool isOn;
+        public bool isOn;
 
         void Start()
         {
@@ -24,20 +24,32 @@ namespace Docsa
 
         public void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            isOn = !isOn;
             if (isOn)
             {
-                Time.timeScale = 0;
-                Core.instance.InputAsset.Player.Disable();
-                Core.instance.InputAsset.UI.Enable();
+                CloseUI();
+                Core.instance.InputAsset.Player.Enable();
             } else
             {
-                Time.timeScale = 1;
-                Core.instance.InputAsset.Player.Enable();
-                Core.instance.InputAsset.UI.Disable();
+                OpenUI();
+                Core.instance.InputAsset.Player.Disable();
             }
-            ESCUIGameObject.SetActive(isOn);
+        }
+
+        public void OpenUI()
+        {
+            isOn = true;
+            ESCUIGameObject.SetActive(true);
             ViewerAssignUI.instance.UpdateData();
+            Core.instance.InputAsset.UI.Enable();
+        }
+
+        public void CloseUI()
+        {
+            isOn = false;
+            ESCUIGameObject.SetActive(false);
+            ViewerAssignUI.instance.UpdateData();
+            if (Core.instance.ReadyToPlay)
+                Core.instance.InputAsset.UI.Disable();
         }
 
         public void OnSoundSliderValueChanged()

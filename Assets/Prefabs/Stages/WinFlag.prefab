@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1744247156757027011}
   - component: {fileID: 6087834614108544926}
   - component: {fileID: 8603282713590754237}
+  - component: {fileID: 6503036084578974037}
   m_Layer: 0
   m_Name: WinFlag
   m_TagString: Untagged
@@ -50,10 +51,21 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  PlayOnlyFirst: 0
+  PlayOnlyFirst: 1
   OnTriggerEnterEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6503036084578974037}
+        m_MethodName: GimmickInvoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerStayEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -88,6 +100,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6503036084578974037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630770916216909067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6805ed28e5e8f245b84a7aeea6e764a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  UzuhamaLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &1018587287805869444
 GameObject:
   m_ObjectHideFlags: 0

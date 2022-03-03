@@ -9,7 +9,7 @@ namespace Docsa.Gimmick
 
         SpriteRenderer SpriteRenderer;
 
-        protected override void Awake()
+        void Awake()
         {
             SpriteRenderer = GetComponent<SpriteRenderer>();
         }

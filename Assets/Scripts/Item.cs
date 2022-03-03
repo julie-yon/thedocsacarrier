@@ -5,6 +5,20 @@ using UnityEngine.Events;
 
 namespace Docsa
 {
+    public enum ItemType
+    {
+        HamaAttack,
+        HamaJump,
+        HamaBaguni,
+        GrabDocsa,
+        Attend,
+        Exit,
+        StarLight,
+        DocsaAttack,
+        DocsaJump,
+        HunterAttack,
+        HunterJump,
+    }
     [RequireComponent(typeof(BoxCollider2D))]
     public class Item : MonoBehaviour
     {
@@ -20,12 +34,12 @@ namespace Docsa
             }
         }
 
-        protected void Reset()
+        protected virtual void Reset()
         {
             GetComponent<Collider2D>().isTrigger = true;
         }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             ItemEvent.AddListener(Effect);
         }

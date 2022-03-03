@@ -1,30 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Docsa.Character;
+
+using Utility;
 
 namespace Docsa.Gimmick
 {
     public class Gimmick : MonoBehaviour
     {
-        public int Damage;
+        public SoundArgs DamageSoundArg;
         [SerializeField] protected LayerMask UzuhamaLayer;
 
-        protected virtual void Awake()
+        public virtual void GimmickInit()
         {
+            gameObject.SetActive(true);
         }
-        
+
         public virtual void GimmickInvoke()
         {
-            
         }
 
-        protected virtual void GiveDamage(int damageValue) //virtual일 필요가 있을지?!
+        protected virtual void GiveDamage(int damageValue)
         {
+            SoundManager.instance.Play(DamageSoundArg);
             UzuHama.Hama.GetDamage(damageValue);
         }
-
     }
-
 }
 

@@ -45,6 +45,17 @@ namespace  Docsa.Character
             // print ($"aimDirection : {aimDirection}, angle : {angle * Mathf.Rad2Deg}, realAngle : {realAngle * Mathf.Rad2Deg}, realDirection : {realDirection}");
         }
 
+        public override void Attack(Vector2 direction)
+        {
+            print("Attack");
+            if (!PerkManager.instance.Data.UzuhamaAttackPerk.enabled)
+            {
+                PerkManager.instance.Data.UzuhamaAttackPerk.PrintCannotMessage(Character.transform.position);
+                return;
+            }
+            base.Attack(direction);
+        }
+
         /// <summary>
         /// this function will be used at animation component with animation event
         /// </summary>
@@ -62,10 +73,24 @@ namespace  Docsa.Character
             ObjectPool.GetOrCreate(WeaponType).Instantiate(ProjectileEmitter.position, Quaternion.identity, preInitiater);
         }
 
+        public override void Jump()
+        {
+            print("Jump");
+            print(PerkManager.instance.Data.UzuhamaJumpPerk.enabled);
+            if (!PerkManager.instance.Data.UzuhamaJumpPerk.enabled)
+            {
+                PerkManager.instance.Data.UzuhamaJumpPerk.PrintCannotMessage(Character.transform.position);
+                return;
+            }
+            base.Jump();
+        }
+
         private float noMoveTime = 0;
         public float NoMoveTimeThreshold = 0.3f;
         public float NoMoveThreshold = 0.3f;
         public GameObject SpriteObject;
+        public Vector2 HamaMoveBoxCastSize = new Vector2(0.1f, 0.8f);
+        public float HamaMoveBoxCastDistance = 1f;
         public LayerMask UzuhamaCollisionLayerMask;
 
         public override void Move(float moveDirection)
@@ -85,20 +110,17 @@ namespace  Docsa.Character
 
 
 
-            if (!PhysicsHelper.BoxCast(Hama.transform.position + new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.8f), 0, Vector2.right * moveDirection, 1.1f, UzuhamaCollisionLayerMask))
-            {
-                if (Core.instance.InputAsset.Player.Move.IsPressed())
-                    Animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.2f : _rigidbody.velocity.x);
+            if (Core.instance.InputAsset.Player.Move.IsPressed())
+                Animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.2f : _rigidbody.velocity.x);
 
-                _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
-                if (moveDirection == 0)
-                {
-                    if (noMoveTime > NoMoveTimeThreshold)
-                        Animator.SetBool(MoveBoolName, false);
-                } else
-                {
-                    Animator.SetBool(MoveBoolName, true);
-                }
+            _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
+            if (moveDirection == 0)
+            {
+                if (noMoveTime > NoMoveTimeThreshold)
+                    Animator.SetBool(MoveBoolName, false);
+            } else
+            {
+                Animator.SetBool(MoveBoolName, true);
             }
 
         }
@@ -112,6 +134,8 @@ namespace  Docsa.Character
 
         public override void GrabDocsa(DocsaSakki targetDocsa)
         {
+            if (!PerkManager.instance.Data.UzuhamaGrabDocsaPerk.enabled) PerkManager.instance.Data.UzuhamaGrabDocsaPerk.PrintCannotMessage(Character.transform.position);
+            
             base.GrabDocsa(targetDocsa);
             Hama.Baguni.OnOff();
             AsyncAwait.Delay(Hama.Baguni.OnOff, 2);

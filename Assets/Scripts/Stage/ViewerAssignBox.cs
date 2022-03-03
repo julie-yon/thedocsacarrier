@@ -10,7 +10,8 @@ namespace Docsa.Events
     {
         public void Open()
         {
-            ESCUIManager.instance.OnESCPerformed(new UnityEngine.InputSystem.InputAction.CallbackContext());
+            Chunk.Current.InitCharacters();
+            ESCUIManager.instance.OpenUI();
             ESCUIManager.instance.GetComponentInChildren<WindowManager>().currentWindowIndex = 1;
         }
     }

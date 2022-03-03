@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3491884618204803287}
+  - component: {fileID: 5426128529455613460}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -32,6 +33,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5426128529455613460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073090633172308567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73817cb4c827192449520e8cca1f8f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Uniqueness: 2
+  TargetComponent: {fileID: 3491884618204803287}
+  HashID: Dialogue
+  ReplaceAsNew: 0
 --- !u!1 &7710778464871662729
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HiHIHIHIHIHIHIHIHHIHIHIHIHIHiHIHIHIHIHIHIHIHHIHIHIHIHIHiHIHIHIHIHIHIHIHHIHIHIHIHIHiHIHIHIHIHIHIHIHHIHIHIHIHIHiHIHIHIHIHIHIHIHHIHIHIHIHI
+  m_text: "\uD06C\uD760....."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -783,9 +800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Developer
-
-'
+  m_text: "\uD558\uB9C8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1035,10 +1050,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueObject: {fileID: 7710778465006240847}
   ContinueButton: {fileID: 7710778465229412472}
-  _dialogue: {fileID: 11400000, guid: 109751f313367c343883e62dc2656073, type: 2}
   DialogueNameUI: {fileID: 7710778466246403251}
   DialogueMessageUI: {fileID: 7710778465916684185}
-  _currentDialogueIndex: -1
+  _dialogue: {fileID: 11400000, guid: 109751f313367c343883e62dc2656073, type: 2}
+  _currentDialogueIndex: 0
   _leftSpeakerImage: {fileID: 7710778464931329997}
   _rightSpeakerImage: {fileID: 7710778465055899822}
 --- !u!114 &2861333932303127546

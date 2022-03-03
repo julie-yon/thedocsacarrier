@@ -16,12 +16,26 @@ namespace Docsa
         public const string Stage4GameSceneName = "Stage4";
         public string UzuhamaTwitchNickName = "우주하마";
         public HamaInput InputAsset;
+        public bool ReadyToPlay;
 
         void Awake()
         {
             InputAsset = new HamaInput();
             InputAsset.Player.Enable();
             InputAsset.UI.Disable();
+        }
+
+        void Update()
+        {
+            if (!ReadyToPlay && Chunk.Current.ReadyToPlay)
+            {
+                InputAsset.Player.Disable();
+            } else if (ReadyToPlay && Chunk.Current.ReadyToPlay && !ESCUIManager.instance.isOn)
+            {
+                InputAsset.Player.Enable();
+            }
+
+            print($"{InputAsset.Player.enabled}, {InputAsset.UI.enabled}");
         }
 
         public void GotoCave()
@@ -41,7 +55,10 @@ namespace Docsa
         public void ChunkClear()
         {
             InputAsset.Disable();
-            StageManager.instance.Clear();
+            if (!StageManager.instance.Clear())
+            {
+                ReadyToPlay = false;
+            }
             InputAsset.Enable();
         }
 
