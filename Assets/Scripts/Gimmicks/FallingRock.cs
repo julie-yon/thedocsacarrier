@@ -21,7 +21,8 @@ namespace Docsa.Gimmick
         }
         void FixedUpdate()
         {
-            transform.Translate(Direction * Time.deltaTime * Speed);
+            if (gimmickStarted)
+                transform.Translate(Direction * Time.deltaTime * Speed);
         }
         
         public override void GimmickInvoke()

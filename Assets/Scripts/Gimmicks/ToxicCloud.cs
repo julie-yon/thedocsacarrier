@@ -9,7 +9,8 @@ namespace Docsa.Gimmick
         public float Speed = 1;
         void Update()
         {
-            transform.Translate(Vector3.left * Speed * Time.deltaTime);
+            if (gimmickStarted)
+                transform.Translate(Vector3.left * Speed * Time.deltaTime);
         }
     }
 }

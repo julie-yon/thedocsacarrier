@@ -10,9 +10,11 @@ namespace Docsa.Gimmick
         public SoundArgs DamageSoundArg;
         [SerializeField] protected LayerMask UzuhamaLayer;
 
+        public bool gimmickStarted;
+
         public virtual void GimmickInit()
         {
-            gameObject.SetActive(true);
+            gimmickStarted = true;
         }
 
         public virtual void GimmickInvoke()
