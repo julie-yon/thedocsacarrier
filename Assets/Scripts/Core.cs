@@ -18,6 +18,8 @@ namespace Docsa
         public HamaInput InputAsset;
         public bool ReadyToPlay;
 
+        public bool DevTestMode;
+
         void Awake()
         {
             InputAsset = new HamaInput();
@@ -27,6 +29,8 @@ namespace Docsa
 
         void Update()
         {
+            if (DevTestMode) return;
+
             if (!ReadyToPlay && Chunk.Current.ReadyToPlay)
             {
                 InputAsset.Player.Disable();
@@ -34,8 +38,6 @@ namespace Docsa
             {
                 InputAsset.Player.Enable();
             }
-
-            print($"{InputAsset.Player.enabled}, {InputAsset.UI.enabled}");
         }
 
         public void GotoCave()
