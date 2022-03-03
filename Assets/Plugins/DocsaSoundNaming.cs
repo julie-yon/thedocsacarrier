@@ -15,5 +15,9 @@ public enum DocsaSoundNaming
     UIButtonClick = 3,
     UzuHamaYelling_DontDoIt = 4,
     TestSound = 19,
-
+    GetItem = 5,
+    GrabDocsa = 6,
+    HamaShotted = 7,
+    HamaJump = 8,
+    HamaAttack = 9,
 }
