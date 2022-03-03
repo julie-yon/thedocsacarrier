@@ -100,14 +100,14 @@ namespace Docsa
 
         public virtual void RandomDistribute()
         {
-            DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(Chunk.Current.DocsaCount);
+            DocsaData[] datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(Chunk.ActiveDocsaList.Count);
             foreach (DocsaData data in datas)
             {
                 MoveDocsaDataCardTo(data, DocsaData.DocsaState.Docsa);
                 DocsaSakkiManager.instance.MoveDocsaDataTo(data, DocsaData.DocsaState.Docsa);
             }
 
-            datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(Chunk.Current.HunterCount);
+            datas = DocsaSakkiManager.instance.GetRandomWaitingDocsaDatas(Chunk.ActiveHunterList.Count);
             foreach (DocsaData data in datas)
             {
                 MoveDocsaDataCardTo(data, DocsaData.DocsaState.Hunter);

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Docsa.Character
 {
+    [RequireComponent(typeof(DocsaBehaviour))]
     public class DocsaSakki : ViewerCharacter, IHasTrajectory
     {
         public Transform OriginalParent;

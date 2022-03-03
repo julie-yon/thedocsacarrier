@@ -405,7 +405,7 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                docsaSakki.Character.Behaviour.JumpHead();
+                docsaSakki.Character.Behaviour.Jump();
             } else
             {
                 print("그런 독사 없음");
@@ -431,7 +431,7 @@ namespace Docsa
             DocsaData docsaSakki;
             if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
             {
-                docsaSakki.Character.Behaviour.JumpHead();
+                docsaSakki.Character.Behaviour.Jump();
             } else
             {
                 print("그런 헌터 없음");

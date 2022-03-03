@@ -12,90 +12,33 @@ namespace Docsa
 {
     public class StageManager : Singleton<StageManager>
     {
-        public List<GameObject> StageList = new List<GameObject>();
+        public List<string> StageSceneNameList = new List<string>();
         public Stage CurrentStage;
 
         void Awake()
         {
-            SceneManager.sceneLoaded += LoadStage;
+            SceneManager.sceneLoaded += LoadScene;
         }
 
-        void LoadStage(Scene scene, LoadSceneMode mode)
+        void LoadScene(Scene scene, LoadSceneMode mode)
         {
-            ProCamera2D.Instance.AddCameraTarget(UzuHama.Hama.transform);
-            switch (scene.name)
-            {
-                case "Cave":
-                    SoundManager.instance.LoadSounds(1);
-                break;
-                case "Stage1":
-                    SoundManager.instance.LoadSounds(2);
-                break;
-                case "Stage2":
-                    SoundManager.instance.LoadSounds(3);
-                break;
-                case "Stage3":
-                    SoundManager.instance.LoadSounds(4);
-                break;
-                case "Stage4":
-                    SoundManager.instance.LoadSounds(5);
-                break;
-            }
-            if (CurrentStage)
-            {
-                return;
-            }
-            Stage stage = null;
-            switch (scene.name)
-            {
-                case "Cave":
-                    stage = MakeStage(1);
-                break;
-                case "Stage1":
-                    stage = MakeStage(2);
-                break;
-                case "Stage2":
-                    stage = MakeStage(3);
-                break;
-                case "Stage3":
-                    stage = MakeStage(4);
-                break;
-                case "Stage4":
-                    stage = MakeStage(5);
-                break;
-            }
-
-            if (stage == null)
-            {
-                LogWriter.DebugWrite("Wrong loading scene");
-                print("Wrong loading scene");
-            }
-
-            CurrentStage = stage;
-            // Because each stage prefab has camera respectively, after make new stage you should assign UzuHama to Procamera again.
-
-            AfterLoadStage(CurrentStage.StageNumber);
+            CurrentStage = GameObject.FindObjectOfType<Stage>();
+            SoundManager.instance.LoadSounds(CurrentStage.StageNumber);
         }
 
-        void AfterLoadStage(int stageNumber)
+        public void GotoStage(int stageNum)
         {
-            
+            SceneManager.LoadScene(StageSceneNameList[stageNum]);
         }
 
-        public Stage MakeStage(int stageNum)
+        public bool Clear()
         {
-            GameObject stageObj = Instantiate(StageList[stageNum]);
-
-            if (CurrentStage != null)
+            if (CurrentStage.Clear()) return false;
+            else
             {
-                Destroy(CurrentStage.gameObject);
+                Core.instance.GameClear();
+                return true;
             }
-            CurrentStage = stageObj.GetComponent<Stage>();
-
-            GameObject MapHierarchy = GameObject.Find("====Map====");
-            stageObj.transform.SetSiblingIndex(MapHierarchy.transform.GetSiblingIndex() + 1);
-
-            return CurrentStage;
         }
     }
 }

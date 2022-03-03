@@ -8,6 +8,7 @@ using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
 
 namespace Docsa.Character
 {
+    [RequireComponent(typeof(UzuHamaBehaviour))]
     public class UzuHama : Character
     {
         public static UzuHama Hama
@@ -20,12 +21,9 @@ namespace Docsa.Character
             get {return GetComponentInChildren<Baguni>();}
         }
         
-        [SerializeField] private int _jumpCount = 0;
-        private RaycastHit2D _hit;
-
         float moveDirection;
-
         public IInteractable Interactable;
+        public Animator EButtonAnimator;
 
         void Start()
         {
@@ -33,14 +31,9 @@ namespace Docsa.Character
             Core.instance.InputAsset.Player.Move.canceled += HamaMove;
             Core.instance.InputAsset.Player.Jump.performed += HamaJump;
             Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
-            Core.instance.InputAsset.Player.GrabDocsa.performed += Behaviour.GrabDocsa;
+            Core.instance.InputAsset.Player.GrabDocsa.performed += ((UzuHamaBehaviour)Behaviour).GrabDocsa;
             Core.instance.InputAsset.Player.Interact.performed += Interact;
         }
-
-        // void Update()
-        // {
-        //     Behaviour.AimToMouse(Behaviour.ProjectileEmitter);
-        // }
 
         void FixedUpdate()
         {
@@ -60,22 +53,22 @@ namespace Docsa.Character
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            RaycastHit2D _hit;
             _hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, 1<<17);
             //Debug.Log(_hit.distance);
             if (_hit && _hit.distance < 0.4)
             {
                 //Debug.Log(_hit.distance);
-                _jumpCount = 0;
+                Behaviour.JumpCount = 0;
             }
         }
 
         void HamaJump(Context context)
         {
-            _jumpCount += 1;
-            Behaviour.Jump(_jumpCount);
+            Behaviour.JumpCount += 1;
+            Behaviour.Jump();
         }
         
-
         void HamaAttack(Context context)
         {
             Behaviour.Attack(Mouse.current.position.ReadValue());

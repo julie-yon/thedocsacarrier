@@ -16,6 +16,13 @@ namespace Docsa.Gimmick
         public void SetInteractable()
         {
             UzuHama.Hama.Interactable = this;
+            UzuHama.Hama.EButtonAnimator.SetTrigger("UpTrigger");
+        }
+
+        public void UnSetInteractable()
+        {
+            UzuHama.Hama.Interactable = null;
+            UzuHama.Hama.EButtonAnimator.SetTrigger("DownTrigger");
         }
 
         void OnTriggerEnter2D(Collider2D collider)
@@ -23,6 +30,14 @@ namespace Docsa.Gimmick
             if (((1 << collider.gameObject.layer) & LayerMask) > 0)
             {
                 SetInteractable();
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D collider)
+        {
+            if (((1 << collider.gameObject.layer) & LayerMask) > 0)
+            {
+                UnSetInteractable();
             }
         }
     }

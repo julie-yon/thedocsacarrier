@@ -13,14 +13,14 @@ namespace Docsa
         {
             get {return Stage.Current.CurrentChunk;}
         }
+        public Stage Stage;
+        public int ChunkNumber;
+
         public static List<DocsaSakki> ActiveDocsaList = new List<DocsaSakki>();
         public static List<Hunter> ActiveHunterList = new List<Hunter>();
 
-        public int ChunkNumber;
-
-        public int DocsaCount {get {return ActiveDocsaList.Count;}}
-        public int HunterCount {get {return ActiveHunterList.Count;}}
-
+        public bool HasNextChunk {get{return ChunkNumber + 1 < Stage.ChunkList.Count ? true : false;}}
+        public bool HasPreviousChunk {get{return ChunkNumber >= 1 && Stage.ChunkList.Count >= 2 ? true : false;}}
 
         void OnEnable()
         {
@@ -44,6 +44,17 @@ namespace Docsa
             ObjectPool.GetOrCreate(DocsaPoolType.Hunter).ReturnAll();
             ActiveDocsaList.Clear();
             ActiveHunterList.Clear();
+        }
+
+        public bool Clear()
+        {
+            gameObject.SetActive(false);
+            if (HasNextChunk)
+            {
+                Stage.Current.ChunkList[ChunkNumber+1].gameObject.SetActive(true);
+                return true;
+            }
+            return false;
         }
     }
 }

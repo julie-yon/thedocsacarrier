@@ -6,5 +6,6 @@ namespace Docsa
     {
         void Interact();
         void SetInteractable();
+        void UnSetInteractable();
     }
 }

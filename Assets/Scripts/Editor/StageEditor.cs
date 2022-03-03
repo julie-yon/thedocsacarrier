@@ -12,12 +12,14 @@ namespace Docsa
     {
         SerializedProperty StageNumber;
         SerializedProperty ChunkList;
+        SerializedProperty CurrentChunk;
 
         bool ShowChunkList;
         void OnEnable()
         {
             StageNumber = serializedObject.FindProperty("StageNumber");
             ChunkList = serializedObject.FindProperty("ChunkList");
+            CurrentChunk = serializedObject.FindProperty("CurrentChunk");
         }
 
         public override void OnInspectorGUI()
@@ -26,6 +28,7 @@ namespace Docsa
             Stage targetStage = (Stage)target;
 
             EditorGUILayout.PropertyField(StageNumber, new GUIContent("Stage Number"));
+            EditorGUILayout.PropertyField(CurrentChunk);
 
             EditorGUILayout.BeginHorizontal();
             ShowChunkList = EditorGUILayout.BeginFoldoutHeaderGroup(ShowChunkList, "Chunks"); EditorGUILayout.EndFoldoutHeaderGroup();
@@ -35,8 +38,10 @@ namespace Docsa
                 SerializedObject chunksSerializedObject = new SerializedObject(chunks);
                 chunksSerializedObject.Update();
                 ChunkList.ClearArray();
+                CurrentChunk.objectReferenceValue = (Chunk)chunksSerializedObject.targetObject;
                 for (int i = 0; i < chunksSerializedObject.targetObjects.Length; i++)
                 {
+                    ((Chunk)chunksSerializedObject.targetObjects[i]).Stage = targetStage;
                     ((Chunk)chunksSerializedObject.targetObjects[i]).ChunkNumber = i;
                     ChunkList.InsertArrayElementAtIndex(i);
                     ChunkList.GetArrayElementAtIndex(i).objectReferenceValue = (Chunk)chunksSerializedObject.targetObjects[i];

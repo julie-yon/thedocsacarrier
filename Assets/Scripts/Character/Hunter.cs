@@ -2,6 +2,7 @@
 
 namespace Docsa.Character
 {
+    [RequireComponent(typeof(HunterBehaviour))]
     public class Hunter : ViewerCharacter, IHasTrajectory
     {
         public DocsaSakki FocusingDocsa;

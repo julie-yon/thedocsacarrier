@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0
 --- !u!1 &385333497676128258
 GameObject:
@@ -436,6 +437,7 @@ MonoBehaviour:
   StageNumber: 1
   ChunkList:
   - {fileID: 180342496160590900}
+  CurrentChunk: {fileID: 180342496160590900}
 --- !u!95 &8073337747489212090
 Animator:
   serializedVersion: 3

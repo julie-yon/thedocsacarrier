@@ -103,6 +103,7 @@ MonoBehaviour:
   StageNumber: 5
   ChunkList:
   - {fileID: 8867201317116295715}
+  CurrentChunk: {fileID: 8867201317116295715}
 --- !u!1 &2139164262486431070
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,4 +8918,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0

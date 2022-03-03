@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ceb2331d92b5004ba0c17769d320274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageList:
-  - {fileID: 0}
-  - {fileID: 385333497676128258, guid: d4b020fd97a3093459dce601046e984e, type: 3}
-  - {fileID: 385333497676128258, guid: 95380f887ef664342b1006c1cd53e467, type: 3}
-  - {fileID: 385333497676128258, guid: bc9e3d64d0d90ab408602b3c4d2cbe0e, type: 3}
-  - {fileID: 385333497676128258, guid: 3387ab73831ff53419e1038f6a6bfa25, type: 3}
-  - {fileID: 385333497676128258, guid: d9b025cc41296a54491f21bbef398ec9, type: 3}
+  StageSceneNameList:
+  - StartScene
+  - Cave
+  - Stage1
+  - Stage2
+  - Stage3
+  - Stage4
   CurrentStage: {fileID: 0}
 --- !u!114 &2844338672173453066
 MonoBehaviour:
@@ -65,6 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Uniqueness: 1
-  ReplaceAsNew: 0
   TargetComponent: {fileID: 8999960332128031176}
   HashID: 
+  ReplaceAsNew: 0

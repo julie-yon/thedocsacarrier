@@ -35,6 +35,7 @@ namespace Docsa
             {
                 if (GUILayout.Button("Add in stage on parent"))
                 {
+                    serializedObject.FindProperty("Stage").objectReferenceValue = stageSerializedObject.targetObject;
                     var listProperty = stageSerializedObject.FindProperty("ChunkList");
                     serializedObject.FindProperty("ChunkNumber").intValue = listProperty.arraySize;
                     listProperty.InsertArrayElementAtIndex(listProperty.arraySize);

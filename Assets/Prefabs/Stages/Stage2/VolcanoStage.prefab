@@ -177,7 +177,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &176120093160209396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1180,7 @@ MonoBehaviour:
   - {fileID: 6066094123435482699}
   - {fileID: 5923234343758523662}
   - {fileID: 5252961308346510388}
+  CurrentChunk: {fileID: 596814612156974466}
 --- !u!1 &402091249698860705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0
 --- !u!1 &627157712158848375
 GameObject:
@@ -9705,7 +9709,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &843875596893598480
 GameObject:
   m_ObjectHideFlags: 0
@@ -10043,7 +10049,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &1069412877543610883
 GameObject:
   m_ObjectHideFlags: 0
@@ -10092,7 +10100,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &1131704690707992511
 GameObject:
   m_ObjectHideFlags: 0
@@ -10399,7 +10409,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &1282085728816996685
 GameObject:
   m_ObjectHideFlags: 0
@@ -11277,7 +11289,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &1813175403102402591
 GameObject:
   m_ObjectHideFlags: 0
@@ -16772,7 +16786,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &2701982633179431134
 GameObject:
   m_ObjectHideFlags: 0
@@ -16950,7 +16966,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &2755234759330506247
 GameObject:
   m_ObjectHideFlags: 0
@@ -18355,7 +18373,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3063817804900436781
 GameObject:
   m_ObjectHideFlags: 0
@@ -18404,7 +18424,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3077505040190383688
 GameObject:
   m_ObjectHideFlags: 0
@@ -18686,7 +18708,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3116759109081432404
 GameObject:
   m_ObjectHideFlags: 0
@@ -18735,7 +18759,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3161632977600123084
 GameObject:
   m_ObjectHideFlags: 0
@@ -18784,7 +18810,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3250721162604313014
 GameObject:
   m_ObjectHideFlags: 0
@@ -18962,7 +18990,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3349082087258588672
 GameObject:
   m_ObjectHideFlags: 0
@@ -28395,7 +28425,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3695317246758011013
 GameObject:
   m_ObjectHideFlags: 0
@@ -28682,7 +28714,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &3833722396369960271
 GameObject:
   m_ObjectHideFlags: 0
@@ -29554,7 +29588,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &4299049150662420601
 GameObject:
   m_ObjectHideFlags: 0
@@ -29603,7 +29639,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &4309695702598360063
 GameObject:
   m_ObjectHideFlags: 0
@@ -30143,7 +30181,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &4581331572518863568
 GameObject:
   m_ObjectHideFlags: 0
@@ -30456,7 +30496,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &4952125723940362702
 GameObject:
   m_ObjectHideFlags: 0
@@ -30640,7 +30682,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &5030057947197236656
 GameObject:
   m_ObjectHideFlags: 0
@@ -31146,6 +31190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 3
 --- !u!1 &5378692227525825329
 GameObject:
@@ -31324,7 +31369,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &5543804081757588078
 GameObject:
   m_ObjectHideFlags: 0
@@ -32691,6 +32738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 2
 --- !u!1 &6003303868635448832
 GameObject:
@@ -32896,6 +32944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b9fb8a33adb347af33c4cef7f34f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stage: {fileID: 4533207760794988588}
   ChunkNumber: 1
 --- !u!1 &6076766234719317280
 GameObject:
@@ -34746,7 +34795,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &7409264196623201657
 GameObject:
   m_ObjectHideFlags: 0
@@ -35053,7 +35104,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &7832046572046483143
 GameObject:
   m_ObjectHideFlags: 0
@@ -35102,7 +35155,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &7925847690838912169
 GameObject:
   m_ObjectHideFlags: 0
@@ -35538,7 +35593,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &8064359138048931841
 GameObject:
   m_ObjectHideFlags: 0
@@ -35912,7 +35969,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &8113680338871374421
 GameObject:
   m_ObjectHideFlags: 0
@@ -37331,7 +37390,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &8758112546924740717
 GameObject:
   m_ObjectHideFlags: 0
@@ -38099,7 +38160,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &8844898038415311750
 GameObject:
   m_ObjectHideFlags: 0
@@ -38148,7 +38211,9 @@ MonoBehaviour:
   UzuhamaLayer:
     serializedVersion: 2
     m_Bits: 0
+  mainAnimator: {fileID: 0}
   Direction: {x: -1, y: -1}
+  Speed: 0
 --- !u!1 &8882375747746961398
 GameObject:
   m_ObjectHideFlags: 0

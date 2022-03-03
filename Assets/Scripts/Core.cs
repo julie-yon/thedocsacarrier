@@ -26,13 +26,28 @@ namespace Docsa
 
         public void GotoCave()
         {
+            InputAsset.Disable();
             SceneManager.LoadScene(CaveSceneName);
+            InputAsset.Enable();
         }
 
         public void GameStart()
         {
+            InputAsset.Disable();
             SceneManager.LoadScene(Stage1GameSceneName);
+            InputAsset.Enable();
         }
 
+        public void ChunkClear()
+        {
+            InputAsset.Disable();
+            StageManager.instance.Clear();
+            InputAsset.Enable();
+        }
+
+        public void GameClear()
+        {
+
+        }
     }
 }

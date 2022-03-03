@@ -14,32 +14,37 @@ namespace Docsa
             get {return StageManager.instance.CurrentStage;}
         }
 
-        public int StageNumber;
-        public List<Chunk> ChunkList = new List<Chunk>();
-        private int _currentChunkNum = -1;
-
-        public Chunk CurrentChunk {get{return _currentChunkNum >= 0 && ChunkList.Count > 0 ? ChunkList[_currentChunkNum] : null;}}
-        public Chunk RightChunk {get{return _currentChunkNum + 1 < ChunkList.Count ? ChunkList[_currentChunkNum + 1] : null;}}
-        public Chunk LeftChunk {get{return _currentChunkNum >= 1 && ChunkList.Count >= 2 ? ChunkList[_currentChunkNum-1] : null;}}
-
-        public Chunk MakeChunk(int chunkNumber)
+        public StageManager Manager
         {
-            ObjectPool.ReturnAllPools();
-
-            if (ChunkList[chunkNumber] != null)
-            {
-                CurrentChunk.gameObject.SetActive(false);
-                ChunkList[chunkNumber].gameObject.SetActive(true);
-                _currentChunkNum = chunkNumber;
-                return ChunkList[chunkNumber];
-            }
-
-            return null;
+            get {return StageManager.instance;}
         }
+        public int StageNumber;
+
+        public List<Chunk> ChunkList = new List<Chunk>();
+        public Chunk CurrentChunk;
+        public bool HasNextStage {get{return StageNumber + 1 < Manager.StageSceneNameList.Count ? true : false;}}
+        public bool HasPreviousStage {get{return StageNumber >= 1 ? true : false;}}
 
         public void AddChunk(Chunk chunk)
         {
+            chunk.Stage = this;
             ChunkList.Add(chunk);
+        }
+
+        public bool Clear()
+        {
+            if (CurrentChunk.Clear()) return true;
+            else 
+            {
+                if (HasNextStage)
+                {
+                    Manager.GotoStage(Manager.CurrentStage.StageNumber+1);
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
         }
     }
 }
