@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Utility;
-
 using Michsky.UI.ModernUIPack; 
-using TMPro;
 
 namespace Docsa
 {
@@ -14,30 +12,9 @@ namespace Docsa
     {
         public GameObject ESCUIGameObject;
         public SliderManager SoundSlider;
-        public GameObject TwitchCommandsObject;
         public Toggle DocsaAttendToggle;
 
-        bool _isOn;
-        bool isOn
-        {
-            get {return _isOn;}
-            set 
-            {
-                _isOn = value;
-                if (value)
-                {
-                    Time.timeScale = 0;
-                    Core.instance.InputAsset.Player.Disable();
-                    Core.instance.InputAsset.UI.Enable();
-                } else
-                {
-                    Time.timeScale = 1;
-                    Core.instance.InputAsset.Player.Enable();
-                    Core.instance.InputAsset.UI.Disable();
-                    Reset();
-                }
-            }
-        }
+        bool isOn;
 
         void Start()
         {
@@ -45,40 +22,27 @@ namespace Docsa
             Core.instance.InputAsset.UI.Cancel.performed += OnESCPerformed;
         }
 
-        void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        public void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             isOn = !isOn;
+            if (isOn)
+            {
+                Time.timeScale = 0;
+                Core.instance.InputAsset.Player.Disable();
+                Core.instance.InputAsset.UI.Enable();
+            } else
+            {
+                Time.timeScale = 1;
+                Core.instance.InputAsset.Player.Enable();
+                Core.instance.InputAsset.UI.Disable();
+            }
             ESCUIGameObject.SetActive(isOn);
-        }
-
-        void Reset()
-        {
-            ViewerAssignUI.instance.CloseUI();
-            TwitchCommandsObject.SetActive(false);
+            ViewerAssignUI.instance.UpdateData();
         }
 
         public void OnSoundSliderValueChanged()
         {
             AudioListener.volume = SoundSlider.mainSlider.value;
-        }
-
-        public void OnTwitchCommandsButtonClicked()
-        {
-            TwitchCommandsObject.SetActive(true);
-        }
-        public void OnTwitchCommandsExit()
-        {
-            TwitchCommandsObject.SetActive(false);
-        }
-
-        public void OnDocsaListClicked()
-        {
-            ViewerAssignUI.instance.OpenUI();
-        }
-
-        public void OnDocsaListExit()
-        {
-            ViewerAssignUI.instance.CloseUI();
         }
 
         public void OnDocsaAttendToggle()

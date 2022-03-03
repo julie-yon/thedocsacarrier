@@ -27,8 +27,6 @@ namespace Docsa
             get {return Chunk.ActiveHunterList.Count;}
         }
 
-        public List<IDocsaSakkiManagerListener> Listeners = new List<IDocsaSakkiManagerListener>();
-        
         public void ExecuteCommand(TwitchCommandData commandData)
         {
             if (commandData.Author == Core.instance.UzuhamaTwitchNickName)
@@ -105,11 +103,6 @@ namespace Docsa
 
             data = new DocsaData(commandData.Author);
             WaitingViewerDict.Add(data.Author, data);
-
-            foreach(var v in Listeners)
-            {
-                v.Listene(data);
-            }
         }
 
         /// <summary>
@@ -321,11 +314,6 @@ namespace Docsa
                 case DocsaData.DocsaState.Hunter :
                     AttendingHunterDict.Add(from.Author, from);
                 break;
-            }
-
-            foreach(var v in Listeners)
-            {
-                v.Listene(from);
             }
         }
 

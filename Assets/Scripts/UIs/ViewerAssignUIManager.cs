@@ -14,7 +14,6 @@ namespace Docsa
     public class ViewerAssignUI : Singleton<ViewerAssignUIManager> {}
     public class ViewerAssignUIManager : ListUI
     {
-        public GameObject UIObject;
         public ButtonManagerBasic RandomDistributionButton;
         public ButtonManagerBasic DetermineButton;
         public TextMeshProUGUI DocsaCountText;
@@ -25,20 +24,86 @@ namespace Docsa
         public Color InvalidCountColor;
         public bool isOn;
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
-            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableDetermineButton;
-            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableDetermineButton;
-            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableDetermineButton;
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += UpdateCountTexts;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += UpdateCountTexts;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += UpdateCountTexts;
 
-            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
-            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
-            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += UpdateCountTexts;
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
 
-            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
-            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
-            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().AfterDropCallBack += CheckEnableRandomDistributionButton;
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
+        }
+
+        public void OpenUI()
+        {
+            isOn = true;
+            UpdateData();
+        }
+
+        public void CloseUI()
+        {
+            isOn = false;
+        }
+
+        public void OnDetermineButtonClicked()
+        {
+            print("Viewer Determined");
+        }
+
+        public override void RandomDistribute()
+        {
+            base.RandomDistribute();
+            UpdateData();
+        }
+
+        public override void UpdateData()
+        {
+            base.UpdateData();
+            UpdateCountTexts();
+            CheckEnableDetermineButton();
+            CheckEnableRandomDistributionButton();
+        }
+
+        /// <summary>
+        /// Call when listItem move
+        /// </summary>
+        bool CheckEnableDetermineButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
+        {
+            try
+            {
+                if (DocsaSakkiManager.instance.AttendingDocsaDict.Count <= DocsaSakkiManager.instance.AttendingDocsaLimit
+                        && DocsaSakkiManager.instance.AttendingHunterDict.Count <= DocsaSakkiManager.instance.AttendingHunterLimit
+                        && DocsaSakkiManager.instance.WaitingViewerDict.Count <= DocsaSakkiManager.instance.WaitingViewerLimit)
+                {
+                    DetermineButton.buttonVar.interactable = true;
+                    return true;
+                } else
+                {
+                    DetermineButton.buttonVar.interactable = false;
+                    return false;
+                }
+            } catch {return false;}
+        }
+
+        bool CheckEnableRandomDistributionButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
+        {
+            try
+            {
+                if (DocsaSakkiManager.instance.WaitingViewerDict.Count > 0)
+                {
+                    RandomDistributionButton.buttonVar.interactable = true;
+                    return true;
+                } else
+                {
+                    RandomDistributionButton.buttonVar.interactable = false;
+                    return false;
+                }
+            } catch {return false;}
         }
 
         void UpdateCountTexts(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
@@ -81,77 +146,5 @@ namespace Docsa
             }
         }
 
-        public void OpenUI()
-        {
-            UIObject.SetActive(true);
-            isOn = true;
-            Time.timeScale = 0;
-            UpdateCountTexts();
-            CheckEnableDetermineButton();
-            CheckEnableRandomDistributionButton();
-        }
-
-        public void CloseUI()
-        {
-            UIObject.SetActive(false);
-            isOn = false;
-            Time.timeScale = 1;
-        }
-
-        public override void Listene(DocsaData data)
-        {
-            base.Listene(data);
-            UpdateCountTexts();
-            CheckEnableDetermineButton();
-            CheckEnableRandomDistributionButton();
-        }
-
-        public void OnDetermineButtonClicked()
-        {
-            CloseUI();
-        }
-
-        public override void RandomDistribute()
-        {
-            base.RandomDistribute();
-            CheckEnableDetermineButton();
-            CheckEnableRandomDistributionButton();
-        }
-
-        /// <summary>
-        /// Call when listItem move
-        /// </summary>
-        void CheckEnableDetermineButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
-        {
-            try
-            {
-                if (DocsaSakkiManager.instance.AttendingDocsaDict.Count <= DocsaSakkiManager.instance.AttendingDocsaLimit
-                        && DocsaSakkiManager.instance.AttendingHunterDict.Count <= DocsaSakkiManager.instance.AttendingHunterLimit
-                        && DocsaSakkiManager.instance.WaitingViewerDict.Count <= DocsaSakkiManager.instance.WaitingViewerLimit)
-                {
-                    DetermineButton.buttonVar.interactable = true;
-                } else
-                {
-                    DetermineButton.buttonVar.interactable = false;
-                }
-            } catch {}
-        }
-
-        void CheckEnableRandomDistributionButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
-        {
-            try
-            {
-                print(DocsaSakkiManager.instance.WaitingViewerDict.Count);
-                if (DocsaSakkiManager.instance.WaitingViewerDict.Count > 0)
-                {
-                    print("AB");
-                    RandomDistributionButton.buttonVar.interactable = true;
-                } else
-                {
-                    print("CD");
-                    RandomDistributionButton.buttonVar.interactable = false;
-                }
-            } catch {}
-        }
     }
 }

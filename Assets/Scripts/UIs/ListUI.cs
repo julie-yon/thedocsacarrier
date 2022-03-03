@@ -10,29 +10,13 @@ using TMPro;
 
 namespace Docsa
 {
-    [System.Serializable] public class DocsaListItemDict : SerializableDictionary<string, DocsaListItem> {}
-    public class ListUI : MonoBehaviour, IDocsaSakkiManagerListener
+    public class ListUI : MonoBehaviour
     {
-        public Canvas UICanvas;
-        public GameObject ListUIObject;
         public GameObject ListItemPrefab;
         public VerticalLayoutGroup AttendingDocsaList;
         public VerticalLayoutGroup AttendingHunterList;
         public VerticalLayoutGroup WaitingViewerList;
-        [SerializeField] DocsaListItemDict _listItemDict = new DocsaListItemDict();
-
-        bool isInitializing;
-
-        protected virtual void Reset()
-        {
-            if (ListUIObject)
-                ListUIObject.SetActive(false);
-        }
-
-        protected virtual void Awake()
-        {
-            DocsaSakkiManager.instance.Listeners.Add(this);
-        }
+        public List<DocsaListItem> _listItemList = new List<DocsaListItem>();
 
         public virtual void AddListItem(DocsaData data)
         {
@@ -51,60 +35,62 @@ namespace Docsa
             }
 
             DocsaListItem listItem = item.GetComponent<DocsaListItem>();
-            _listItemDict.Add(data.Author, listItem);
-            SetDocsaData(data.Author, data);
+            _listItemList.Add(listItem);
         }
 
         public void RemoveListItem(DocsaListItem listItem)
         {
-            RemoveListItem(listItem.DocsaData);
+            _listItemList.Remove(listItem);
+            Destroy(listItem.gameObject);
         }
 
         public virtual void RemoveListItem(DocsaData data)
         {
-            DocsaListItem listItem;
-            if (_listItemDict.TryGetValue(data.Author, out listItem))
-            {
-                if (DocsaSakkiManager.instance.GetDocsaData(data.Author) != null)
-                    DocsaSakkiManager.instance.Kick(data.Author);
-
-                _listItemDict.Remove(data.Author);
-                Destroy(listItem.gameObject);
-            } else
-            {
-                return;
-            }
+            RemoveListItem(GetDocsaListItem(data.Author));
         }
 
-        public virtual void SetDocsaData(string key, DocsaData newData)
+        public virtual void SetDocsaData(string author, DocsaData newData)
         {
             DocsaListItem docsaListItem;
-            if (_listItemDict.TryGetValue(key, out docsaListItem))
+            docsaListItem = GetDocsaListItem(author);
+            if (docsaListItem)
             {
                 docsaListItem.DocsaData = newData;
-                docsaListItem.DragAndDropableUI.Canvas = UICanvas;
+                docsaListItem.DragAndDropableUI.CanvasScaleFactor = transform.root.GetComponent<CanvasScaler>().scaleFactor;
                 docsaListItem.Text.text = newData.Author;
             }
-            // Todo
-            // DocsaSakkiManager.instance.Set()
 
             MoveDocsaDataCardTo(newData, newData.State);
         }
 
         public virtual void MoveDocsaDataCardTo(string author, DocsaData.DocsaState to)
         {
+            DocsaListItem targetItem = GetDocsaListItem(author);
+            if (targetItem == null) return;
+
             switch (to)
             {
                 case DocsaData.DocsaState.Docsa :
-                _listItemDict[author].transform.parent.SetParent(AttendingDocsaList.transform);
+                targetItem.transform.parent.SetParent(AttendingDocsaList.transform);
                 break;
                 case DocsaData.DocsaState.Hunter :
-                _listItemDict[author].transform.parent.SetParent(AttendingHunterList.transform);
+                targetItem.transform.parent.SetParent(AttendingHunterList.transform);
                 break;
                 case DocsaData.DocsaState.Waiting :
-                _listItemDict[author].transform.parent.SetParent(WaitingViewerList.transform);
+                targetItem.transform.parent.SetParent(WaitingViewerList.transform);
                 break;
             }
+        }
+
+        private DocsaListItem GetDocsaListItem(string author)
+        {
+            DocsaListItem targetItem = null;
+            foreach (var item in _listItemList)
+            {
+                if (item.DocsaData.Author == author) targetItem = item;
+            }
+
+            return targetItem;
         }
 
         public void MoveDocsaDataCardTo(DocsaData docsaData, DocsaData.DocsaState to)
@@ -129,24 +115,63 @@ namespace Docsa
             }
         }
 
-        public virtual void Listene(DocsaData data)
+        public virtual void UpdateData()
         {
-            // Attend, Exit, Kick, Move
-            DocsaListItem listItem = null;
-            if (_listItemDict.TryGetValue(data.Author, out listItem))
+            int waitingCount = DocsaSakkiManager.instance.WaitingViewerDict.Count;
+            int docsaCount = DocsaSakkiManager.instance.AttendingDocsaDict.Count;
+            int hunterCount = DocsaSakkiManager.instance.AttendingHunterDict.Count;
+
+            if (_listItemList.Count < waitingCount + docsaCount + hunterCount)
             {
-                if (data.State == DocsaData.DocsaState.Exit)
+                for (int i = _listItemList.Count; i < waitingCount + docsaCount + hunterCount; i++)
                 {
-                    RemoveListItem(data);
-                } else
-                {
-                    SetDocsaData(data.Author, data);
+                    AddListItem(new DocsaData("Dummy" + i));
                 }
-            } else
+            } else if (_listItemList.Count > waitingCount + docsaCount + hunterCount)
             {
-                if (data.State != DocsaData.DocsaState.Exit)
+                for (int i = waitingCount + docsaCount + hunterCount; i < _listItemList.Count;)
                 {
-                    AddListItem(data);
+                    RemoveListItem(_listItemList[i]);
+                }
+            }
+
+            for (int i = 0; i < waitingCount; i++)
+            {
+                MoveDocsaDataCardTo(_listItemList[i].DocsaData, DocsaData.DocsaState.Waiting);
+            }
+            
+
+            for (int i = 0; i < docsaCount; i++)
+            {
+                MoveDocsaDataCardTo(_listItemList[i].DocsaData, DocsaData.DocsaState.Docsa);
+            }
+
+            for (int i = 0; i < hunterCount; i++)
+            {
+                MoveDocsaDataCardTo(_listItemList[i].DocsaData, DocsaData.DocsaState.Hunter);
+            }
+
+            SetNames();
+
+            void SetNames()
+            {
+                var waitingIter = DocsaSakkiManager.instance.WaitingViewerDict.GetEnumerator();
+                foreach (var listItem in WaitingViewerList.GetComponentsInChildren<DocsaListItem>())
+                {
+                    waitingIter.MoveNext();
+                    listItem.Author = waitingIter.Current.Value.Author;
+                }
+                var docsaIter = DocsaSakkiManager.instance.AttendingDocsaDict.GetEnumerator();
+                foreach (var listItem in AttendingDocsaList.GetComponentsInChildren<DocsaListItem>())
+                {
+                    waitingIter.MoveNext();
+                    listItem.Author = waitingIter.Current.Value.Author;
+                }
+                var hunterIter = DocsaSakkiManager.instance.AttendingHunterDict.GetEnumerator();
+                foreach (var listItem in AttendingHunterList.GetComponentsInChildren<DocsaListItem>())
+                {
+                    waitingIter.MoveNext();
+                    listItem.Author = waitingIter.Current.Value.Author;
                 }
             }
         }
