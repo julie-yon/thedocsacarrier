@@ -138,7 +138,8 @@ namespace  Docsa.Character
         public float NoMoveTimeThreshold = 0.3f;
         public float NoMoveThreshold = 0.3f;
         public GameObject SpriteObject;
-        public void Move(float moveDirection)
+        public LayerMask UzuhamaCollisionLayerMask;
+        public async void Move(float moveDirection)
         {
             if (_rigidbody.velocity.magnitude < NoMoveThreshold)
             {
@@ -154,18 +155,23 @@ namespace  Docsa.Character
                 _rigidbody.velocity = new Vector2(MaxSpeed * (-1), _rigidbody.velocity.y);
 
 
-            if (Core.instance.InputAsset.Player.Move.IsPressed())
-                _animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.1f : _rigidbody.velocity.x);
 
-            _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
-            if (moveDirection == 0)
+            if (!PhysicsHelper.BoxCast(Character.transform.position + new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.8f), 0, Vector2.right * moveDirection, 1.1f, UzuhamaCollisionLayerMask))
             {
-                if (noMoveTime > NoMoveTimeThreshold)
-                    _animator.SetBool(MoveBoolName, false);
-            } else
-            {
-                _animator.SetBool(MoveBoolName, true);
+                if (Core.instance.InputAsset.Player.Move.IsPressed())
+                    _animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.2f : _rigidbody.velocity.x);
+
+                _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
+                if (moveDirection == 0)
+                {
+                    if (noMoveTime > NoMoveTimeThreshold)
+                        _animator.SetBool(MoveBoolName, false);
+                } else
+                {
+                    _animator.SetBool(MoveBoolName, true);
+                }
             }
+
         }
 
         public LayerMask GrabDocsaLayerMask;
