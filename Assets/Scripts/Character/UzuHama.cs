@@ -27,6 +27,8 @@ namespace Docsa.Character
         public IInteractable Interactable;
         public Animator EButtonAnimator;
 
+        public int RescuedDocsaNumger = 0;
+
         private UzuHamaBehaviour HamaBehaviour
         {
             get {return (UzuHamaBehaviour)Behaviour;}

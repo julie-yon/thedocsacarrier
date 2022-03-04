@@ -8,6 +8,7 @@ namespace Docsa
     public class CharacterPositionSetter : MonoBehaviour
     {
         public DocsaPoolType CharacterType;
+        public bool Flip;
 
         void OnValidate()
         {

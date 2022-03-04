@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   ItemSound: {fileID: 0}
   ItemEvent:
     m_PersistentCalls:

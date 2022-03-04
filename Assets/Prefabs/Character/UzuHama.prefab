@@ -428,10 +428,13 @@ MonoBehaviour:
   NoMoveThreshold: 0.3
   SpriteObject: {fileID: 8347779025375848319}
   HamaMoveBoxCastSize: {x: 0.1, y: 1.4}
+  HamaMoveBoxCastDistance: 1
   UzuhamaCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 131072
   GrabDocsaBoxCastSize: {x: 2, y: 2}
+  GrabDocsaRagDoll: {fileID: -3619884865037120215, guid: 0e78345ca7f15dd4c98f917182839622,
+    type: 3}
 --- !u!114 &5753260722727557108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +763,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6389100912637303014}
     m_Modifications:
+    - target: {fileID: 1605300521954512116, guid: df815cc6008e8ca499b597393fc0261f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.047
+      objectReference: {fileID: 0}
     - target: {fileID: 3911322410619797281, guid: df815cc6008e8ca499b597393fc0261f,
         type: 3}
       propertyPath: m_RootOrder

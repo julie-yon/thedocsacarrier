@@ -27,6 +27,77 @@ namespace Docsa
         public bool HasNextChunk {get{return ChunkNumber + 1 < Stage.ChunkList.Count ? true : false;}}
         public bool HasPreviousChunk {get{return ChunkNumber >= 1 && Stage.ChunkList.Count >= 2 ? true : false;}}
 
+        public ClearCondition ClearCondition;
+
+        void Awake()
+        {
+            int chunkID = Stage.StageNumber * 10 + ChunkNumber;
+
+            ClearCondition.CheckIfTrue CheckMethod = null;
+
+            switch(chunkID)
+            {
+                // ForestChunk1
+                case 10 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // ForestChunk2
+                case 11 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return UzuHama.Hama.RescuedDocsaNumger > 0;
+                    };
+                break;
+                // ForestChunk3
+                case 12 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return UzuHama.Hama.RescuedDocsaNumger > 0;
+                    };
+                break;
+                // ForestChunk4
+                case 13 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk1
+                case 20 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk2
+                case 21 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk3
+                case 22 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk4
+                case 23 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+            }
+
+            ClearCondition = new ClearCondition(CheckMethod);
+        }
+
         void OnEnable()
         {
             PerkManager.instance.Data = PerkData;
@@ -78,6 +149,11 @@ namespace Docsa
                 gameObject.SetActive(false);
                 UzuHama.Hama.transform.position = Stage.ChunkList[ChunkNumber+1].StartPosition.position;
                 Stage.CurrentChunk = Stage.ChunkList[ChunkNumber+1];
+                UzuHama.Hama.RescuedDocsaNumger = 0;
+                foreach (Transform child in UzuHama.Hama.GrabDocsaPosition)
+                {
+                    Destroy(child.gameObject);
+                }
                 return true;
             } else
             {

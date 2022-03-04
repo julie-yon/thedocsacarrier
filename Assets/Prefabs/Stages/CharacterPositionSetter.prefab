@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterType: 0
+  Flip: 0
 --- !u!1 &2676779131397530289
 GameObject:
   m_ObjectHideFlags: 0

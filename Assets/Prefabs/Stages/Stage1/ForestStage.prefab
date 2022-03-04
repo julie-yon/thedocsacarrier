@@ -30916,7 +30916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5757094726433165539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.37, y: -0.21, z: 0}
+  m_LocalPosition: {x: -5.52, y: -0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4190214283124191333}
@@ -31022,7 +31022,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4587180144213703493}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6168134695090366351
 GameObject:
@@ -31941,7 +31941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2576143847670420112
 Transform:
   m_ObjectHideFlags: 0
@@ -31954,8 +31954,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4024463843694516429}
-  - {fileID: 8209065971937220752}
   - {fileID: 7662098803843276854}
+  - {fileID: 8209065971937220752}
   m_Father: {fileID: 5069417618964558650}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31973,6 +31973,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 2
+  StartPosition: {fileID: 8209065971937220752}
+  ReadyToPlay: 0
+  PerkData: {fileID: 11400000, guid: 8395f2753d21e494bbaa9d6d7a216664, type: 2}
 --- !u!1 &7820305496678603235
 GameObject:
   m_ObjectHideFlags: 0
@@ -32276,7 +32279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2576143847670420112}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8226462831921603822
 GameObject:
@@ -32294,7 +32297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3882064086288687346
 Transform:
   m_ObjectHideFlags: 0
@@ -32326,6 +32329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 1
+  StartPosition: {fileID: 8804509664724795172}
+  ReadyToPlay: 0
+  PerkData: {fileID: 11400000, guid: 4b890811b58be4e41a92adf65179e099, type: 2}
 --- !u!1 &8642834765000006766
 GameObject:
   m_ObjectHideFlags: 0
@@ -32476,7 +32482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4587180144213703493
 Transform:
   m_ObjectHideFlags: 0
@@ -32489,8 +32495,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3564970133037918456}
-  - {fileID: 1156004023846095331}
   - {fileID: 3519936860857078365}
+  - {fileID: 1156004023846095331}
   m_Father: {fileID: 5069417618964558650}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32508,6 +32514,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 3
+  StartPosition: {fileID: 1156004023846095331}
+  ReadyToPlay: 0
+  PerkData: {fileID: 11400000, guid: d32cfc3eec435494f9319c5518a4b507, type: 2}
 --- !u!1 &8966566441424213805
 GameObject:
   m_ObjectHideFlags: 0
@@ -33556,6 +33565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0
+  StartPosition: {fileID: 6423146446784962900}
+  ReadyToPlay: 0
+  PerkData: {fileID: 11400000, guid: bf781884f6f415d479fb026048b59ca1, type: 2}
 --- !u!1001 &180733515051790346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33967,7 +33979,7 @@ PrefabInstance:
     - target: {fileID: 123556815884420342, guid: 986f19bed71dcbe40957918040ab7528,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 123556815884420342, guid: 986f19bed71dcbe40957918040ab7528,
         type: 3}
@@ -35193,7 +35205,7 @@ PrefabInstance:
     - target: {fileID: 123556815884420342, guid: 986f19bed71dcbe40957918040ab7528,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 123556815884420342, guid: 986f19bed71dcbe40957918040ab7528,
         type: 3}

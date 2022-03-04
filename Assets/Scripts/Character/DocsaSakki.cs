@@ -3,30 +3,14 @@ using UnityEngine;
 namespace Docsa.Character
 {
     [RequireComponent(typeof(DocsaBehaviour))]
-    public class DocsaSakki : ViewerCharacter, IHasTrajectory
+    public class DocsaSakki : ViewerCharacter
     {
         public Transform OriginalParent;
-        [SerializeField] MeshRenderer _trajectoryRenderer;
 
         protected override void Awake()
         {
             base.Awake();
             OriginalParent = transform.parent;
-        }
-
-        public MeshRenderer TrajectoryRenderer
-        {
-            get {return _trajectoryRenderer;}
-        }
-
-        public void TrajectoryOn()
-        {
-            TrajectoryRenderer.enabled = true;
-        }
-
-        public void TrajectoryOff()
-        {
-            TrajectoryRenderer.enabled = false;
         }
     }
 }

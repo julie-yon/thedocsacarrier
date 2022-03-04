@@ -1,10 +1,18 @@
-﻿namespace Docsa.Character
+﻿
+using UnityEngine;
+
+namespace Docsa.Character
 {
-    public class ViewerCharacter : Character
+    public class ViewerCharacter : Character, IHasTrajectory
     {
         public string ViewerName;
         public bool isViewerAssigned;
         public bool Flip;
+        [SerializeField] protected MeshRenderer _trajectoryRenderer;
+        public MeshRenderer TrajectoryRenderer
+        {
+            get {return _trajectoryRenderer;}
+        }
         protected override void Reset()
         {
             base.Reset();
@@ -26,6 +34,16 @@
             ViewerName = string.Empty;
             isViewerAssigned = false;
             Reset();
+        }
+
+        public void TrajectoryOn()
+        {
+            TrajectoryRenderer.enabled = true;
+        }
+
+        public void TrajectoryOff()
+        {
+            TrajectoryRenderer.enabled = false;
         }
     }
 }

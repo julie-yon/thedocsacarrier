@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8027805653440791953}
   - component: {fileID: 7130004535928495881}
-  - component: {fileID: 642923240491431427}
   - component: {fileID: 384762009896718551}
+  - component: {fileID: 7909548152660052028}
   m_Layer: 0
   m_Name: RockObject
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,26 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &642923240491431427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165496995741068398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73729837e4d32ce45851cf493ab269df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  UzuhamaLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
-  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
 --- !u!61 &384762009896718551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,6 +110,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &7909548152660052028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165496995741068398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73729837e4d32ce45851cf493ab269df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageSoundArg: {fileID: 0}
+  UzuhamaLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  gimmickStarted: 0
+  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
+    type: 3}
+  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7,
+    type: 3}
+  DaySpriteRenderer: {fileID: 7130004535928495881}
+  NightSpriteRenderer: {fileID: 0}
 --- !u!1 &5720273067539698214
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +156,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5720273067539698214}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

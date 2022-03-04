@@ -126,19 +126,23 @@ namespace  Docsa.Character
         }
 
         public Vector2 GrabDocsaBoxCastSize = new Vector2(2, 2);
+        public GameObject GrabDocsaRagDoll;
         public void GrabDocsa(Context context)
         {
             RaycastHit2D hit2D = Physics2D.BoxCast(Hama.transform.position, GrabDocsaBoxCastSize, 0, Vector2.right, 0, GrabDocsaLayerMask);
-            GrabDocsa(hit2D.transform.GetComponent<DocsaSakki>());
+            GrabDocsa(hit2D.transform);
         }
 
-        public override void GrabDocsa(DocsaSakki targetDocsa)
+        public override void GrabDocsa(Transform targetDocsa)
         {
             if (!PerkManager.instance.Data.UzuhamaGrabDocsaPerk.enabled) PerkManager.instance.Data.UzuhamaGrabDocsaPerk.PrintCannotMessage(Character.transform.position);
             
-            base.GrabDocsa(targetDocsa);
-            Hama.Baguni.OnOff();
-            AsyncAwait.Delay(Hama.Baguni.OnOff, 2);
+            Hama.RescuedDocsaNumger++;
+            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(targetDocsa.gameObject);
+            var temp = Instantiate(GrabDocsaRagDoll, targetDocsa.position, Quaternion.identity);
+            temp.transform.SetParent(Hama.GrabDocsaPosition);
+
+            base.GrabDocsa(temp.transform);
         }
     }
 }

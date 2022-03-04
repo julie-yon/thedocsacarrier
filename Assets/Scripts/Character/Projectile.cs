@@ -37,18 +37,7 @@ namespace Docsa
         {
             isReflected = false;
             Direction = TargetPosition - transform.position;
-            if (TargetPosition == null)
-            {
-                rb2D.AddForce(Direction.normalized * InitSpeedPower, ForceMode2D.Impulse);
-            } else
-            {
-                rb2D.AddForce((TargetPosition - transform.position).normalized * InitSpeedPower, ForceMode2D.Impulse);
-                Vector2 targetPosition = Camera.main.ScreenToWorldPoint(TargetPosition);
-                Vector2 projectileDirection = new Vector2(targetPosition.x - transform.position.x,
-                                            targetPosition.y - transform.position.y); //net이 바라볼 방향 설정(타겟독사의 위치에서 헌터의 위치)
-                transform.LookAt(projectileDirection);                
-            }
-            // transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, 0);
+            rb2D.AddForce(Direction.normalized * InitSpeedPower, ForceMode2D.Impulse);
         }
 
         protected virtual void OnDisable()

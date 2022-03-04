@@ -370,8 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6621a5a5098cab4f99bc04ac6eff8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  DamageSoundArg: {fileID: 0}
   UzuhamaLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   Speed: 1

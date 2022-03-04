@@ -24,7 +24,6 @@ namespace Docsa
     public class Item : MonoBehaviour
     {
         public LayerMask TargetLayer;
-        public AudioClip ItemSound;
         public UnityEvent ItemEvent = new UnityEvent();
         void OnTriggerEnter2D(Collider2D collider)
         {
@@ -47,8 +46,6 @@ namespace Docsa
 
         public virtual void Effect()
         {
-            // AudioSource.PlayClipAtPoint(ItemSound, transform.position);
-
             Destroy(gameObject);
         }
     }

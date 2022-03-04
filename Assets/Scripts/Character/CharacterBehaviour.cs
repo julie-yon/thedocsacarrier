@@ -123,14 +123,30 @@ namespace  Docsa.Character
 
         public LayerMask GrabDocsaLayerMask;
 
-        public virtual void GrabDocsa(DocsaSakki targetDocsa)
+        // For Presentation
+        // public virtual void GrabDocsa(DocsaSakki targetDocsa)
+        // {
+        //     BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
+        //     var trs = BGCurve.AddTRS(targetDocsa.transform);
+        //     BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
+        //     BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
+        //     BGCurve.Curve[1].SetField("Scale", new Vector3(0.75f, 0.75f, 0.75f), typeof(Vector3));
+        //     BGCurve.Curve[2].SetField("Scale", new Vector3(0.5f, 0.5f, 0.5f), typeof(Vector3));
+        //     trs.OverflowControl = BansheeGz.BGSpline.Components.BGCcTrs.OverflowControlEnum.Stop;
+        //     trs.ScaleObject = true;
+        //     trs.ScaleField = BGCurve.Curve.GetField("Scale");
+        //     BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
+        //     Destroy(BGCurve.gameObject, 2);
+        // }
+
+        public virtual void GrabDocsa(Transform targetDocsa)
         {
-            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
-            var trs = BGCurve.AddTRS(targetDocsa.transform);
+            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa, false, Character.GrabDocsaPosition, true);
+            var trs = BGCurve.AddTRS(targetDocsa);
             BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
             BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
-            BGCurve.Curve[1].SetField("Scale", new Vector3(0.75f, 0.75f, 0.75f), typeof(Vector3));
-            BGCurve.Curve[2].SetField("Scale", new Vector3(0.5f, 0.5f, 0.5f), typeof(Vector3));
+            BGCurve.Curve[1].SetField("Scale", new Vector3(0.6f, 0.6f, 1f), typeof(Vector3));
+            BGCurve.Curve[2].SetField("Scale", new Vector3(0.25f, 0.25f, 1f), typeof(Vector3));
             trs.OverflowControl = BansheeGz.BGSpline.Components.BGCcTrs.OverflowControlEnum.Stop;
             trs.ScaleObject = true;
             trs.ScaleField = BGCurve.Curve.GetField("Scale");
