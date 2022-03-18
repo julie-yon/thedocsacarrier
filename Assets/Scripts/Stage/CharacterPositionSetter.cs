@@ -10,15 +10,22 @@ namespace Docsa
         public DocsaPoolType CharacterType;
         public bool Flip;
 
-        void OnValidate()
+        void OnDrawGizmos()
         {
             if (CharacterType == DocsaPoolType.Docsa)
             {
-                GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+                Gizmos.color = Color.blue;
             } else if (CharacterType == DocsaPoolType.Hunter)
             {
-                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                Gizmos.color = Color.red;
             }
+            Gizmos.DrawSphere(transform.position, 1);
+            Gizmos.color = Color.black;
+
+            if (!Flip)
+                Gizmos.DrawLine(transform.position, Vector3.left);
+            else
+                Gizmos.DrawLine(transform.position, Vector3.right);
         }
     }
 }
