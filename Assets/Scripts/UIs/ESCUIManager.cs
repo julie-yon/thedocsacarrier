@@ -13,6 +13,7 @@ namespace Docsa
         public GameObject ESCUIGameObject;
         public SliderManager SoundSlider;
         public Toggle DocsaAttendToggle;
+        public ViewerAssignUIManager ViewerAssignUIManager;
 
         public bool isOn;
 
@@ -39,7 +40,7 @@ namespace Docsa
         {
             isOn = true;
             ESCUIGameObject.SetActive(true);
-            ViewerAssignUI.instance.UpdateData();
+            ViewerAssignUIManager.UpdateData();
             Core.instance.InputAsset.UI.Enable();
         }
 
@@ -47,7 +48,7 @@ namespace Docsa
         {
             isOn = false;
             ESCUIGameObject.SetActive(false);
-            ViewerAssignUI.instance.UpdateData();
+            ViewerAssignUIManager.UpdateData();
             if (Core.instance.ReadyToPlay)
                 Core.instance.InputAsset.UI.Disable();
         }

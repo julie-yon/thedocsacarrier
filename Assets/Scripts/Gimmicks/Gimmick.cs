@@ -7,6 +7,7 @@ namespace Docsa.Gimmick
 {
     public class Gimmick : MonoBehaviour
     {
+        public AudioClip DamageAudioClip;
         public SoundArgs DamageSoundArg;
         [SerializeField] protected LayerMask UzuhamaLayer;
 
@@ -23,7 +24,7 @@ namespace Docsa.Gimmick
 
         protected virtual void GiveDamage(int damageValue)
         {
-            SoundManager.instance.Play(DamageSoundArg);
+            SoundManager.instance.Play(DamageAudioClip, DamageSoundArg);
             UzuHama.Hama.GetDamage(damageValue);
         }
     }

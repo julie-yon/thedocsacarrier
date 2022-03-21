@@ -14,7 +14,9 @@ namespace Docsa.Events
 
         void Reset()
         {
+#if UNITY_EDITOR
             AddEnterEvent(PlayAnimator);
+#endif
         }
 
         public void PlayAnimator()

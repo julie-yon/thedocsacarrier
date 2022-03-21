@@ -22,8 +22,9 @@ namespace Docsa
 
         void LoadScene(Scene scene, LoadSceneMode mode)
         {
-            CurrentStage = GameObject.FindObjectOfType<Stage>();
-            SoundManager.instance.LoadSounds(CurrentStage.StageNumber);
+            // To SoundLoader
+            // if (CurrentStage)
+            //     SoundManager.instance.LoadSounds(CurrentStage.StageNumber);
         }
 
         public void GotoStage(int stageNum)

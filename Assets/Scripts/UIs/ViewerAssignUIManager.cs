@@ -11,7 +11,6 @@ using Utility.UI;
 
 namespace Docsa
 {
-    public class ViewerAssignUI : Singleton<ViewerAssignUIManager> {}
     public class ViewerAssignUIManager : ListUI
     {
         public ButtonManagerBasic RandomDistributionButton;
@@ -50,6 +49,7 @@ namespace Docsa
         public void OnDetermineButtonClicked()
         {
             Core.instance.ReadyToPlay = true;
+            DocsaSakkiManager.instance.AssignViewers();
             print("Viewer Determined");
         }
 

@@ -36,6 +36,7 @@ namespace Docsa
 
             DocsaListItem listItem = item.GetComponent<DocsaListItem>();
             _listItemList.Add(listItem);
+            SetDocsaData(data.Author, data);
         }
 
         public void RemoveListItem(DocsaListItem listItem)
@@ -51,8 +52,7 @@ namespace Docsa
 
         public virtual void SetDocsaData(string author, DocsaData newData)
         {
-            DocsaListItem docsaListItem;
-            docsaListItem = GetDocsaListItem(author);
+            DocsaListItem docsaListItem = GetDocsaListItem(author);
             if (docsaListItem)
             {
                 docsaListItem.DocsaData = newData;
@@ -158,20 +158,23 @@ namespace Docsa
                 var waitingIter = DocsaSakkiManager.instance.WaitingViewerDict.GetEnumerator();
                 foreach (var listItem in WaitingViewerList.GetComponentsInChildren<DocsaListItem>())
                 {
-                    waitingIter.MoveNext();
+                    if (!waitingIter.MoveNext()) break;
                     listItem.Author = waitingIter.Current.Value.Author;
+                    SetDocsaData(listItem.Author, listItem.DocsaData);
                 }
                 var docsaIter = DocsaSakkiManager.instance.AttendingDocsaDict.GetEnumerator();
                 foreach (var listItem in AttendingDocsaList.GetComponentsInChildren<DocsaListItem>())
                 {
-                    waitingIter.MoveNext();
+                    if (!waitingIter.MoveNext()) break;
                     listItem.Author = waitingIter.Current.Value.Author;
+                    SetDocsaData(listItem.Author, listItem.DocsaData);
                 }
                 var hunterIter = DocsaSakkiManager.instance.AttendingHunterDict.GetEnumerator();
                 foreach (var listItem in AttendingHunterList.GetComponentsInChildren<DocsaListItem>())
                 {
-                    waitingIter.MoveNext();
+                    if (!waitingIter.MoveNext()) break;
                     listItem.Author = waitingIter.Current.Value.Author;
+                    SetDocsaData(listItem.Author, listItem.DocsaData);
                 }
             }
         }

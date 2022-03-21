@@ -12,7 +12,7 @@ namespace Docsa.Gimmick
 
         private SpriteRenderer _targetSpriteRenderer;
 
-        private bool isNight = false;
+        // private bool isNight = false;
 
         void Awake()
         {

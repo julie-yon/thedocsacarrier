@@ -14,7 +14,6 @@ namespace Docsa
     public class StartUIManager : Singleton<StartUIManager>
     {
         public ButtonManagerBasic StartButton;
-        public ButtonManagerBasic QuitButton;
         public TMP_InputField ChannelNameInputField;
         public TMP_InputField UserNameInputField;
         public TMP_InputField OAuthInputField;
@@ -28,11 +27,11 @@ namespace Docsa
     #if UNITY_EDITOR
         public const string DefaultChannelName = "dev_test_dkstlzu";
         public const string DefaultUserName = "dev_test_dkstlzu2";
-        public const string DefaultOAuth = "oauth:h2wt7ex2z11qnb1xkape0oych7fiae";
+        public const string DefaultOAuth = "oauth:o4ng9no20ev8jsx1ji0iur0vjxziep";
     #else
         public const string DefaultChannelName = "uzuhama";
         public const string DefaultUserName = "uzuhama";
-        public const string DefaultOAuth = "oauth:";
+        public const string DefaultOAuth = "oauth:o4ng9no20ev8jsx1ji0iur0vjxziep";
     #endif
         private bool _chnnelNameInputSelectedFirstTime = true;
         private bool _userNameInputSelectedFirstTime = true;
@@ -42,18 +41,23 @@ namespace Docsa
         private Task ConnectTask;
 
         // SoundEventArgs
+        public AudioClip OnInputSelectedAudioClip;
         public SoundArgs OnInputSelectedSoundArg;
+        public AudioClip OnButtonClickedAudioClip;
         public SoundArgs OnButtonClickedSoundArg;
-
 
         void Awake()
         {
             LoadingNotification.timer = TwitchChat.instance.CheckingConnectivityTimeLimit;
         }
 
+        void Start()
+        {
+        }
+
         public void OnChnnelNameInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedSoundArg);
+            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_chnnelNameInputSelectedFirstTime)
             {
                 _chnnelNameInputSelectedFirstTime = false;
@@ -63,7 +67,7 @@ namespace Docsa
 
         public void OnUserNameInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedSoundArg);
+            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_userNameInputSelectedFirstTime)
             {
                 _userNameInputSelectedFirstTime = false;
@@ -73,7 +77,7 @@ namespace Docsa
 
         public void OnOAuthInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedSoundArg);
+            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_oauthInputSelectedFirstTime)
             {
                 _oauthInputSelectedFirstTime = false;
@@ -88,14 +92,14 @@ namespace Docsa
 
         public void OnOAuthModalWindowConfirm()
         {
-            SoundManager.instance.Play(OnButtonClickedSoundArg);
+            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
             Application.OpenURL("https://twitchapps.com/tmi/");
         }
 
         public void OnOAuthModalWindowIgnore()
         {
-            SoundManager.instance.Play(OnButtonClickedSoundArg);
+            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
         }
 
@@ -109,7 +113,7 @@ namespace Docsa
 
         public void OnStartButtonClicked()
         {
-            SoundManager.instance.Play(OnButtonClickedSoundArg);
+            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             if (ConnectTask != null && !ConnectTask.IsCompleted)
             {
                 PleaseWaitNotification.OpenNotification();
@@ -123,20 +127,13 @@ namespace Docsa
             LoadingNotification.OpenNotification();
             StartCoroutine(LoadingText());
 
-            TwitchChat.instance.ConnectCoroutine();
-            // ConnectAsync();
-            // ConnectTask = TwitchChat.instance.ConnectAsync();       
-        }
 
-        // Not using current
-        private async Task ConnectAsync()
-        {
-            await TwitchChat.instance.ConnectAsync();
+            TwitchChat.instance.ConnectAsync();
         }
 
         public void OnQuitButtonClicked()
         {
-            SoundManager.instance.Play(OnButtonClickedSoundArg);
+            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
     #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
     #else

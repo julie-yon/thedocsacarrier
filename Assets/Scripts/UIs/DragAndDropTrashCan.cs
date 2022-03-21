@@ -7,6 +7,7 @@ namespace Utility.UI
 {
     public class DragAndDropTrashCan : MonoBehaviour, IDropHandler
     {
+        public ViewerAssignUIManager ViewerAssignUIManager;
         public void OnDrop(PointerEventData eventData)
         {
             GameObject go;
@@ -15,7 +16,7 @@ namespace Utility.UI
                 DocsaListItem listItem;
                 if (go.TryGetComponent<DocsaListItem>(out listItem))
                 {
-                    ViewerAssignUI.instance.RemoveListItem(listItem);
+                    ViewerAssignUIManager.RemoveListItem(listItem);
                 }
             }
         }

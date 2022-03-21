@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor.Events;
 
 using Utility;
 
@@ -13,7 +12,9 @@ namespace Docsa.Events
 
         void Reset()
         {
+#if UNITY_EDITOR
             AddEnterEvent(PlayAnimation);
+#endif
         }
 
         public void PlayAnimation()
