@@ -45,88 +45,43 @@ namespace TwitchIRC
             }
         }
 
+        public void Init()
+        {
+            _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
+            _twitchReader = new StreamReader(_twitchClient.GetStream());
+            _twitchWriter = new StreamWriter(_twitchClient.GetStream());
+        }
+
         public void Connect()
         {
-            _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
-            _twitchReader = new StreamReader(_twitchClient.GetStream());
-            _twitchWriter = new StreamWriter(_twitchClient.GetStream());
-            
             _twitchWriter.WriteLine("PASS " + OAuthAuthorization);
             _twitchWriter.WriteLine("NICK " + IRCHostName);
             _twitchWriter.WriteLine("USER " + IRCHostName + " 8 * :" + IRCHostName);
             _twitchWriter.WriteLine("JOIN #" + ChannelName);
             _twitchWriter.Flush();
-
-            Connected = _twitchClient.Connected;
-            print("Connected : " + Connected);
-        }
-
-        public void ConnectCoroutine()
-        {
-            Coroutine coroutine;
-
-            coroutine = StartCoroutine(ConnectMethod());
-        }
-
-        IEnumerator ConnectMethod()
-        {
-            _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
-            _twitchReader = new StreamReader(_twitchClient.GetStream());
-            _twitchWriter = new StreamWriter(_twitchClient.GetStream());
-            
-            _twitchWriter.WriteLine("PASS " + OAuthAuthorization);
-            _twitchWriter.WriteLine("NICK " + IRCHostName);
-            _twitchWriter.WriteLine("USER " + IRCHostName + " 8 * :" + IRCHostName);
-            _twitchWriter.WriteLine("JOIN #" + ChannelName);
-            _twitchWriter.Flush();
-            
-            yield return new WaitForSeconds(CheckingConnectivityTimeLimit);
-
-            Connected = _twitchClient.Connected;
-            print("Connected : " + Connected);
-
-            if (Connected)
-            {
-                Core.instance.GotoCave();
-            } else
-            {
-                print("Failed to connect to Twtich Chnnel.");
-                LogWriter.Instance.Write("Failed to connect to Twtich Chnnel.", true);
-            }
         }
 
         public async Task ConnectAsync()
         {
-            await Task.Run(() => {
-            _twitchClient = new TcpClient("irc.chat.twitch.tv", PortNumber);
-            _twitchReader = new StreamReader(_twitchClient.GetStream());
-            _twitchWriter = new StreamWriter(_twitchClient.GetStream());
+            Init();
             
-            _twitchWriter.WriteLine("PASS " + OAuthAuthorization);
-            _twitchWriter.WriteLine("NICK " + IRCHostName);
-            _twitchWriter.WriteLine("USER " + IRCHostName + " 8 * :" + IRCHostName);
-            _twitchWriter.WriteLine("JOIN #" + ChannelName);
-            _twitchWriter.Flush();
-            
-            CheckConnectivity();
+            float connectStartTime = Time.time;
+            do
+            {
+                if (Time.time - connectStartTime > CheckingConnectivityTimeLimit) break;
 
+                Connect();
+                await Task.Delay(1000);
+            } while (!Connected);
+            
             if (Connected)
             {
                 Core.instance.GameStart();
             } else
             {
                 print("Failed to connect to Twtich Chnnel.");
-                LogWriter.Instance.Write("Failed to connect to Twtich Chnnel.", true);
+                TwitchLogWriter.Instance.Write("Failed to connect to Twtich Chnnel.", true);
             }
-            });
-        }
-        
-        private void CheckConnectivity()
-        {
-            Task.Delay((int)CheckingConnectivityTimeLimit * 1000).Wait();
-
-            Connected = _twitchClient.Connected;
-            print("Connected : " + Connected);
         }
 
         void ReadChat()
@@ -134,9 +89,10 @@ namespace TwitchIRC
             if (_twitchClient.Available > 0)
             {
                 string msg = _twitchReader.ReadLine();
-                
+                if (msg.Length > 0) Connected = true;
+                print(msg);
 #if UNITY_EDITOR
-                LogWriter.Instance.Write(msg, true);
+                TwitchLogWriter.Instance.Write(msg, true);
 #endif
 
                 if (msg.Contains("PING"))
