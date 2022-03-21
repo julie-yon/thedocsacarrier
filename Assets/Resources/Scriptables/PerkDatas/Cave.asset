@@ -9,33 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8f7e1cf6b8cf00a43b95a75f9e006801, type: 3}
   m_Name: Cave
-  m_EditorClassIdentifier: Assembly-CSharp:Docsa:PerkData
+  m_EditorClassIdentifier: 
   DocsaChimPerk:
     PerkType: 7
-    enabled: 0
+    enabled: 1
   DocsaJumpPerk:
     PerkType: 8
-    enabled: 0
+    enabled: 1
   HunterNetPerk:
     PerkType: 9
-    enabled: 0
+    enabled: 1
   HunterJumpPerk:
     PerkType: 10
-    enabled: 0
+    enabled: 1
   ViewerAttendPerk:
     PerkType: 4
-    enabled: 0
+    enabled: 1
   ViewerExitPerk:
     PerkType: 5
-    enabled: 0
+    enabled: 1
   StarLightPerk:
     PerkType: 6
     enabled: 1
   UzuhamaAttackPerk:
     PerkType: 0
-    enabled: 0
+    enabled: 1
   UzuhamaJumpPerk:
     PerkType: 1
     enabled: 1
@@ -44,4 +44,4 @@ MonoBehaviour:
     enabled: 0
   UzuhamaBaguniPerk:
     PerkType: 2
-    enabled: 0
+    enabled: 1

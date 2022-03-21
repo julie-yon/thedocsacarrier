@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: OnStartUIInputSelected
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass:Utility:SoundArgs
-  EnumName: docsasoundnaming
-  EnumValue: UIButtonClick
-  EnumNameCorrect: 1
-  SoundPlayMode: 0
+  m_Script: {fileID: 11500000, guid: 8e8bbfd1c6a02de45ae9a2865ce0a441, type: 3}
+  m_Name: WorldSoundArg
+  m_EditorClassIdentifier: 
+  PlayMode: 0
   Transform: {fileID: 0}
   RelativePosition: {x: 0, y: 0, z: 0}
   AutoReturn: 0
