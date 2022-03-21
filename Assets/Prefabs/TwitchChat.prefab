@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d093a64d217d54a99c574d3b5c050d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OAuthAuthorization: oauth:h2wt7ex2z11qnb1xkape0oych7fiae
+  OAuthAuthorization: oauth:o4ng9no20ev8jsx1ji0iur0vjxziep
   IRCHostName: dev_test_dkstlzu2
   ChannelName: dev_test_dkstlzu
   PortNumber: 6667
@@ -63,6 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Uniqueness: 1
-  ReplaceAsNew: 0
   TargetComponent: {fileID: 2946638619712567884}
   HashID: 
+  ReplaceAsNew: 0

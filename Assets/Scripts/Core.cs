@@ -31,6 +31,11 @@ namespace Docsa
         {
             if (DevTestMode) return;
 
+            if (Chunk.Current == null)
+            {
+                return;
+            }
+
             if (!ReadyToPlay && Chunk.Current.ReadyToPlay)
             {
                 InputAsset.Player.Disable();

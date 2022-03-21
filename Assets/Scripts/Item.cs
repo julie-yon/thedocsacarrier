@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
 using UnityEditor.Events;
+#endif
 
 namespace Docsa
 {
@@ -41,7 +41,9 @@ namespace Docsa
 
         protected virtual void Awake()
         {
+#if UNITY_EDITOR
             UnityEventTools.AddPersistentListener(ItemEvent, Effect);
+#endif
         }
 
         public virtual void Effect()
