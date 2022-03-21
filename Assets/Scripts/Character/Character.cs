@@ -77,5 +77,15 @@ namespace Docsa.Character
             Chat.Chat(chat, time);
         }
         
+        public void Return()
+        {
+            if (this is DocsaSakki)
+            {
+                Utility.ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(gameObject);
+            } else if (this is Hunter)
+            {
+                Utility.ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Return(gameObject);
+            }
+        }
     }
 }

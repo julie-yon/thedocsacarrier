@@ -47,7 +47,6 @@ namespace  Docsa.Character
 
         public override void Attack(Vector2 direction)
         {
-            print("Attack");
             if (!PerkManager.instance.Data.UzuhamaAttackPerk.enabled)
             {
                 PerkManager.instance.Data.UzuhamaAttackPerk.PrintCannotMessage(Character.transform.position);

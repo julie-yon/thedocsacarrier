@@ -165,6 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817ea0286126aaa46af6299d995e67c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShooterCharacter: {fileID: 0}
+  TargetPosition: {x: 0, y: 0, z: 0}
   Direction: {x: 0, y: 0}
-  InitSpeedPower: 5
+  InitSpeedPower: 10
   rb2D: {fileID: 1374440248871431054}
+  DamageValue: 10
+  _eventTrigger: {fileID: 0}
+  UseReflection: 0

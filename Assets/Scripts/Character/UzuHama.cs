@@ -64,7 +64,7 @@ namespace Docsa.Character
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionStay2D(Collision2D other)
         {
             RaycastHit2D _hit;
             _hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, 1<<17);

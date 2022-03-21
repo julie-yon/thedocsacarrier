@@ -93,7 +93,7 @@ namespace  Docsa.Character
                 preInitiater = (netGameObject) => {
                     Net net = netGameObject.GetComponent<Net>();
                     net.ShooterCharacter = Character;
-                    net.TargetPosition = hunter.FocusingDocsa.transform.position;
+                    net.TargetPosition = hunter.AttackTarget.position;
                 };
             }
 

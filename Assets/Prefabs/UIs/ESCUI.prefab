@@ -2121,6 +2121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fa1520a001b7a43806ab267e3fa27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ViewerAssignUIManager: {fileID: 0}
 --- !u!1 &1457151074647480291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,9 +5902,7 @@ MonoBehaviour:
   AttendingDocsaList: {fileID: 1457151075582915471}
   AttendingHunterList: {fileID: 1457151075023873831}
   WaitingViewerList: {fileID: 1457151075545835830}
-  _listItemDict:
-    keys: []
-    values: []
+  _listItemList: []
   RandomDistributionButton: {fileID: 1457151074864110187}
   DetermineButton: {fileID: 1457151075645462651}
   DocsaCountText: {fileID: 1457151075204651696}
@@ -5912,7 +5911,6 @@ MonoBehaviour:
   ValidCountColor: {r: 0.32941177, g: 0.7058824, b: 0.21568628, a: 0.72156864}
   FitCountColor: {r: 0.3254902, g: 0.4, b: 0.7254902, a: 0.5764706}
   InvalidCountColor: {r: 0.7529412, g: 0.17254902, b: 0.17254902, a: 0.7176471}
-  isOn: 0
 --- !u!1 &1457151075509990200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,7 +6506,7 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1457151075503678451}
         m_MethodName: OnDetermineButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -8241,6 +8239,8 @@ MonoBehaviour:
   ESCUIGameObject: {fileID: 1457151076290605006}
   SoundSlider: {fileID: 1457151074454122367}
   DocsaAttendToggle: {fileID: 1457151075292316459}
+  ViewerAssignUIManager: {fileID: 1457151075503678451}
+  isOn: 0
 --- !u!114 &2594330847993385026
 MonoBehaviour:
   m_ObjectHideFlags: 0

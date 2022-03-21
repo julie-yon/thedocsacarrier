@@ -19,7 +19,7 @@ namespace  Docsa.Character
             preInitiater = (netGameObject) => {
                 Net net = netGameObject.GetComponent<Net>();
                 net.ShooterCharacter = Hunter;
-                net.TargetPosition = Hunter.FocusingDocsa.transform.position;
+                net.TargetPosition = Hunter.AttackTarget.position;
             };
 
             ObjectPool.GetOrCreate(WeaponType).Instantiate(ProjectileEmitter.position, Quaternion.identity, preInitiater);

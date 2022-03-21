@@ -18,5 +18,6 @@ public enum DocsaSoundNaming
     GrabDocsa = 6,
     HamaShotted = 7,
     HamaJump = 8,
-    HamaAttack = 9,
+    // HamaAttack = 9,
+    HamaAttack = 109,
 }

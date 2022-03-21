@@ -51,13 +51,10 @@ namespace Docsa.Character
 
         IEnumerator SetChatDataCoroutine(string chat, float time=2f)
         {
-            Info("AA");
             if (_coroutineIsPlaying) 
             {
-                Info("BB");
                 if (_delayedChat == string.Empty)
                 {
-                    Info("CC");
                     _delayedChat = chat;
                 }
                 yield break;
@@ -65,19 +62,15 @@ namespace Docsa.Character
             
             ChatText.text = chat;
             _coroutineIsPlaying = true;
-            Info("DD");
             yield return new WaitForSeconds(time);
-            Info("EE");
 
             if (_delayedChat != string.Empty)
             {
-                Info("FF");
                 _coroutineIsPlaying = false;
                 _chatCoroutine = StartCoroutine(SetChatDataCoroutine(_delayedChat, time));
                 _delayedChat = string.Empty;
             } else
             {
-                Info("GG");
                 _coroutineIsPlaying = false;
                 ChatText.text = string.Empty;
             }

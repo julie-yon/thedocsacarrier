@@ -4390,7 +4390,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartButton: {fileID: 7863434847542435045}
-  QuitButton: {fileID: 0}
   ChannelNameInputField: {fileID: 7863434847280121705}
   UserNameInputField: {fileID: 7863434847772518650}
   OAuthInputField: {fileID: 7863434846868972496}
@@ -4399,9 +4398,13 @@ MonoBehaviour:
   LoadingNotification: {fileID: 7863434847882637091}
   PleaseWaitNotification: {fileID: 7863434845969057892}
   LoadingProgressBar: {fileID: 7863434846007569801}
-  OnInputSelectedSoundArg: {fileID: 11400000, guid: fef59fc7935a73d41bb5a9c92f79bb29,
+  OnInputSelectedAudioClip: {fileID: 8300000, guid: c7ff994a431bb1547af461969c794c7e,
+    type: 3}
+  OnInputSelectedSoundArg: {fileID: 11400000, guid: 38b34fd9c6e2aaa459dcab2f9facada5,
     type: 2}
-  OnButtonClickedSoundArg: {fileID: 11400000, guid: 3e8e98f6688c0024d8371c4427e72263,
+  OnButtonClickedAudioClip: {fileID: 8300000, guid: c7ff994a431bb1547af461969c794c7e,
+    type: 3}
+  OnButtonClickedSoundArg: {fileID: 11400000, guid: 38b34fd9c6e2aaa459dcab2f9facada5,
     type: 2}
 --- !u!1 &7863434846937945719
 GameObject:

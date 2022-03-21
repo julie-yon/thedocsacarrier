@@ -30,7 +30,9 @@ namespace Docsa
         {
             rb2D = GetComponent<Rigidbody2D>();
             _eventTrigger = GetComponent<EventTrigger>();
+#if UNITY_EDITOR
             _eventTrigger.AddEnterEvent(OnProjectileHit);
+#endif
         }
 
         protected virtual void OnEnable()
