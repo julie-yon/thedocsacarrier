@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 7863434847115564448, guid: 78916947c82aa6d4983820f8447604c1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7863434847115564448, guid: 78916947c82aa6d4983820f8447604c1,
         type: 3}
@@ -669,92 +669,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78916947c82aa6d4983820f8447604c1, type: 3}
---- !u!1 &1589438429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1589438430}
-  - component: {fileID: 1589438432}
-  - component: {fileID: 1589438431}
-  m_Layer: 0
-  m_Name: Event System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1589438430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589438429}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 512, y: 384, z: 0}
-  m_LocalScale: {x: 0.6158403, y: 0.6158403, z: 0.6158403}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1589438431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589438429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_PointAction: {fileID: 189143670888645570, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_MoveAction: {fileID: -2410704589397982295, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_SubmitAction: {fileID: -852602657740281251, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_CancelAction: {fileID: -1310089281420943020, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_LeftClickAction: {fileID: 3093752567882668077, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_MiddleClickAction: {fileID: -7428769447847638358, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_RightClickAction: {fileID: 3548110113123609257, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 2288329271179083877, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_TrackedDevicePositionAction: {fileID: 7468651751844555981, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 4081884502307772814, guid: 62af0bc4740ce5341800ae8fe0dbf5e3,
-    type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
---- !u!114 &1589438432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589438429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
 --- !u!1001 &1671920645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,7 +684,7 @@ PrefabInstance:
     - target: {fileID: 1083251592932453415, guid: ca866e3ef5635e74184a9c31e51abc08,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1083251592932453415, guid: ca866e3ef5635e74184a9c31e51abc08,
         type: 3}
@@ -918,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 1457151075961685481, guid: 5c280535978d39d47ab39c4c6ba56cdb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1457151075961685481, guid: 5c280535978d39d47ab39c4c6ba56cdb,
         type: 3}
@@ -1132,6 +1046,69 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &2077138719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077138721}
+  - component: {fileID: 2077138720}
+  m_Layer: 0
+  m_Name: ResourceLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2077138720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077138719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23da615d5bcb5b4eb305f180acf9793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumName: docsasoundnaming
+  enumValue: 
+  enumNameCorrect: 1
+  ShowSettingsInEditor: 1
+  ShowPathSceneInEditor: 0
+  ShowDatasInEditor: 1
+  ShowPreloadedResourcesInEditor: 1
+  ShowSharedResourcesInEditor: 0
+  ShowCurrentResourcesInEditor: 0
+  ShowResourcesSubDirectoryCache: 1
+  NamingInterval: 100
+  SharingResourcesPath: Shared
+  ResourcePathPrefix: Sounds
+  PreloadedResourcesList: []
+  UsePathSceneSync: 0
+  ResourcePathsForEachScene: []
+  ResourceSubDirectories:
+  - Sounds
+  - Sounds\Save
+  - Sounds\UISounds
+--- !u!4 &2077138721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077138719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1747462875083745750
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,7 +1121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3034252281322745733
 MonoBehaviour:
@@ -1174,25 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dabd7a6fa2d5e24fbdc1c189b51caad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnumNameCorrect: 1
-  _enumTypeName: docsasoundnaming
-  _enumString: NullSound
-  ShowSettingsInEditor: 1
-  ShowPathSceneInEditor: 0
-  ShowDatasInEditor: 1
-  ShowPreloadedClipsInEditor: 0
-  ShowSharedClipsInEditor: 0
-  ShowCurrentClipsInEditor: 0
-  ShowPlayingSourcesInEditor: 0
-  NamingInterval: 100
-  SharingNamingRegion: 0
-  SharingSoundsPath: 
-  ResourcePathPrefix: Sounds/
   WorldAudioSourceCount: 5
   BackGroundMusicClip: {fileID: 8300000, guid: ec703d4d63f372c4db39a6f2da5a022d, type: 3}
-  PreloadedAudioClipList: []
-  UsePathSceneSync: 0
-  ResourcePathsForEachScene: []
   BackGroundAudioSource: {fileID: 0}
 --- !u!1 &7088542192755576303
 GameObject:

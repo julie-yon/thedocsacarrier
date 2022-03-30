@@ -388,25 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dabd7a6fa2d5e24fbdc1c189b51caad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnumNameCorrect: 1
-  _enumTypeName: docsasoundnaming
-  _enumString: NullSound
-  ShowSettingsInEditor: 1
-  ShowPathSceneInEditor: 0
-  ShowDatasInEditor: 1
-  ShowPreloadedClipsInEditor: 0
-  ShowSharedClipsInEditor: 0
-  ShowCurrentClipsInEditor: 0
-  ShowPlayingSourcesInEditor: 0
-  NamingInterval: 100
-  SharingNamingRegion: 0
-  SharingSoundsPath: 
-  ResourcePathPrefix: Sounds/
   WorldAudioSourceCount: 5
   BackGroundMusicClip: {fileID: 8300000, guid: ec703d4d63f372c4db39a6f2da5a022d, type: 3}
-  PreloadedAudioClipList: []
-  UsePathSceneSync: 0
-  ResourcePathsForEachScene: []
   BackGroundAudioSource: {fileID: 0}
 --- !u!4 &759152692
 Transform:
@@ -432,7 +415,6 @@ GameObject:
   m_Component:
   - component: {fileID: 854190948}
   - component: {fileID: 854190950}
-  - component: {fileID: 854190951}
   - component: {fileID: 854190949}
   m_Layer: 0
   m_Name: Event System
@@ -509,22 +491,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
---- !u!114 &854190951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854190947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68b455c24b8b834f8765b6b8c12d3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 0
-  ReplaceAsNew: 0
-  TargetComponent: {fileID: 854190950}
-  HashID: 
 --- !u!1 &954242637
 GameObject:
   m_ObjectHideFlags: 0
