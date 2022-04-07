@@ -117,6 +117,8 @@ namespace Docsa
 
         public virtual void UpdateData()
         {
+            if (!DocsaSakkiManager.instance) return;
+
             int waitingCount = DocsaSakkiManager.instance.WaitingViewerDict.Count;
             int docsaCount = DocsaSakkiManager.instance.AttendingDocsaDict.Count;
             int hunterCount = DocsaSakkiManager.instance.AttendingHunterDict.Count;

@@ -12,6 +12,10 @@ namespace TwitchIRC
         public DocsaTwitchCommand Command;
         public System.DateTime Time;
         public string Chat;
+        public string FormattedChat
+        {
+            get {return TwitchCommandData.Prefix + Command + " " + Chat;}
+        }
     }
 
     public enum DocsaTwitchCommand

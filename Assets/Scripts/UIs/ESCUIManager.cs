@@ -10,10 +10,10 @@ namespace Docsa
 {
     public class ESCUIManager : Singleton<ESCUIManager>
     {
-        public GameObject ESCUIGameObject;
+        public WindowManager WM;
         public SliderManager SoundSlider;
         public Toggle DocsaAttendToggle;
-        public ViewerAssignUIManager ViewerAssignUIManager;
+        public ViewerAssignUIManager ViewerAssignUI;
 
         public bool isOn;
 
@@ -23,34 +23,29 @@ namespace Docsa
             Core.instance.InputAsset.UI.Cancel.performed += OnESCPerformed;
         }
 
-        public void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             if (isOn)
             {
                 CloseUI();
-                Core.instance.InputAsset.Player.Enable();
             } else
             {
                 OpenUI();
-                Core.instance.InputAsset.Player.Disable();
             }
         }
 
         public void OpenUI()
         {
             isOn = true;
-            ESCUIGameObject.SetActive(true);
-            ViewerAssignUIManager.UpdateData();
-            Core.instance.InputAsset.UI.Enable();
+            WM.gameObject.SetActive(true);
+            Core.instance.AdjustInputAsset();
         }
 
         public void CloseUI()
         {
             isOn = false;
-            ESCUIGameObject.SetActive(false);
-            ViewerAssignUIManager.UpdateData();
-            if (Core.instance.ReadyToPlay)
-                Core.instance.InputAsset.UI.Disable();
+            WM.gameObject.SetActive(false);
+            Core.instance.AdjustInputAsset();
         }
 
         public void OnSoundSliderValueChanged()

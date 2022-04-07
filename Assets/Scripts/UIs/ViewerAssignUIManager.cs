@@ -28,27 +28,19 @@ namespace Docsa
             AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += UpdateCountTexts;
             WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += UpdateCountTexts;
 
-            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
-            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
-            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableDetermineButton;
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableDetermineButton;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableDetermineButton;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableDetermineButton;
 
-            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
-            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
-            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateBoolDropCallBack += CheckEnableRandomDistributionButton;
+            AttendingDocsaList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableRandomDistributionButton;
+            AttendingHunterList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableRandomDistributionButton;
+            WaitingViewerList.transform.parent.GetComponent<DocsaListItemDropableLayoutGroup>().OnLateDropCallBack += CheckEnableRandomDistributionButton;
+
         }
 
-        public void OpenUI()
-        {
-            UpdateData();
-        }
-
-        public void CloseUI()
-        {
-        }
-
+        // Use on button
         public void OnDetermineButtonClicked()
         {
-            Core.instance.ReadyToPlay = true;
             DocsaSakkiManager.instance.AssignViewers();
             print("Viewer Determined");
         }
@@ -70,42 +62,39 @@ namespace Docsa
         /// <summary>
         /// Call when listItem move
         /// </summary>
-        bool CheckEnableDetermineButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
+        void CheckEnableDetermineButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
         {
             try
             {
-                if (DocsaSakkiManager.instance.AttendingDocsaDict.Count <= DocsaSakkiManager.instance.AttendingDocsaLimit
-                        && DocsaSakkiManager.instance.AttendingHunterDict.Count <= DocsaSakkiManager.instance.AttendingHunterLimit
-                        && DocsaSakkiManager.instance.WaitingViewerDict.Count <= DocsaSakkiManager.instance.WaitingViewerLimit)
+                if (DocsaSakkiManager.instance.AttendingDocsaDict.Count == DocsaSakkiManager.instance.AttendingDocsaLimit
+                        && DocsaSakkiManager.instance.AttendingHunterDict.Count == DocsaSakkiManager.instance.AttendingHunterLimit)
                 {
                     DetermineButton.buttonVar.interactable = true;
-                    return true;
                 } else
                 {
                     DetermineButton.buttonVar.interactable = false;
-                    return false;
                 }
-            } catch {return false;}
+            } catch (System.NullReferenceException) {}
         }
 
-        bool CheckEnableRandomDistributionButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
+        void CheckEnableRandomDistributionButton(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
         {
             try
             {
                 if (DocsaSakkiManager.instance.WaitingViewerDict.Count > 0)
                 {
                     RandomDistributionButton.buttonVar.interactable = true;
-                    return true;
                 } else
                 {
                     RandomDistributionButton.buttonVar.interactable = false;
-                    return false;
                 }
-            } catch {return false;}
+            } catch {}
         }
 
         void UpdateCountTexts(DragAndDropableUI ui = null, UnityEngine.EventSystems.PointerEventData eventData = null)
         {
+            if (!DocsaSakkiManager.instance) return;
+
             DocsaCountText.text = DocsaSakkiManager.instance.AttendingDocsaDict.Count.ToString() + " / " + DocsaSakkiManager.instance.AttendingDocsaLimit.ToString();
             HunterCountText.text = DocsaSakkiManager.instance.AttendingHunterDict.Count.ToString() + " / " + DocsaSakkiManager.instance.AttendingHunterLimit.ToString();
             WaitingCountText.text = DocsaSakkiManager.instance.WaitingViewerDict.Count.ToString() + " / " + DocsaSakkiManager.instance.WaitingViewerLimit.ToString();
@@ -143,6 +132,5 @@ namespace Docsa
                 WaitingCountText.color = InvalidCountColor;
             }
         }
-
     }
 }

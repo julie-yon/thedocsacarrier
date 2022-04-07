@@ -18,6 +18,27 @@ namespace Docsa
         public DocsaDataDict AttendingHunterDict = new DocsaDataDict();
         public bool DocsaCanAttend;
         public int WaitingViewerLimit = 20;
+
+        public bool CorrectlyAssigned
+        {
+            get
+            {
+                if (AttendingDocsaDict.Count != AttendingDocsaLimit || AttendingHunterDict.Count != AttendingHunterLimit) return false;
+                
+                foreach (KeyValuePair<string, DocsaData> pair in AttendingDocsaDict)
+                {
+                    if (pair.Value.Character == null) return false;
+                }
+
+                foreach (KeyValuePair<string, DocsaData> pair in AttendingDocsaDict)
+                {
+                    if (pair.Value.Character == null) return false;
+                }
+
+                return true;
+            }
+        }
+        
         public int AttendingDocsaLimit
         {
             get {return Chunk.ActiveDocsaList.Count;}
@@ -55,20 +76,14 @@ namespace Docsa
                 break;
 
                 case DocsaTwitchCommand.DOCSA_ATTACK:
+                case DocsaTwitchCommand.HUNTER_NET:
                 if (PerkManager.instance.Data.DocsaChimPerk.enabled)
-                DocsaChim(commandData);
+                Attack(commandData);
                 break;
                 case DocsaTwitchCommand.DOCSA_JUMP:
-                if (PerkManager.instance.Data.DocsaJumpPerk.enabled)
-                DocsaJump(commandData);
-                break;
-                case DocsaTwitchCommand.HUNTER_NET:
-                if (PerkManager.instance.Data.HunterNetPerk.enabled)
-                HunterNet(commandData);
-                break;
                 case DocsaTwitchCommand.HUNTER_Jump:
-                if (PerkManager.instance.Data.HunterJumpPerk.enabled)
-                HunterJump(commandData);
+                if (PerkManager.instance.Data.DocsaJumpPerk.enabled)
+                Jump(commandData);
                 break;
 
                 default :
@@ -106,6 +121,7 @@ namespace Docsa
         }
 
         /// <summary>
+        /// Totally AssignViewer Method
         /// Assign Viewers linearly.
         /// </summary>
         /// <param name="onlyAttending">Assign after moving data to attending if false.</param>
@@ -203,6 +219,9 @@ namespace Docsa
             AssignViewer(GetDocsaData(viewerName), character);
         }
 
+        /// <summary>
+        /// Final AssignViewer Method
+        /// </summary>
         public void AssignViewer(DocsaData docsaData, ViewerCharacter character)
         {
             if (character.isViewerAssigned)
@@ -229,8 +248,6 @@ namespace Docsa
             // 일정시간이상 응답이 없을경우
 
             MoveDocsaDataTo(commandData.Author, DocsaData.DocsaState.Exit);
-
-            WaitingViewerDict.Remove(data.Author);
         }
 
         public void Kick(string viewer)
@@ -238,7 +255,6 @@ namespace Docsa
             if (AttendingDocsaDict.ContainsKey(viewer))
             {
                 MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
-                AttendingDocsaDict.Remove(viewer);
 
                 // Auto Assign?
 
@@ -253,7 +269,6 @@ namespace Docsa
             } else if (AttendingHunterDict.ContainsKey(viewer))
             {
                 MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
-                AttendingHunterDict.Remove(viewer);
 
                 // Auto Assign?
 
@@ -268,7 +283,6 @@ namespace Docsa
             } else if (WaitingViewerDict.ContainsKey(viewer))
             {
                 MoveDocsaDataTo(viewer, DocsaData.DocsaState.Exit);
-                WaitingViewerDict.Remove(viewer);
             } else
             {
                 return;
@@ -281,40 +295,48 @@ namespace Docsa
             MoveDocsaDataTo(GetDocsaData(author), to);
         }
 
-        public void MoveDocsaDataTo(DocsaData from, DocsaData.DocsaState to)
+        public void MoveDocsaDataTo(DocsaData data, DocsaData.DocsaState to)
         {
-            if (from == null || GetDocsaData(from.Author) == null)
+            if (data == null || GetDocsaData(data) == null)
             {
                 return;
             }
             
-            switch (from.State)
+            switch (data.State)
             {
                 case DocsaData.DocsaState.Waiting : 
-                    WaitingViewerDict.Remove(from.Author);
+                    WaitingViewerDict.Remove(data.Author);
                 break;
                 case DocsaData.DocsaState.Docsa : 
-                    AttendingDocsaDict.Remove(from.Author);
+                    AttendingDocsaDict.Remove(data.Author);
                 break;
                 case DocsaData.DocsaState.Hunter : 
-                    AttendingHunterDict.Remove(from.Author);
+                    AttendingHunterDict.Remove(data.Author);
                 break;
             }
 
-            from.State = to;
+            data.State = to;
 
             switch (to)
             {
                 case DocsaData.DocsaState.Waiting :
-                    WaitingViewerDict.Add(from.Author, from);
+                    data.Character = null;
+                    WaitingViewerDict.Add(data.Author, data);
                 break;
                 case DocsaData.DocsaState.Docsa :
-                    AttendingDocsaDict.Add(from.Author, from);
+                    data.Character = null;
+                    AttendingDocsaDict.Add(data.Author, data);
                 break;
                 case DocsaData.DocsaState.Hunter :
-                    AttendingHunterDict.Add(from.Author, from);
+                    data.Character = null;
+                    AttendingHunterDict.Add(data.Author, data);
                 break;
             }
+        }
+
+        public DocsaData GetDocsaData(DocsaData data)
+        {
+            return GetDocsaData(data.Author);
         }
 
         public DocsaData GetDocsaData(string author)
@@ -369,7 +391,13 @@ namespace Docsa
         {
             Docsa.Character.Character character;
 
-            character = GetDocsaData(author).Character;
+            try
+            {
+                character = GetDocsaData(author).Character;
+            } catch (System.NullReferenceException)
+            {
+                character = null;
+            }
             
             return character;
         }
@@ -385,63 +413,27 @@ namespace Docsa
             ObjectPool.GetOrCreate(DocsaPoolType.StarRain).Instantiate(WorldStarPos, Quaternion.identity);
         }
 
-        void DocsaChim(TwitchCommandData commandData)
+        void Attack(TwitchCommandData commandData)
         {
-            DocsaData docsaSakki;
-            if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
-            {
-                // for presentation
-                ((DocsaSakki)docsaSakki.Character).Behaviour.Attack(docsaSakki.Character.transform.forward);
-                //
-            } else
-            {
-                print("그런 독사 없음");
-            }
-            docsaSakki.Character.SetChatData(commandData.Chat);
+            Character.Character character = GetCharacter(commandData.Author);
+            if (character == null) {print("그런 독사 없음"); return;}
+
+            character.Behaviour.Attack(character.transform.forward);
+            character.SetChatData(commandData.Chat);
         }
 
-        void DocsaJump(TwitchCommandData commandData)
+        void Jump(TwitchCommandData commandData)
         {
-            DocsaData docsaSakki;
-            if (AttendingDocsaDict.TryGetValue(commandData.Author, out docsaSakki))
-            {
-                docsaSakki.Character.Behaviour.Jump();
-            } else
-            {
-                print("그런 독사 없음");
-            }
-            docsaSakki.Character.SetChatData(commandData.Chat);
-        }
-
-        void HunterNet(TwitchCommandData commandData)
-        {
-            DocsaData docsaSakki;
-            if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
-            {
-                docsaSakki.Character.Behaviour.Attack(docsaSakki.Character.transform.forward);
-            } else
-            {
-                print("그런 헌터 없음");
-            }
-            docsaSakki.Character.SetChatData(commandData.Chat);
-        }
-
-        void HunterJump(TwitchCommandData commandData)
-        {
-            DocsaData docsaSakki;
-            if (AttendingHunterDict.TryGetValue(commandData.Author, out docsaSakki))
-            {
-                docsaSakki.Character.Behaviour.Jump();
-            } else
-            {
-                print("그런 헌터 없음");
-            }
-            docsaSakki.Character.SetChatData(commandData.Chat);
+            Character.Character character = GetCharacter(commandData.Author);
+            if (character == null) {print("그런 독사 없음"); return;}
+            
+            character.Behaviour.Jump();
+            character.SetChatData(commandData.Chat);
         }
 
         void NoneCommand(TwitchCommandData commandData)
         {
-            GetCharacter(commandData.Author).SetChatData(TwitchCommandData.Prefix + commandData.Command + " " + commandData.Chat);
+            GetCharacter(commandData.Author).SetChatData(commandData.FormattedChat);
         }
     }
 

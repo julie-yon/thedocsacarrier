@@ -2121,7 +2121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fa1520a001b7a43806ab267e3fa27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewerAssignUIManager: {fileID: 0}
+  ViewerAssignUIManager: {fileID: 1457151075503678451}
 --- !u!1 &1457151074647480291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,11 +2403,11 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Example 2
+          m_StringArgument: DocsaList
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1457151075503678451}
-        m_MethodName: OpenUI
+        m_MethodName: UpdateData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2816,8 +2816,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
-  m_sharedMaterial: {fileID: -3533001386185157799, guid: 89df4e102f6e27f46ad52555aef23d2c,
+  m_fontAsset: {fileID: 11400000, guid: 0bd12275fe39e5c43941d57da00e95e0, type: 2}
+  m_sharedMaterial: {fileID: -8614158706445314513, guid: 0bd12275fe39e5c43941d57da00e95e0,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3097,7 +3097,7 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1457151075503678451}
         m_MethodName: RandomDistribute
         m_Mode: 1
         m_Arguments:
@@ -3172,18 +3172,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457151074864110185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnRandomButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1457151074864110185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6581,18 +6570,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457151075645462649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnDetermineButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1457151075645462649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8236,10 +8214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5c0e6d88f6cac4298e0f227241c8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ESCUIGameObject: {fileID: 1457151076290605006}
+  WM: {fileID: 1457151076290605000}
   SoundSlider: {fileID: 1457151074454122367}
   DocsaAttendToggle: {fileID: 1457151075292316459}
-  ViewerAssignUIManager: {fileID: 1457151075503678451}
+  ViewerAssignUI: {fileID: 1457151075503678451}
   isOn: 0
 --- !u!114 &2594330847993385026
 MonoBehaviour:
@@ -9831,18 +9809,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Example 3
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1457151075503678451}
-        m_MethodName: CloseUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Perk
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!95 &1457151076232281508
@@ -10118,18 +10085,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Example 1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1457151075503678451}
-        m_MethodName: CloseUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Option
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!95 &1457151076289757510
@@ -10254,13 +10210,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windows:
-  - windowName: Example 1
+  - windowName: Option
     windowObject: {fileID: 1457151075961593286}
     buttonObject: {fileID: 1457151076289757509}
-  - windowName: Example 2
+  - windowName: DocsaList
     windowObject: {fileID: 1457151075503678452}
     buttonObject: {fileID: 1457151074693659483}
-  - windowName: Example 3
+  - windowName: Perk
     windowObject: {fileID: 1457151075716220385}
     buttonObject: {fileID: 1457151076232281496}
   currentWindowIndex: 0
