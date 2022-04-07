@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using Docsa.Character;
 using Utility;
-
-using Com.LuisPedroFonseca.ProCamera2D;
 
 namespace Docsa
 {
+    public enum StageName
+    {
+        StartScene,
+        Cave,
+        Stage1,
+        Stage2,
+        Stage3,
+        Stage4,
+    }
     public class StageManager : Singleton<StageManager>
     {
-        public List<string> StageSceneNameList = new List<string>();
+        public List<StageName> StageSceneNameList = new List<StageName>();
         public Stage CurrentStage;
 
         void Awake()
@@ -22,24 +28,29 @@ namespace Docsa
 
         void LoadScene(Scene scene, LoadSceneMode mode)
         {
-            // To SoundLoader
-            // if (CurrentStage)
-            //     SoundManager.instance.LoadSounds(CurrentStage.StageNumber);
+            if (CurrentStage)
+                ResourceLoader.GetLoader<DocsaSoundNaming>().Load(CurrentStage.StageNumber);
         }
 
         public void GotoStage(int stageNum)
         {
-            SceneManager.LoadScene(StageSceneNameList[stageNum]);
+            GotoStage((StageName)stageNum);
         }
 
-        public bool Clear()
+        public void GotoStage(StageName stageName)
         {
-            if (CurrentStage.Clear()) return false;
-            else
+            if ((int)stageName >= StageSceneNameList.Count)
             {
                 Core.instance.GameClear();
-                return true;
+            } else
+            {
+                SceneManager.LoadScene(stageName.ToString());
             }
+        }
+
+        public void Clear()
+        {
+            if (CurrentStage.Clear()) GotoStage(CurrentStage.StageNumber+1);
         }
     }
 }

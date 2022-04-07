@@ -11,7 +11,12 @@ namespace Docsa
     {
         public static Chunk Current
         {
-            get {return Stage.Current.CurrentChunk;}
+            get 
+            {
+                if (Stage.Current == null) return null;
+
+                return Stage.Current.CurrentChunk;
+            }
         }
         public Stage Stage;
         public int ChunkNumber;
@@ -24,8 +29,6 @@ namespace Docsa
 
         public PerkData PerkData;
 
-        public bool HasNextChunk {get{return ChunkNumber + 1 < Stage.ChunkList.Count ? true : false;}}
-        public bool HasPreviousChunk {get{return ChunkNumber >= 1 && Stage.ChunkList.Count >= 2 ? true : false;}}
 
         public ClearCondition ClearCondition;
 
@@ -62,7 +65,7 @@ namespace Docsa
                 case 13 :
                     CheckMethod = (chunk) => 
                     {
-                        return true;
+                        return UzuHama.Hama.RescuedDocsaNumger > 1;
                     };
                 break;
                 // VolcanoChunk1
@@ -127,7 +130,6 @@ namespace Docsa
                     characterTemp = goTemp.GetComponent<DocsaSakki>();
                     characterTemp.Flip = setter.Flip;
                     ActiveDocsaList.Add((DocsaSakki)characterTemp);
-                    // ActiveDocsaList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<DocsaSakki>());
                 } else if (setter.CharacterType == DocsaPoolType.Hunter)
                 {
                     print("isHunter");
@@ -135,7 +137,6 @@ namespace Docsa
                     characterTemp = goTemp.GetComponent<Hunter>();
                     characterTemp.Flip = setter.Flip;
                     ActiveHunterList.Add((Hunter)characterTemp);
-                    // ActiveHunterList.Add(ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Instantiate(setter.transform.position, setter.transform.rotation).GetComponent<Hunter>());
                 }
             }
             ReadyToPlay = true;
@@ -143,23 +144,10 @@ namespace Docsa
 
         public bool Clear()
         {
-            if (HasNextChunk)
+            if (ClearCondition.Fulfilled(this))
             {
-                Stage.ChunkList[ChunkNumber+1].gameObject.SetActive(true);
-                gameObject.SetActive(false);
-                UzuHama.Hama.transform.position = Stage.ChunkList[ChunkNumber+1].StartPosition.position;
-                Stage.CurrentChunk = Stage.ChunkList[ChunkNumber+1];
-                UzuHama.Hama.RescuedDocsaNumger = 0;
-                foreach (Transform child in UzuHama.Hama.GrabDocsaPosition)
-                {
-                    Destroy(child.gameObject);
-                }
                 return true;
-            } else
-            {
-                gameObject.SetActive(false);
-                return false;
-            }
+            } else return false;
         }
     }
 }
