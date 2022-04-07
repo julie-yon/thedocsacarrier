@@ -11,7 +11,7 @@ namespace Docsa.Gimmick
         {
             if (ClearSoundArg)
                 SoundManager.instance.Play(ClearAudioClip, ClearSoundArg);
-            Core.instance.ChunkClear();
+            StageManager.instance.Clear();
         }
     }
 }
