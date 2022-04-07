@@ -18,11 +18,8 @@ namespace Utility
                 return _instance;
             }
         }
-        public string Path = @"Assets/Scripts/Twitch/Log";
-        public string Extention = ".txt";
-        StreamWriter writer = null;
 
-        public TwitchLogWriter() : base(TwitchLogWriter.Instance.Path, TwitchLogWriter.Instance.Extention)
+        public TwitchLogWriter() : base(@"Logs/", "TwitchLog", "txt")
         {
         }
 
@@ -35,16 +32,6 @@ namespace Utility
             Write("================================================", true);
             writer.Flush();
             writer.Close();
-        }
-
-        private async void WriteAfterFileExist(string content)
-        {
-            if (!File.Exists(Path + Extention))
-            {
-                await Task.Yield();
-            }
-
-            writer.Write(content);
         }
 
         public override void Close()

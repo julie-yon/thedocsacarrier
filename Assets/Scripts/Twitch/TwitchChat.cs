@@ -61,7 +61,7 @@ namespace TwitchIRC
             _twitchWriter.Flush();
         }
 
-        public async Task ConnectAsync()
+        public async void ConnectAsync()
         {
             Init();
             
@@ -80,7 +80,6 @@ namespace TwitchIRC
             } else
             {
                 print("Failed to connect to Twtich Chnnel.");
-                TwitchLogWriter.Instance.Write("Failed to connect to Twtich Chnnel.", true);
             }
         }
 
@@ -91,9 +90,6 @@ namespace TwitchIRC
                 string msg = _twitchReader.ReadLine();
                 if (msg.Length > 0) Connected = true;
                 print(msg);
-#if UNITY_EDITOR
-                TwitchLogWriter.Instance.Write(msg, true);
-#endif
 
                 if (msg.Contains("PING"))
                 {
