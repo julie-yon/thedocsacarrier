@@ -10,14 +10,14 @@ namespace Docsa
     [CustomEditor(typeof(Stage))]
     public class StageEditor : Editor
     {
-        SerializedProperty StageNumber;
+        SerializedProperty StageName;
         SerializedProperty ChunkList;
         SerializedProperty CurrentChunk;
 
         bool ShowChunkList;
         void OnEnable()
         {
-            StageNumber = serializedObject.FindProperty("StageNumber");
+            StageName = serializedObject.FindProperty("StageName");
             ChunkList = serializedObject.FindProperty("ChunkList");
             CurrentChunk = serializedObject.FindProperty("CurrentChunk");
         }
@@ -27,7 +27,7 @@ namespace Docsa
             serializedObject.Update();
             Stage targetStage = (Stage)target;
 
-            EditorGUILayout.PropertyField(StageNumber, new GUIContent("Stage Number"));
+            EditorGUILayout.PropertyField(StageName, new GUIContent("Stage Name"));
             EditorGUILayout.PropertyField(CurrentChunk);
 
             EditorGUILayout.BeginHorizontal();
