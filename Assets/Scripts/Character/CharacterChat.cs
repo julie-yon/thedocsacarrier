@@ -74,11 +74,6 @@ namespace Docsa.Character
                 _coroutineIsPlaying = false;
                 ChatText.text = string.Empty;
             }
-
-            void Info(string Tag)
-            {
-                print($"{Tag} hasCorountine : {_chatCoroutine != null}, isplaying : {_coroutineIsPlaying}, _delayedChat : {_delayedChat}");
-            }
         }
     }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977e2300cb6cd9e43823a5a5cbbd4e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageNumber: 4
+  StageName: 4
   ChunkList:
   - {fileID: 8812494385890770775}
   - {fileID: 1226411915367322900}
@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 1
+  StartPosition: {fileID: 0}
+  ReadyToPlay: 0
+  PerkData: {fileID: 0}
 --- !u!1 &1883889228771344796
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 2
+  StartPosition: {fileID: 0}
+  ReadyToPlay: 0
+  PerkData: {fileID: 0}
 --- !u!1 &7084252098652530201
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 3
+  StartPosition: {fileID: 0}
+  ReadyToPlay: 0
+  PerkData: {fileID: 0}
 --- !u!1 &7586253365616590005
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,3 +464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 4533207760794988588}
   ChunkNumber: 0
+  StartPosition: {fileID: 0}
+  ReadyToPlay: 0
+  PerkData: {fileID: 0}

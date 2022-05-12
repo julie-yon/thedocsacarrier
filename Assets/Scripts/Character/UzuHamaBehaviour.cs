@@ -74,8 +74,6 @@ namespace  Docsa.Character
 
         public override void Jump()
         {
-            print("Jump");
-            print(PerkManager.instance.Data.UzuhamaJumpPerk.enabled);
             if (!PerkManager.instance.Data.UzuhamaJumpPerk.enabled)
             {
                 PerkManager.instance.Data.UzuhamaJumpPerk.PrintCannotMessage(Character.transform.position);

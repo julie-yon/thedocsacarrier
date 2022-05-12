@@ -8,23 +8,12 @@ namespace Docsa.Events
 {
     public class ViewerAssignBox : MonoBehaviour
     {
-        ESCUIManager ESCUI;
-
-        void Awake()
-        {
-            ESCUI = FindObjectOfType<ESCUIManager>();
-            if (!ESCUI)
-            {
-                Debug.LogWarning(gameObject.name + " : can not find ESCUIManager.");
-                Destroy(gameObject);
-            }
-        }
-
         public void Open()
         {
             Chunk.Current.InitCharacters();
-            ESCUI.OpenUI();
-            ESCUI.GetComponentInChildren<WindowManager>().currentWindowIndex = 1;
+            ESCUIManager.instance.OpenUI();
+            ESCUIManager.instance.ViewerAssignUI.UpdateData();
+            ESCUIManager.instance.WM.currentWindowIndex = 1;
         }
     }
 }

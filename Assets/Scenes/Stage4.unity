@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &25706309
 PrefabInstance:
@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 6389100912637303014, guid: ce80bd1693799ce47bd401bc9bf07070,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6389100912637303014, guid: ce80bd1693799ce47bd401bc9bf07070,
         type: 3}
@@ -374,6 +374,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3a7badefaa63b4e9b291856cd2ef12, type: 3}
+--- !u!1 &704045250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704045253}
+  - component: {fileID: 704045252}
+  - component: {fileID: 704045251}
+  m_Layer: 0
+  m_Name: ResourceLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &704045251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704045250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73817cb4c827192449520e8cca1f8f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Uniqueness: 1
+  TargetComponent: {fileID: 704045252}
+  HashID: 
+  ReplaceAsNew: 0
+--- !u!114 &704045252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704045250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23da615d5bcb5b4eb305f180acf9793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumName: docsasoundnaming
+  enumValue: 
+  enumNameCorrect: 1
+  ShowSettingsInEditor: 1
+  ShowPathSceneInEditor: 0
+  ShowDatasInEditor: 1
+  ShowPreloadedResourcesInEditor: 1
+  ShowSharedResourcesInEditor: 0
+  ShowCurrentResourcesInEditor: 0
+  ShowResourcesSubDirectoryCache: 1
+  NamingInterval: 100
+  SharingResourcesPath: Shared
+  ResourcePathPrefix: Sounds
+  PreloadedResourcesList: []
+  UsePathSceneSync: 0
+  ResourcePathsForEachScene: []
+  ResourceSubDirectories:
+  - Sounds
+  - Sounds\Save
+  - Sounds\UISounds
+--- !u!4 &704045253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704045250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854190947
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +568,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1229152761
 PrefabInstance:
@@ -587,7 +667,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780951960
 GameObject:
@@ -692,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 5069417618964558650, guid: d9b025cc41296a54491f21bbef398ec9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5069417618964558650, guid: d9b025cc41296a54491f21bbef398ec9,
         type: 3}

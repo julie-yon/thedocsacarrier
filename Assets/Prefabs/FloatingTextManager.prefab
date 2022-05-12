@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1983610774203883820
+--- !u!1 &8387416210981121488
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7555748632058958999}
-  - component: {fileID: 8999960332128031176}
-  - component: {fileID: 2844338672173453066}
+  - component: {fileID: 4675489893703402035}
+  - component: {fileID: 2092165347220532304}
+  - component: {fileID: 8206984064425951741}
   m_Layer: 0
-  m_Name: StageManager
+  m_Name: FloatingTextManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7555748632058958999
+--- !u!4 &4675489893703402035
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983610774203883820}
+  m_GameObject: {fileID: 8387416210981121488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,33 +32,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8999960332128031176
+--- !u!114 &2092165347220532304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983610774203883820}
+  m_GameObject: {fileID: 8387416210981121488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ceb2331d92b5004ba0c17769d320274, type: 3}
+  m_Script: {fileID: 11500000, guid: aba557a787a1b4a9daeededc8802f2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSceneNameList: 000000000100000002000000030000000400000005000000
-  CurrentStage: {fileID: 0}
---- !u!114 &2844338672173453066
+  FloatingTextPref: {fileID: 8497800925434638349, guid: 41a66b944616142a09d178630ebb6c91,
+    type: 3}
+--- !u!114 &8206984064425951741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983610774203883820}
+  m_GameObject: {fileID: 8387416210981121488}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73817cb4c827192449520e8cca1f8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Uniqueness: 1
-  TargetComponent: {fileID: 8999960332128031176}
+  TargetComponent: {fileID: 2092165347220532304}
   HashID: 
   ReplaceAsNew: 0
