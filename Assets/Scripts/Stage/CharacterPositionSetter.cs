@@ -23,9 +23,9 @@ namespace Docsa
             Gizmos.color = Color.black;
 
             if (!Flip)
-                Gizmos.DrawLine(transform.position, Vector3.left);
+                Gizmos.DrawLine(transform.position, transform.position + Vector3.left);
             else
-                Gizmos.DrawLine(transform.position, Vector3.right);
+                Gizmos.DrawLine(transform.position, transform.position + Vector3.right);
         }
     }
 }
