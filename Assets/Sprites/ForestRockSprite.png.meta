@@ -22,7 +22,7 @@ TextureImporter:
     second: forestgimik-rock_5
   - first:
       213: 1895336349142949671
-    second: ForestRock_Tramsparent
+    second: ForestRock_Transparent
   - first:
       213: -1194746796950182608
     second: forestgimik-rock_7
@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestRock_Tramsparent
+      name: ForestRock_Transparent
       rect:
         serializedVersion: 2
         x: 48
