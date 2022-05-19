@@ -1,31 +1,53 @@
 ﻿using UnityEngine;
 using Docsa.Character;
 
-using Utility;
-
 namespace Docsa.Gimmick
 {
     public class Gimmick : MonoBehaviour
     {
-        public AudioClip DamageAudioClip;
-        public SoundArgs DamageSoundArg;
-        [SerializeField] protected LayerMask UzuhamaLayer;
+        public bool ActivateOnAwake;
+        public bool StartOnAwake;
+        public bool Activated;
+        public bool Started;
 
-        public bool gimmickStarted;
-
-        public virtual void GimmickInit()
+        void Awake()
         {
-            gimmickStarted = true;
+            if (ActivateOnAwake) Activate();
+            if (StartOnAwake) StartGimmick();
+        }
+        
+        public virtual void Activate()
+        {
+            Activated = true;
         }
 
-        public virtual void GimmickInvoke()
+        public virtual void Deactivate()
         {
+            End();
+            Activated = false;
         }
 
-        protected virtual void GiveDamage(int damageValue)
+        public virtual void StartGimmick()
         {
-            SoundManager.instance.Play(DamageAudioClip, DamageSoundArg);
-            UzuHama.Hama.GetDamage(damageValue);
+            if (!Activated) return;
+            Started = true;
+        }
+        
+        public virtual void End()
+        {
+            if (!Activated) return;
+            ResetGimmick();
+            Started = false;
+        }
+
+        public virtual void Invoke()
+        {
+            if (!Started) return;
+        }
+
+        public virtual void ResetGimmick()
+        {
+            if (!Started) return;
         }
     }
 }

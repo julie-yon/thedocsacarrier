@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8027805653440791953}
   - component: {fileID: 7130004535928495881}
-  - component: {fileID: 384762009896718551}
-  - component: {fileID: 7909548152660052028}
   m_Layer: 0
   m_Name: RockObject
   m_TagString: Untagged
@@ -84,55 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &384762009896718551
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165496995741068398}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.25, y: 0.25}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
---- !u!114 &7909548152660052028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165496995741068398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73729837e4d32ce45851cf493ab269df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageSoundArg: {fileID: 0}
-  UzuhamaLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  gimmickStarted: 0
-  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
-  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
-  DaySpriteRenderer: {fileID: 7130004535928495881}
-  NightSpriteRenderer: {fileID: 0}
 --- !u!1 &5720273067539698214
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +91,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888537367508070531}
+  - component: {fileID: 6136456272923012222}
+  - component: {fileID: 8860998513536106687}
+  - component: {fileID: 5706793212296062836}
   m_Layer: 0
   m_Name: Rock_Hidable
   m_TagString: Untagged
@@ -164,3 +116,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6136456272923012222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720273067539698214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6745addee32b2594e80e7038dcb4be11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  use2D: 1
+  isReady: 1
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  PlayOnlyFirst: 0
+  OnTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8860998513536106687}
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8860998513536106687}
+        m_MethodName: ResetGimmick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Collider: {fileID: 0}
+  Collider2D: {fileID: 5706793212296062836}
+  Childs: []
+--- !u!114 &8860998513536106687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720273067539698214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73729837e4d32ce45851cf493ab269df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivateOnAwake: 0
+  StartOnAwake: 0
+  Activated: 0
+  Started: 0
+  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
+    type: 3}
+  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7,
+    type: 3}
+  Renderer: {fileID: 7130004535928495881}
+  ET: {fileID: 6136456272923012222}
+--- !u!61 &5706793212296062836
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720273067539698214}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0

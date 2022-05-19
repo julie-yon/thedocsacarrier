@@ -1,19 +1,14 @@
 ﻿using UnityEngine;
-using Utility;
 
 namespace Docsa.Gimmick
 {
-    public class ToxicCloud : LinearGimmick
+    public class Basalt : LinearGimmick
     {
         public int Damage = 10;
-        public float DamageCoolTime = 1;
-        private float StayingTime = 0;
-
         protected override void Reset()
         {
-            ET = GetComponent<EventTrigger>();
-            ET.ClearStayEvent();
-            ET.AddStayEvent(Invoke);
+            base.Reset();
+            ET.PlayOnlyFirst = true;
         }
 
         public override void StartGimmick()
@@ -28,18 +23,14 @@ namespace Docsa.Gimmick
             base.End();
             Animator AM = GetComponentInChildren<Animator>();
             AM.SetBool(AM.GetParameter(0).name, false);
-        }        
+        }
 
         public override void Invoke()
         {
             base.Invoke();
-            StayingTime += Time.deltaTime;
-
-            if (StayingTime > DamageCoolTime)
-            {
-                StayingTime = 0;
-                Docsa.Character.UzuHama.Hama.GetDamage(Damage);
-            }
+            Docsa.Character.UzuHama.Hama.GetDamage(Damage);
         }
     }
 }
+
+

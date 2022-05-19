@@ -111,9 +111,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7816005108737165910}
-  - component: {fileID: 8034297858998959318}
-  - component: {fileID: 2401982367657912066}
-  - component: {fileID: 3856705191089339695}
+  - component: {fileID: 7435172998391104649}
+  - component: {fileID: 6299413309764672983}
+  - component: {fileID: 9166389596510885871}
   m_Layer: 0
   m_Name: Basalt
   m_TagString: Untagged
@@ -136,26 +136,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8034297858998959318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8929790592373578356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f286aaa65f7db8d4a90d65d7a75182bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 10
-  UzuhamaLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  mainAnimator: {fileID: 6481659729694142151}
-  Direction: {x: -1, y: -1}
-  Speed: 2
---- !u!114 &2401982367657912066
+--- !u!114 &7435172998391104649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,12 +157,12 @@ MonoBehaviour:
   OnTriggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8034297858998959318}
-        m_MethodName: GimmickInvoke
-        m_Mode: 1
+      - m_Target: {fileID: 6299413309764672983}
+        m_MethodName: Invoke
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -194,8 +175,29 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Collider: {fileID: 0}
-  Collider2D: {fileID: 3856705191089339695}
---- !u!58 &3856705191089339695
+  Collider2D: {fileID: 9166389596510885871}
+  Childs: []
+--- !u!114 &6299413309764672983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929790592373578356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f286aaa65f7db8d4a90d65d7a75182bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivateOnAwake: 0
+  StartOnAwake: 0
+  Activated: 0
+  Started: 0
+  Direction: {x: -1, y: -1}
+  Speed: 1
+  ET: {fileID: 7435172998391104649}
+  Damage: 10
+--- !u!58 &9166389596510885871
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

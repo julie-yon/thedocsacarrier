@@ -1,52 +1,37 @@
 ﻿using UnityEngine;
+using Utility;
 
 namespace Docsa.Gimmick
 {
+    [RequireComponent(typeof(EventTrigger))]
     public class Rock : Gimmick
     {
         public Sprite RockSprite;
         public Sprite RockSprite_Transparent;
 
-        public SpriteRenderer DaySpriteRenderer;
-        public SpriteRenderer NightSpriteRenderer;
+        public SpriteRenderer Renderer;
 
-        private SpriteRenderer _targetSpriteRenderer;
+        [SerializeField][HideInInspector] private EventTrigger ET;
 
-        // private bool isNight = false;
-
-        void Awake()
+        void Reset()
         {
-            _targetSpriteRenderer = DaySpriteRenderer;
+            ET = GetComponent<EventTrigger>();
+            ET.ClearEnterEvent();
+            ET.ClearExitEvent();
+            ET.AddEnterEvent(Invoke);
+            ET.AddExitEvent(ResetGimmick);
         }
 
-        // void Update()
-        // {
-        //     if (isNight != NightDaySwitch.instance.isNight)
-        //     {
-        //         isNight = !isNight;
-        //         Switch();
-        //     }
-        // }
-        // void Switch()
-        // {
-        //     NightSpriteRenderer.gameObject.SetActive(NightSpriteRenderer.gameObject.activeSelf);
-        //     DaySpriteRenderer.gameObject.SetActive(DaySpriteRenderer.gameObject.activeSelf);
-        // }
-
-        void OnTriggerEnter2D(Collider2D collider)
+        public override void Invoke()
         {
-            if(1 << collider.gameObject.layer == UzuhamaLayer.value)
-            {
-                _targetSpriteRenderer.sprite = RockSprite_Transparent;
-            }
+            base.Invoke();
+            Renderer.sprite = RockSprite_Transparent;
         }
 
-        void OnTriggerExit2D(Collider2D collider)
+        public override void ResetGimmick()
         {
-            if(1 << collider.gameObject.layer == UzuhamaLayer.value)
-            {
-                _targetSpriteRenderer.sprite = RockSprite;
-            }
+            base.ResetGimmick();
+            Renderer.sprite = RockSprite;
         }
     }
 }

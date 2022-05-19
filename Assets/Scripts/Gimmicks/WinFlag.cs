@@ -3,13 +3,26 @@ using UnityEngine;
 
 namespace Docsa.Gimmick
 {
+    [RequireComponent(typeof(EventTrigger))]
     public class WinFlag : Gimmick
     {
-        public AudioClip ClearAudioClip;
+        public AudioClip ClearAudioClip; 
         public SoundArgs ClearSoundArg;
-        public override void GimmickInvoke()
+
+        void Reset()
         {
-            if (ClearSoundArg)
+            EventTrigger ET = GetComponent<EventTrigger>();
+            ET.ClearEnterEvent();
+            ET.AddEnterEvent(Invoke);
+
+            ActivateOnAwake = true;
+            StartOnAwake = true;
+        }
+        
+        public override void Invoke()
+        {
+            base.Invoke();
+            if (ClearAudioClip && ClearSoundArg)
                 SoundManager.instance.Play(ClearAudioClip, ClearSoundArg);
             StageManager.instance.Clear();
         }

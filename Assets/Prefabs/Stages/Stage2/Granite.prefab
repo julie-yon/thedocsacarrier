@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 7816005108737165910}
   - component: {fileID: 325141126168083894}
   - component: {fileID: 8461117942491953669}
-  - component: {fileID: 3414340338918903788}
+  - component: {fileID: 39732503817474390}
   m_Layer: 0
   m_Name: Granite
   m_TagString: Untagged
@@ -148,13 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f286aaa65f7db8d4a90d65d7a75182bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  UzuhamaLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  mainAnimator: {fileID: 6481659729694142151}
-  Direction: {x: -1, y: -1}
-  Speed: 3
+  ActivateOnAwake: 0
+  StartOnAwake: 0
+  Activated: 0
+  Started: 0
+  Direction: {x: 0, y: 0}
+  Speed: 1
+  ET: {fileID: 8461117942491953669}
+  Damage: 10
 --- !u!114 &8461117942491953669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,11 +178,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 325141126168083894}
-        m_MethodName: GimmickInvoke
-        m_Mode: 1
+        m_MethodName: Invoke
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -194,8 +195,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Collider: {fileID: 0}
-  Collider2D: {fileID: 3414340338918903788}
---- !u!58 &3414340338918903788
+  Collider2D: {fileID: 39732503817474390}
+  Childs: []
+--- !u!58 &39732503817474390
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

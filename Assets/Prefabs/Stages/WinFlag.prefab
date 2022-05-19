@@ -56,11 +56,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6503036084578974037}
-        m_MethodName: GimmickInvoke
-        m_Mode: 1
+        m_MethodName: Invoke
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -74,6 +74,7 @@ MonoBehaviour:
       m_Calls: []
   Collider: {fileID: 0}
   Collider2D: {fileID: 8603282713590754237}
+  Childs: []
 --- !u!61 &8603282713590754237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,10 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6805ed28e5e8f245b84a7aeea6e764a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
-  UzuhamaLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  ActivateOnAwake: 1
+  StartOnAwake: 1
+  Activated: 0
+  Started: 0
+  ClearAudioClip: {fileID: 0}
+  ClearSoundArg: {fileID: 0}
 --- !u!1 &1018587287805869444
 GameObject:
   m_ObjectHideFlags: 0

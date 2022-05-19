@@ -5,6 +5,6 @@ public enum DocsaPoolType
     Weapon,
     StarRain,
     Net,
-    VolcanicAsh,
+    ToxicCloud,
     Chim,
 }

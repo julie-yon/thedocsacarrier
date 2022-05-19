@@ -13,14 +13,14 @@ namespace Docsa.Gimmick
         public float Interval = 1.0f;
         
         /// <summary>
-        /// VolcanicAsh를 만듭니다.
+        /// ToxicCloud를 만듭니다.
         /// </summary>
         /// <returns></returns>
-        public VolcanicAsh Emit ()
+        public ToxicCloud Emit ()
         {
-            Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(2.0f, Random.Range(Min, Max) , Camera.main.nearClipPlane)); // VolcanicAsh가 생성될 좌표
+            Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(2.0f, Random.Range(Min, Max) , Camera.main.nearClipPlane)); // ToxicCloud가 생성될 좌표
              
-            return ObjectPool.GetOrCreate(DocsaPoolType.VolcanicAsh).Instantiate(pos, Quaternion.identity).GetComponent<VolcanicAsh>();  //첫번째로 생성되는 VolcanicAsh
+            return ObjectPool.GetOrCreate(DocsaPoolType.ToxicCloud).Instantiate(pos, Quaternion.identity).GetComponent<ToxicCloud>();  //첫번째로 생성되는 ToxicCloud
         }
 
         
