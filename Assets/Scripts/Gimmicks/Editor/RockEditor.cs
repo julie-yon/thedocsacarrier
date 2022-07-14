@@ -21,9 +21,13 @@ namespace Docsa
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            serializedObject.Update();
+
             EditorGUILayout.PropertyField(RockSprite);
             EditorGUILayout.PropertyField(RockSprite_Transparent);
             EditorGUILayout.PropertyField(Renderer);
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

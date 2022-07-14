@@ -25,9 +25,11 @@ namespace Docsa
         
         public override void OnInspectorGUI()
         {
-            // GUI.enabled = false;
-            // EditorGUILayout.PropertyField(script, true, new GUILayoutOption[0]);
-            // GUI.enabled = true;
+            serializedObject.Update();
+
+            GUI.enabled = false;
+            EditorGUILayout.PropertyField(script, true, new GUILayoutOption[0]);
+            GUI.enabled = true;
 
             EditorGUILayout.PropertyField(ActivateOnAwake);
             EditorGUILayout.PropertyField(StartOnAwake);
@@ -47,6 +49,8 @@ namespace Docsa
                 if (isStarted.boolValue) ((Docsa.Gimmick.Gimmick)target).StartGimmick();
                 else ((Docsa.Gimmick.Gimmick)target).End();
             }
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

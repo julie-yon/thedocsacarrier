@@ -19,8 +19,12 @@ namespace Docsa
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            serializedObject.Update();
+
             EditorGUILayout.PropertyField(ClearAudioClip);
             EditorGUILayout.PropertyField(ClearSoundArg);
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

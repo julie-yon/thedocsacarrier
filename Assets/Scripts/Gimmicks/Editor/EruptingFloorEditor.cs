@@ -17,7 +17,11 @@ namespace Docsa
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            serializedObject.Update();
+
             EditorGUILayout.PropertyField(Height);
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

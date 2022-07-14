@@ -19,8 +19,12 @@ namespace Docsa
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            serializedObject.Update();
+
             EditorGUILayout.PropertyField(Damage);
             EditorGUILayout.PropertyField(DamageCoolTime);
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }
