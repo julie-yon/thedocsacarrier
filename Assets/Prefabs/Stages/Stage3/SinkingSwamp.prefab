@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6159148909155514214}
   - component: {fileID: 2156319032367436619}
   - component: {fileID: 8342415580878838095}
+  - component: {fileID: 1486922848249477242}
   m_Layer: 0
   m_Name: SinkingSwamp
   m_TagString: Untagged
@@ -73,8 +74,11 @@ MonoBehaviour:
       m_Calls: []
   Collider: {fileID: 0}
   Collider2D: {fileID: 8342415580878838095}
+  Childs: []
   TargetAnimator: {fileID: 1790440578663316907}
-  TriggerName: PlayAnimator
+  TriggerNames: []
+  TrueBoolNames: []
+  FalseBoolNames: []
 --- !u!61 &8342415580878838095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -101,6 +105,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1486922848249477242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620993197886701904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6928329064de344a57513cef4c6af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivateOnAwake: 0
+  StartOnAwake: 0
+  Activated: 0
+  Started: 0
+  ET: {fileID: 2156319032367436619}
+  TargetCharacter: {fileID: 0}
+  TargetRigid: {fileID: 0}
+  SwallowingForce: 0
 --- !u!1 &5056010143908540549
 GameObject:
   m_ObjectHideFlags: 0

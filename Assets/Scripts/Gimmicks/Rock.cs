@@ -24,13 +24,15 @@ namespace Docsa.Gimmick
 
         public override void Invoke()
         {
-            base.Invoke();
+            if (!Started) return;
+
             Renderer.sprite = RockSprite_Transparent;
         }
 
         public override void ResetGimmick()
         {
-            base.ResetGimmick();
+            if (!Started) return;
+
             Renderer.sprite = RockSprite;
         }
     }

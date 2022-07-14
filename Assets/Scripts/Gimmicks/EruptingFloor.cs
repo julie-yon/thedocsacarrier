@@ -8,15 +8,21 @@ namespace Docsa.Gimmick
 
         private Animator AT;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             AT = GetComponentInChildren<Animator>();
         }
 
-        public override void StartGimmick()
+        public override bool StartGimmick()
         {
-            base.StartGimmick();
-            AT.SetTrigger(AT.GetParameter(Height-1).name);
+            if (base.StartGimmick())
+            {
+                AT.SetTrigger(AT.GetParameter(Height-1).name);
+                return true;
+            }
+
+            return false;
         }
     }
 }

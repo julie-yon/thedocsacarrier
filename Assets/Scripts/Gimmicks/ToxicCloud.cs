@@ -16,23 +16,34 @@ namespace Docsa.Gimmick
             ET.AddStayEvent(Invoke);
         }
 
-        public override void StartGimmick()
+        public override bool StartGimmick()
         {
-            base.StartGimmick();
-            Animator AM = GetComponentInChildren<Animator>();
-            AM.SetBool(AM.GetParameter(0).name, true);
+            if (base.StartGimmick())
+            {
+                Animator AM = GetComponentInChildren<Animator>();
+                AM.SetBool(AM.GetParameter(0).name, true);
+                return true;
+            }
+
+            return false;
         }
 
-        public override void End()
+        public override bool End()
         {
-            base.End();
-            Animator AM = GetComponentInChildren<Animator>();
-            AM.SetBool(AM.GetParameter(0).name, false);
+            if (base.End())
+            {
+                Animator AM = GetComponentInChildren<Animator>();
+                AM.SetBool(AM.GetParameter(0).name, false);
+                return true;
+            }
+
+            return false;
         }        
 
         public override void Invoke()
         {
-            base.Invoke();
+            if (!Started) return;
+
             StayingTime += Time.deltaTime;
 
             if (StayingTime > DamageCoolTime)

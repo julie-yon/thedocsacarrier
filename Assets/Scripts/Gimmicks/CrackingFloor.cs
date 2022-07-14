@@ -7,21 +7,32 @@ namespace Docsa.Gimmick
     {
         private Animator AT;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             AT = GetComponentInChildren<Animator>();
         }
 
-        public override void StartGimmick()
+        public override bool StartGimmick()
         {
-            base.StartGimmick();
-            AT.SetBool(AT.GetParameter(0).name, true);
+            if (base.StartGimmick())
+            {
+                AT.SetBool(AT.GetParameter(0).name, true);
+                return true;
+            }
+
+            return false;
         }
 
-        public override void End()
+        public override bool End()
         {
-            base.End();
-            AT.SetBool(AT.GetParameter(0).name, false);
+            if (base.End())
+            {
+                AT.SetBool(AT.GetParameter(0).name, false);
+                return true;
+            }
+
+            return false;
         }        
     }
 }

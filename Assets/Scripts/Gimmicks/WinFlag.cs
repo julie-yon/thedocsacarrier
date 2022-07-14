@@ -21,7 +21,8 @@ namespace Docsa.Gimmick
         
         public override void Invoke()
         {
-            base.Invoke();
+            if (!Started) return;
+        
             if (ClearAudioClip && ClearSoundArg)
                 SoundManager.instance.Play(ClearAudioClip, ClearSoundArg);
             StageManager.instance.Clear();

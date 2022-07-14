@@ -10,34 +10,51 @@ namespace Docsa.Gimmick
         public bool Activated;
         public bool Started;
 
-        void Awake()
+        protected virtual void Awake()
         {
             if (ActivateOnAwake) Activate();
-            if (StartOnAwake) StartGimmick();
+            if (StartOnAwake) {Activate(); StartGimmick();}
         }
         
-        public virtual void Activate()
+        public virtual bool Activate()
         {
+            if (Activated)
+            {
+                return false;
+            }
+
             Activated = true;
+            return true;
         }
 
-        public virtual void Deactivate()
+        public virtual bool Deactivate()
         {
             End();
+
+            if (!Activated)
+            {
+                return false;
+            }
+
             Activated = false;
+            return true;
         }
 
-        public virtual void StartGimmick()
+        public virtual bool StartGimmick()
         {
-            if (!Activated) return;
+            if (!Activated || Started) return false;
+
             Started = true;
+            return true;
         }
         
-        public virtual void End()
+        public virtual bool End()
         {
-            if (!Activated) return;
+            if (!Activated || !Started) return false;
+
             ResetGimmick();
             Started = false;
+            return true;
         }
 
         public virtual void Invoke()
