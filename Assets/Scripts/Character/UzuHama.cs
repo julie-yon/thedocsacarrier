@@ -34,14 +34,28 @@ namespace Docsa.Character
             get {return (UzuHamaBehaviour)Behaviour;}
         }
 
-        void Start()
+        private Core _core;
+        protected override void Awake()
         {
-            Core.instance.InputAsset.Player.Move.performed += HamaMove;
-            Core.instance.InputAsset.Player.Move.canceled += HamaMove;
-            Core.instance.InputAsset.Player.Jump.performed += HamaJump;
-            Core.instance.InputAsset.Player.Fire.performed += HamaAttack;
-            Core.instance.InputAsset.Player.GrabDocsa.performed += HamaBehaviour.GrabDocsa;
-            Core.instance.InputAsset.Player.Interact.performed += Interact;
+            base.Awake();
+            _core = Core.instance;
+
+            _core.InputAsset.Player.Move.performed += HamaMove;
+            _core.InputAsset.Player.Move.canceled += HamaMove;
+            _core.InputAsset.Player.Jump.performed += HamaJump;
+            _core.InputAsset.Player.Fire.performed += HamaAttack;
+            _core.InputAsset.Player.GrabDocsa.performed += HamaBehaviour.GrabDocsa;
+            _core.InputAsset.Player.Interact.performed += Interact;
+        }
+
+        void OnDestroy()
+        {
+            _core.InputAsset.Player.Move.performed -= HamaMove;
+            _core.InputAsset.Player.Move.canceled -= HamaMove;
+            _core.InputAsset.Player.Jump.performed -= HamaJump;
+            _core.InputAsset.Player.Fire.performed -= HamaAttack;
+            _core.InputAsset.Player.GrabDocsa.performed -= HamaBehaviour.GrabDocsa;
+            _core.InputAsset.Player.Interact.performed -= Interact;
         }
 
         void FixedUpdate()

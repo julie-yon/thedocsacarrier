@@ -10,7 +10,7 @@ namespace Docsa.Gimmick
         public LayerMask LayerMask;
         public void Interact()
         {
-            Core.instance.GameStart();
+            Core.instance.StageStart();
         }
 
         public void SetInteractable()

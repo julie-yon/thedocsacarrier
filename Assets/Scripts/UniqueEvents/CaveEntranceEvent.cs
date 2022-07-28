@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor.Events;
-
-using Utility;
 
 namespace Docsa.Events
 {

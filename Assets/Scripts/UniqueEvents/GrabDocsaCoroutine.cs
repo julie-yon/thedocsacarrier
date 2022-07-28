@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Utility;
 
 using BansheeGz.BGSpline.Components;
 
@@ -8,13 +7,25 @@ namespace Docsa.Events
 {
     public class GrabDocsaCoroutine : MonoBehaviour
     {
-        public BGCcCursor Cursor;
+        public BezierCurve BGCurve;
+        private BGCcCursor cursor;
+        private Docsa.Character.DocsaSakki targetDocsa;
         public AnimationCurve MoveCurve = AnimationCurve.EaseInOut(0, 0, 2, 1);
         public float UpdateTime = 0;
 
+        void Awake()
+        {
+            Utility.AsyncAwait.Delay(()=>
+            {
+                cursor = BGCurve.Cursor;
+                targetDocsa = ((BGCcTrs)BGCurve.GetBGCc<BGCcTrs>()).ObjectToManipulate.GetComponent<Docsa.Character.DocsaSakki>();
+                targetDocsa.GetComponentInChildren<Collider2D>().enabled = false;
+            }, 0.1f);
+        }
+
         void Update()
         {
-            if (!Cursor)
+            if (!cursor)
             {
                 return;
             }
@@ -23,7 +34,12 @@ namespace Docsa.Events
             {
                 UpdateTime += Time.deltaTime;
             }
-            Cursor.DistanceRatio = MoveCurve.Evaluate(UpdateTime);
+            cursor.DistanceRatio = MoveCurve.Evaluate(UpdateTime);
+        }
+
+        void OnDestroy()
+        {
+            targetDocsa.GetComponent<Collider2D>().enabled = true;
         }
     }
 }

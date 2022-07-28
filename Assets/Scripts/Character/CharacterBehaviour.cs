@@ -29,7 +29,6 @@ namespace  Docsa.Character
         public DocsaPoolType WeaponType;
         public Transform ProjectileEmitter = null;
 
-        // Animator relatives
         public Animator Animator;
 
         protected const string AttackTriggerName = "AttackTrigger";
@@ -46,16 +45,6 @@ namespace  Docsa.Character
             Animator = GetComponentInChildren<Animator>();
 
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-            MaxSpeed = 3;
-            MoveAcceleration = 1;
-            JumpPower = 3;
-            MaxJumps = 1;
-            JumpCount = 0;
-        }
-
-        public virtual void AimToMouse(Transform targetTransform)
-        {
         }
 
         public virtual void Attack(Vector2 direction)
@@ -123,26 +112,10 @@ namespace  Docsa.Character
 
         public LayerMask GrabDocsaLayerMask;
 
-        // For Presentation
-        // public virtual void GrabDocsa(DocsaSakki targetDocsa)
-        // {
-        //     BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
-        //     var trs = BGCurve.AddTRS(targetDocsa.transform);
-        //     BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
-        //     BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
-        //     BGCurve.Curve[1].SetField("Scale", new Vector3(0.75f, 0.75f, 0.75f), typeof(Vector3));
-        //     BGCurve.Curve[2].SetField("Scale", new Vector3(0.5f, 0.5f, 0.5f), typeof(Vector3));
-        //     trs.OverflowControl = BansheeGz.BGSpline.Components.BGCcTrs.OverflowControlEnum.Stop;
-        //     trs.ScaleObject = true;
-        //     trs.ScaleField = BGCurve.Curve.GetField("Scale");
-        //     BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
-        //     Destroy(BGCurve.gameObject, 2);
-        // }
-
-        public virtual void GrabDocsa(Transform targetDocsa)
+        public virtual void GrabDocsa(DocsaSakki targetDocsa)
         {
-            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa, false, Character.GrabDocsaPosition, true);
-            var trs = BGCurve.AddTRS(targetDocsa);
+            BezierCurve BGCurve = BezierCurve.ParabolaFromTo(targetDocsa.transform, false, Character.GrabDocsaPosition, true);
+            var trs = BGCurve.AddTRS(targetDocsa.transform);
             BGCurve.Curve.AddField("Scale", BansheeGz.BGSpline.Curve.BGCurvePointField.TypeEnum.Vector3);
             BGCurve.Curve[0].SetField("Scale", new Vector3(1, 1, 1), typeof(Vector3));
             BGCurve.Curve[1].SetField("Scale", new Vector3(0.6f, 0.6f, 1f), typeof(Vector3));
@@ -150,7 +123,7 @@ namespace  Docsa.Character
             trs.OverflowControl = BansheeGz.BGSpline.Components.BGCcTrs.OverflowControlEnum.Stop;
             trs.ScaleObject = true;
             trs.ScaleField = BGCurve.Curve.GetField("Scale");
-            BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().Cursor = BGCurve.Cursor;
+            BGCurve.gameObject.AddComponent<Docsa.Events.GrabDocsaCoroutine>().BGCurve = BGCurve;
             Destroy(BGCurve.gameObject, 2);
         }
 

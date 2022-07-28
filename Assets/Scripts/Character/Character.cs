@@ -64,7 +64,7 @@ namespace Docsa.Character
         {   
             CurrentHP -= damageValue;
             
-            FloatingTextManager.instance.MakeNewText(transform.position, damageValue);
+            FloatingTextManager.instance?.MakeNewDamageText(transform.position, damageValue);
         }
 
         public void GetDamage(float damageValue)

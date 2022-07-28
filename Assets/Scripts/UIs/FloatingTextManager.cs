@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Utility;
 
 namespace Docsa
@@ -12,11 +10,6 @@ namespace Docsa
         {
             get
             {
-                // if (_FloatingTextCanvas == null)
-                // {
-                //     _FloatingTextCanvas = FindObjectOfType(typeof(Canvas)) as Canvas;
-                // }
-
                 if (_FloatingTextCanvas == null)
                 {
                     GameObject go = new GameObject("FloatingTextCanvas");
@@ -29,10 +22,10 @@ namespace Docsa
         }
         
         public GameObject FloatingTextPref;
-        // Start is called before the first frame update
-        public void MakeNewText(Vector3 posit, int damageValue)
+
+        public void MakeNewDamageText(Vector3 position, int damageValue)
         {
-            MakeNewText(posit, damageValue.ToString());
+            MakeNewText(position, damageValue.ToString());
         }
         
         public void MakeNewText(Vector3 posit, string text)

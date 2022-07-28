@@ -267,7 +267,7 @@
                 {
                     "name": "",
                     "id": "fced25a3-1086-4bef-9bc1-744c5d15ef19",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -278,7 +278,7 @@
                 {
                     "name": "",
                     "id": "51da49c8-8c3c-48e5-9616-9abbca2f3d78",
-                    "path": "<Keyboard>/f",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -316,15 +316,6 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "4d6535d9-9272-44ef-a7d1-ebe703c14fbf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Cancel",
-                    "type": "Button",
-                    "id": "9249c4ee-d799-4650-bd78-da42c3bbbd37",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -667,17 +658,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "82627dcc-3b13-4ba9-841d-e4b746d6553e",
-                    "path": "*/{Cancel}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

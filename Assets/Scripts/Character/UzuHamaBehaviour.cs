@@ -13,12 +13,6 @@ namespace  Docsa.Character
             get {return (UzuHama)Character;}
         }
 
-        protected override void Reset()
-        {
-            base.Reset();
-            JumpPower = 6;
-        }
-
         void Update()
         {
             if (JumpCount > 0 && CurrentVelocity.y < 0)
@@ -28,21 +22,6 @@ namespace  Docsa.Character
             {
                 Animator.SetBool("Falling", false);
             }
-        }
-
-        public override void AimToMouse(Transform targetTransform)
-        {
-            // Behaviour에 있어야 할까?
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector2 aimDirection = new Vector2(mousePos.x - targetTransform.position.x , mousePos.y - targetTransform.position.y);
-            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x);
-
-            float realAngle = Mathf.Clamp(angle, -AimMaxAngle * Mathf.Deg2Rad, AimMaxAngle * Mathf.Deg2Rad);
-            Vector3 realDirection = new Vector2(1, Mathf.Tan(realAngle));
-            Matrix4x4 matrix = new Matrix4x4(new Vector4(0, Hama.transform.localScale.x, 0, 0), new Vector4(-Hama.transform.localScale.x, 0, 0, 0), new Vector4(0, 0, 1, 0), new Vector4(0, 0, 0, 1));
-            Vector3 realRealDirection = matrix.MultiplyPoint3x4(realDirection);
-            targetTransform.right = realRealDirection;
-            // print ($"aimDirection : {aimDirection}, angle : {angle * Mathf.Rad2Deg}, realAngle : {realAngle * Mathf.Rad2Deg}, realDirection : {realDirection}");
         }
 
         public override void Attack(Vector2 direction)
@@ -127,19 +106,27 @@ namespace  Docsa.Character
         public void GrabDocsa(Context context)
         {
             RaycastHit2D hit2D = Physics2D.BoxCast(Hama.transform.position, GrabDocsaBoxCastSize, 0, Vector2.right, 0, GrabDocsaLayerMask);
-            GrabDocsa(hit2D.transform);
+            if (hit2D.collider != null) GrabDocsa(hit2D.transform.GetComponent<DocsaSakki>());
         }
 
-        public override void GrabDocsa(Transform targetDocsa)
+        public override void GrabDocsa(DocsaSakki targetDocsa)
         {
-            if (!PerkManager.instance.Data.UzuhamaGrabDocsaPerk.enabled) PerkManager.instance.Data.UzuhamaGrabDocsaPerk.PrintCannotMessage(Character.transform.position);
+            if (!PerkManager.instance.Data.UzuhamaGrabDocsaPerk.enabled) 
+            {
+                PerkManager.instance.Data.UzuhamaGrabDocsaPerk.PrintCannotMessage(Character.transform.position);
+                return;
+            }
             
             Hama.RescuedDocsaNumger++;
-            ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(targetDocsa.gameObject);
-            var temp = Instantiate(GrabDocsaRagDoll, targetDocsa.position, Quaternion.identity);
-            temp.transform.SetParent(Hama.GrabDocsaPosition);
+            // ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(targetDocsa.gameObject);
+            // var temp = Instantiate(GrabDocsaRagDoll, targetDocsa.position, Quaternion.identity);
+            // temp.transform.SetParent(Hama.GrabDocsaPosition);
 
-            base.GrabDocsa(temp.transform);
+            // base.GrabDocsa(temp.transform);
+
+            targetDocsa.transform.SetParent(Hama.GrabDocsaPosition);
+
+            base.GrabDocsa(targetDocsa);
         }
     }
 }

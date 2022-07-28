@@ -7,9 +7,9 @@ namespace Docsa.Character
     {
         public Transform OriginalParent;
 
-        protected override void Awake()
+        protected override void OnEnable()
         {
-            base.Awake();
+            base.OnEnable();
             OriginalParent = transform.parent;
         }
     }

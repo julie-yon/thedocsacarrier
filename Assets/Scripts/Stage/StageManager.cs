@@ -15,6 +15,7 @@ namespace Docsa
         Stage2,
         Stage3,
         Stage4,
+        Test,
     }
     public class StageManager : Singleton<StageManager>
     {

@@ -31,8 +31,12 @@ namespace Docsa
             return InputAsset;
         }
 
+        public SceneLoadCallbackSetter SCB;
+
         void Awake()
         {
+            SCB = new SceneLoadCallbackSetter(DocsaCarrierScenes.SceneNameList);
+            
             InputAsset = new HamaInput();
             InputAsset.Player.Enable();
         }
@@ -45,6 +49,13 @@ namespace Docsa
         }
 
         public void GameStart()
+        {
+            InputAsset.Disable();
+            StageManager.instance.GotoStage(StageName.Cave);
+            InputAsset.Enable();
+        }
+
+        public void StageStart()
         {
             InputAsset.Disable();
             StageManager.instance.GotoStage(StageName.Stage1);

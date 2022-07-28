@@ -13,6 +13,7 @@ namespace Docsa
     public class DocsaDataDict : SerializableDictionary<string, DocsaData> {}
     public class DocsaSakkiManager : Singleton<DocsaSakkiManager>
     {
+        [SerializeField] private Core _core;
         public DocsaDataDict WaitingViewerDict = new DocsaDataDict();
         public DocsaDataDict AttendingDocsaDict = new DocsaDataDict();
         public DocsaDataDict AttendingHunterDict = new DocsaDataDict();
@@ -50,7 +51,7 @@ namespace Docsa
 
         public void ExecuteCommand(TwitchCommandData commandData)
         {
-            if (commandData.Author == Core.instance.UzuhamaTwitchNickName)
+            if (commandData.Author == _core.UzuhamaTwitchNickName)
             {
                 UzuhamaChat(commandData);
                 return;
@@ -96,30 +97,7 @@ namespace Docsa
             UzuHama.Hama.SetChatData(commandData.Chat);
         }
 
-        void Attend(TwitchCommandData commandData)
-        {
-            if (!DocsaCanAttend || WaitingViewerDict.Count >= WaitingViewerLimit)
-            {
-                return;
-            }
-
-            if (AttendingDocsaDict.ContainsKey(commandData.Author) || AttendingHunterDict.ContainsKey(commandData.Author))
-            {
-                return;
-            }
-
-            DocsaData data;
-
-            if (WaitingViewerDict.TryGetValue(commandData.Author, out data))
-            {
-                data.ChatCount++;
-                return;
-            }
-
-            data = new DocsaData(commandData.Author);
-            WaitingViewerDict.Add(data.Author, data);
-        }
-
+        #region Assign Viewer
         /// <summary>
         /// Totally AssignViewer Method
         /// Assign Viewers linearly.
@@ -234,6 +212,32 @@ namespace Docsa
             character.isViewerAssigned = true;
             character.ViewerName = docsaData.Author;
         }
+        #endregion
+
+        #region Commands Implementation
+        void Attend(TwitchCommandData commandData)
+        {
+            if (!DocsaCanAttend || WaitingViewerDict.Count >= WaitingViewerLimit)
+            {
+                return;
+            }
+
+            if (AttendingDocsaDict.ContainsKey(commandData.Author) || AttendingHunterDict.ContainsKey(commandData.Author))
+            {
+                return;
+            }
+
+            DocsaData data;
+
+            if (WaitingViewerDict.TryGetValue(commandData.Author, out data))
+            {
+                data.ChatCount++;
+                return;
+            }
+
+            data = new DocsaData(commandData.Author);
+            WaitingViewerDict.Add(data.Author, data);
+        }
 
         void Exit(TwitchCommandData commandData)
         {
@@ -287,9 +291,44 @@ namespace Docsa
             {
                 return;
             }
-            
         }
 
+        void StarRain()
+        {
+            print("StarRain");
+            Vector2 StarPos = new Vector2(Random.Range(0, Camera.main.pixelWidth), Camera.main.pixelHeight);
+            Vector2 WorldStarPos = Camera.main.ScreenToWorldPoint(StarPos);
+
+            print("WorldStarPos" + WorldStarPos);
+
+            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).Instantiate(WorldStarPos, Quaternion.identity);
+        }
+
+        void Attack(TwitchCommandData commandData)
+        {
+            Character.Character character = GetCharacter(commandData.Author);
+            if (character == null) {print("그런 독사 없음"); return;}
+
+            character.Behaviour.Attack(character.transform.forward);
+            character.SetChatData(commandData.Chat);
+        }
+
+        void Jump(TwitchCommandData commandData)
+        {
+            Character.Character character = GetCharacter(commandData.Author);
+            if (character == null) {print("그런 독사 없음"); return;}
+            
+            character.Behaviour.Jump();
+            character.SetChatData(commandData.Chat);
+        }
+
+        void NoneCommand(TwitchCommandData commandData)
+        {
+            GetCharacter(commandData.Author).SetChatData(commandData.FormattedChat);
+        }
+        #endregion
+
+        #region DocsaData Managing
         public void MoveDocsaDataTo(string author, DocsaData.DocsaState to)
         {
             MoveDocsaDataTo(GetDocsaData(author), to);
@@ -401,40 +440,8 @@ namespace Docsa
             
             return character;
         }
+        #endregion
 
-        void StarRain()
-        {
-            print("StarRain");
-            Vector2 StarPos = new Vector2(Random.Range(0, Camera.main.pixelWidth), Camera.main.pixelHeight);
-            Vector2 WorldStarPos = Camera.main.ScreenToWorldPoint(StarPos);
-
-            print("WorldStarPos" + WorldStarPos);
-
-            ObjectPool.GetOrCreate(DocsaPoolType.StarRain).Instantiate(WorldStarPos, Quaternion.identity);
-        }
-
-        void Attack(TwitchCommandData commandData)
-        {
-            Character.Character character = GetCharacter(commandData.Author);
-            if (character == null) {print("그런 독사 없음"); return;}
-
-            character.Behaviour.Attack(character.transform.forward);
-            character.SetChatData(commandData.Chat);
-        }
-
-        void Jump(TwitchCommandData commandData)
-        {
-            Character.Character character = GetCharacter(commandData.Author);
-            if (character == null) {print("그런 독사 없음"); return;}
-            
-            character.Behaviour.Jump();
-            character.SetChatData(commandData.Chat);
-        }
-
-        void NoneCommand(TwitchCommandData commandData)
-        {
-            GetCharacter(commandData.Author).SetChatData(commandData.FormattedChat);
-        }
     }
 
     [System.Serializable]

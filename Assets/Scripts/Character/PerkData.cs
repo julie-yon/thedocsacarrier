@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace Docsa
 {
@@ -24,21 +25,49 @@ namespace Docsa
             Init();
         }
 
-        // [ContextMenuItem("Init", "Init")]
         public void Init()
         {
+            FloatingTextManager floatingTextManager = FloatingTextManager.instance;
+            Docsa.Character.UzuHama hama = Docsa.Character.UzuHama.Hama;
+            Action<string> printAction = (str) =>
+            {
+                floatingTextManager.MakeNewText(hama.transform.position, str);
+            };
+
             DocsaChimPerk.PerkType = ItemType.DocsaAttack;
+            DocsaChimPerk.PrintMessageAction = printAction;
+            DocsaChimPerk.CannotMessage = "공격 불가";
             DocsaJumpPerk.PerkType = ItemType.DocsaJump;
+            DocsaJumpPerk.PrintMessageAction = printAction;
+            DocsaJumpPerk.CannotMessage = "점프 불가";
             HunterNetPerk.PerkType = ItemType.HunterAttack;
+            HunterNetPerk.PrintMessageAction = printAction;
+            HunterNetPerk.CannotMessage = "공격 불가";
             HunterJumpPerk.PerkType = ItemType.HunterJump;
+            HunterJumpPerk.PrintMessageAction = printAction;
+            HunterJumpPerk.CannotMessage = "점프 불가";
             ViewerAttendPerk.PerkType = ItemType.Attend;
+            ViewerAttendPerk.PrintMessageAction = printAction;
+            ViewerAttendPerk.CannotMessage = "시청자 참여가 불가능한 상태입니다.";
             ViewerExitPerk.PerkType = ItemType.Exit;
+            ViewerExitPerk.PrintMessageAction = printAction;
+            ViewerExitPerk.CannotMessage = "시청자 퇴장이 불가능한 상태입니다.";
             StarLightPerk.PerkType = ItemType.StarLight;
+            StarLightPerk.PrintMessageAction = printAction;
+            StarLightPerk.CannotMessage = "별빛이 내릴 수 없음";
 
             UzuhamaAttackPerk.PerkType = ItemType.HamaAttack;
+            UzuhamaAttackPerk.PrintMessageAction = printAction;
+            UzuhamaAttackPerk.CannotMessage = "공격 불가";
             UzuhamaJumpPerk.PerkType = ItemType.HamaJump;
+            UzuhamaJumpPerk.PrintMessageAction = printAction;
+            UzuhamaJumpPerk.CannotMessage = "점프 불가";
             UzuhamaGrabDocsaPerk.PerkType = ItemType.GrabDocsa;
+            UzuhamaGrabDocsaPerk.PrintMessageAction = printAction;
+            UzuhamaGrabDocsaPerk.CannotMessage = "집을 수 없음";
             UzuhamaBaguniPerk.PerkType = ItemType.HamaBaguni;
+            UzuhamaBaguniPerk.PrintMessageAction = printAction;
+            UzuhamaBaguniPerk.CannotMessage = "바구니 능력 해금 필요";
         }
     }
 
@@ -47,12 +76,7 @@ namespace Docsa
     {
         public ItemType PerkType;
         public bool enabled;
-
-        public Perk(Perk perk)
-        {
-            PerkType = perk.PerkType;
-            enabled = perk.enabled;
-        }
+        public string CannotMessage;
 
         public void Enable()
         {
@@ -64,43 +88,15 @@ namespace Docsa
             enabled = false;
         }
 
+        public Action<string> PrintMessageAction;
         public void PrintCannotMessage(Vector3 position)
         {
-            switch (PerkType)
+            if (PrintMessageAction.GetInvocationList().Length > 0)
             {
-                case ItemType.Attend :
-                FloatingTextManager.instance.MakeNewText(position, "시청자 참여가 불가능한 상태입니다.");
-                break;
-                case ItemType.DocsaAttack :
-                FloatingTextManager.instance.MakeNewText(position, "공격 불가");
-                break;
-                case ItemType.DocsaJump :
-                FloatingTextManager.instance.MakeNewText(position, "점프 불가");
-                break;
-                case ItemType.Exit :
-                FloatingTextManager.instance.MakeNewText(position, "시청자 퇴장이 불가능한 상태입니다.");
-                break;
-                case ItemType.GrabDocsa :
-                FloatingTextManager.instance.MakeNewText(position, "집을 수 없음");
-                break;
-                case ItemType.HamaAttack :
-                FloatingTextManager.instance.MakeNewText(position, "공격 불가");
-                break;
-                case ItemType.HamaBaguni :
-                FloatingTextManager.instance.MakeNewText(position, "바구니 능력 해금 필요");
-                break;
-                case ItemType.HamaJump :
-                FloatingTextManager.instance.MakeNewText(position, "점프 불가");
-                break;
-                case ItemType.HunterAttack :
-                FloatingTextManager.instance.MakeNewText(position, "공격 불가");
-                break;
-                case ItemType.HunterJump :
-                FloatingTextManager.instance.MakeNewText(position, "점프 불가");
-                break;
-                case ItemType.StarLight :
-                FloatingTextManager.instance.MakeNewText(position, "별빛이 내릴 수 없음");
-                break;
+                PrintMessageAction?.Invoke(CannotMessage);
+            } else
+            {
+                Debug.Log(CannotMessage);
             }
         }
     }

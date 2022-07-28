@@ -114,6 +114,7 @@ namespace Docsa
             ActiveHunterList.Clear();
         }
 
+        [ContextMenu("InitCharacterSetters")]
         public void InitCharacters()
         {
             var positionSetters = GetComponentsInChildren<CharacterPositionSetter>();

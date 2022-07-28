@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7555748632058958999}
   - component: {fileID: 8999960332128031176}
   - component: {fileID: 2844338672173453066}
+  - component: {fileID: 8098352730809363574}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -58,7 +59,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73817cb4c827192449520e8cca1f8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetComponent: {fileID: 8999960332128031176}
+  useUniqueComponent: 1
+  UniqueComponent: {fileID: 8098352730809363574}
+--- !u!114 &8098352730809363574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983610774203883820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Uniqueness: 1
   TargetComponent: {fileID: 8999960332128031176}
   HashID: 
-  ReplaceAsNew: 0
+  DestroyGameObject: {fileID: 0}
+  ReplacePreviousOne: 0
+  DestroyRequiredComponentsAlso: 0

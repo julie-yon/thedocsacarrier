@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +8,7 @@ namespace Docsa
 {
     public class ESCUIManager : Singleton<ESCUIManager>
     {
+        [SerializeField] private Core _core;
         public WindowManager WM;
         public SliderManager SoundSlider;
         public Toggle DocsaAttendToggle;
@@ -17,47 +16,50 @@ namespace Docsa
 
         public bool isOn;
 
-        void Start()
+        void Awake()
         {
-            Core.instance.InputAsset.Player.ESC.performed += OnESCPerformed;
-            Core.instance.InputAsset.UI.Cancel.performed += OnESCPerformed;
+            _core.InputAsset.Player.ESC.performed += OnESCPerformed;
         }
 
         void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            if (isOn)
-            {
-                CloseUI();
-            } else
-            {
-                OpenUI();
-            }
+            if (!isOn) OpenUI();
+            ESCManager.instance.AddItem("ESCUI", () => CloseUI(), 10);
         }
 
         public void OpenUI()
         {
             isOn = true;
             WM.gameObject.SetActive(true);
-            Core.instance.AdjustInputAsset();
+            _core.AdjustInputAsset();
         }
 
         public void CloseUI()
         {
             isOn = false;
             WM.gameObject.SetActive(false);
-            Core.instance.AdjustInputAsset();
+            _core.AdjustInputAsset();
         }
 
+        /// <summary>
+        /// On button Reference
+        /// </summary>
         public void OnSoundSliderValueChanged()
         {
             AudioListener.volume = SoundSlider.mainSlider.value;
         }
 
+        /// <summary>
+        /// On button Reference
+        /// </summary>
         public void OnDocsaAttendToggle()
         {
             DocsaSakkiManager.instance.DocsaCanAttend = DocsaAttendToggle.isOn;
         }
 
+        /// <summary>
+        /// On button Reference
+        /// </summary>
         public void OnExitButtonClicked()
         {
 #if UNITY_EDITOR
