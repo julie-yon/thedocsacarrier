@@ -15,8 +15,8 @@ namespace Docsa.Gimmick
 
         protected override void Awake()
         {
-            base.Awake();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            base.Awake();
         }
 
         public override bool StartGimmick()
