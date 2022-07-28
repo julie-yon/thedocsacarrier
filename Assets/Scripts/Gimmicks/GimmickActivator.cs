@@ -11,10 +11,10 @@ namespace Docsa.Gimmick
 
         void Reset()
         {
-            GetComponent<EventTrigger>().AddEnterEvent(Start);
+            GetComponent<EventTrigger>().AddEnterEvent(Activate);
         }
 
-        void Start()
+        void Activate()
         {
             foreach (Gimmick G in Gimmicks)
             {
