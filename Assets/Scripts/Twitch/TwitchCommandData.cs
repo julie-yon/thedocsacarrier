@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Utility;
+using dkstlzu.Utility;
 
 namespace TwitchIRC
 {

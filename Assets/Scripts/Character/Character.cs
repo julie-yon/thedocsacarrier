@@ -81,10 +81,10 @@ namespace Docsa.Character
         {
             if (this is DocsaSakki)
             {
-                Utility.ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(gameObject);
+                dkstlzu.Utility.ObjectPool.GetOrCreate(DocsaPoolType.Docsa).Return(gameObject);
             } else if (this is Hunter)
             {
-                Utility.ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Return(gameObject);
+                dkstlzu.Utility.ObjectPool.GetOrCreate(DocsaPoolType.Hunter).Return(gameObject);
             }
         }
     }

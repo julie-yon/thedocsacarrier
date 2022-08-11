@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Utility
+namespace dkstlzu.Utility
 {
     [CustomEditor(typeof(Joint2DAutoAnchor))]
     public class HingeJoint2DAutoAnchor : Editor

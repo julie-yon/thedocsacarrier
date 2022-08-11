@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TwitchIRC;
-using Utility;
+using dkstlzu.Utility;
 
 using Docsa.Character;
 

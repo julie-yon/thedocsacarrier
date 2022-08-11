@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Docsa.Character;
-using Utility;
+using dkstlzu.Utility;
 
 namespace Docsa
 {

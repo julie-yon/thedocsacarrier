@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Experimental.U2D.Animation;
+
 
 using Docsa.Character;
 
@@ -7,7 +7,7 @@ public class UzuHamaIdleAnimationState : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SpriteResolver[] resolvers = UzuHama.Hama.GetComponentsInChildren<SpriteResolver>();
+        UnityEngine.U2D.Animation.SpriteResolver[] resolvers = UzuHama.Hama.GetComponentsInChildren<UnityEngine.U2D.Animation.SpriteResolver>();
         foreach (var resolver in resolvers)
         {
             resolver.SetCategoryAndLabel(resolver.GetCategory(), "Front");
@@ -20,7 +20,7 @@ public class UzuHamaIdleAnimationState : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SpriteResolver[] resolvers = UzuHama.Hama.GetComponentsInChildren<SpriteResolver>();
+        UnityEngine.U2D.Animation.SpriteResolver[] resolvers = UzuHama.Hama.GetComponentsInChildren<UnityEngine.U2D.Animation.SpriteResolver>();
         foreach (var resolver in resolvers)
         {
             resolver.SetCategoryAndLabel(resolver.GetCategory(), "Side");

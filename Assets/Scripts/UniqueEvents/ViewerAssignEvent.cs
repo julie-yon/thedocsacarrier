@@ -3,7 +3,7 @@
 using UnityEditor.Events;
 #endif
 
-using Utility;
+using dkstlzu.Utility;
 
 namespace Docsa.Events
 {

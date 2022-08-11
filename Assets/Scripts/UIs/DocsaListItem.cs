@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-using Utility.UI;
+using dkstlzu.Utility.UI;
 using TMPro;
 
 namespace Docsa

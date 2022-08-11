@@ -2,17 +2,17 @@
 using System.Collections;
 using UnityEngine;
 
-using Utility.EventSystem;
-using Utility;
+using dkstlzu.Utility.EventSystem;
+using dkstlzu.Utility;
 
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 namespace Docsa.Events
 {
     public class NightDaySwitchEvent : MonoBehaviour, IEvent, IEventListener
     {
         public bool isDay;
-        public Light2D Light;
+        public UnityEngine.Rendering.Universal.Light2D Light;
         private CoroutineSwaper coroutineSwaper;
         
         public Enum eventCode

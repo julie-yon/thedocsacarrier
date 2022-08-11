@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Utility;
+using dkstlzu.Utility;
 
 using BansheeGz.BGSpline.Components;
 
@@ -15,7 +15,7 @@ namespace Docsa.Events
 
         void Awake()
         {
-            Utility.AsyncAwait.Delay(()=>
+            dkstlzu.Utility.AsyncAwait.Delay(()=>
             {
                 cursor = BGCurve.Cursor;
                 targetDocsa = ((BGCcTrs)BGCurve.GetBGCc<BGCcTrs>()).ObjectToManipulate.GetComponent<Docsa.Character.DocsaSakki>();

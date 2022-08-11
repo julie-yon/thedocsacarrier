@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.IO;
 using UnityEngine;
 
-using Utility;
+using dkstlzu.Utility;
 using Docsa;
 
 namespace TwitchIRC

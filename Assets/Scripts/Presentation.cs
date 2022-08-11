@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 using Docsa;
 using Docsa.Character;
-using Utility;
+using dkstlzu.Utility;
 using TwitchIRC;
 using TMPro;
 

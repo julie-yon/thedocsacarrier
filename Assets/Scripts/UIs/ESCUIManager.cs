@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-using Utility;
+using dkstlzu.Utility;
 using Michsky.UI.ModernUIPack; 
 
 namespace Docsa

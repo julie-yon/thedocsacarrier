@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Utility;
+using dkstlzu.Utility;
 
 using UnityEngine.InputSystem;
 using Context = UnityEngine.InputSystem.InputAction.CallbackContext;

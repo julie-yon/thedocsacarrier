@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utility
+namespace dkstlzu.Utility
 {
     public class Joint2DAutoAnchor : MonoBehaviour
     {

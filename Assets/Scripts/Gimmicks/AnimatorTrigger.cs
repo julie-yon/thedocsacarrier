@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Utility;
+using dkstlzu.Utility;
 
 namespace Docsa.Events
 {

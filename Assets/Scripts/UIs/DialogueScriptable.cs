@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utility
+namespace dkstlzu.Utility
 {
     [CreateAssetMenu(fileName ="Dialogue", menuName = "ScriptableObjects/Dialogue")]
     [System.Serializable]

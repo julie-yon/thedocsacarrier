@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
-using Utility;
+using dkstlzu.Utility;
 
 using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
 

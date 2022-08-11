@@ -2,7 +2,7 @@ using UnityEngine;
 
 using Docsa;
 
-namespace Utility.UI
+namespace dkstlzu.Utility.UI
 {
     [RequireComponent(typeof(RectTransform))]
     public class DocsaListItemDropableLayoutGroup : DropableLayoutGroup

@@ -1,6 +1,6 @@
 using System;
 
-using Utility;
+using dkstlzu.Utility;
 using UnityEngine;
 
 namespace Docsa
@@ -17,7 +17,7 @@ namespace Docsa
                     {
                         _instance = FindObjectOfType(typeof(PerkManager)) as PerkManager;
                         if (_instance == null) throw new NullReferenceException();
-                    } catch (NullReferenceException e)
+                    } catch (NullReferenceException)
                     {
                         Debug.LogWarning("There's no active " + typeof(PerkManager) + " in this scene\n Made new temporary instance");
                         _instance = new GameObject("TemporaryPerkManager").AddComponent<PerkManager>();

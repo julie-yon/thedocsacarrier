@@ -6,8 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 using Michsky.UI.ModernUIPack;
 
-using Utility;
-using Utility.UI;
+using dkstlzu.Utility;
+using dkstlzu.Utility.UI;
 
 namespace Docsa
 {

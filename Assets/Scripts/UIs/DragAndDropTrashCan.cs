@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 using Docsa;
 
-namespace Utility.UI
+namespace dkstlzu.Utility.UI
 {
     public class DragAndDropTrashCan : MonoBehaviour, IDropHandler
     {

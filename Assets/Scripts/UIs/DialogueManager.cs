@@ -8,7 +8,7 @@ using Michsky.UI.ModernUIPack;
 
 using TMPro;
 
-namespace Utility
+namespace dkstlzu.Utility
 {
     public class DialogueManager : Singleton<DialogueManager>
     {

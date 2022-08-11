@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using System.Threading.Tasks;
 
-namespace Utility
+namespace dkstlzu.Utility
 {
     public class TwitchLogWriter : LogWriter
     {

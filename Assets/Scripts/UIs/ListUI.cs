@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Utility;
-using Utility.UI;
+using dkstlzu.Utility;
+using dkstlzu.Utility.UI;
 
 using TMPro;
 

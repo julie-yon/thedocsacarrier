@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
 
-using Utility;
+using dkstlzu.Utility;
 using TwitchIRC;
 
 using Michsky.UI.ModernUIPack; 

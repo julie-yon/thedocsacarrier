@@ -1,4 +1,4 @@
-﻿using Utility;
+﻿using dkstlzu.Utility;
 using UnityEngine;
 
 namespace Docsa.Gimmick
