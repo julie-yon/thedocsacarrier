@@ -14,10 +14,12 @@ namespace Docsa.Gimmick
             GetComponent<EventTrigger>().AddEnterEvent(Activate);
         }
 
+        [ContextMenu("ActivateGimmicks")]
         void Activate()
         {
             foreach (Gimmick G in Gimmicks)
             {
+                if (!G) continue;
                 G.Activate();
             }
         }
