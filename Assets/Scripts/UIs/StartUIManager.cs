@@ -13,6 +13,7 @@ namespace Docsa
 {
     public class StartUIManager : Singleton<StartUIManager>
     {
+        public SoundManager SoundManager;
         public ButtonManagerBasic StartButton;
         public TMP_InputField ChannelNameInputField;
         public TMP_InputField UserNameInputField;
@@ -57,7 +58,7 @@ namespace Docsa
 
         public void OnChnnelNameInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_chnnelNameInputSelectedFirstTime)
             {
                 _chnnelNameInputSelectedFirstTime = false;
@@ -67,7 +68,7 @@ namespace Docsa
 
         public void OnUserNameInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_userNameInputSelectedFirstTime)
             {
                 _userNameInputSelectedFirstTime = false;
@@ -77,7 +78,7 @@ namespace Docsa
 
         public void OnOAuthInputSelected()
         {
-            SoundManager.instance.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_oauthInputSelectedFirstTime)
             {
                 _oauthInputSelectedFirstTime = false;
@@ -92,14 +93,14 @@ namespace Docsa
 
         public void OnOAuthModalWindowConfirm()
         {
-            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
             Application.OpenURL("https://twitchapps.com/tmi/");
         }
 
         public void OnOAuthModalWindowIgnore()
         {
-            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
         }
 
@@ -113,7 +114,7 @@ namespace Docsa
 
         public void OnStartButtonClicked()
         {
-            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             if (ConnectTask != null && !ConnectTask.IsCompleted)
             {
                 PleaseWaitNotification.OpenNotification();
@@ -133,7 +134,7 @@ namespace Docsa
 
         public void OnQuitButtonClicked()
         {
-            SoundManager.instance.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
     #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
     #else

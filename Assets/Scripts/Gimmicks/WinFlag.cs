@@ -24,7 +24,7 @@ namespace Docsa.Gimmick
             if (!Started) return;
         
             if (ClearAudioClip && ClearSoundArg)
-                SoundManager.instance.Play(ClearAudioClip, ClearSoundArg);
+                GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>().Play(ClearAudioClip, ClearSoundArg);
             StageManager.instance.Clear();
         }
     }

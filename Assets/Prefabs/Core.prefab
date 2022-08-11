@@ -1816,7 +1816,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7925703249671565518}
   - component: {fileID: 8773258883084367249}
-  - component: {fileID: 8450310507686348847}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -1853,24 +1852,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageSceneNameList: 000000000100000002000000030000000400000005000000
   CurrentStage: {fileID: 0}
---- !u!114 &8450310507686348847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207215961988056437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 8773258883084367249}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &2215846729888831609
 GameObject:
   m_ObjectHideFlags: 0
@@ -9604,7 +9585,6 @@ GameObject:
   - component: {fileID: 2394096168770809714}
   - component: {fileID: 2394096168770809713}
   - component: {fileID: 2394096168770809717}
-  - component: {fileID: 2303686033627186585}
   m_Layer: 5
   m_Name: ESCUI
   m_TagString: Untagged
@@ -9712,24 +9692,6 @@ MonoBehaviour:
   DocsaAttendToggle: {fileID: 2394096168365975990}
   ViewerAssignUI: {fileID: 2394096168273103214}
   isOn: 0
---- !u!114 &2303686033627186585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2394096168770809712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 2394096168770809717}
-  HashID: 
-  DestroyGameObject: {fileID: 2394096168770809712}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &2394096168770975579
 GameObject:
   m_ObjectHideFlags: 0
@@ -9858,7 +9820,6 @@ GameObject:
   - component: {fileID: 2394096168776148953}
   - component: {fileID: 2394096168776148955}
   - component: {fileID: 2394096168776148954}
-  - component: {fileID: 7065865243501673245}
   m_Layer: 0
   m_Name: Event System
   m_TagString: Untagged
@@ -9925,24 +9886,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
---- !u!114 &7065865243501673245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2394096168776148952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 2394096168776148954}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 1
 --- !u!1 &2394096168814888128
 GameObject:
   m_ObjectHideFlags: 0
@@ -10871,7 +10814,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783277710386316120}
-  - component: {fileID: 1964555036264351111}
   m_Layer: 0
   m_Name: ObjectPools
   m_TagString: Untagged
@@ -10900,24 +10842,6 @@ Transform:
   m_Father: {fileID: 6925373776590061917}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1964555036264351111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783277710386316126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 2
-  TargetComponent: {fileID: 2783277710386316120}
-  HashID: ObjectPools
-  DestroyGameObject: {fileID: 2783277710386316126}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &2796118900740330061
 GameObject:
   m_ObjectHideFlags: 0
@@ -12057,7 +11981,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4660938198138879504}
   - component: {fileID: 4660938198138879505}
-  - component: {fileID: 1923009167611850148}
   m_Layer: 0
   m_Name: TwitchChat
   m_TagString: Untagged
@@ -12098,24 +12021,6 @@ MonoBehaviour:
   PortNumber: 6667
   CheckingConnectivityTimeLimit: 5
   Connected: 0
---- !u!114 &1923009167611850148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660938198138879506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 4660938198138879505}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &4664905836446398174
 GameObject:
   m_ObjectHideFlags: 0
@@ -12262,7 +12167,6 @@ GameObject:
   - component: {fileID: 6498803396998777583}
   - component: {fileID: 1796347375584066244}
   - component: {fileID: 2210516235696294401}
-  - component: {fileID: 8336379426986605545}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -12318,24 +12222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b0fae7b5d602e488c6a2922d944c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8336379426986605545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674743461240989807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 1796347375584066244}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &4815390111730624615
 GameObject:
   m_ObjectHideFlags: 0
@@ -12346,7 +12232,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8527293321026914180}
   - component: {fileID: 3151807383302711783}
-  - component: {fileID: 6506521430487618683}
   m_Layer: 0
   m_Name: FloatingTextManager
   m_TagString: Untagged
@@ -12382,24 +12267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatingTextPref: {fileID: 8497800925434638349, guid: 41a66b944616142a09d178630ebb6c91, type: 3}
---- !u!114 &6506521430487618683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4815390111730624615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 3151807383302711783}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &4924321810662587526
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,10 +12803,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7513225694986824280}
   - component: {fileID: 5688480964698273023}
-  - component: {fileID: 7227429972868124186}
   m_Layer: 0
   m_Name: SoundManager
-  m_TagString: Untagged
+  m_TagString: SoundManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12975,24 +12841,6 @@ MonoBehaviour:
   WorldAudioSourceCount: 5
   backGroundMusicClip: {fileID: 8300000, guid: 754b1aa045376724797a2cc7574ae1fb, type: 3}
   BackGroundAudioSource: {fileID: 2586358146367007792}
---- !u!114 &7227429972868124186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146925801287663855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 5688480964698273023}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &7225457864440570663
 GameObject:
   m_ObjectHideFlags: 0
@@ -13218,7 +13066,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7774561233043612764}
   - component: {fileID: 385718208361232779}
-  - component: {fileID: 848061094106786720}
   m_Layer: 0
   m_Name: DocsaSakkiManager
   m_TagString: Untagged
@@ -13265,24 +13112,6 @@ MonoBehaviour:
     values: []
   DocsaCanAttend: 1
   WaitingViewerLimit: 20
---- !u!114 &848061094106786720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7683900372653514348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 385718208361232779}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &8003713676475260759
 GameObject:
   m_ObjectHideFlags: 0
@@ -13293,7 +13122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4628122465523233376}
   - component: {fileID: 5807813855723534108}
-  - component: {fileID: 2285809724141439944}
   m_Layer: 0
   m_Name: ESCManager
   m_TagString: Untagged
@@ -13345,24 +13173,6 @@ MonoBehaviour:
       m_Action: ESCInputAction
       m_Flags: 0
     m_Flags: 0
---- !u!114 &2285809724141439944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8003713676475260759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647211ed0408e1648b6775d644c52d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Uniqueness: 1
-  TargetComponent: {fileID: 5807813855723534108}
-  HashID: 
-  DestroyGameObject: {fileID: 0}
-  ReplacePreviousOne: 0
-  DestroyRequiredComponentsAlso: 0
 --- !u!1 &8053001930790002308
 GameObject:
   m_ObjectHideFlags: 0
