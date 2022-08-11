@@ -92,6 +92,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,8 +103,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -123,9 +125,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -648,6 +653,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SwampSwingVine2: -1106987678520523080
+      SwampCoconutCrackedUp: 5910959943769409605
+      SwampSwingVine4: 4974440720936925901
+      SwampAdultCrocodile2: -100779759582677235
+      SwampGrowingPlantTop: 1455512097212062259
+      SwampAdolescentCrocodile1: 5599666984866472843
+      SwampCoconut2: 7049004699024303953
+      SwampAdultCrocodile4: 868802811062516120
+      SwampAdultCrocodile1: 1189608692893037646
+      SwampGrowingPlant3: -3691429667157364155
+      SwampCoconut1: 1940022918537761087
+      SwampAdolescentCrocodile3: 8662064948594205828
+      SwampGrowingPlant1: 6294939663944844073
+      SwampCoconut3: 960610610287583646
+      SwampGrowingPlant5: 8074061129633227977
+      SwampCoconutCrackedDown: -8320479668257447194
+      SwampAdolescentCrocodile2: -5384244489318838827
+      SwampAdultCrocodile3: 7151821144425709221
+      SwampSwingVine3: -4942291305893774149
+      SwampGrowingPlantMiddle: -7381111664581784136
+      SwampGrowingPlant4: -752519341515636885
+      SwampSwingVine1: 2397760980958752381
+      SwampGrowingPlant2: -2741821640216275947
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

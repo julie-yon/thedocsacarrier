@@ -21,7 +21,7 @@ MonoBehaviour:
   contextBackgroundColor: {r: 0.21568628, g: 0.29411766, b: 0.37254903, a: 1}
   buttonThemeType: 0
   buttonFont: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
-  buttonFontSize: 30
+  buttonFontSize: 22.5
   buttonBorderColor: {r: 1, g: 1, b: 1, a: 1}
   buttonFilledColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   buttonTextBasicColor: {r: 1, g: 1, b: 1, a: 1}
@@ -72,7 +72,7 @@ MonoBehaviour:
   notificationTitleColor: {r: 1, g: 1, b: 1, a: 1}
   notificationDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   notificationIconColor: {r: 1, g: 1, b: 1, a: 1}
-  progressBarLabelFont: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c,
+  progressBarLabelFont: {fileID: 11400000, guid: 0bd12275fe39e5c43941d57da00e95e0,
     type: 2}
   progressBarLabelFontSize: 25
   progressBarColor: {r: 1, g: 1, b: 1, a: 1}
@@ -81,7 +81,7 @@ MonoBehaviour:
   progressBarLabelColor: {r: 1, g: 1, b: 1, a: 1}
   scrollbarColor: {r: 1, g: 1, b: 1, a: 1}
   scrollbarBackgroundColor: {r: 1, g: 1, b: 1, a: 0.09803922}
-  sliderLabelFont: {fileID: 11400000, guid: 89df4e102f6e27f46ad52555aef23d2c, type: 2}
+  sliderLabelFont: {fileID: 11400000, guid: 0bd12275fe39e5c43941d57da00e95e0, type: 2}
   sliderLabelFontSize: 24
   sliderThemeType: 0
   sliderColor: {r: 1, g: 1, b: 1, a: 1}

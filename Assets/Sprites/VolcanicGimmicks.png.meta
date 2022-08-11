@@ -158,6 +158,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -167,8 +169,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -189,9 +191,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1176,6 +1181,52 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Basalt2: -1873490070822396552
+      CrackingFloorDownRight2: 5948655865983619416
+      CrackingFloorDownLeft3: 7408982903420349593
+      LavaBottom: 293793022480021506
+      ToxicCloudRight4: -3186370714740179006
+      ToxicCloudRight3: 2978934406205451371
+      Granite4: -6654808678923155679
+      ToxicCloudMiddle3: 3147658399155300696
+      LavaMiddle3: -2291133170354243234
+      CrackingFloorUpLeft3: 3199381591727534711
+      ToxicCloudMiddle4: -1822778793208224705
+      Basalt4: 7032150397246523610
+      LavaMiddle2: 3018543384675749006
+      ToxicCloudLeft1: 1994215950536122248
+      LavaLeft1: 2904371579434771678
+      LavaMiddle1: 2484925050986298137
+      LavaRight4: -1290734263356911878
+      LavaMiddle4: -654543366726810380
+      ToxicCloudRight1: -1449179110697191397
+      LavaRight2: 1974091322729429543
+      CrackingFloorUpLeft1: -652185335151129366
+      CrackingFloorUpRight1: -5667903350019092840
+      ToxicCloudLeft4: 5121870788357785822
+      Basalt1: -2179276579454933294
+      LavaLeft3: -1277394611181651146
+      CrackingFloorDownRight1: 8336794576544599695
+      LavaRight1: -4837540824668568687
+      ToxicCloudMiddle1: -1746788329672674399
+      Granite2: -5254198819120243042
+      ToxicCloudMiddle2: -8007181453942430582
+      Granite3: 4152382643738661123
+      CrackingFloorUpRight2: 2855778366247132609
+      LavaLeft2: 3230721086175330445
+      Granite1: -8938364987833823714
+      LavaLeft4: -1587527423854524886
+      ToxicCloudLeft3: -604656772127413913
+      CrackingFloorUpRight3: -6957113189233483855
+      ToxicCloudRight2: 4420034073580124663
+      CrackingFloorUpLeft2: -5659018268466336644
+      CrackingFloorDownLeft1: 9134111279569402248
+      Basalt3: 1229885492708900912
+      LavaRight3: 7583560234094066635
+      CrackingFloorDownRight3: 8538177316000593208
+      CrackingFloorDownLeft2: -2316176715913242444
+      ToxicCloudLeft2: -4670795718523995791
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
