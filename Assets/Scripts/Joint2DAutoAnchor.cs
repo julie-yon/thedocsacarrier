@@ -21,8 +21,8 @@ namespace dkstlzu.Utility
                 return;
             }
 
-            dynamic jt = Joint;
-            jt.anchor = transform.InverseTransformPoint(Joint.connectedBody.transform.position);
+            // dynamic jt = Joint;
+            // jt.anchor = transform.InverseTransformPoint(Joint.connectedBody.transform.position);
 
             // switch (Joint)
             // {

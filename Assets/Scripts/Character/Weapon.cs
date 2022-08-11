@@ -6,23 +6,18 @@ namespace Docsa.Character
 {
     public class Weapon : Projectile
     {
-        public LayerMask TargetLayerMask;
-
         private List<Hunter> _attackedHunterList = new List<Hunter>();
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
             base.OnCollisionEnter2D(collision);
-            if (1 << collision.gameObject.layer == TargetLayerMask.value)
+            if (_attackedHunterList.Contains(collision.gameObject.GetComponent<Hunter>()))
             {
-                if (_attackedHunterList.Contains(collision.gameObject.GetComponent<Hunter>()))
-                {
-                    return;
-                }
-
-                _attackedHunterList.Add(collision.gameObject.GetComponent<Hunter>());
-                collision.gameObject.GetComponent<Hunter>().GetDamage(DamageValue);
+                return;
             }
+
+            _attackedHunterList.Add(collision.gameObject.GetComponent<Hunter>());
+            collision.gameObject.GetComponent<Hunter>().GetDamage(DamageValue);
         }
 
         protected override void OnEnable()

@@ -10,7 +10,11 @@ namespace Docsa.Character
     [RequireComponent(typeof(CharacterBehaviour))]
     public class Character : MonoBehaviour
     {
-        public CharacterBehaviour Behaviour;
+        [SerializeField] private CharacterBehaviour _behaviour;
+        public CharacterBehaviour Behaviour
+        {
+            get{return _behaviour;}
+        }
         public Transform GrabDocsaPosition;
         public bool isDie = false;
 
@@ -49,8 +53,8 @@ namespace Docsa.Character
 
         protected virtual void Reset()
         {
-            Behaviour = GetComponent<CharacterBehaviour>();
-            Behaviour.Character = this;
+            _behaviour = GetComponent<CharacterBehaviour>();
+            _behaviour.Character = this;
             _maxHP = 100;
             _currentHP = 100;
         }

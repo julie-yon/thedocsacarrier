@@ -8,6 +8,8 @@ namespace  Docsa.Character
 {
     public class UzuHamaBehaviour : CharacterBehaviour
     {
+        public float MoveDirection;
+
         public UzuHama Hama
         {
             get {return (UzuHama)Character;}
@@ -22,6 +24,14 @@ namespace  Docsa.Character
             {
                 Animator.SetBool("Falling", false);
             }
+        }
+
+        void FixedUpdate()
+        {
+            // if (Physics2D.BoxCast(transform.position + new Vector3(0, 0.5f, 0), 
+            //     new Vector2(0.1f, 0.8f), 0, Vector2.right * MoveDirection, 1, 
+            //     ~Physics2D.GetLayerCollisionMask(gameObject.layer)))
+            Move(MoveDirection);
         }
 
         public override void Attack(Vector2 direction)
@@ -64,10 +74,6 @@ namespace  Docsa.Character
         private float noMoveTime = 0;
         public float NoMoveTimeThreshold = 0.3f;
         public float NoMoveThreshold = 0.3f;
-        public GameObject SpriteObject;
-        public Vector2 HamaMoveBoxCastSize = new Vector2(0.1f, 0.8f);
-        public float HamaMoveBoxCastDistance = 1f;
-        public LayerMask UzuhamaCollisionLayerMask;
 
         public override void Move(float moveDirection)
         {
@@ -98,7 +104,6 @@ namespace  Docsa.Character
             {
                 Animator.SetBool(MoveBoolName, true);
             }
-
         }
 
         public Vector2 GrabDocsaBoxCastSize = new Vector2(2, 2);

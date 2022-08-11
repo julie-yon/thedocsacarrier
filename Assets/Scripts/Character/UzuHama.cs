@@ -13,6 +13,11 @@ namespace Docsa.Character
     [RequireComponent(typeof(UzuHamaBehaviour))]
     public class UzuHama : Character
     {
+        public new UzuHamaBehaviour Behaviour
+        {
+            get {return (UzuHamaBehaviour)base.Behaviour;}
+        }
+
         public static UzuHama Hama
 
         {
@@ -23,16 +28,10 @@ namespace Docsa.Character
             get {return GetComponentInChildren<Baguni>();}
         }
         
-        float moveDirection;
         public IInteractable Interactable;
         public Animator EButtonAnimator;
 
         public int RescuedDocsaNumger = 0;
-
-        private UzuHamaBehaviour HamaBehaviour
-        {
-            get {return (UzuHamaBehaviour)Behaviour;}
-        }
 
         private Core _core;
         protected override void Awake()
@@ -44,7 +43,7 @@ namespace Docsa.Character
             _core.InputAsset.Player.Move.canceled += HamaMove;
             _core.InputAsset.Player.Jump.performed += HamaJump;
             _core.InputAsset.Player.Fire.performed += HamaAttack;
-            _core.InputAsset.Player.GrabDocsa.performed += HamaBehaviour.GrabDocsa;
+            _core.InputAsset.Player.GrabDocsa.performed += Behaviour.GrabDocsa;
             _core.InputAsset.Player.Interact.performed += Interact;
         }
 
@@ -54,27 +53,20 @@ namespace Docsa.Character
             _core.InputAsset.Player.Move.canceled -= HamaMove;
             _core.InputAsset.Player.Jump.performed -= HamaJump;
             _core.InputAsset.Player.Fire.performed -= HamaAttack;
-            _core.InputAsset.Player.GrabDocsa.performed -= HamaBehaviour.GrabDocsa;
+            _core.InputAsset.Player.GrabDocsa.performed -= Behaviour.GrabDocsa;
             _core.InputAsset.Player.Interact.performed -= Interact;
         }
 
-        void FixedUpdate()
-        {
-            if (!PhysicsHelper.BoxCast(Hama.transform.position + new Vector3(0, 0.5f, 0), 
-                HamaBehaviour.HamaMoveBoxCastSize, 0, Vector2.right * moveDirection, 
-                HamaBehaviour.HamaMoveBoxCastDistance, 
-                HamaBehaviour.UzuhamaCollisionLayerMask))
-            HamaBehaviour.Move(moveDirection);
-        }
+
 
         void HamaMove(Context context)
         {
             if (context.performed)
             {
-                moveDirection = context.ReadValue<float>();
+                Behaviour.MoveDirection = context.ReadValue<float>();
             } else if (context.canceled)
             {
-                moveDirection = 0;
+                Behaviour.MoveDirection = 0;
             }
         }
 
@@ -86,18 +78,18 @@ namespace Docsa.Character
             if (_hit && _hit.distance < 0.4)
             {
                 //Debug.Log(_hit.distance);
-                HamaBehaviour.JumpCount = 0;
+                Behaviour.JumpCount = 0;
             }
         }
 
         void HamaJump(Context context)
         {
-            HamaBehaviour.Jump();
+            Behaviour.Jump();
         }
         
         void HamaAttack(Context context)
         {
-            HamaBehaviour.Attack(Mouse.current.position.ReadValue());
+            Behaviour.Attack(Mouse.current.position.ReadValue());
         }
 
         void Interact(Context context)
