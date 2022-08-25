@@ -56,7 +56,8 @@ namespace Docsa
             if (docsaListItem)
             {
                 docsaListItem.DocsaData = newData;
-                docsaListItem.DragAndDropableUI.CanvasScaleFactor = transform.root.GetComponent<CanvasScaler>().scaleFactor;
+                // Should Check and Fix
+                // docsaListItem.DragAndDropableUI.CanvasScaleFactor = transform.root.GetComponent<CanvasScaler>().scaleFactor;
                 docsaListItem.Text.text = newData.Author;
             }
 
