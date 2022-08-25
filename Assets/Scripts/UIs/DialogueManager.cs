@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 using Michsky.UI.ModernUIPack;
+using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
 
 using TMPro;
 
@@ -17,15 +18,9 @@ namespace dkstlzu.Utility
             get {return _dialogue;}
             set 
             {
-                _currentDialogueIndex = 0;
-                DialogueName = value.Name;
-                DialogueMessage = value.Message[_currentDialogueIndex];
-                if (value.LeftSpeakerSprite != null)
-                    LeftSpeakerImage = value.LeftSpeakerSprite;
-                if (value.RightSpeakerSprite != null)
-                    RightSpeakerImage = value.RightSpeakerSprite;
                 _dialogue = value;
-                _previousDialogue = value;
+                LeftSpeakerImage = value.LeftSpeakerSprite;
+                RightSpeakerImage = value.RightSpeakerSprite;
             }
         }
 
@@ -43,85 +38,81 @@ namespace dkstlzu.Utility
 
         public Sprite LeftSpeakerImage {set {_leftSpeakerImage.sprite = value;}}
         public Sprite RightSpeakerImage {set {_rightSpeakerImage.sprite = value;}}
-        public int CurrentDialogueIndex {get {return _currentDialogueIndex;}}
-        public bool isOpened {get {return DialogueObject.activeSelf;}}
+        public Sprite SpriteImage {set {_itemImage.sprite = value;}}
+        public int CurrentDialogueIndex => _currentDialogueIndex;
+        public bool isOpened => DialogueOpener.isOpened;
+        
+        public InputAction NextDialogueInputAction;
 
         [Header("Dialogue UI Object")]
-        public GameObject DialogueObject;
-        public ButtonManagerBasic ContinueButton;
+        public ObjectOpenClose DialogueOpener;
         [SerializeField] private TextMeshProUGUI DialogueNameUI;
         [SerializeField] private TextMeshProUGUI DialogueMessageUI;
+        [SerializeField] private Image _leftSpeakerImage;
+        [SerializeField] private Image _rightSpeakerImage;
+        [SerializeField] private Image _itemImage;
 
         [Header("Dialogue ScriptableObject")]
         [SerializeField] private DialogueScriptable _dialogue;
-        private DialogueScriptable _previousDialogue;
+        public DialogueItem CurrentDialogueItem;
+        private DialogueItem _previousDialogueItem;
         [SerializeField] private int _currentDialogueIndex = -1;
-        [SerializeField] private Image _leftSpeakerImage;
-        [SerializeField] private Image _rightSpeakerImage;
 
         void Awake()
         {
-            Dialogue = _dialogue;
+            NextDialogueInputAction.performed += NextDialogue;
+            DialogueOpener.AfterOpen += () => NextDialogueInputAction.Enable();
+            DialogueOpener.OnClose += () => NextDialogueInputAction.Disable();
         }
 
-        void Update()
+        public void Open()
         {
-            if (isOpened)
-            {
-                if (Keyboard.current.enterKey.wasPressedThisFrame)
-                {
-
-                }
-            }
+            DialogueOpener.Open();
+            _currentDialogueIndex = 0;
         }
 
-        void OnValidate()
+        public void Close()
         {
-            if (DialogueObject != null)
-            {
-                ContinueButton = DialogueObject.GetComponentInChildren<ButtonManagerBasic>();
-                var texts = DialogueObject.GetComponentsInChildren<TextMeshProUGUI>();
-                DialogueNameUI = texts[0];
-                DialogueMessageUI = texts[1];
-            }
-            
-            if (_dialogue != null && !_dialogue.Equals(_previousDialogue))
-            {
-                Dialogue = _dialogue;
-            }
+            DialogueOpener.Close();
         }
 
-        public void OpenDialogue()
+        public void NextDialogue(Context context)
         {
-            Dialogue = Dialogue;
-            DialogueObject.SetActive(true);
-        }
-
-        public void CloseDialogue()
-        {
-            DialogueObject.SetActive(false);
+            OnContinueButtonClicked();
         }
 
         public virtual void OnContinueButtonClicked()
         {
             _currentDialogueIndex++;
 
-            if (Dialogue.Message.Count <= _currentDialogueIndex)
+            if (Dialogue.ItmeList.Count <= _currentDialogueIndex)
             {
-                if (Dialogue.NextDialogue != null)
+                if (Dialogue.NextDialogue == null)
+                {
+                    Close();
+                    return;
+                } else
                 {
                     Dialogue = Dialogue.NextDialogue;
+                    _previousDialogueItem = null;
+                    _currentDialogueIndex = 0;
                 }
-                else
-                {
-                    DialogueObject.SetActive(false);
-                }
-                return;
             } else
             {
-                DialogueName = Dialogue.Name;
-                DialogueMessage = Dialogue.Message[_currentDialogueIndex];
+                _previousDialogueItem = CurrentDialogueItem;
             }
+
+            CurrentDialogueItem = Dialogue.ItmeList[CurrentDialogueIndex];
+            SetDatas();
+        }
+
+        void SetDatas()
+        {
+            _leftSpeakerImage.enabled = CurrentDialogueItem.LeftSpeakerImageOn;
+            _rightSpeakerImage.enabled = CurrentDialogueItem.RightSpeakerImageOn;
+            DialogueName = CurrentDialogueItem.Name;
+            DialogueMessage = CurrentDialogueItem.Message;
+            _itemImage.sprite = CurrentDialogueItem.Sprite;
         }
     }
 }

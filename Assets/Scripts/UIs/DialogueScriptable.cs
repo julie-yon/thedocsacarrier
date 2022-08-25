@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,22 @@ namespace dkstlzu.Utility
     [System.Serializable]
     public class DialogueScriptable : ScriptableObject
     {
-        public string Name;
-        [TextArea(3, 10)]
-        public List<string> Message;
+        public List<DialogueItem> ItmeList;
         public DialogueScriptable NextDialogue;
         public Sprite LeftSpeakerSprite;
         public Sprite RightSpeakerSprite;
 
+    }
+
+    [System.Serializable]
+    public class DialogueItem
+    {
+        public string Name;
+        [TextArea(3, 10)]
+        public string Message;
+        public bool LeftSpeakerImageOn;
+        public bool RightSpeakerImageOn;
+        public Sprite Sprite;
+        public Action OnItemShow;
     }
 }
