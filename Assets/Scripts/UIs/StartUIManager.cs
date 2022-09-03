@@ -52,38 +52,34 @@ namespace Docsa
             LoadingNotification.timer = TwitchChat.instance.CheckingConnectivityTimeLimit;
         }
 
-        void Start()
-        {
-        }
-
         public void OnChnnelNameInputSelected()
         {
-            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_chnnelNameInputSelectedFirstTime)
             {
                 _chnnelNameInputSelectedFirstTime = false;
                 ChannelNameInputField.text = DefaultChannelName;
             }
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
         }
 
         public void OnUserNameInputSelected()
         {
-            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_userNameInputSelectedFirstTime)
             {
                 _userNameInputSelectedFirstTime = false;
                 UserNameInputField.text = DefaultUserName;
             }
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
         }
 
         public void OnOAuthInputSelected()
         {
-            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
             if (_oauthInputSelectedFirstTime)
             {
                 _oauthInputSelectedFirstTime = false;
                 OAuthInputField.text = DefaultOAuth;
             }
+            SoundManager.Play(OnInputSelectedAudioClip, OnInputSelectedSoundArg);
 
             if (!_oauthAuthenticationConfirmed)
             {
@@ -93,15 +89,15 @@ namespace Docsa
 
         public void OnOAuthModalWindowConfirm()
         {
-            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
             Application.OpenURL("https://twitchapps.com/tmi/");
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
         }
 
         public void OnOAuthModalWindowIgnore()
         {
-            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             _oauthAuthenticationConfirmed = true;
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
         }
 
         public void OnStartButtonHovered()
@@ -114,7 +110,6 @@ namespace Docsa
 
         public void OnStartButtonClicked()
         {
-            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
             if (ConnectTask != null && !ConnectTask.IsCompleted)
             {
                 PleaseWaitNotification.OpenNotification();
@@ -130,6 +125,7 @@ namespace Docsa
 
 
             TwitchChat.instance.ConnectAsync();
+            SoundManager.Play(OnButtonClickedAudioClip, OnButtonClickedSoundArg);
         }
 
         public void OnQuitButtonClicked()

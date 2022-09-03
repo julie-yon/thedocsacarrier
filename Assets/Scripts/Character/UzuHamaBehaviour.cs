@@ -8,7 +8,7 @@ namespace  Docsa.Character
 {
     public class UzuHamaBehaviour : CharacterBehaviour
     {
-        public float MoveDirection;
+        public Vector2 MoveDirection;
 
         public UzuHama Hama
         {
@@ -28,9 +28,6 @@ namespace  Docsa.Character
 
         void FixedUpdate()
         {
-            // if (Physics2D.BoxCast(transform.position + new Vector3(0, 0.5f, 0), 
-            //     new Vector2(0.1f, 0.8f), 0, Vector2.right * MoveDirection, 1, 
-            //     ~Physics2D.GetLayerCollisionMask(gameObject.layer)))
             Move(MoveDirection);
         }
 
@@ -71,11 +68,21 @@ namespace  Docsa.Character
             base.Jump();
         }
 
+        void OnCollisionEnter2D(Collision2D other)
+        {
+            RaycastHit2D _hit;
+            _hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, LayerMask.GetMask("Ground"));
+            if (_hit && _hit.distance < 0.4)
+            {
+                JumpCount = 0;
+            }
+        }
+
         private float noMoveTime = 0;
         public float NoMoveTimeThreshold = 0.3f;
         public float NoMoveThreshold = 0.3f;
 
-        public override void Move(float moveDirection)
+        public override void Move(Vector2 moveDirection)
         {
             if (_rigidbody.velocity.magnitude < NoMoveThreshold)
             {
@@ -85,21 +92,17 @@ namespace  Docsa.Character
                 noMoveTime = 0f;
             }
 
-            if(_rigidbody.velocity.x > MaxSpeed) //Right Max Speed
-                _rigidbody.velocity = new Vector2(MaxSpeed, _rigidbody.velocity.y);
-            else if(_rigidbody.velocity.x < MaxSpeed * (-1)) //Left Max Speed
-                _rigidbody.velocity = new Vector2(MaxSpeed * (-1), _rigidbody.velocity.y);
-
-
+            _rigidbody.velocity = new Vector2(Mathf.Clamp(_rigidbody.velocity.x, -MaxSpeed, MaxSpeed), _rigidbody.velocity.y);
 
             if (Core.instance.InputAsset.Player.Move.IsPressed())
-                Animator.SetFloat(BlendValueName, Mathf.Clamp(_rigidbody.velocity.x, -3, 3) == 0 ? 0.2f : _rigidbody.velocity.x);
-
-            _rigidbody.AddForce(Vector2.right * MoveAcceleration * moveDirection, ForceMode2D.Impulse);
-            if (moveDirection == 0)
             {
-                if (noMoveTime > NoMoveTimeThreshold)
-                    Animator.SetBool(MoveBoolName, false);
+                Animator.SetFloat(BlendValueName, Mathf.Abs(_rigidbody.velocity.x / MaxSpeed) < 0.1f ? 0.1f : _rigidbody.velocity.x / MaxSpeed);
+            }
+
+            _rigidbody.AddForce(MoveAcceleration * moveDirection, ForceMode2D.Impulse);
+            if (moveDirection.magnitude == 0 && noMoveTime > NoMoveTimeThreshold)
+            {
+                Animator.SetBool(MoveBoolName, false);
             } else
             {
                 Animator.SetBool(MoveBoolName, true);
@@ -107,7 +110,6 @@ namespace  Docsa.Character
         }
 
         public Vector2 GrabDocsaBoxCastSize = new Vector2(2, 2);
-        public GameObject GrabDocsaRagDoll;
         public void GrabDocsa(Context context)
         {
             RaycastHit2D hit2D = Physics2D.BoxCast(Hama.transform.position, GrabDocsaBoxCastSize, 0, Vector2.right, 0, GrabDocsaLayerMask);

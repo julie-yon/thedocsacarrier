@@ -13,7 +13,7 @@ namespace Docsa.Character
         void FixedUpdate()
         {
             PhysicsHelper.BoxCast(transform.position + new Vector3(0, 0.5f, 0), 
-                HamaMoveBoxCastSize, 0, Vector2.right * Behaviour.MoveDirection, 
+                HamaMoveBoxCastSize, 0, Behaviour.MoveDirection, 
                 HamaMoveBoxCastDistance, 
                 ~Physics2D.GetLayerCollisionMask(gameObject.layer));
         }

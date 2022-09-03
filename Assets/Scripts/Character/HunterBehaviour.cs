@@ -24,14 +24,5 @@ namespace  Docsa.Character
 
             ObjectPool.GetOrCreate(WeaponType).Instantiate(ProjectileEmitter.position, Quaternion.identity, preInitiater);
         }
-
-        public override void Jump()
-        {
-            if (JumpCount < MaxJumps)
-            {
-                _rigidbody.AddForce(transform.up * JumpPower, ForceMode2D.Impulse);
-                Animator.SetTrigger(JumpTriggerName);
-            }
-        }
     }
 }

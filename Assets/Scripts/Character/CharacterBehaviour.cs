@@ -97,17 +97,17 @@ namespace  Docsa.Character
 
         public virtual void Jump()
         {
-            JumpCount++;
-            if (JumpCount <= MaxJumps)
+            if (JumpCount < MaxJumps)
             {
+                JumpCount++;
                 _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
                 Animator.SetTrigger(JumpTriggerName);
             }
         }
 
-        public virtual void Move(float moveDirection)
+        public virtual void Move(Vector2 moveDirection)
         {
-            transform.Translate(new Vector3(moveDirection, 0, 0));
+            transform.Translate(moveDirection);
         }
 
         public LayerMask GrabDocsaLayerMask;

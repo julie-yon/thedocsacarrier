@@ -12,79 +12,39 @@ namespace Docsa.Character
 {
     public class Baguni : MonoBehaviour
     {
-        public GameObject Bucket;
-        public GameObject BucketCap;
-        public AnimationCurve BucketCurve;
-
-        [SerializeField] private BGCurve BaguniBGCurve;
-
-        private float _hamaVelocityMinY = -2f;
-        private float _hamaVelocityMaxY = 2f;
+        public Transform TargetTransform;
+        Queue<Vector3> _HamaPositionQueue = new Queue<Vector3>();
+        Vector3 _lastHamaPosition;
+        Vector3 _nextTargetPosition;
+        public float HamaPositionStep = 0.01f;
+        public float QueueFlushSize = 30;
+        public float FollowSpeed = 1f;
 
         void Awake()
         {
-            BGmath = BaguniBGCurve.GetComponent<BGCcMath>();
-            BGcursor = BaguniBGCurve.GetComponent<BGCcCursor>();
-            Core.instance.InputAsset.Player.Baguni.performed += SetBaguniTargetPosition;
+            _HamaPositionQueue.Enqueue(TargetTransform.position);
+            _lastHamaPosition = TargetTransform.position;
         }
 
         void FixedUpdate()
         {
-            AdjustBucketPosition();
-            AdjustBaguniPosition();
+            FollowHama();
         }
 
-        public void OnOff()
+        void FollowHama()
         {
-            foreach (var col in GetComponentsInChildren<Collider2D>())
+            if ((TargetTransform.position - _lastHamaPosition).magnitude >= HamaPositionStep)
             {
-                col.enabled = !col.enabled;
-            }
-        }
-
-        private void AdjustBucketPosition()
-        {
-            Vector2 hamaVelocity = UzuHama.Hama.Behaviour.CurrentVelocity;
-
-            float velocityYRatio = Mathf.Clamp01((hamaVelocity.y - _hamaVelocityMinY) / (_hamaVelocityMaxY - _hamaVelocityMinY));
-            Vector3 targetPosition =  new Vector3(Bucket.transform.localPosition.x, Mathf.SmoothStep(Bucket.transform.localPosition.y, BucketCurve.Evaluate(velocityYRatio), 0.5f), Bucket.transform.localPosition.z);
-            Bucket.transform.localPosition = targetPosition;
-        }
-
-        BGCcCursor BGcursor;
-        BGCcMath BGmath;
-        public AnimationCurve BaguniAnimationCurve;
-        public float BaguniAdjustTime;
-        private float BaguniAdjustingTime = 0;
-        private void AdjustBaguniPosition()
-        {
-            if (BaguniAdjustingTime > BaguniAdjustTime) return;
-
-            BaguniAdjustingTime += Time.deltaTime;
-            BGcursor.Distance = BaguniAnimationCurve.Evaluate(BaguniAdjustingTime);
-        }
-
-        private void SetBaguniTargetPosition(Context context)
-        {
-            if (!PerkManager.instance.Data.UzuhamaBaguniPerk.enabled)
-            {
-                PerkManager.instance.Data.UzuhamaBaguniPerk.PrintCannotMessage(UzuHama.Hama.transform.position);
-                return;
+                _lastHamaPosition = TargetTransform.position;
+                _HamaPositionQueue.Enqueue(TargetTransform.position);
             }
 
-            float distance;
-            BGmath.CalcPositionByClosestPoint(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), out distance);
-            int coefficient;
-            if (BGcursor.Distance < distance)
+            if (_HamaPositionQueue.Count > QueueFlushSize)
             {
-                coefficient = 1;
-            } else
-            {
-                coefficient = -1;
+                _nextTargetPosition = _HamaPositionQueue.Dequeue();
             }
-            BaguniAnimationCurve.MoveKey(0, new Keyframe(0, BGcursor.Distance, 0, 1/BaguniAdjustTime * coefficient));
-            BaguniAnimationCurve.MoveKey(1, new Keyframe(BaguniAdjustTime, distance, 0, 0));
-            BaguniAdjustingTime = 0;
+
+            transform.position = Vector2.MoveTowards(transform.position, _nextTargetPosition, FollowSpeed);
         }
     }
 }  

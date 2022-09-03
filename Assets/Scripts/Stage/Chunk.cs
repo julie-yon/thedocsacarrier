@@ -40,57 +40,92 @@ namespace Docsa
 
             switch(chunkID)
             {
-                // ForestChunk1
+                // Cave
                 case 10 :
                     CheckMethod = (chunk) => 
                     {
                         return true;
                     };
                 break;
-                // ForestChunk2
-                case 11 :
-                    CheckMethod = (chunk) => 
-                    {
-                        return UzuHama.Hama.RescuedDocsaNumger > 0;
-                    };
-                break;
-                // ForestChunk3
-                case 12 :
-                    CheckMethod = (chunk) => 
-                    {
-                        return UzuHama.Hama.RescuedDocsaNumger > 0;
-                    };
-                break;
-                // ForestChunk4
-                case 13 :
-                    CheckMethod = (chunk) => 
-                    {
-                        return UzuHama.Hama.RescuedDocsaNumger > 1;
-                    };
-                break;
-                // VolcanoChunk1
+                // ForestChunk1
                 case 20 :
                     CheckMethod = (chunk) => 
                     {
                         return true;
                     };
                 break;
-                // VolcanoChunk2
+                // ForestChunk2
                 case 21 :
                     CheckMethod = (chunk) => 
                     {
                         return true;
                     };
                 break;
-                // VolcanoChunk3
+                // ForestChunk3
                 case 22 :
                     CheckMethod = (chunk) => 
                     {
                         return true;
                     };
                 break;
-                // VolcanoChunk4
+                // ForestChunk4
                 case 23 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk1
+                case 30 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk2
+                case 31 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk3
+                case 32 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // VolcanoChunk4
+                case 33 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // SwampChunk1
+                case 40 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // SwampChunk2
+                case 41 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // SwampChunk3
+                case 42 :
+                    CheckMethod = (chunk) => 
+                    {
+                        return true;
+                    };
+                break;
+                // SwampChunk4
+                case 43 :
                     CheckMethod = (chunk) => 
                     {
                         return true;

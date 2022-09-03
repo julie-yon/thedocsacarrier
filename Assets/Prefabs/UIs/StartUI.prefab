@@ -1926,7 +1926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 352.26334, y: 0}
+  m_AnchoredPosition: {x: 960, y: 0}
   m_SizeDelta: {x: 826, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7863434846462664769
@@ -3543,8 +3543,8 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: OnOAuthInputSelected
         m_Mode: 1
         m_Arguments:
@@ -3567,8 +3567,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: CheckEnableStartButton
         m_Mode: 1
         m_Arguments:
@@ -5421,6 +5421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb899da54a872949bad8d93b55ef774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManager: {fileID: 0}
   StartButton: {fileID: 7863434847542435045}
   ChannelNameInputField: {fileID: 7863434847280121705}
   UserNameInputField: {fileID: 7863434847772518650}
@@ -6203,8 +6204,8 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: OnChnnelNameInputSelected
         m_Mode: 1
         m_Arguments:
@@ -6227,8 +6228,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: CheckEnableStartButton
         m_Mode: 1
         m_Arguments:
@@ -7312,8 +7313,8 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: OnStartButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -7327,8 +7328,8 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: OnStartButtonHovered
         m_Mode: 1
         m_Arguments:
@@ -8559,8 +8560,8 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: OnUserNameInputSelected
         m_Mode: 1
         m_Arguments:
@@ -8583,8 +8584,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 7188951605549246693}
+        m_TargetAssemblyTypeName: Docsa.StartUIManager, Assembly-CSharp
         m_MethodName: CheckEnableStartButton
         m_Mode: 1
         m_Arguments:

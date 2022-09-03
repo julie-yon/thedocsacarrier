@@ -7,7 +7,6 @@ using UnityEditor;
 namespace Docsa.Character
 {
 
-    [RequireComponent(typeof(CharacterBehaviour))]
     public class Character : MonoBehaviour
     {
         [SerializeField] private CharacterBehaviour _behaviour;

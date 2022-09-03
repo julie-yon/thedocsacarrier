@@ -58,27 +58,14 @@ namespace Docsa.Character
         }
 
 
-
         void HamaMove(Context context)
         {
             if (context.performed)
             {
-                Behaviour.MoveDirection = context.ReadValue<float>();
+                Behaviour.MoveDirection = Vector2.right * context.ReadValue<float>();
             } else if (context.canceled)
             {
-                Behaviour.MoveDirection = 0;
-            }
-        }
-
-        private void OnCollisionStay2D(Collision2D other)
-        {
-            RaycastHit2D _hit;
-            _hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, 1<<17);
-            //Debug.Log(_hit.distance);
-            if (_hit && _hit.distance < 0.4)
-            {
-                //Debug.Log(_hit.distance);
-                Behaviour.JumpCount = 0;
+                Behaviour.MoveDirection = Vector2.zero;
             }
         }
 

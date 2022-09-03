@@ -9,11 +9,17 @@ namespace Docsa
 {
     public enum StageName
     {
+        [StringValue("StartScene")]
         StartScene,
+        [StringValue("Cave")]
         Cave,
+        [StringValue("Stage1")]
         Stage1,
+        [StringValue("Stage2")]
         Stage2,
+        [StringValue("Stage3")]
         Stage3,
+        [StringValue("Stage4")]
         Stage4,
         Test,
     }
@@ -29,6 +35,8 @@ namespace Docsa
 
         void LoadScene(Scene scene, LoadSceneMode mode)
         {
+            CurrentStage = GameObject.FindObjectOfType<Stage>();
+            
             if (CurrentStage)
                 ResourceLoader.GetLoader<DocsaSoundNaming>().Load(CurrentStage.StageNumber);
         }

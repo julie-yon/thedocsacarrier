@@ -9,36 +9,34 @@ namespace Docsa
     public class ESCUIManager : Singleton<ESCUIManager>
     {
         [SerializeField] private Core _core;
+        public ObjectOpenClose UIOpener;
         public WindowManager WM;
         public SliderManager SoundSlider;
         public Toggle DocsaAttendToggle;
         public ViewerAssignUIManager ViewerAssignUI;
 
-        public bool isOn;
+        public bool isOn => UIOpener.isOpened;
 
         void Awake()
         {
             _core.InputAsset.Player.ESC.performed += OnESCPerformed;
+            UIOpener.OnOpen += () => _core.AdjustInputAsset();
+            UIOpener.OnClose += () => _core.AdjustInputAsset();
         }
 
         void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            if (!isOn) OpenUI();
-            ESCManager.instance.AddItem("ESCUI", () => CloseUI(), 10);
+            if (ESCManager.instance.isEmpty) UIOpener.Open();
         }
 
         public void OpenUI()
         {
-            isOn = true;
-            WM.gameObject.SetActive(true);
-            _core.AdjustInputAsset();
+            UIOpener.Open();
         }
 
         public void CloseUI()
         {
-            isOn = false;
-            WM.gameObject.SetActive(false);
-            _core.AdjustInputAsset();
+            UIOpener.Close();
         }
 
         /// <summary>

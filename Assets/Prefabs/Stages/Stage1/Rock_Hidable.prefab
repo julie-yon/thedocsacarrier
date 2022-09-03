@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8027805653440791953}
   - component: {fileID: 7130004535928495881}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: RockObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1888537367508070531}
   m_RootOrder: 0
@@ -42,10 +43,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -70,8 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
+  m_Sprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +96,7 @@ GameObject:
   - component: {fileID: 6136456272923012222}
   - component: {fileID: 8860998513536106687}
   - component: {fileID: 5706793212296062836}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Rock_Hidable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8027805653440791953}
   m_Father: {fileID: 0}
@@ -138,6 +141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8860998513536106687}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Invoke
         m_Mode: 0
         m_Arguments:
@@ -155,6 +159,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8860998513536106687}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ResetGimmick
         m_Mode: 0
         m_Arguments:
@@ -165,6 +170,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTriggerEnterGOEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerStayGOEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExitGOEvent:
+    m_PersistentCalls:
+      m_Calls: []
   Collider: {fileID: 0}
   Collider2D: {fileID: 5706793212296062836}
   Childs: []
@@ -184,10 +198,8 @@ MonoBehaviour:
   StartOnAwake: 0
   Activated: 0
   Started: 0
-  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
-  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7,
-    type: 3}
+  RockSprite: {fileID: -1170466538896695999, guid: 914f8841968679e41aca821f6599b3d7, type: 3}
+  RockSprite_Transparent: {fileID: 1895336349142949671, guid: 914f8841968679e41aca821f6599b3d7, type: 3}
   Renderer: {fileID: 7130004535928495881}
   ET: {fileID: 6136456272923012222}
 --- !u!61 &5706793212296062836

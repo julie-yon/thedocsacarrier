@@ -9,19 +9,27 @@ namespace Docsa.Gimmick
     {
         public List<Gimmick> Gimmicks;
 
+#if UNITY_EDITOR
         void Reset()
         {
             GetComponent<EventTrigger>().AddEnterEvent(Activate);
         }
+#endif
 
         [ContextMenu("ActivateGimmicks")]
-        void Activate()
+        public void Activate()
         {
+            string message = string.Empty;
+            message += "GimmickActivator " + gameObject.name + "\n";
+
             foreach (Gimmick G in Gimmicks)
             {
                 if (!G) continue;
+                message += G.gameObject.name + "\n";
                 G.Activate();
             }
+
+            print(message);
         }
     }
 }

@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2701618276466525328}
   m_Father: {fileID: 0}
@@ -50,12 +51,13 @@ MonoBehaviour:
   isReady: 1
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 64
   PlayOnlyFirst: 1
   OnTriggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6503036084578974037}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Invoke
         m_Mode: 0
         m_Arguments:
@@ -70,6 +72,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerEnterGOEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerStayGOEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExitGOEvent:
     m_PersistentCalls:
       m_Calls: []
   Collider: {fileID: 0}
@@ -146,6 +157,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1744247156757027011}
   m_RootOrder: 0
@@ -161,10 +173,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
