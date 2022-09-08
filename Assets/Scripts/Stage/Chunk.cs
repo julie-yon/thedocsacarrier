@@ -138,7 +138,7 @@ namespace Docsa
 
         void OnEnable()
         {
-            PerkManager.instance.Data = PerkData;
+            PerkManager.instance.ChangePerkData(PerkData);
         }
 
         void OnDisable()

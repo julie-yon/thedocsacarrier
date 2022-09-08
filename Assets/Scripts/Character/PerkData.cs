@@ -20,54 +20,42 @@ namespace Docsa
         public Perk UzuhamaGrabDocsaPerk;
         public Perk UzuhamaBaguniPerk;
 
-        void Reset()
+        public void Reset()
         {
-            Init();
-        }
-
-        public void Init()
-        {
-            FloatingTextManager floatingTextManager = FloatingTextManager.instance;
-            Docsa.Character.UzuHama hama = Docsa.Character.UzuHama.Hama;
-            Action<string> printAction = (str) =>
-            {
-                floatingTextManager.MakeNewText(hama.transform.position, str);
-            };
-
             DocsaChimPerk.PerkType = ItemType.DocsaAttack;
-            DocsaChimPerk.PrintMessageAction = printAction;
             DocsaChimPerk.CannotMessage = "공격 불가";
+            DocsaChimPerk.enabled = true;
             DocsaJumpPerk.PerkType = ItemType.DocsaJump;
-            DocsaJumpPerk.PrintMessageAction = printAction;
             DocsaJumpPerk.CannotMessage = "점프 불가";
+            DocsaJumpPerk.enabled = true;
             HunterNetPerk.PerkType = ItemType.HunterAttack;
-            HunterNetPerk.PrintMessageAction = printAction;
             HunterNetPerk.CannotMessage = "공격 불가";
+            HunterNetPerk.enabled = true;
             HunterJumpPerk.PerkType = ItemType.HunterJump;
-            HunterJumpPerk.PrintMessageAction = printAction;
             HunterJumpPerk.CannotMessage = "점프 불가";
+            HunterJumpPerk.enabled = true;
             ViewerAttendPerk.PerkType = ItemType.Attend;
-            ViewerAttendPerk.PrintMessageAction = printAction;
             ViewerAttendPerk.CannotMessage = "시청자 참여가 불가능한 상태입니다.";
+            ViewerAttendPerk.enabled = true;;
             ViewerExitPerk.PerkType = ItemType.Exit;
-            ViewerExitPerk.PrintMessageAction = printAction;
             ViewerExitPerk.CannotMessage = "시청자 퇴장이 불가능한 상태입니다.";
+            ViewerExitPerk.enabled = true;;
             StarLightPerk.PerkType = ItemType.StarLight;
-            StarLightPerk.PrintMessageAction = printAction;
             StarLightPerk.CannotMessage = "별빛이 내릴 수 없음";
+            StarLightPerk.enabled = true;;
 
             UzuhamaAttackPerk.PerkType = ItemType.HamaAttack;
-            UzuhamaAttackPerk.PrintMessageAction = printAction;
             UzuhamaAttackPerk.CannotMessage = "공격 불가";
+            UzuhamaAttackPerk.enabled = true;
             UzuhamaJumpPerk.PerkType = ItemType.HamaJump;
-            UzuhamaJumpPerk.PrintMessageAction = printAction;
             UzuhamaJumpPerk.CannotMessage = "점프 불가";
+            UzuhamaJumpPerk.enabled = true;
             UzuhamaGrabDocsaPerk.PerkType = ItemType.GrabDocsa;
-            UzuhamaGrabDocsaPerk.PrintMessageAction = printAction;
             UzuhamaGrabDocsaPerk.CannotMessage = "집을 수 없음";
+            UzuhamaGrabDocsaPerk.enabled = true;
             UzuhamaBaguniPerk.PerkType = ItemType.HamaBaguni;
-            UzuhamaBaguniPerk.PrintMessageAction = printAction;
             UzuhamaBaguniPerk.CannotMessage = "바구니 능력 해금 필요";
+            UzuhamaBaguniPerk.enabled = true;
         }
     }
 
@@ -91,13 +79,8 @@ namespace Docsa
         public Action<string> PrintMessageAction;
         public void PrintCannotMessage(Vector3 position)
         {
-            if (PrintMessageAction.GetInvocationList().Length > 0)
-            {
-                PrintMessageAction?.Invoke(CannotMessage);
-            } else
-            {
-                Debug.Log(CannotMessage);
-            }
+            PrintMessageAction?.Invoke(CannotMessage);
+            Debug.Log(CannotMessage);
         }
     }
 }

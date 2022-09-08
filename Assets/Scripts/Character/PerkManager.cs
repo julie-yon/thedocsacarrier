@@ -1,13 +1,13 @@
 using System;
 
-using dkstlzu.Utility;
 using UnityEngine;
 
 namespace Docsa
 {
-    public class PerkManager : Singleton<PerkManager>
+    public class PerkManager : MonoBehaviour
     {
-        public static new PerkManager instance
+        private static PerkManager _instance;
+        public static PerkManager instance
         {
             get
             {
@@ -28,6 +28,12 @@ namespace Docsa
                 return _instance;
             }
         }
+
         public PerkData Data;
+
+        public void ChangePerkData(PerkData data)
+        {
+            Data = data;
+        }
     }
 }

@@ -37,8 +37,8 @@ namespace Docsa
         {
             CurrentStage = GameObject.FindObjectOfType<Stage>();
             
-            if (CurrentStage)
-                ResourceLoader.GetLoader<DocsaSoundNaming>().Load(CurrentStage.StageNumber);
+            // if (CurrentStage)
+            //     ResourceLoader.GetLoader<DocsaSoundNaming>().Load(CurrentStage.StageNumber);
         }
 
         public void GotoStage(int stageNum)
