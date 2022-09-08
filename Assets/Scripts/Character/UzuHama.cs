@@ -19,47 +19,68 @@ namespace Docsa.Character
         }
 
         public static UzuHama Hama
-
         {
             get {return GameObject.FindGameObjectWithTag("Player").GetComponent<UzuHama>();}
         }
+
         public Baguni Baguni
         {
             get {return GetComponentInChildren<Baguni>();}
         }
         
         public IInteractable Interactable;
-        public Animator EButtonAnimator;
-
         public int RescuedDocsaNumger = 0;
+        public HamaInput InputAsset;
+        public HamaInput.PlayingActions PlayingActionMap => InputAsset.Playing;
 
-        private Core _core;
+        public static void AdjustInputAsset()
+        {
+            Hama.InputAsset.Enable();
+            // if (!DocsaSakkiManager.instance.CorrectlyAssigned)
+            // {
+            //     PlayerActionMap.Disable();
+            //     UIActionMap.Enable();
+            // } else if (DocsaSakkiManager.instance.CorrectlyAssigned && !ESCUIManager.instance.isOn)
+            // {
+            //     PlayerActionMap.Enable();
+            //     UIActionMap.Disable();
+            // } else if (DocsaSakkiManager.instance.CorrectlyAssigned && ESCUIManager.instance.isOn)
+            // {
+            //     PlayerActionMap.Disable();
+            //     UIActionMap.Enable();
+            // }
+        }
+
         protected override void Awake()
         {
             base.Awake();
-            _core = Core.instance;
-
-            _core.InputAsset.Player.Move.performed += HamaMove;
-            _core.InputAsset.Player.Move.canceled += HamaMove;
-            _core.InputAsset.Player.Jump.performed += HamaJump;
-            _core.InputAsset.Player.Fire.performed += HamaAttack;
-            _core.InputAsset.Player.GrabDocsa.performed += Behaviour.GrabDocsa;
-            _core.InputAsset.Player.Interact.performed += Interact;
+            print("UzuHama Awake");
+            InputAsset = new HamaInput();
+            PlayingActionMap.Move.performed += HamaMove;
+            PlayingActionMap.Move.canceled += HamaMove;
+            PlayingActionMap.Jump.performed += HamaJump;
+            PlayingActionMap.Fire.performed += HamaAttack;
+            PlayingActionMap.GrabDocsa.performed += GrabDocsa;
+            PlayingActionMap.Interact.performed += Interact;
+            PlayingActionMap.ESC.performed += OnESCPerformed;
         }
 
-        void OnDestroy()
+        void OnEnable()
         {
-            _core.InputAsset.Player.Move.performed -= HamaMove;
-            _core.InputAsset.Player.Move.canceled -= HamaMove;
-            _core.InputAsset.Player.Jump.performed -= HamaJump;
-            _core.InputAsset.Player.Fire.performed -= HamaAttack;
-            _core.InputAsset.Player.GrabDocsa.performed -= Behaviour.GrabDocsa;
-            _core.InputAsset.Player.Interact.performed -= Interact;
+            print("UzuHama Enable");
+            InputAsset.Enable();
+            PlayingActionMap.Enable();
+            // AdjustInputAsset();
         }
 
+        void OnDisable()
+        {
+            InputAsset.Disable();
+        }
 
         void HamaMove(Context context)
         {
+            Printer.DebugPrint("HamaMove Input");
             if (context.performed)
             {
                 Behaviour.MoveDirection = Vector2.right * context.ReadValue<float>();
@@ -71,20 +92,36 @@ namespace Docsa.Character
 
         void HamaJump(Context context)
         {
+            Printer.DebugPrint("HamaJump Input");
             Behaviour.Jump();
         }
         
         void HamaAttack(Context context)
         {
+            Printer.DebugPrint("HamaAttack Input");
             Behaviour.Attack(Mouse.current.position.ReadValue());
         }
 
         void Interact(Context context)
         {
+            Printer.DebugPrint("HamaInteract Input");
             if (Interactable != null)
             {
                 Interactable.Interact();
             }
+        }
+
+        public void GrabDocsa(Context context)
+        {
+            Printer.DebugPrint("GrabDocsa Input");
+            RaycastHit2D hit2D = Physics2D.BoxCast(Hama.transform.position, Behaviour.GrabDocsaBoxCastSize, 0, Vector2.right, 0, Behaviour.GrabDocsaLayerMask);
+            if (hit2D.collider != null) Behaviour.GrabDocsa(hit2D.transform.GetComponent<DocsaSakki>());
+        }
+
+        void OnESCPerformed(Context context)
+        {
+            Printer.DebugPrint("ESC Input");
+            if (!ESCUIManager.instance.UIOpener.isOpened) ESCUIManager.instance.UIOpener.Open();
         }
     }
 }

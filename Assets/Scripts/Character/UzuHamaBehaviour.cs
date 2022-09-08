@@ -2,12 +2,15 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using dkstlzu.Utility;
 
-using Context = UnityEngine.InputSystem.InputAction.CallbackContext;
-
 namespace  Docsa.Character
 {
     public class UzuHamaBehaviour : CharacterBehaviour
     {
+        [Header("Behaviour stats")]
+        public float MaxSpeed;
+        public float MoveAcceleration;
+        public int MaxJumps;
+        public int JumpCount;
         public Vector2 MoveDirection;
 
         public UzuHama Hama
@@ -17,7 +20,7 @@ namespace  Docsa.Character
 
         void Update()
         {
-            if (JumpCount > 0 && CurrentVelocity.y < 0)
+            if (JumpCount > 0 && _rigidbody.velocity.y < 0)
             {
                 Animator.SetBool("Falling", true);
             } else
@@ -94,7 +97,7 @@ namespace  Docsa.Character
 
             _rigidbody.velocity = new Vector2(Mathf.Clamp(_rigidbody.velocity.x, -MaxSpeed, MaxSpeed), _rigidbody.velocity.y);
 
-            if (Core.instance.InputAsset.Player.Move.IsPressed())
+            if (Hama.PlayingActionMap.Move.IsPressed())
             {
                 Animator.SetFloat(BlendValueName, Mathf.Abs(_rigidbody.velocity.x / MaxSpeed) < 0.1f ? 0.1f : _rigidbody.velocity.x / MaxSpeed);
             }
@@ -110,12 +113,6 @@ namespace  Docsa.Character
         }
 
         public Vector2 GrabDocsaBoxCastSize = new Vector2(2, 2);
-        public void GrabDocsa(Context context)
-        {
-            RaycastHit2D hit2D = Physics2D.BoxCast(Hama.transform.position, GrabDocsaBoxCastSize, 0, Vector2.right, 0, GrabDocsaLayerMask);
-            if (hit2D.collider != null) GrabDocsa(hit2D.transform.GetComponent<DocsaSakki>());
-        }
-
         public override void GrabDocsa(DocsaSakki targetDocsa)
         {
             if (!PerkManager.instance.Data.UzuhamaGrabDocsaPerk.enabled) 

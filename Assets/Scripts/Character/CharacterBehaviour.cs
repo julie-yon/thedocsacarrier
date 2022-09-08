@@ -10,20 +10,9 @@ namespace  Docsa.Character
     public class CharacterBehaviour : MonoBehaviour
     {
         public Character Character;
-
-        [Header("Behaviour stats")]
-        public float MaxSpeed;
-        public float MoveAcceleration;
         public float JumpPower;
-        public int MaxJumps;
-        public int JumpCount;
-        [Range(0, 90)] public float AimMaxAngle;
 
         [SerializeField] protected Rigidbody2D _rigidbody;
-        public Vector2 CurrentVelocity
-        {
-            get {return _rigidbody.velocity;}
-        }
         
         [Header("GameObjects Refs")]
         public DocsaPoolType WeaponType;
@@ -97,12 +86,8 @@ namespace  Docsa.Character
 
         public virtual void Jump()
         {
-            if (JumpCount < MaxJumps)
-            {
-                JumpCount++;
-                _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
-                Animator.SetTrigger(JumpTriggerName);
-            }
+            _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
+            Animator.SetTrigger(JumpTriggerName);
         }
 
         public virtual void Move(Vector2 moveDirection)

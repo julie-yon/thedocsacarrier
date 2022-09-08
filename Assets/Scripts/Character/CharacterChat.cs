@@ -2,31 +2,14 @@
 using UnityEngine;
 
 using TMPro;
+using dkstlzu.Utility;
 
 namespace Docsa.Character
 {
     public class CharacterChat : MonoBehaviour
     {
         public Character Character;
-        public TextMeshProUGUI ChatText;
-        void Reset()
-        {
-            ChatText = GetComponent<TextMeshProUGUI>();
-            if (!transform.parent.TryGetComponent<Character>(out Character))
-            {
-                Debug.LogWarning("HPBar could not find Character at parent. Make ref in inspector yourself");
-            } else
-            {
-                transform.position = Character.HeaderPosition;
-                Character.Chat = this;
-            }
-        }
-
-        void OnValidate()
-        {
-            if (Character)
-                transform.position = Character.HeaderPosition;
-        }
+        public TextMeshPro ChatText;
 
         void Update()
         {
@@ -34,46 +17,38 @@ namespace Docsa.Character
             transform.rotation = Quaternion.identity;
         }
 
-        private Coroutine _chatCoroutine;
-        private bool _coroutineIsPlaying = false;
         private string _delayedChat = string.Empty;
+        TaskManagerTask chatTask;
+
         public void Chat(string chat, float time = 2f)
         {
-            // if (_chatCoroutine != null)
-            // {
-            //     StopCoroutine(_chatCoroutine);
-            // }
+            Printer.Print($"Character SetChat : {chat}, time : {time}");
 
-            print("Character SetChat : " + chat);
-            // ChatText.text = chat;
-            _chatCoroutine = StartCoroutine(SetChatDataCoroutine(chat, time));
+            if (chatTask == null)
+            {
+                chatTask = new TaskManagerTask(SetChatDataCoroutine(chat, time));
+                chatTask.Finished += (stop) => 
+                {
+                    if (_delayedChat != string.Empty)
+                    {
+                        chatTask = new TaskManagerTask(SetChatDataCoroutine(_delayedChat, time));
+                        _delayedChat = string.Empty;
+                    } else
+                    {
+                        chatTask = null;
+                    }
+                };
+            } else
+            {
+                _delayedChat = chat;
+            }
         }
 
         IEnumerator SetChatDataCoroutine(string chat, float time=2f)
         {
-            if (_coroutineIsPlaying) 
-            {
-                if (_delayedChat == string.Empty)
-                {
-                    _delayedChat = chat;
-                }
-                yield break;
-            }
-            
             ChatText.text = chat;
-            _coroutineIsPlaying = true;
             yield return new WaitForSeconds(time);
-
-            if (_delayedChat != string.Empty)
-            {
-                _coroutineIsPlaying = false;
-                _chatCoroutine = StartCoroutine(SetChatDataCoroutine(_delayedChat, time));
-                _delayedChat = string.Empty;
-            } else
-            {
-                _coroutineIsPlaying = false;
-                ChatText.text = string.Empty;
-            }
+            ChatText.text = string.Empty;
         }
     }
 }

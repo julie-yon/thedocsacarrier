@@ -21,29 +21,9 @@ namespace Docsa.Character
             }
         }
 
-        void Reset()
-        {
-            Bar = GetComponentInChildren<SliderManager>();
-            if (!transform.parent.TryGetComponent<Character>(out Character))
-            {
-                Debug.LogWarning("HPBar could not find Character at parent. Make ref in inspector yourself");
-            } else
-            {
-                transform.position = Character.HeaderPosition;
-                Character.HPBar = this;
-            }
-        }
-
-        void OnValidate()
-        {
-            if (Character)
-                transform.position = Character.HeaderPosition;
-        }
-
-        [ExecuteInEditMode]
         void Update()
         {
-            transform.position = Character.HeaderPosition;
+            // transform.position = Character.HeaderPosition;
             transform.rotation = Quaternion.identity;
         }
     }

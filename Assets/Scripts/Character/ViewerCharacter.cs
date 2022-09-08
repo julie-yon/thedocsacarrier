@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Docsa.Character
 {
-    public class ViewerCharacter : Character, IHasTrajectory
+    public class ViewerCharacter : Character
     {
         public string ViewerName;
         public bool isViewerAssigned;

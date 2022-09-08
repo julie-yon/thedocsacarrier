@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using Docsa.Character;
 using dkstlzu.Utility;
 using Michsky.UI.ModernUIPack; 
 
@@ -19,14 +20,8 @@ namespace Docsa
 
         void Awake()
         {
-            _core.InputAsset.Player.ESC.performed += OnESCPerformed;
-            UIOpener.OnOpen += () => _core.AdjustInputAsset();
-            UIOpener.OnClose += () => _core.AdjustInputAsset();
-        }
-
-        void OnESCPerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
-        {
-            if (ESCManager.instance.isEmpty) UIOpener.Open();
+            UIOpener.OnOpen += () => UzuHama.AdjustInputAsset();
+            UIOpener.OnClose += () => UzuHama.AdjustInputAsset();
         }
 
         public void OpenUI()

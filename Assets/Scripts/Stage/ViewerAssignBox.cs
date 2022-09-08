@@ -4,6 +4,9 @@ namespace Docsa.Events
 {
     public class ViewerAssignBox : MonoBehaviour
     {
+        /// <summary>
+        /// On EventTrigger Reference
+        /// </summary>
         public void Open()
         {
             Chunk.Current.InitCharacters();
