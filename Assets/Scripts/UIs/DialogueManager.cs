@@ -65,10 +65,20 @@ namespace dkstlzu.Utility
             DialogueOpener.OnClose += () => NextDialogueInputAction.Disable();
         }
 
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem("DevTest/Dialogue/Open")]
+        static void OpenDialoguOnEditorMenu()
+        {
+            instance.Open();
+        }
+#endif
+
         public void Open()
         {
             DialogueOpener.Open();
             _currentDialogueIndex = 0;
+            CurrentDialogueItem = Dialogue.ItmeList[CurrentDialogueIndex];
+            SetDatas();
         }
 
         public void Close()
@@ -112,7 +122,7 @@ namespace dkstlzu.Utility
             _rightSpeakerImage.enabled = CurrentDialogueItem.RightSpeakerImageOn;
             DialogueName = CurrentDialogueItem.Name;
             DialogueMessage = CurrentDialogueItem.Message;
-            _itemImage.sprite = CurrentDialogueItem.Sprite;
+            if (CurrentDialogueItem.Sprite != null) _itemImage.sprite = CurrentDialogueItem.Sprite;
         }
     }
 }
