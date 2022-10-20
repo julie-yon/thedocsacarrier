@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235631b6a046cfa43b3a4c6aa44d3857, type: 3}
+  m_Name: CaveDialogue1
+  m_EditorClassIdentifier: 
+  ItmeList:
+  - Name: "\uC6B0\uC8FC\uD558\uB9C8"
+    Message: "\uD789\uD789\uD638\uBAA8\uB9AC\uCC98\uB7FC \uC9C0\uB0B8\uC9C0 \uC5B4\uC5F0
+      3\uB9CC\uB144,,,\r\n\uC694\uC998 \uD1B5 \uC77C\uC774 \uC548\uB4E4\uC5B4\uC624\uB124..\r\n"
+    LeftSpeakerImageOn: 1
+    RightSpeakerImageOn: 0
+    Sprite: {fileID: 0}
+  NextDialogue: {fileID: 11400000, guid: 96679eda648bae64c8e4c821f6edaf6a, type: 2}
+  LeftSpeakerSprite: {fileID: 6949019257736002542, guid: 9eab61c5905d6c646964b37bac074bca, type: 3}
+  RightSpeakerSprite: {fileID: 0}
